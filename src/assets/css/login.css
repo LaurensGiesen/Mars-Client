@@ -1,0 +1,21 @@
+main{
+    padding: 10rem 5rem 7rem 3rem;
+}
+
+img{
+    width: 57rem;
+    height: 30rem;
+    float: left;
+    padding-right: 12rem;
+}
+
+h1{
+    font-size: 4rem;
+    padding: 5rem 0 2.5rem 0
+}
+
+input{
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.5rem;
+}
