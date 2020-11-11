@@ -1,0 +1,29 @@
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+header nav ul li {
+    border: solid black;
+    flex: 1 1 15rem;
+    text-align: center;
+    align-items: flex-end;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    font-size: 2rem;
+}
+
+#logo{
+    flex: 0 1 12rem;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    padding: 1rem;
+}
