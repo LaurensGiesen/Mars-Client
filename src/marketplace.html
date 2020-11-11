@@ -28,6 +28,10 @@
 </header>
 
 <main>
+    <aside id="filter">
+        <h1>Search info</h1>
+    </aside>
+
     <form action="#" id="filters" method="post">
         <label for="search"></label>
         <input id="search" name="search" placeholder="search here" type="search">
@@ -43,7 +47,27 @@
 
     <a href="basket.html"><img alt="shopping basket" src="assets/img/shopping%20basket.svg" title="shopping basket"></a>
     <input type="button" value="Add your product">
+
+    <section id="articles">
+        <article>
+            <img alt="product-image" src="#" title="product-image">
+            <p>name:</p>
+            <p>price:</p>
+            <p>description:</p>
+            <p>date:</p>
+            <form>
+                <label for="amount"></label>
+                <input id="amount" min="1" step="1" type="number" value="1">
+
+                <input alt="empty shopping basket" src="assets/img/shopping%20basket%20plus.svg"
+                       title="empty shopping basket"
+                       type="image">
+                <input alt="favorite button" src="assets/img/heart%20empty.svg" title="favorite button" type="image">
+            </form>
+        </article>
+    </section>
 </main>
+
 
 <footer>
     <!--    TODO FOOTER-->
