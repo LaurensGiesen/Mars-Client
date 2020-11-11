@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+<header>
+    <img src="#" alt="logo">
+    <h1>Product</h1>
+    <h2>To pay: ...€</h2>
+</header>
+<main>
+    <section>
+        <h3>QR code</h3>
+        <img src="assets/img/paymentQRCode.png" alt="qrCode" width="200"> <!-- width is temporary -->
+    </section>
+    <div id="verticalLine"></div>
+    <section>
+        <h3>Other</h3>
+        <div>
+            <label for="marsCard">MarsCard</label>
+            <input id="marsCard" name="paymentCard" type="radio">
+            <label for="visa"> Visa</label>
+            <input id="visa" name="paymentCard" type="radio">
+            <label for="masterCard">MasterCard</label>
+            <input id="masterCard" name="paymentCard" type="radio">
+            <label for="bancontact"> Bancontact</label>
+            <input id="bancontact" name="paymentCard" type="radio">
+        </div>
+
+        <label for="cardholder">Name of the cardholder</label>
+        <input id="cardholder" type="text" required>
+
+        <label for="cardNumber">Card number</label>
+        <input id="cardNumber" type="text" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" placeholder="XXXX-XXXX-XXXX-XXXX">
+
+        <label for="cvc">cvc</label>
+        <input id="cvc" type="text" required pattern="\d{3}" placeholder="XXX">
+
+        <a href="#">Confirm payment</a>
+    </section>
+</main>
+</body>
+</html>
