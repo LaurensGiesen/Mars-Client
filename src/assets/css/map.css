@@ -9,3 +9,87 @@ main{
     border: solid black;
     height: 30rem;
 }
+
+footer{
+    border-top: none;
+}
+
+#filterContainer{
+    position: absolute;
+    margin: 2rem;
+    background: #d9d9d9;
+    height: 4.5rem;
+    width: 6rem;
+    border-radius: 45%;
+    bottom: 13rem;
+    z-index: auto;
+}
+
+#scrollOut{
+    position: absolute;
+    margin: 2rem;
+    padding-left: 5rem;
+    background: #e4e4e4;
+    height: 4.5rem;
+    width: 60rem;
+    border-radius: 5%;
+    bottom: -2rem;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+}
+
+
+#scrollOut input[type="text"]{
+    height: 1.5rem;
+    padding-right: 2rem;
+    width: 10rem;
+}
+
+#filerOptions input[type = "button"]{
+    height: 2rem;
+}
+
+#filterOptions {
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+#filterOptions figure{
+    justify-content: center;
+    border-left: solid #d0cfcf;
+    height: 4.5rem;
+    display: flex;
+    padding-left: 1rem;
+    align-items: center;
+}
+
+
+#circle{
+    position: absolute;
+    margin: 2rem;
+    background: #e4e4e4;
+    height: 4.5rem;
+    width: 6rem;
+    border-radius: 45%;
+    bottom: -2rem;
+    left: 60.5rem;
+    z-index: -10;
+}
+
+#filtered{
+    width: 45rem;
+    display: flex;
+    align-items: center;
+}
+
+#otherFilters input{
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#filtered div{
+    margin-left: 1.5rem;
+}
