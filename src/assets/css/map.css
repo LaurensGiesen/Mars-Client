@@ -46,13 +46,13 @@ main{
     height: 2rem;
 }
 
-#filerOptions {
+#filterOptions {
     width: 20rem;
     display: flex;
     justify-content: space-around;
 }
 
-#filerOptions figure{
+#filterOptions figure{
     justify-content: center;
     border-left: solid #d0cfcf;
     height: 4.5rem;
@@ -71,5 +71,21 @@ main{
     border-radius: 45%;
     bottom: -2rem;
     left: 60.5rem;
-    z-index: -1;
+    z-index: -10;
+}
+
+#filtered{
+    width: 45rem;
+    display: flex;
+    align-items: center;
+}
+
+#otherFilters input{
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#filtered div{
+    margin-left: 1.5rem;
 }
