@@ -9,3 +9,7 @@ main{
     border: solid black;
     height: 30rem;
 }
+
+footer{
+    border-top: none;
+}
