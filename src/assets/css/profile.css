@@ -1,0 +1,48 @@
+main{
+    padding: 2rem 5rem;
+}
+
+h1{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+h2{
+    font-size: 1rem;
+    padding-top: 1.5rem;
+}
+
+
+form{
+    display: flex;
+    justify-content: space-around;
+}
+
+input{
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+#change {
+    border: solid black;
+    margin-bottom: 10rem;
+    padding: 1rem
+}
+
+table th{
+    padding-bottom: 1rem;
+}
+
+table td {
+    padding: 0.3rem 0;
+}
+
+span{
+    text-decoration: underline;
+}
+
+caption{
+    visibility: hidden;
+}
+
+

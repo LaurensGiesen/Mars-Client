@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MARS</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+    <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css"  href="assets/css/profile.css">
+
+    <title>MARS: profile</title>
 </head>
 <body>
 <header>
@@ -10,19 +15,20 @@
     <nav>
         <ul>
             <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="marketplace.html">Shop</a></li>
             <li><a href="info.html">Info</a></li>
             <li><a href="sharedTools.html">Shared Tools</a></li>
             <li>Profile
-                <ul class="hidden">
+                <ul>
                     <li><a href="profile.html">Account and Subscription</a></li>
                     <li><a href="orderHistory.html">Order History</a></li>
                     <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="login.html">Sign out</a></li>
+                    <li><a href="signOut.html">Sign out</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
+    
 
 </header>
 
@@ -49,17 +55,29 @@
             <input type="text" id="dome" name="dome">
         </div>
 
-        <div>
-            <h2>Current subscription type</h2>
-            <ul>
-                <li>free</li>
-                <li>basic</li>
-                <li>premium</li>
-            </ul>
+        <div id="change">
 
-            <h3>&#9432;</h3>
-            <h3>€ 25,00</h3>
-            <h3>€ 50,00</h3>
+
+            <table>
+                <caption>Subscriptions</caption>
+                <tr>
+                    <th scope="col">Current subscription type</th>
+                    <th scope="col"></th>
+                </tr>
+                <tr>
+                    <td>free</td>
+                    <td>&#9432;</td>
+                </tr>
+                <tr>
+                    <td>basic</td>
+                    <td>€ 25,00</td>
+                </tr>
+                <tr>
+                    <td>premium</td>
+                    <td>€ 50,00</td>
+                </tr>
+            </table>
+
             <h2>Do you want to <span>change</span> your subscription type?</h2>
         </div>
     </form>
@@ -74,9 +92,9 @@
     </div>
     <div>
         <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
-        <img src="assets/img/login.png" alt="#">
-        <img src="assets/img/login.png" alt="#">
-        <img src="assets/img/login.png" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
     </div>
     <p>View the <a href="subscriptionTypes.html">subscription types</a></p>
 
