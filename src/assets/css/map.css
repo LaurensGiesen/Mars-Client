@@ -1,16 +1,17 @@
-.hidden{
+.hidden {
     display: none;
 }
-body{
+
+body {
     padding: 1rem;
 }
 
-main{
+main {
     border: solid black;
     height: 30rem;
 }
 
-#filterContainer{
+#filterContainer {
     position: absolute;
     margin: 2rem;
     background: #d9d9d9;
@@ -19,9 +20,14 @@ main{
     border-radius: 45%;
     bottom: 13rem;
     z-index: auto;
+    text-align: center;
 }
 
-#scrollOut{
+span {
+    line-height: 4.2rem;
+}
+
+#scrollOut {
     position: absolute;
     margin: 2rem;
     padding-left: 5rem;
@@ -35,34 +41,7 @@ main{
     align-items: center;
 }
 
-
-#scrollOut input[type="text"]{
-    height: 1.5rem;
-    padding-right: 2rem;
-    width: 10rem;
-}
-
-#filerOptions input[type = "button"]{
-    height: 2rem;
-}
-
-#filterOptions {
-    width: 20rem;
-    display: flex;
-    justify-content: space-around;
-}
-
-#filterOptions figure{
-    justify-content: center;
-    border-left: solid #d0cfcf;
-    height: 4.5rem;
-    display: flex;
-    padding-left: 1rem;
-    align-items: center;
-}
-
-
-#circle{
+#circle {
     position: absolute;
     margin: 2rem;
     background: #e4e4e4;
@@ -74,18 +53,43 @@ main{
     z-index: -10;
 }
 
-#filtered{
+#scrollOut input[type="text"] {
+    height: 1.5rem;
+    padding-right: 2rem;
+    width: 10rem;
+}
+
+#filerOptions input[type = "button"] {
+    height: 2rem;
+}
+
+#filterOptions {
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+#filterOptions figure {
+    justify-content: center;
+    border-left: solid #d0cfcf;
+    height: 4.5rem;
+    display: flex;
+    padding-left: 1rem;
+    align-items: center;
+}
+
+#filtered {
     width: 45rem;
     display: flex;
     align-items: center;
 }
 
-#otherFilters input{
+#otherFilters input {
     display: block;
     margin-bottom: 5px;
     margin-top: 5px;
 }
 
-#filtered div{
+#filtered div {
     margin-left: 1.5rem;
 }
