@@ -1,29 +1,110 @@
-header nav ul {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+a {
+    text-decoration: none;
+}
+
+nav {
+    font-family: monospace;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    color: #000000;
+    display: block;
+    float: left;
+    padding: 3.5rem 8.25rem;;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    font-size: 1.7rem;
+    border: solid black;
+}
+
+li a {
+    color: #000000;
+}
+
+li:hover {
+    background: darkgray;
+    cursor: pointer;
+}
+
+ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 3.5rem;
+    left: 0;
+    display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
 }
 
 
-header nav ul li {
-    border: solid black;
-    flex: 1 1 15rem;
-    text-align: center;
-    align-items: flex-end;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    font-size: 2rem;
+ul li ul li {
+    width: 80% ;
+    padding: 1rem;
 }
 
 #logo{
-    flex: 0 1 12rem;
+    padding: 3.5rem;
 }
 
-header nav ul li a{
-    text-decoration: none;
-    color: black;
-}
 
-body{
-    padding: 1rem;
-}
+
+/*a{*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*}*/
+
+/*header nav ul li{*/
+/*    display: block;*/
+/*    float: left;*/
+/*    padding: 3.5rem 9rem;*/
+/*    border: solid black;*/
+/*    position: relative;*/
+/*    text-decoration: none;*/
+/*    font-size: 1.7rem;*/
+/*}*/
+
+/*header nav ul li:hover{*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*ul li ul {*/
+/*    visibility: hidden;*/
+/*    opacity: 0;*/
+/*    min-width: 5rem;*/
+/*    position: absolute;*/
+/*    margin-top: 1rem;*/
+/*    left: 0;*/
+/*    display: none;*/
+/*}*/
+
+/*ul li:hover > ul,*/
+/*ul li ul:hover {*/
+/*    visibility: visible;*/
+/*    opacity: 1;*/
+/*    display: block;*/
+/*}*/
+
+/*ul li ul li {*/
+/*    clear: both;*/
+/*    width: 100%;*/
+/*}*/
+
+
+
+
+
