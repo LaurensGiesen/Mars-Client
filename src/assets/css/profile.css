@@ -12,6 +12,7 @@ h2{
     padding-top: 1.5rem;
 }
 
+
 form{
     display: flex;
     justify-content: space-around;
@@ -38,6 +39,10 @@ table td {
 
 span{
     text-decoration: underline;
+}
+
+caption{
+    visibility: hidden;
 }
 
 
