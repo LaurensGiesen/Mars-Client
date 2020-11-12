@@ -10,6 +10,10 @@ main{
     height: 30rem;
 }
 
+footer{
+    border-top: none;
+}
+
 #filterContainer{
     position: absolute;
     margin: 2rem;

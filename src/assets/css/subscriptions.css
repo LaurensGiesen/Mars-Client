@@ -2,14 +2,14 @@ header {
     display: flex;
     flex-direction: row;
     height: fit-content;
-    padding: 2rem;
+
 }
 
 #subscriptions {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 
 input {
@@ -50,8 +50,8 @@ li {
 }
 
 #logo {
-    width: 200px;
-    height: 200px;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 h1 {
