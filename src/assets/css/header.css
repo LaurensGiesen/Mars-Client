@@ -6,13 +6,13 @@ nav {
     font-family: monospace;
 }
 
-ul {
+header ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
 }
 
-li {
+header li {
     color: #000000;
     display: block;
     float: left;
