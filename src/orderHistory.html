@@ -2,9 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MARS: order history</title>
+    <title>History</title>
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="sharedTools.html">Shared Tools</a></li>
+        </ul>
+        <div class="dropdownContent">
+            <h3 class="dropdown">Profile</h3>
+            <a href="accountSubscription.html">Account and Subscription</a>
+            <a href="orderHistory.html">Order History</a>
+            <a href="favorite.html">Favorite</a>
+            <a href="signOut.html">Sign out</a>
+        </div>
+    </nav>
+</header>
 
+<main>
+    <label for="search">Order history</label>
+    <input id="search" type="search"> <!-- list attribute is a possibility for auto complete -->
+    <img src="assets/img/basket.png" alt="shoppingCartIcon" width="30"> <!-- temporary width -->
+
+    <table>
+        <caption>order history</caption>
+        <tr>
+            <th id="orderPlaced">Order placed</th>
+            <th id="orderDetails">Order details</th>
+            <th id="total">Total</th>
+            <th id="amount">Amount</th>
+            <th id="empty"></th> <!-- this is an empty cell for the add to shopping cart button -->
+        </tr>
+        <tr>
+            <!-- this is fake data -->
+            <td>05-11-2020</td>
+            <td>5 - Organic Pumpkin Seeds</td>
+            <td>€ 20.50</td>
+            <td><label><input type="number" class="amount" min="1"></label></td>
+            <td><img src="assets/img/basket.png" alt="shoppingCartIcon" width="20"></td> <!-- temporary width -->
+        </tr>
+        <tr>
+            <!-- this is fake data -->
+            <td>29-10-2020</td>
+            <td>20 - Organic Pumpkin Seeds, 1 - strawberry, sensor package cabbage</td>
+            <td>€ 47.30</td>
+            <td><label><input type="number" class="amount" min="1"></label></td>
+            <td><img src="assets/img/basket.png" alt="shoppingCartIcon" width="20"></td> <!-- temporary width -->
+        </tr>
+    </table>
+</main>
+<footer>
+
+    <div>
+        <h3>Contact us</h3>
+        <p>mars@mars.mars</p>
+        <p>MARS inc. Olympus Moms 18.4N, 134W Mars</p>
+
+    </div>
+    <div>
+        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+    </div>
+    <p>View the <a href="subscriptionTypes.html">subscription types</a></p>
+
+</footer>
 </body>
 </html>
