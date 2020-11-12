@@ -9,3 +9,40 @@ main{
     border: solid black;
     height: 30rem;
 }
+
+#filterContainer{
+    position: absolute;
+    margin: 2rem;
+    background: #d9d9d9;
+    height: 4.5rem;
+    width: 6rem;
+    border-radius: 45%;
+    bottom: 13rem;
+    z-index: auto;
+}
+
+#scrollOut{
+    position: absolute;
+    margin: 2rem;
+    padding-left: 5rem;
+    background: #e4e4e4;
+    height: 4.5rem;
+    width: 60rem;
+    border-radius: 5%;
+    bottom: -2rem;
+    z-index: -1;
+
+}
+
+
+#circle{
+    position: absolute;
+    margin: 2rem;
+    background: #e4e4e4;
+    height: 4.5rem;
+    width: 6rem;
+    border-radius: 45%;
+    bottom: -2rem;
+    left: 60.5rem;
+    z-index: -1;
+}
