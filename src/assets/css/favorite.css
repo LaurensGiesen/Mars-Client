@@ -1,0 +1,57 @@
+main{
+    height: 29rem;
+}
+
+h1{
+    font-size: 2.5rem;
+    margin: 2rem;
+}
+
+h2{
+    font-weight: normal;
+    font-size: 1.3rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+p{
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.articleContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+article{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+article div img{
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+figure{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+article img{
+    width: 10rem;
+}
+
+article div input{
+    width: 3rem;
+    margin-bottom: 1rem;
+}
+
+article div:nth-child(3){
+    margin-left: 10rem;
+}
