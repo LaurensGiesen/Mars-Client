@@ -21,7 +21,7 @@
                     <li><a href="profile.html">Account and Subscription</a></li>
                     <li><a href="orderHistory.html">Order History</a></li>
                     <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="signOut.html">Sign out</a></li>
+                    <li><a href="login.html">Sign out</a></li>
                 </ul>
             </li>
         </ul>
@@ -47,9 +47,9 @@
             <h3>Name:</h3>
             <p>Available:</p>
             <label for="reserve1">Reserve from: </label>
-            <input type="date" id="reserve1" name="reserve">
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve1" name="reserve">
             <label for="return1">Return on: </label>
-            <input type="date" id="return1" name="return">
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return1" name="return">
         </div>
         <figure>
             <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
@@ -62,9 +62,9 @@
             <h3>Name:</h3>
             <p>Available:</p>
             <label for="reserve2">Reserve from: </label>
-            <input type="date" id="reserve2" name="reserve">
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve2" name="reserve">
             <label for="return2">Return on: </label>
-            <input type="date" id="return2" name="return">
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return2" name="return">
         </div>
         <figure>
             <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
