@@ -28,21 +28,26 @@ article{
 
 }
 
-#bin, #favorite{
+figure{
     margin-top: 0.5rem ;
     display: flex;
-    width: 4%;
+
 }
 
-
-
-#favorite{
+#heart{
     width: 3%;
-    margin-top: 1.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.2rem;
 }
+
+#bin{
+    width: 4%;
+    margin-right: 0.3rem;
+}
+
 
 #amount{
-    width: 15%;
+    width: 4%;
     margin-top: 2rem;
 
 }
