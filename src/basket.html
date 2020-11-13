@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css"  href="assets/css/basket.css">
     <title>MARS: Basket</title>
 </head>
 <body>
@@ -31,23 +32,30 @@
 <main>
     <h1>Basket</h1>
 
+
     <h2 class="hidden">You're basket is empty</h2>
         <article>
             <img src="#" alt="product image" title="product-image">
-            <h2>Name:</h2>
-            <h2>Price:</h2>
-            <h2>Date:</h2>
-
+            <div>
+                <h2>Name:</h2>
+                <h2>Price:</h2>
+            </div>
             <form>
                 <label for="amount">Amount:</label>
                 <input id="amount" min="1" step="1" type="number" value="1">
 
-                <input alt="favorite button" src="assets/img/emptyHeart.svg" title="favorite button" type="image">
-                <input alt="bin" src="assets/img/bin.png" title="bin" type="image">
+                <figure>
+                    <img src="assets/img/emptyHeart.svg" alt="heart" title="heart" id="heart"/>
+                    <figcaption>Move to favorite</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="assets/img/bin.png" alt="trash bin" title="trash bin" id="bin"/>
+                    <figcaption>Delete</figcaption>
+                </figure>
 
             </form>
         </article>
-
 
     <input type="button" value="Continue to payment">
 
