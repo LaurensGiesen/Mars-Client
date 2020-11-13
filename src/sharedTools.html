@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+    <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <title>MARS: shared tools</title>
+</head>
+<body>
+<header>
+
+    <nav>
+        <ul>
+            <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
+            <li><a href="marketplace.html">Shop</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="sharedTools.html">Shared Tools</a></li>
+            <li>Profile
+                <ul>
+                    <li><a href="profile.html">Account and Subscription</a></li>
+                    <li><a href="orderHistory.html">Order History</a></li>
+                    <li><a href="favorite.html">Favorite</a></li>
+                    <li><a href="login.html">Sign out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <form action="#" id="filters" method="post">
+        <label for="search"></label>
+        <input id="search" name="search" placeholder="search here" type="search">
+
+        <label for="order"></label>
+        <select id="order" name="order">
+            <option value="asc">price: ascending</option>
+            <option value="desc">price: descending</option>
+            <option value="name">name</option>
+            <option value="date">date</option>
+        </select>
+    </form>
+
+    <article>
+        <img alt="product-image" src="#" title="product-image">
+        <div>
+            <h3>Name:</h3>
+            <p>Available:</p>
+            <label for="reserve1">Reserve from: </label>
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve1" name="reserve">
+            <label for="return1">Return on: </label>
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return1" name="return">
+        </div>
+        <figure>
+            <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
+        </figure>
+    </article>
+
+    <article>
+        <img alt="product-image" src="#" title="product-image">
+        <div>
+            <h3>Name:</h3>
+            <p>Available:</p>
+            <label for="reserve2">Reserve from: </label>
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve2" name="reserve">
+            <label for="return2">Return on: </label>
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return2" name="return">
+        </div>
+        <figure>
+            <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
+        </figure>
+    </article>
+</main>
+
+</body>
+</html>
