@@ -1,0 +1,58 @@
+main{
+    padding: 2rem 5rem;
+}
+
+h1{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+h2{
+    font-size: 1rem;
+    padding-top: 1.5rem;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.hidden{
+    padding-bottom: 1.5rem;
+}
+
+article{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#bin, #favorite{
+    margin-top: 0.5rem ;
+    display: flex;
+    width: 4%;
+}
+
+
+
+#favorite{
+    width: 3%;
+    margin-top: 1.5rem;
+}
+
+#amount{
+    width: 15%;
+    margin-top: 2rem;
+
+}
+
+input[type="button"]{
+    display: block;
+    margin: 5rem 15rem 0 auto;
+    padding: 0.7rem;
+}
+
+
+
+
