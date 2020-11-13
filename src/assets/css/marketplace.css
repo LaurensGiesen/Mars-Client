@@ -1,3 +1,8 @@
+main{
+    display: flex;
+}
+
+
 section{
     padding: 2rem 10rem;
 }
@@ -12,7 +17,7 @@ h1{
 
 
 form{
-    padding-left: 12rem;
+    padding-left: 10rem;
 }
 
 form select, form input{
@@ -29,8 +34,10 @@ input[type="button"]{
 
 article{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 label{
@@ -54,12 +61,33 @@ figure#heart{
 }
 
 #emptyheart{
-    width: 9%;
+    width: 2rem;
     margin-right: 0.5rem;
 }
 
 #basketEmpty{
-    width: 15%;
+    width: 4rem;
     margin-right: 0.4rem;
 
+}
+
+.filter{
+    padding-right: 3rem;
+    width: 14.35rem;
+    border-left: solid black;
+    border-right: solid black;
+}
+
+.filter article{
+    display: block;
+    margin-top: 1rem;
+}
+
+.filter label{
+    display: block;
+}
+
+.articleContainer{
+    display: flex;
+    flex-wrap: wrap;
 }
