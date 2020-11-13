@@ -2,8 +2,7 @@ h1 {
     font-size: 2rem;
     padding-left: 2rem;
     line-height: 10rem;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 form {
