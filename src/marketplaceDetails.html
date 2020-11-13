@@ -2,101 +2,104 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Marketplace : details</title>
-	<link rel="stylesheet" href="assets/css/reset.css">
-	<link rel="stylesheet" href="assets/css/header.css">
-	<link rel="stylesheet" href="assets/css/footer.css">
+    <meta charset="UTF-8">
+    <title>Marketplace : details</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/marketplaceDetails.css">
+    <link rel="stylesheet" href="assets/css/marketplace.css">
 </head>
 
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-				<li><a href="map.html">Map</a></li>
-				<li><a href="marketplace.html">Marketplace</a></li>
-				<li><a href="info.html">Info</a></li>
-				<li><a href="sharedTools.html">Shared Tools</a></li>
-				<li>Profile
-					<ul class="dropdown">
-						<li><a href="profile.html">Account and Subscription</a></li>
-						<li><a href="orderHistory.html">Order History</a></li>
-						<li><a href="favorite.html">Favorite</a></li>
-						<li><a href="signOut.html">Sign out</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<aside>
-			<h1>Search info</h1>
+<header>
+    <nav>
+        <ul>
+            <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="sharedTools.html">Shared Tools</a></li>
+            <li>Profile
+                <ul class="dropdown">
+                    <li><a href="profile.html">Account and Subscription</a></li>
+                    <li><a href="orderHistory.html">Order History</a></li>
+                    <li><a href="favorite.html">Favorite</a></li>
+                    <li><a href="signOut.html">Sign out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <aside class="filter">
+        <h1>Search info</h1>
 
-			<article>
-				<h2>Groenten</h2>
-				<label>
+        <article>
+            <h2>Vegetables</h2>
+            <label>
                 <input type="checkbox"> Ajuin
             </label>
-				<label>
+            <label>
                 <input type="checkbox"> Bloemkool
             </label>
-				<label>
+            <label>
                 <input type="checkbox"> Champignon
             </label>
-				<label>
+            <label>
                 <input type="checkbox"> Erwtjes
             </label>
-			</article>
+        </article>
 
-			<article>
-				<h2>Fruit</h2>
-				<label>
+        <article>
+            <h2>Fruit</h2>
+            <label>
                 <input type="checkbox"> Appel
             </label>
-				<label>
+            <label>
                 <input type="checkbox"> Banaan
             </label>
-				<label>
+            <label>
                 <input type="checkbox"> Citroen
             </label>
-				<label>
+            <label>
                 <input type="checkbox"> Druiven
             </label>
-			</article>
-		</aside>
+        </article>
+    </aside>
 
-		<a href="marketplace.html" id="back">Back</a>
-		<div id=productDetails>
-			<img alt="Product" src="assets/img/login.jpg" height="378" width="1136"/>
-			<div>
-				<p>Name: <span></span></p>
-				<p>Date: <span></span></p>
-				<p>Price: <span></span></p>
-				<label for="number">Number:</label>
-				<input type="number" id="number" min="1">
-			</div>
-				<a href="#"><img src="assets/img/basketPlus.svg" alt="shoppingBasketIcon"></a>
-					<a href="#"><img src="assets/img/emptyHeart.svg" alt="favoriteIcon"></a>
-			</div>
-			<a href="addProductToSell.html" id="addProduct">Add your product</a>
-	</main>
-	<footer>
-		<div>
-			<h3>Contact us</h3>
-			<p>mars@mars.mars</p>
-			<p>MARS inc. Olympus Moms 18.4N, 134W Mars</p>
-
-		</div>
-		<div>
-			<p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
-			<img src="assets/img/login.jpg" alt="#">
-			<img src="assets/img/login.jpg" alt="#">
-			<img src="assets/img/login.jpg" alt="#">
+    <a href="marketplace.html" id="back">Back</a>
+    <div id=productDetails>
+        <img id="selectedProductImg" alt="Product" src="assets/img/carrot_PNG4985.png">
+        <div>
+            <p>Name: <span></span></p>
+            <p>Date: <span></span></p>
+            <p>Price: <span></span></p>
+            <label for="amount">Amount:
+                <input type="number" id="amount" min="1">
+            </label>
+            <a href="#"><img src="assets/img/basketPlus.svg" alt="shoppingBasketIcon"></a>
+            <a href="#"><img src="assets/img/emptyHeart.svg" alt="favoriteIcon"></a>
+        </div>
     </div>
-			<p>View the <a href="subscriptionTypes.html">subscription types</a></p>
+    <a href="addProductToSell.html" id="addProduct">Add your product</a>
+</main>
+<footer>
+    <div>
+        <h3>Contact us</h3>
+        <p>mars@mars.mars</p>
+        <p>MARS inc. Olympus Moms 18.4N, 134W Mars</p>
 
-	</footer>
+    </div>
+    <div>
+        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+    </div>
+    <p>View the <a href="subscriptionTypes.html">subscription types</a></p>
+
+</footer>
 </body>
 
 </html>
