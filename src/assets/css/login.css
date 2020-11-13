@@ -1,21 +1,25 @@
 main{
-    padding: 10rem 5rem 7rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 45rem;
 }
 
-img{
-    width: 57rem;
-    height: 30rem;
-    float: left;
-    padding-right: 12rem;
+main img{
+    height: 20rem;
+    align-items: center;
 }
 
 h1{
     font-size: 4rem;
-    padding: 5rem 0 2.5rem 0
+    margin-right: 10rem;
+    margin-left: 4rem;
 }
 
 input{
     width: 15rem;
     height: 3rem;
     font-size: 1.5rem;
+    margin-right: 10rem;
+    margin-left: 5rem;
 }
