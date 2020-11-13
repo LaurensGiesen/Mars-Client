@@ -5,8 +5,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css"  href="assets/css/marketplace.css">
     <meta content="Cedric Puystjens" name="author">
-    <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
     <title>MARS: marketplace</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
                     <li><a href="profile.html">Account and Subscription</a></li>
                     <li><a href="orderHistory.html">Order History</a></li>
                     <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="signOut.html">Sign out</a></li>
+                    <li><a href="login.html">Sign out</a></li>
                 </ul>
             </li>
         </ul>
@@ -37,6 +37,7 @@
     <aside id="filter">
         <h1>Search info</h1>
     </aside>
+    <input type="button" value="Add your product">
 
     <form action="#" id="filters" method="post">
         <label for="search"></label>
@@ -52,24 +53,30 @@
     </form>
 
     <a href="basket.html"><img alt="shopping basket" src="assets/img/shopping%20basket.svg" title="shopping basket"></a>
-    <input type="button" value="Add your product">
 
     <section id="articles">
-        <h2>Marketplace</h2>
         <article>
             <img alt="product-image" src="#" title="product-image">
-            <h3>name:</h3>
-            <p>price:</p>
-            <p>description:</p>
-            <p>date:</p>
+            <div>
+                <h3>Name:</h3>
+                <p>Price:</p>
+                <p>Description:</p>
+                <p>Date:</p>
+            </div>
             <form>
-                <label for="amount"></label>
+                <label for="amount">Amount:</label>
                 <input id="amount" min="1" step="1" type="number" value="1">
 
-                <input alt="empty shopping basket" src="assets/img/shopping%20basket%20plus.svg"
-                       title="empty shopping basket"
-                       type="image">
-                <input alt="favorite button" src="assets/img/heart%20empty.svg" title="favorite button" type="image">
+                <figure>
+                    <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket" id="basketEmpty"/>
+                    <figcaption>Add to basket</figcaption>
+                </figure>
+
+                <figure id="heart">
+                    <img src="assets/img/emptyHeart.svg" title="add to favorite" alt="add to favorite" id="emptyheart"/>
+                    <figcaption>Add to favorite</figcaption>
+                </figure>
+
             </form>
         </article>
     </section>
