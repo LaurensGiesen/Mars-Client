@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/orderHistory.css">
     <title>History</title>
 </head>
 <body>
@@ -29,18 +30,19 @@
 </header>
 
 <main>
-    <label for="search">Order history</label>
-    <input id="search" type="search"> <!-- list attribute is a possibility for auto complete -->
-    <img src="assets/img/basket.png" alt="shoppingCartIcon" width="30"> <!-- temporary width -->
+
+        <label for="search">Order history</label>
+        <input id="search" type="search" placeholder="Search"> <!-- list attribute is a possibility for auto complete -->
+    <!--<img src="assets/img/basket.png" alt="shoppingCartIcon" width="30">  temporary width -->
 
     <table>
-        <caption>order history</caption>
+        <!--<caption>order history</caption>-->
         <tr>
             <th id="orderPlaced">Order placed</th>
             <th id="orderDetails">Order details</th>
             <th id="total">Total</th>
             <th id="amount">Amount</th>
-            <th id="empty"></th> <!-- this is an empty cell for the add to shopping cart button -->
+            <th id="empty">Order Again</th> <!-- this is an empty cell for the add to shopping cart button -->
         </tr>
         <tr>
             <!-- this is fake data -->
@@ -48,7 +50,7 @@
             <td>5 - Organic Pumpkin Seeds</td>
             <td>€ 20.50</td>
             <td><label><input type="number" class="amount" min="1"></label></td>
-            <td><img src="assets/img/basket.png" alt="shoppingCartIcon" width="20"></td> <!-- temporary width -->
+            <td><img src="assets/img/basket.png" alt="shoppingCartIcon"></td> <!-- width="20" temporary width -->
         </tr>
         <tr>
             <!-- this is fake data -->
@@ -56,7 +58,7 @@
             <td>20 - Organic Pumpkin Seeds, 1 - strawberry, sensor package cabbage</td>
             <td>€ 47.30</td>
             <td><label><input type="number" class="amount" min="1"></label></td>
-            <td><img src="assets/img/basket.png" alt="shoppingCartIcon" width="20"></td> <!-- temporary width -->
+            <td><img src="assets/img/basket.png" alt="shoppingCartIcon"></td> <!-- width="20" temporary width -->
         </tr>
     </table>
 </main>
