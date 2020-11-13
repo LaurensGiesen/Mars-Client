@@ -1,0 +1,46 @@
+main {
+    margin-top: 2rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+
+table {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+table th {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    color: rgb(255, 255, 255);
+    background-color: #44b648;
+    font-weight: bold;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table img {
+    width: 4vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+table td {
+    vertical-align: middle;
+    text-align: center;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+
+}
+
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table input[type="file"] {
+    max-width: 10vw;
+}

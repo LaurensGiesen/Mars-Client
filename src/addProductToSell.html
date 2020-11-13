@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="sharedTools.html">Shared Tools</a></li>
+            <li>Profile
+                <ul class="dropdown">
+                    <li><a href="profile.html">Account and Subscription</a></li>
+                    <li><a href="orderHistory.html">Order History</a></li>
+                    <li><a href="favorite.html">Favorite</a></li>
+                    <li><a href="signOut.html">Sign out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Add product</h1>
+    <form method="post" action="#" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="Fruit">Fruit</option>
+            <option value="Vegetables">Vegetables</option>
+        </select>
+
+        <label for="picture">Picture:</label>
+        <input type="file" id="picture" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" required min="1" step="any">
+
+        <input type="submit" value="Add">
+    </form>
+</main>
+<footer>
+    <div>
+        <h3>Contact us</h3>
+        <p>mars@mars.mars</p>
+        <p>MARS inc. Olympus Moms 18.4N, 134W Mars</p>
+
+    </div>
+    <div>
+        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+    </div>
+    <p>View the <a href="subscriptionTypes.html">subscription types</a></p>
+
+</footer>
+</body>
+</html>
