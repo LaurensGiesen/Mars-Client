@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/registration.css">
+    <link rel="stylesheet" href="assets/css/header.css">
 </head>
 <body>
 <header>
@@ -13,40 +16,43 @@
     <a href="#" id="autoFill">Fill in your details automatically</a>
 
     <form method="post" id="registrationForm">
-        <div>
-            <label for="foreName">Forename: </label>
-            <input type="text" id="foreName" name="foreName" required placeholder="John">
+        <div id="personalDetails">
+            <div>
+                <label for="foreName">Forename: </label>
+                <input type="text" id="foreName" name="foreName" required placeholder="John">
 
-            <label for="surName">Surname: </label>
-            <input type="text" id="surName" name="surName" required placeholder="Devoorde">
+                <label for="surName">Surname: </label>
+                <input type="text" id="surName" name="surName" required placeholder="Devoorde">
 
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email" required placeholder="John.devoorde@gmail.com">
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required placeholder="John.devoorde@gmail.com">
 
-            <label for="birthDay">Date of Birth: </label>
-            <input type="text" id="birthDay" name="birthDay" required pattern="\d{2}-\d{2}-\d{4}" placeholder="01-01-1980">
-        </div>
+                <label for="birthDay">Date of Birth: </label>
+                <input type="text" id="birthDay" name="birthDay" required pattern="\d{2}-\d{2}-\d{4}"
+                       placeholder="01-01-1980">
+            </div>
 
-        <div>
-            <label for="address">Address: </label>
-            <input type="text" id="address" name="address" required>
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
 
-            <label for="number">Number: </label>
-            <input type="number" id="number" name="number" min="1" required>
+                <label for="number">Number:</label>
+                <input type="number" id="number" name="number" min="1" required>
 
-            <label for="dome">Dome: </label>
-            <input type="text" id="dome" name="dome" required>
+                <label for="dome">Dome:</label>
+                <input type="text" id="dome" name="dome" required>
+            </div>
         </div>
 
         <fieldset id="favCrops">
             <legend>3 Favorite Crops:</legend>
-            <label for="crop1">Crop 1: </label>
+            <label for="crop1"></label>
             <input type="text" id="crop1" name="crop1" required placeholder="carrot">
 
-            <label for="crop2">Crop 2: </label>
+            <label for="crop2"></label>
             <input type="text" id="crop2" name="crop2" required placeholder="tomato">
 
-            <label for="crop3">Crop 3: </label>
+            <label for="crop3"></label>
             <input type="text" id="crop3" name="crop3" required placeholder="potato">
         </fieldset>
         <input type="submit" value="Continue">
