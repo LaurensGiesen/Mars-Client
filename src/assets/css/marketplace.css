@@ -73,7 +73,9 @@ figure#heart{
 
 .filter{
     padding-right: 3rem;
-    width: 30rem;
+    width: 14.35rem;
+    border-left: solid black;
+    border-right: solid black;
 }
 
 .filter article{
