@@ -49,6 +49,7 @@ span {
     bottom: 1rem;
     left: 2rem;
     align-items: center;
+    opacity: 0.7;
 }
 
 #circle {
