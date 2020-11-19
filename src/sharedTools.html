@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css"  href="assets/css/sharedTools.css">
     <title>MARS: shared tools</title>
 </head>
 <body>
@@ -13,11 +14,12 @@
     <nav>
         <ul>
             <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-            <li><a href="marketplace.html">Shop</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
             <li><a href="info.html">Info</a></li>
             <li><a href="sharedTools.html">Shared Tools</a></li>
             <li>Profile
-                <ul>
+                <ul class="dropdown">
                     <li><a href="profile.html">Account and Subscription</a></li>
                     <li><a href="orderHistory.html">Order History</a></li>
                     <li><a href="favorite.html">Favorite</a></li>
@@ -28,49 +30,119 @@
     </nav>
 </header>
 <main>
-    <form action="#" id="filters" method="post">
-        <label for="search"></label>
-        <input id="search" name="search" placeholder="search here" type="search">
+        <aside class="filter">
+            <h1>Search info</h1>
 
-        <label for="order"></label>
-        <select id="order" name="order">
-            <option value="asc">price: ascending</option>
-            <option value="desc">price: descending</option>
-            <option value="name">name</option>
-            <option value="date">date</option>
-        </select>
-    </form>
+            <article>
+                <h2>Groenten</h2>
+                <label>
+                    <input type="checkbox"> Ajuin
+                </label>
+                <label>
+                    <input type="checkbox"> Bloemkool
+                </label>
+                <label>
+                    <input type="checkbox"> Champignon
+                </label>
+                <label>
+                    <input type="checkbox"> Erwtjes
+                </label>
+            </article>
 
-    <article>
-        <img alt="product-image" src="#" title="product-image">
-        <div>
-            <h3>Name:</h3>
-            <p>Available:</p>
-            <label for="reserve1">Reserve from: </label>
-            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve1" name="reserve">
-            <label for="return1">Return on: </label>
-            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return1" name="return">
+            <article>
+                <h2>Fruit</h2>
+                <label>
+                    <input type="checkbox"> Appel
+                </label>
+                <label>
+                    <input type="checkbox"> Banaan
+                </label>
+                <label>
+                    <input type="checkbox"> Citroen
+                </label>
+                <label>
+                    <input type="checkbox"> Druiven
+                </label>
+            </article>
+        </aside>
+
+    <div>
+        <form action="#" id="filters" method="post">
+            <label for="search"></label>
+            <input id="search" name="search" placeholder="search here" type="search">
+
+            <label for="order"></label>
+            <select id="order" name="order">
+                <option value="asc">price: ascending</option>
+                <option value="desc">price: descending</option>
+                <option value="name">name</option>
+                <option value="date">date</option>
+            </select>
+        </form>
+
+        <div class="articleContainer">
+            <article>
+                <img alt="product-image" src="#" title="product-image">
+                <div>
+                    <h3>Name:</h3>
+                    <p>Available:</p>
+                    <form class="reserve">
+                        <label for="reserve1">Reserve from: </label>
+                        <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve1" name="reserve">
+                        <label for="return1">Return on: </label>
+                        <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return1" name="return">
+                    </form>
+                </div>
+                <figure>
+                    <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
+                </figure>
+
+                <figure>
+                    <img src="assets/img/makeReservation.jpg" alt="empty heart" title="empty heart" class="reservation"/>
+                </figure>
+            </article>
+
+            <article>
+                <img alt="product-image" src="#" title="product-image">
+                <div>
+                    <h3>Name:</h3>
+                    <p>Available:</p>
+                    <form class="reserve">
+                        <label for="reserve2">Reserve from: </label>
+                        <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve2" name="reserve">
+                        <label for="return2">Return on: </label>
+                        <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return2" name="return">
+                    </form>
+                </div>
+
+                <figure>
+                    <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart" class="heart"/>
+                </figure>
+
+                <figure>
+                    <img src="assets/img/makeReservation.jpg" alt="empty heart" title="empty heart" class="reservation"/>
+                </figure>
+            </article>
         </div>
-        <figure>
-            <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
-        </figure>
-    </article>
-
-    <article>
-        <img alt="product-image" src="#" title="product-image">
-        <div>
-            <h3>Name:</h3>
-            <p>Available:</p>
-            <label for="reserve2">Reserve from: </label>
-            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve2" name="reserve">
-            <label for="return2">Return on: </label>
-            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return2" name="return">
-        </div>
-        <figure>
-            <img src="assets/img/emptyHeart.svg" alt="empty heart" title="empty heart"/>
-        </figure>
-    </article>
+    </div>
 </main>
+<footer>
+
+    <div>
+        <h3>Contact us</h3>
+        <p>mars@mars.mars</p>
+        <p>MARS inc. Olympus Moms 18.4N, 134W Mars</p>
+
+    </div>
+    <div>
+        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+        <img src="assets/img/login.jpg" alt="#">
+    </div>
+    <p>View the <a href="subscriptions.html">subscription types</a></p>
+
+</footer>
 
 </body>
 </html>

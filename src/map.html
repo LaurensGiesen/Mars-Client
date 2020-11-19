@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
-    <link rel="stylesheet" type="text/css"  href="assets/css/map.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/map.css">
     <title>Map</title>
 
 
@@ -36,42 +36,45 @@
 <main>
 
 
-    <div>
+    <div id="map">
 
         <!--map-->
+        <iframe src="https://solarsystem.nasa.gov/gltf_embed/2372" ></iframe>
+
 
     </div>
 
     <div id="filterContainer">
         <span>Click</span>
-        <div id="scrollOut"> <!--class="hidden"-->
-            <input type="text" placeholder="Search">
-            <div id="filterOptions" class="hidden">
-                <figure>
-                    <img src="#" alt="#">
-                    <input type="button" value="Tools">
-                </figure>
-                <figure>
-                    <img src="#" alt="#">
-                    <input type="button" value="Fruit">
-                </figure>
-                <figure>
-                    <img src="#" alt="#">
-                    <input type="button" value="Veggies">
-                </figure>
+
+    </div>
+    <div id="scrollOut"> <!--class="hidden"-->
+        <input type="text" placeholder="Search">
+        <div id="filterOptions" class="hidden">
+            <figure>
+                <img src="#" alt="#">
+                <input type="button" value="Tools">
+            </figure>
+            <figure>
+                <img src="#" alt="#">
+                <input type="button" value="Fruit">
+            </figure>
+            <figure>
+                <img src="#" alt="#">
+                <input type="button" value="Veggies">
+            </figure>
+        </div>
+        <div class="hidden"> <!--id="filtered"-->
+            <div id="otherFilters">
+                <input type="button" value="Fruit">
+                <input type="button" value="Veggies">
             </div>
-            <div class="hidden"> <!--id="filtered"-->
-                <div id="otherFilters">
-                    <input type="button" value="Fruit">
-                    <input type="button" value="Veggies">
-                </div>
-                <div id="products">
-                    <input type="button" value="Apple">
-                    <input type="button" value="Apple">
-                    <input type="button" value="Apple">
-                    <input type="button" value="Apple">
-                    <input type="button" value="Apple">
-                </div>
+            <div id="products">
+                <input type="button" value="Apple">
+                <input type="button" value="Apple">
+                <input type="button" value="Apple">
+                <input type="button" value="Apple">
+                <input type="button" value="Apple">
             </div>
         </div>
         <div id="circle"></div>

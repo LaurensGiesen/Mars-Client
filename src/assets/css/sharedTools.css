@@ -15,19 +15,12 @@ h1{
     font-size: 1.2rem;
 }
 
-a{
-    color: black;
-    text-decoration: none;
-}
-
-
-form{
-    padding-left: 8rem;
-}
 
 form select, form input{
     margin-left: 2rem;
-    width: 10%;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    width: 20%;
     padding: 0.1rem;
 }
 
@@ -35,7 +28,6 @@ input[type="button"]{
     display: block;
     margin-left: auto;
     margin-right: 9rem;
-    margin-top: 0.5rem;
 }
 
 article{
@@ -44,58 +36,63 @@ article{
     justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
+    margin-left: 5rem;
+}
+
+article input{
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    margin-left: 3.5rem;
+    width: 50%;
+}
+
+article h3, article p, article label{
     margin-left: 3rem;
+    margin-bottom: 0.5rem;
 }
 
-form label, article label{
-    margin-left: 1rem;
-}
 
-article img{
-    margin-right: 2rem;
-}
-
-#amount{
-    width: 15%;
-    margin-left: 1rem;
+form.reserve label{
+    display: flex;
 
 }
 
 figure{
     display: flex;
-    margin: 1rem;
 }
 
 .heart{
-    margin-left: 2.3rem;
-
+    margin-left: 1rem;
 }
 
-.emptyheart{
-    width: 1.5rem;
-    margin-right: 0.5rem;
+.reservation{
+    width: 2.5rem;
+    margin-left: 0.5rem;
 }
 
-.emptybasket{
-    width: 3rem;
-    margin-right: 0.4rem;
-
-}
 
 .filter{
     padding-right: 3rem;
-    width: 14.35rem;
+    width: 8rem;
     border-left: solid black;
     border-right: solid black;
 }
 
 .filter article{
     display: block;
-    margin-top: 1rem;
+    margin: 1rem 0 0 0;
+
+}
+
+.filter input{
+    margin: 1rem 0 0 0;
+    width: 10%;
 }
 
 .filter label{
     display: block;
+    margin-bottom: 0;
+    margin-left: 1rem;
 }
 
 .articleContainer{

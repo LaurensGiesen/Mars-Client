@@ -15,11 +15,12 @@
     <nav>
         <ul>
             <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-            <li><a href="marketplace.html">Shop</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
             <li><a href="info.html">Info</a></li>
             <li><a href="sharedTools.html">Shared Tools</a></li>
             <li>Profile
-                <ul>
+                <ul class="dropdown">
                     <li><a href="profile.html">Account and Subscription</a></li>
                     <li><a href="orderHistory.html">Order History</a></li>
                     <li><a href="favorite.html">Favorite</a></li>
@@ -81,6 +82,40 @@
             <h2>Do you want to <span>change</span> your subscription type?</h2>
         </div>
     </form>
+
+    <div id="subscriptions" class="hidden">
+        <section id="subscriptionFree">
+            <h2>Free</h2>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+            </ul>
+            <p>Monthly Price: € XXX,XX</p>
+
+        </section>
+
+        <section id="subscriptionBasic">
+            <h2>Basic</h2>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+            </ul>
+            <p>Monthly Price: € XXX,XX</p>
+        </section>
+
+        <section id="subscriptionPremium">
+            <h2>Premium</h2>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+                <li>Lorem ipsum dolor sit amet, consetetur</li>
+            </ul>
+            <p>Monthly Price: € XXX,XX</p>
+        </section>
+    </div>
+
 </main>
 <footer>
 
@@ -96,7 +131,7 @@
         <img src="assets/img/login.jpg" alt="#">
         <img src="assets/img/login.jpg" alt="#">
     </div>
-    <p>View the <a href="subscriptionTypes.html">subscription types</a></p>
+    <p>View the <a href="subscriptions.html">subscription types</a></p>
 
 </footer>
 </body>

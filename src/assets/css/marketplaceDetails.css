@@ -1,50 +1,87 @@
-#back, #addProduct {
-    padding: 0.5rem;
-    margin: 1rem;
+main{
+    display: flex;
+}
+
+a {
     text-decoration: none;
-    border: 1px solid black;
-    font-size: 1rem;
-    color: black;
+    color: #000000;
 }
 
-#back {
-    height: fit-content;
-    top: 0;
-    left: 0;
+
+article{
+    margin-bottom: 2rem;
+    display: flex;
+    margin-top: 5rem;
+
 }
 
-#addProduct {
-    display: block;
-    height: fit-content;
-    margin-left: auto;
-    margin-right: 1rem;
+figure{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-#selectedProductImg {
-    height: 300px;
-    margin: 7rem;
+article img#product{
+    margin-right: 10rem;
 }
 
-#productDetails a img {
-    border: 1px solid black;
-    padding: 0.5rem;
+figure.heart{
+    margin-left: 1.4rem;
 }
 
-input[type=number] {
+#choice{
+    margin-left: 10rem;
+}
+
+
+.emptyheart{
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.emptybasket{
     width: 3rem;
+    margin-right: 0.5rem;
 }
 
-#productDetails {
+
+div#backButton{
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #000000;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    height: 2rem;
+    text-align: center;
 }
 
-#productDetails div {
+
+#arrow{
+    margin-top: 0.2rem;
+    width: 2rem;
+}
+
+a#back{
+    padding-right: 0.5rem;
+}
+
+.filter{
+    padding-right: 3rem;
+    width: 14.35rem;
+    border-left: solid black;
+    border-right: solid black;
+}
+
+.filter article{
+    display: block;
+    margin-top: 1rem;
+}
+
+.filter label{
+    display: block;
+}
+
+.articleContainer{
     display: flex;
-    flex-direction: column;
-    margin-top: 7rem;
-}
-
-#productDetails label, #productDetails p {
-    padding: 0.5rem 0.5rem 0.5rem 0;
+    flex-wrap: wrap;
 }
