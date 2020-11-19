@@ -47,7 +47,7 @@ article{
     margin-left: 3rem;
 }
 
-label{
+form label, article label{
     margin-left: 1rem;
 }
 
