@@ -1,0 +1,101 @@
+main{
+    display: flex;
+}
+
+
+section{
+    padding: 2rem 10rem;
+}
+
+aside{
+    padding: 1rem;
+}
+
+h1{
+    font-size: 1.2rem;
+}
+
+
+form select, form input{
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    width: 20%;
+    padding: 0.1rem;
+}
+
+input[type="button"]{
+    display: block;
+    margin-left: auto;
+    margin-right: 9rem;
+}
+
+article{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+}
+
+article input{
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    margin-left: 3.5rem;
+    width: 50%;
+}
+
+article h3, article p, article label{
+    margin-left: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+
+form.reserve div{
+    display: flex;
+
+}
+
+figure{
+    display: flex;
+}
+
+.heart{
+    margin-left: 1rem;
+}
+
+.reservation{
+    width: 2.5rem;
+    margin-left: 0.5rem;
+}
+
+
+.filter{
+    padding-right: 3rem;
+    width: 8rem;
+    border-left: solid black;
+    border-right: solid black;
+}
+
+.filter article{
+    display: block;
+    margin: 1rem 0 0 0;
+
+}
+
+.filter input{
+    margin: 1rem 0 0 0;
+    width: 10%;
+}
+
+.filter label{
+    display: block;
+    margin-bottom: 0;
+    margin-left: 1rem;
+}
+
+.articleContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
