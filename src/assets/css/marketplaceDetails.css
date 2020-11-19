@@ -1,0 +1,87 @@
+main{
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+article{
+    margin-bottom: 2rem;
+    display: flex;
+    margin-top: 5rem;
+
+}
+
+figure{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+article img#product{
+    margin-right: 10rem;
+}
+
+figure.heart{
+    margin-left: 1.4rem;
+}
+
+#choice{
+    margin-left: 10rem;
+}
+
+
+.emptyheart{
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.emptybasket{
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+
+
+div#backButton{
+    display: flex;
+    align-items: center;
+    border: 2px solid #000000;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    height: 2rem;
+    text-align: center;
+}
+
+
+#arrow{
+    margin-top: 0.2rem;
+    width: 2rem;
+}
+
+a#back{
+    padding-right: 0.5rem;
+}
+
+.filter{
+    padding-right: 3rem;
+    width: 14.35rem;
+    border-left: solid black;
+    border-right: solid black;
+}
+
+.filter article{
+    display: block;
+    margin-top: 1rem;
+}
+
+.filter label{
+    display: block;
+}
+
+.articleContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
