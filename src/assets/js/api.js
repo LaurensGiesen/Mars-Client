@@ -1,12 +1,20 @@
 function getMessage() {
-    return apiCall("message");
+    return apiCall("message", "GET", null);
 }
 
-function apiCall(uri) {
+function apiCall(uri, httpVerb, body) {
+    console.log(body);
     const request = new Request(api + uri, {
-        method: 'GET',
-        credentials: 'include'
+        method: httpVerb,
+        body: body,
+        credentials: 'include',
     });
+
+    console.log(request);
     return fetch(request)
         .then(response => response.json());
+}
+
+function registerCall(url, httpVerb, body){
+    return apiCall(url, httpVerb, body)
 }
