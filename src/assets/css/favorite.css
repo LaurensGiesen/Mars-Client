@@ -1,6 +1,3 @@
-main{
-    height: 29rem;
-}
 
 h1{
     font-size: 2.5rem;
@@ -8,7 +5,6 @@ h1{
 }
 
 h2{
-    font-weight: normal;
     font-size: 1.3rem;
     margin-left: 2rem;
     margin-bottom: 1rem;
@@ -43,6 +39,11 @@ figure{
     margin-bottom: 1rem;
 }
 
+.heart{
+    width: 1.5rem;
+    margin-left: 0.2rem;;
+}
+
 article img{
     width: 10rem;
 }
@@ -55,3 +56,5 @@ article div input{
 article div:nth-child(3){
     margin-left: 10rem;
 }
+
+
