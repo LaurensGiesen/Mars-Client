@@ -17,7 +17,7 @@ h1{
 
 
 form{
-    padding-left: 10rem;
+    padding-left: 8rem;
 }
 
 form select, form input{
@@ -30,6 +30,7 @@ input[type="button"]{
     display: block;
     margin-left: auto;
     margin-right: 9rem;
+    margin-top: 0.5rem;
 }
 
 article{
@@ -38,10 +39,15 @@ article{
     justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
+    margin-left: 3rem;
 }
 
 label{
     margin-left: 1rem;
+}
+
+article img{
+    margin-right: 2rem;
 }
 
 #amount{
@@ -55,18 +61,18 @@ figure{
     margin: 1rem;
 }
 
-figure#heart{
-    margin-left: 1.7rem;
+.heart{
+    margin-left: 2.3rem;
 
 }
 
-#emptyheart{
-    width: 2rem;
+.emptyheart{
+    width: 1.5rem;
     margin-right: 0.5rem;
 }
 
-#basketEmpty{
-    width: 4rem;
+.emptybasket{
+    width: 3rem;
     margin-right: 0.4rem;
 
 }
