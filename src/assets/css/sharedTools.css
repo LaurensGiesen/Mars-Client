@@ -52,7 +52,7 @@ article h3, article p, article label{
 }
 
 
-form.reserve div{
+form.reserve label{
     display: flex;
 
 }
