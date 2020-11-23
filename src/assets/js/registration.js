@@ -14,7 +14,7 @@ async function init() {
     // Small poc
     getFoo().then(message => h1.innerText = message);
 
-    document.querySelector("#registrationForm").addEventListener("submit", register);
+    document.querySelector("input[type='submit']").addEventListener("click", register);
     document.querySelector("#autoFill").addEventListener("click", autoFill);
 
 }
@@ -29,7 +29,6 @@ function getFoo() {
 }
 
 function register() {
-    console.log("foo");
     let data = JSON.stringify({
         firstname: document.querySelector("#foreName").value,
         lastname: document.querySelector("#surName").value,
@@ -44,7 +43,14 @@ function register() {
     });
 
     api = `${config.host ? config.host + '/' : ''}`;
-    registerCall("register", 'POST', data).then(response => console.log(response));
+    registerCall("register", 'POST', data).then((response ) => {
+        if(response){
+            window.location.href = "map.html";
+        }else{
+            log(response);
+        }
+    });
+
 }
 
 function autoFill(){
