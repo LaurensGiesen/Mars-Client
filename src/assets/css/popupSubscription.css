@@ -3,7 +3,7 @@
     top: 20%;
     left: 15%;
     background-color: #ffffff;
-    display: flex;
+    display: none;
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 1rem;
