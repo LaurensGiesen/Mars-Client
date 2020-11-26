@@ -9,12 +9,13 @@ function init() {
 function selectSubscription(e) {
     e.preventDefault();
     let target = e.target;
-    if (target === document.querySelector("#subscriptionFree")) {
-        console.log("clicked subscription Free")
-    } else if (target === document.querySelector("#subscriptionBasic")) {
-        console.log("clicked subscription Basic")
-    } else if (target === document.querySelector("#subscriptionPremium")) {
-        console.log("clicked subscription Premium")
+    if (target === document.querySelector("#subscriptionFree") ||
+        target === document.querySelector("#subscriptionBasic") ||
+        target === document.querySelector("#subscriptionPremium")) {
+        fillInSelectedSubscription(target);
     }
+}
 
+function fillInSelectedSubscription(subscriptionTypeSection) {
+    subscriptionTypeSection.style.backgroundColor = "gray";
 }
