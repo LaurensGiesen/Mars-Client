@@ -1,0 +1,41 @@
+#popup {
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.close{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #000000;
+    display: inline-block;
+    border-radius: 23px;
+    padding: 5px;
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(50%) translateY(-50%);
+}
+
+section {
+    border: 1px solid black;
+    height: 3rem;
+    padding: 2rem;
+}
+
+input[type=button] {
+    width: 5rem;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.hidden{
+    visibility: hidden;
+}

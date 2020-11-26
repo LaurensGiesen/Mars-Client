@@ -16,5 +16,5 @@ function apiCall(uri, httpVerb, body) {
 }
 
 function registerCall(url, httpVerb, body){
-    return apiCall(url, httpVerb, body)
+    return apiCall(url, httpVerb, body);
 }

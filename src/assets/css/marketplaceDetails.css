@@ -2,6 +2,12 @@ main{
     display: flex;
 }
 
+
+h2{
+    margin-right: 3.4rem;
+    margin-bottom: 0.5rem;
+}
+
 a {
     text-decoration: none;
     color: #000000;
@@ -12,8 +18,10 @@ article{
     margin-bottom: 2rem;
     display: flex;
     margin-top: 5rem;
+    margin-left: 5rem;
 
 }
+
 
 figure{
     display: flex;
@@ -50,7 +58,7 @@ div#backButton{
     align-items: center;
     width: 5rem;
     border: 2px solid #000000;
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-top: 0.5rem;
     height: 2rem;
     text-align: center;
@@ -67,23 +75,3 @@ a#back{
     padding-right: 0.5rem;
 }
 
-.filter{
-    padding-right: 3rem;
-    width: 14.35rem;
-    border-left: solid black;
-    border-right: solid black;
-}
-
-.filter article{
-    display: block;
-    margin-top: 1rem;
-}
-
-.filter label{
-    display: block;
-}
-
-.articleContainer{
-    display: flex;
-    flex-wrap: wrap;
-}

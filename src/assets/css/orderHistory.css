@@ -44,3 +44,7 @@ table tr:nth-child(even) {
 table input[type="file"] {
     max-width: 10vw;
 }
+
+caption{
+    visibility: hidden;
+}

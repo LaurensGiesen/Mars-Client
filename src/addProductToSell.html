@@ -33,7 +33,7 @@
     <form method="post" action="#" enctype="multipart/form-data">
         <div>
             <label for="name">Name:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
 
             <label for="category">Category:</label>
             <select id="category">
@@ -46,6 +46,9 @@
 
             <label for="price">Price:</label>
             <input type="number" id="price" required min="1" step="any">
+
+            <label for="description">Description:</label>
+            <input class="description" type="text" name="description" id="description" />
 
             <input type="submit" value="Add">
         </div>
@@ -64,7 +67,8 @@
         <img src="assets/img/login.jpg" alt="#">
         <img src="assets/img/login.jpg" alt="#">
     </div>
-    <p>View the <a href="subscriptionTypes.html">subscription types</a></p>
+    <p>View the <a href="
+    subscriptions.html">subscription types</a></p>
 
 </footer>
 </body>

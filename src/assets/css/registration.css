@@ -1,14 +1,13 @@
 header {
     display: flex;
     flex-direction: row;
-    height: fit-content;
     padding: 2rem;
 }
 
 h1 {
     font-size: 2rem;
-    padding-left: 2rem;
-    line-height: 10rem;
+    padding-left: 3rem;
+    margin-top: 3rem;
 }
 
 #personalDetails {
@@ -16,20 +15,22 @@ h1 {
     justify-content: center;
 }
 
-form {
-    margin: 2rem auto 0 auto;
-}
-
-form div div {
+form div {
     display: flex;
     flex-direction: column;
     align-content: space-between;
     padding: 2rem;
 }
 
+form{
+    display: flex;
+    margin-left: 18rem;
+}
+
 input {
     padding: 0.5rem;
     width: 20rem;
+    margin-bottom: 1rem;
 }
 
 input[type="number"] {
@@ -53,9 +54,13 @@ fieldset input {
 
 input[type=submit] {
     display: block;
-    margin-left: auto;
     margin-right: 10rem;
+    margin-left: 9rem;
+    margin-top: 3rem;
+    width: 20rem;
 }
+
+
 
 a {
     text-decoration: none;
