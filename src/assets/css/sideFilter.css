@@ -1,0 +1,34 @@
+h2{
+    margin-bottom: 0.5rem;
+}
+
+aside{
+    padding: 1rem;
+}
+
+.articleContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article.search{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.filter{
+    padding-right: 2rem;
+    border-left: solid black;
+    border-right: 5px solid black;
+}
+
+.filter article{
+    margin-top: 1rem;
+
+}
+
+.filter div{
+    display: inline;
+    width: 8rem;
+}

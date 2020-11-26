@@ -7,17 +7,12 @@ section{
     padding: 2rem 10rem;
 }
 
-aside{
-    padding: 1rem;
-}
-
 h1{
     font-size: 1.2rem;
 }
 
 h2{
     margin-right: 5.5rem;
-    margin-bottom: 0.5rem;
 }
 
 
@@ -67,41 +62,13 @@ figure{
     display: flex;
 }
 
-.heart{
-    margin-left: 1rem;
+.emptyheart{
+    width: 1.3rem;
+    margin-right: 0.4rem;
 }
+
 
 .reservation{
-    width: 2.5rem;
+    width: 2rem;
     margin-left: 0.5rem;
 }
-
-.filter{
-    padding-right: 2rem;
-    border-left: solid black;
-    border-right: 5px solid black;
-}
-
-.filter div{
-    display: inline;
-    width: 8rem;
-}
-
-.filter article{
-    margin-top: 1rem;
-    margin-left: 1rem;
-
-}
-
-article.search{
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-.articleContainer{
-    display: flex;
-    flex-wrap: wrap;
-}
-
