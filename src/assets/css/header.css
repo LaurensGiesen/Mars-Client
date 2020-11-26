@@ -6,7 +6,7 @@ header nav ul {
 
 header nav ul li {
     border: solid black;
-    flex: 1 1 15rem;
+    flex: 1 1 12rem;
     text-align: center;
     align-items: flex-end;
     padding-top: 3rem;
@@ -19,15 +19,14 @@ header nav ul li a{
     text-decoration: none;
     color: black;
 }
-
-
 ul li ul{
+    background-color: #ffffff;
     visibility: hidden;
     opacity: 0;
     min-width: 5rem;
     position: absolute;
     transition: all 0.5s ease;
-    margin-top: 3rem;
+    margin-top: 3.3rem;
     left: 0;
     display: none;
 }
@@ -44,9 +43,15 @@ ul li ul li {
     width: 80% ;
     padding: 1rem;
     font-size: 1rem;
+    background-color: #ffffff;
 }
 
 #logo{
     flex: 0 1 12rem;
 }
+
+#basketHeader{
+    flex: 0 1 8rem;
+}
+
 
