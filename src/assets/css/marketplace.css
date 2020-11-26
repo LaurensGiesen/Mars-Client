@@ -7,21 +7,12 @@ section{
     padding: 2rem 10rem;
 }
 
-aside{
-    padding: 1rem;
-}
-
 h1{
     font-size: 1.2rem;
 }
 
 h2{
     margin-right: 3.4rem;
-    margin-bottom: 0.5rem;
-}
-
-#fruitTitel{
-    margin-right: 5.5rem;
 }
 
 a{
@@ -55,17 +46,16 @@ article{
     margin-left: 1rem;
 }
 
-article.search{
-    display: flex;
-    flex-direction: column;
-}
-
 form label, article label{
     margin-left: 1rem;
 }
 
 article img{
     margin-right: 2rem;
+}
+
+#fruitTitel{
+    margin-right: 5.5rem;
 }
 
 #amount{
@@ -79,40 +69,19 @@ figure{
     margin: 1rem;
 }
 
-.filter div{
-    display: inline;
-    width: 8rem;
-}
 
 .heart{
-    margin-left: 2.3rem;
+    margin-left: 2.1rem;
 
 }
 
 .emptyheart{
-    width: 1.5rem;
-    margin-right: 0.5rem;
+    width: 1.3rem;
+    margin-right: 0.4rem;
 }
 
 .emptybasket{
-    width: 3rem;
+    width: 2.5rem;
     margin-right: 0.4rem;
 
-}
-
-.filter{
-    padding-right: 2rem;
-    border-left: solid black;
-    border-right: 5px solid black;
-}
-
-.filter article{
-    margin-top: 1rem;
-
-}
-
-
-.articleContainer{
-    display: flex;
-    flex-wrap: wrap;
 }
