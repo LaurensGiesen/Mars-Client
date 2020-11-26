@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 let config;
 let api;
 
@@ -54,14 +54,14 @@ function register() {
 }
 
 function autoFill(){
-    document.querySelector("#foreName").value = "John"
-        document.querySelector("#surName").value = "Doe"
-        document.querySelector("#email").value = "JohnDoe@gmail.com"
-        document.querySelector("#birthDay").value = "01-01-2001"
-        document.querySelector("#address").value = "Mountain 1"
-        document.querySelector("#number").value = "443"
-        document.querySelector("#dome").value = "404"
-        document.querySelector("#crop1").value = "Apple"
-        document.querySelector("#crop2").value = "Potato"
-        document.querySelector("#crop3").value = "Raspberry Pi"
+    document.querySelector("#foreName").value = "John";
+        document.querySelector("#surName").value = "Doe";
+        document.querySelector("#email").value = "JohnDoe@gmail.com";
+        document.querySelector("#birthDay").value = "01-01-2001";
+        document.querySelector("#address").value = "Mountain 1";
+        document.querySelector("#number").value = "443";
+        document.querySelector("#dome").value = "404";
+        document.querySelector("#crop1").value = "Apple";
+        document.querySelector("#crop2").value = "Potato";
+        document.querySelector("#crop3").value = "Raspberry Pi";
 }
