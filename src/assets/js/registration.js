@@ -35,7 +35,7 @@ function register() {
         email: document.querySelector("#email").value,
         birthDay: document.querySelector("#birthDay").value,
         address: document.querySelector("#address").value,
-        number: document.querySelector("#number").value,
+        number: parseInt(document.querySelector("#number").value),
         dome: document.querySelector("#dome").value,
         crop1: document.querySelector("#crop1").value,
         crop2: document.querySelector("#crop2").value,
