@@ -26,17 +26,58 @@ function loadMapsJSAPI() {
 function displayMap() {
     const mapDiv = document.getElementById('map');
     const mapOptions = {
-        center: {lat: 51.20944, lng: 3.224167},
-        zoom: 14
+        center: {lat: 0, lng: 0},
+        zoom: 5,
+        streetViewControl: false,
+        mapTypeControlOptions: {
+            mapTypeIds: ["mars"],
+        }
     };
-    // const mapOptions = {
-    //     center: { lat: 0, lng: 0},
-    //     zoom: 1,
-    //     streetViewControl: false,
-    //     mapTypeControlOptions: {
-    //         mapTypeIds: ["moon"],
-    //     }
-    // };
-    const map = new google.maps.Map(mapDiv, mapOptions)
+    const map = new google.maps.Map(mapDiv, mapOptions);
+
+    const marsMapType = new google.maps.ImageMapType({
+        getTileUrl(tileCoord, zoom) {
+            const normalizedCoord = getNormalizedCoord(tileCoord, zoom);
+            if (!normalizedCoord) {
+                return "";
+            }
+            const bound = Math.pow(2, zoom);
+            return (
+                "https://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-mars-basemap-v0-2/all/" +
+                zoom +
+                "/" +
+                normalizedCoord.x +
+                "/" +
+                (bound - normalizedCoord.y - 1) +
+                ".png"
+            );
+        },
+        tileSize: new google.maps.Size(256, 256),
+        maxZoom: 9,
+        minZoom: 0,
+        // radius: 3389500,
+        name: "Mars",
+    });
+
+    map.mapTypes.set("mars", marsMapType);
+    map.setMapTypeId("mars");
+
     return map;
+}
+
+
+function getNormalizedCoord(tileCoord, zoom) {
+    const y = tileCoord.y;
+    let x = tileCoord.x;
+    const tileRange = 1 << zoom;
+
+    if (y < 0 || y >= tileRange) {
+        return null;
+    }
+
+    if (x < 0 || x >= tileRange) {
+        x = ((x % tileRange) + tileRange) % tileRange;
+    }
+
+    return {x: x, y: y};
 }
