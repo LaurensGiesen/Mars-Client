@@ -39,18 +39,18 @@ document.querySelector('.articleContainer').innerHTML +=
 }
 }
 
-function addProductToList(products) {
-return document.querySelector('.articleContainer').innerHTML +=
-            `<article id="${products.id}">
-                 <a href="marketplaceDetails.html"><img alt="${products.name}" src="${products.img}" title="${products.name}"></a>
+function addProductToList(product) {
+        document.querySelector('.articleContainer').innerHTML +=
+            `<article id="${product.id}">
+                 <a href="marketplaceDetails.html"><img alt="${product.name}" src="${product.img}" title="${product.name}"></a>
                  <div>
-                     <h3><a href="marketplaceDetails.html">Name: ${products.name}</a></h3>
-                     <p>Price: ${products.price}</p>
-                     <p>From: ${products.from}</p>
-                     <p>Date product added: ${products.date}</p>
+                     <h3><a href="marketplaceDetails.html">Name: ${product.name}</a></h3>
+                     <p>Price: ${product.price}</p>
+                     <p>From: ${product.from}</p>
+                     <p>Date product added: ${product.date}</p>
                  </div>
                  <form>
-                     <label for="amount">Amount: ${products.amount}</label>
+                     <label for="amount">Amount: ${product.amount}</label>
                      <input class="amount" min="1" step="1" type="number" value="1">
 
                      <figure>
@@ -66,4 +66,7 @@ return document.querySelector('.articleContainer').innerHTML +=
                      </figure>
                  </form>
              </article>`
-}
+    }
+
+
+
