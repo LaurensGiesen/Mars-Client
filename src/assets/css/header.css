@@ -26,32 +26,32 @@ header nav ul li a{
     font-family: 'PT Sans', sans-serif;
 
 }
-header ul li ul{
+ul li ul{
     background-color: #ffffff;
     visibility: hidden;
     opacity: 0;
     min-width: 5rem;
     position: absolute;
     transition: all 0.5s ease;
-    margin-top: 3.3rem;
+    margin-top: 3.1rem;
     left: 0;
     display: none;
     text-align: center;
 }
 
-header ul li:hover > ul,
-header ul li ul:hover {
+ul li:hover > ul,
+ul li ul:hover {
     visibility: visible;
     opacity: 1;
     display: block;
 }
 
 
-header ul li ul li {
+ul li ul li {
     width: 80% ;
     padding: 1rem;
     font-size: 1rem;
-    background-color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 header a:hover{
