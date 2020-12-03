@@ -4,10 +4,16 @@ header {
     padding: 2rem;
 }
 
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #0C1B33;
+}
+
 h1 {
     font-size: 2rem;
     padding-left: 3rem;
     margin-top: 3rem;
+    font-family: 'PT Sans', sans-serif;
 }
 
 #personalDetails {
@@ -31,6 +37,11 @@ input {
     padding: 0.5rem;
     width: 20rem;
     margin-bottom: 1rem;
+    border: 1px solid #413C58;
+}
+
+input:focus{
+    border: 2px solid #FFBA49;
 }
 
 input[type="number"] {
@@ -54,10 +65,17 @@ fieldset input {
 
 input[type=submit] {
     display: block;
+    text-align: center;
     margin-right: 10rem;
     margin-left: 9rem;
     margin-top: 3rem;
     width: 20rem;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    border: 2px solid #CF5C36;
+    background-color: #CF5C36;
+    color: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 
