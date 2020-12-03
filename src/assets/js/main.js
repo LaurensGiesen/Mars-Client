@@ -16,10 +16,10 @@ async function init() {
     loadSortValues();
     document.querySelector('#order').addEventListener('change', marketPlaceSorting);
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter)
+    filterProducts();
 }
 
 async function loadConfig() {
     const response = await fetch("config.json");
     return response.json();
 }
-
