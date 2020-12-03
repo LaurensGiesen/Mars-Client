@@ -10,7 +10,9 @@ async function init() {
     config = await loadConfig();
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
     // Small poc
-    getMessage().then(message => h1Element.innerText = message);
+//    getMessage().then(message => h1Element.innerText = message);
+    loadProducts();
+    searchProducts();
 }
 
 async function loadConfig() {
