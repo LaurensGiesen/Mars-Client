@@ -93,15 +93,18 @@
         <input type="button" value="Add your product">
 
         <form action="#" id="filters" method="post">
-            <label for="search"></label>
+            <label for="search">Search </label>
             <input id="search" name="search" placeholder="search here" type="search">
 
+            <label for="sortby">Sort items by
+                <select name="sortby" id="sortby">
+
+                </select>
+            </label>
             <label for="order"></label>
             <select id="order" name="order">
-                <option value="asc">price: ascending</option>
-                <option value="desc">price: descending</option>
-                <option value="name">name</option>
-                <option value="date">date</option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
             </select>
         </form>
 

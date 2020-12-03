@@ -83,5 +83,15 @@ figure{
 .emptybasket{
     width: 2.5rem;
     margin-right: 0.4rem;
+}
+.articleContainer {
+    margin-top: 2rem;
+}
 
+#sortby {
+    margin-left: 0.4rem;
+}
+
+#search {
+    margin-left: 0.2rem;
 }

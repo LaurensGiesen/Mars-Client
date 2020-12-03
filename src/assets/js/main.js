@@ -13,6 +13,9 @@ async function init() {
 //    getMessage().then(message => h1Element.innerText = message);
     loadProducts();
     searchProducts();
+    loadSortValues();
+    document.querySelector('#order').addEventListener('change', marketPlaceSorting);
+    document.querySelector('#sortby').addEventListener('change', marketPlaceFilter)
     filterProducts();
 }
 

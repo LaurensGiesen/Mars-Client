@@ -1,4 +1,5 @@
 let newProducts = [];
+
 const products = [
     {
         id: 1,

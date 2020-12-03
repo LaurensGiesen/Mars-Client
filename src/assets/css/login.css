@@ -1,25 +1,37 @@
 main{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin-top: 8rem;
+    margin-left: 8rem;
     height: 45rem;
+
 }
 
 main img{
-    height: 20rem;
-    align-items: center;
+    height: 100%;
+    margin-left: 2rem;
+    border-radius: 5px;
+
 }
 
 h1{
     font-size: 4rem;
-    margin-right: 10rem;
-    margin-left: 4rem;
+    text-align: center;
+    margin: 2rem 8rem 3rem 0;
+    font-family: 'PT Sans', sans-serif;
 }
 
 input{
     width: 15rem;
-    height: 3rem;
-    font-size: 1.5rem;
-    margin-right: 10rem;
-    margin-left: 5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    margin-left: 29.7rem;
+    border-radius: 3px;
+    border: 2px solid #CF5C36;
+    background-color: #CF5C36;
+    color: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+input:hover{
+    font-weight: bold;
 }
