@@ -6,14 +6,13 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
     // Temporary hack to allow local testing of the web client and server.
-//    document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
-//    config = await loadConfig();
-//    api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
-//    // Small poc
+    document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
+    config = await loadConfig();
+    api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
+    // Small poc
 //    getMessage().then(message => h1Element.innerText = message);
     loadProducts();
     searchProducts();
-
 }
 
 async function loadConfig() {
