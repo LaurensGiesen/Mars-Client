@@ -5,7 +5,9 @@ header nav ul {
 }
 
 header nav ul li {
-    border: solid black;
+    border: 1px solid #3E442B;
+    border-left: 1px solid #ffffff;
+    border-bottom: none;
     flex: 1 1 12rem;
     text-align: center;
     align-items: flex-end;
@@ -13,11 +15,32 @@ header nav ul li {
     padding-bottom: 3rem;
     font-size: 2rem;
     position: relative;
+    background-color: #3E442B;
+    color: #ffffff;
+    /*font-family: 'Ubuntu', sans-serif;*/
+    font-family: 'PT Sans', sans-serif;
+}
+
+#eerste{
+    /*font-family: 'Rubik', sans-serif;*/
+    font-family: 'PT Sans', sans-serif;
+
+}
+
+#tweede{
+    /*font-family: 'Noto Sans', sans-serif;*/
+    font-family: 'PT Sans', sans-serif;
+}
+
+#derde{
+    font-family: 'PT Sans', sans-serif;
 }
 
 header nav ul li a{
     text-decoration: none;
-    color: black;
+    color: #ffffff;
+    font-family: 'PT Sans', sans-serif;
+
 }
 ul li ul{
     background-color: #ffffff;
@@ -29,6 +52,7 @@ ul li ul{
     margin-top: 3.3rem;
     left: 0;
     display: none;
+    text-align: center;
 }
 
 ul li:hover > ul,
@@ -48,6 +72,7 @@ ul li ul li {
 
 #logo{
     flex: 0 1 12rem;
+    border-left: 1px solid #3E442B;
 }
 
 #basketHeader{

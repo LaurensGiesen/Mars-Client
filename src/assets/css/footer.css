@@ -1,12 +1,13 @@
 body{
     padding: 1rem;
+    color: #3E442B;
 }
 
 footer{
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
     display: flex;
-    border: solid black;
+    border: solid #3E442B;
     justify-content: space-around;
     flex-wrap: wrap;
 }
