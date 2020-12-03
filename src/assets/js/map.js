@@ -54,7 +54,7 @@ function displayMap() {
             );
         },
         tileSize: new google.maps.Size(256, 256),
-        maxZoom: 9,
+        maxZoom: 7,
         minZoom: 0,
         // radius: 3389500,
         name: "Mars",
@@ -66,7 +66,20 @@ function displayMap() {
     drawRectangle(map);
     drawPolygon(map);
     getPosition(map);
+    insertGallifrey(map);
     return map;
+}
+
+function insertGallifrey(map) {
+    const imageBounds = {
+        north: 6,
+        south: 5,
+        east: 6,
+        west: 5,
+    };
+    const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
+    return gallifreyOverlay.setMap(map);
+
 }
 
 function getNormalizedCoord(tileCoord, zoom) {
