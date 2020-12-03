@@ -6,33 +6,17 @@ header nav ul {
 
 header nav ul li {
     border: 1px solid #3E442B;
-    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
     border-bottom: none;
     flex: 1 1 12rem;
     text-align: center;
     align-items: flex-end;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
     font-size: 2rem;
     position: relative;
     background-color: #3E442B;
     color: #ffffff;
-    /*font-family: 'Ubuntu', sans-serif;*/
-    font-family: 'PT Sans', sans-serif;
-}
-
-#eerste{
-    /*font-family: 'Rubik', sans-serif;*/
-    font-family: 'PT Sans', sans-serif;
-
-}
-
-#tweede{
-    /*font-family: 'Noto Sans', sans-serif;*/
-    font-family: 'PT Sans', sans-serif;
-}
-
-#derde{
     font-family: 'PT Sans', sans-serif;
 }
 
@@ -42,7 +26,7 @@ header nav ul li a{
     font-family: 'PT Sans', sans-serif;
 
 }
-ul li ul{
+header ul li ul{
     background-color: #ffffff;
     visibility: hidden;
     opacity: 0;
@@ -55,24 +39,31 @@ ul li ul{
     text-align: center;
 }
 
-ul li:hover > ul,
-ul li ul:hover {
+header ul li:hover > ul,
+header ul li ul:hover {
     visibility: visible;
     opacity: 1;
     display: block;
 }
 
 
-ul li ul li {
+header ul li ul li {
     width: 80% ;
     padding: 1rem;
     font-size: 1rem;
     background-color: #ffffff;
 }
 
+header a:hover{
+    color: #F4F7BE;
+}
+
 #logo{
     flex: 0 1 12rem;
-    border-left: 1px solid #3E442B;
+}
+
+#profile{
+  border-right: 1px solid #3E442B;
 }
 
 #basketHeader{
