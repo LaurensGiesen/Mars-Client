@@ -16,36 +16,19 @@ p{
     margin-bottom: 1rem;
 }
 
-.articleContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 article{
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
 }
 
+article img{
+    width: 10rem;
+}
+
 article div img{
     width: 2rem;
     margin-right: 0.5rem;
-}
-
-figure{
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.heart{
-    width: 1.5rem;
-    margin-left: 0.2rem;
-}
-
-article img{
-    width: 10rem;
 }
 
 article div input{
@@ -56,5 +39,24 @@ article div input{
 article div:nth-child(3){
     margin-left: 10rem;
 }
+
+figure{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.articleContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.heart{
+    width: 1.5rem;
+    margin-left: 0.2rem;
+}
+
 
 

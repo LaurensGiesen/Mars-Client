@@ -4,7 +4,7 @@ let api;
 
 document.addEventListener("DOMContentLoaded", init);
 
-let h1 = document.querySelector("h1");
+const h1 = document.querySelector("h1");
 
 async function init() {
 
@@ -29,7 +29,7 @@ function getFoo() {
 }
 
 function register() {
-    let data = JSON.stringify({
+    const data = JSON.stringify({
         firstname: document.querySelector("#foreName").value,
         lastname: document.querySelector("#surName").value,
         email: document.querySelector("#email").value,
