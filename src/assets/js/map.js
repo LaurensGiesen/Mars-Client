@@ -43,7 +43,8 @@ function displayMap() {
             }
             const bound = Math.pow(2, zoom);
             return (
-                "https://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-mars-basemap-v0-2/all/" +
+                "http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/"
+                +
                 zoom +
                 "/" +
                 normalizedCoord.x +
