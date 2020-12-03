@@ -7,7 +7,7 @@ function init() {
 }
 
 function runApp() {
-    console.log("loaded Maps JS API")
+    displayMap();
 }
 
 function loadMapsJSAPI() {
@@ -21,4 +21,22 @@ function loadMapsJSAPI() {
 
     window.runApp = runApp;
     document.head.appendChild(script)
+}
+
+function displayMap() {
+    const mapDiv = document.getElementById('map');
+    const mapOptions = {
+        center: {lat: 51.20944, lng: 3.224167},
+        zoom: 14
+    };
+    // const mapOptions = {
+    //     center: { lat: 0, lng: 0},
+    //     zoom: 1,
+    //     streetViewControl: false,
+    //     mapTypeControlOptions: {
+    //         mapTypeIds: ["moon"],
+    //     }
+    // };
+    const map = new google.maps.Map(mapDiv, mapOptions)
+    return map;
 }
