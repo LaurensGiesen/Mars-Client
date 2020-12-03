@@ -13,6 +13,7 @@ async function init() {
 //    getMessage().then(message => h1Element.innerText = message);
     loadProducts();
     searchProducts();
+    filterProducts();
 }
 
 async function loadConfig() {
