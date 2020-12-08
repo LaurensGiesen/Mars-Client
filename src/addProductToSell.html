@@ -32,25 +32,25 @@
     <h1>Add product</h1>
     <form method="post" action="#" enctype="multipart/form-data">
         <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <label for="owner">Please enter your name:</label>
+            <input type="text" id="owner" name="name" placeholder="Owner" required>
 
-            <label for="category">Category:</label>
-            <select id="category">
-                <option value="Fruit">Fruit</option>
-                <option value="Vegetables">Vegetables</option>
-            </select>
+            <label for="name">Name product:</label>
+            <input type="text" id="name" name="name" placeholder="Apple" required>
+
+            <label for="date">Date of the day:</label>
+            <input type="date" id="date"  name="date" min="2020-12-08"  required>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" required min="1" value="1" step="1">
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required min="1" value="1" step="1">
 
             <label for="picture">Picture:</label>
             <input type="file" id="picture" required>
 
-            <label for="price">Price:</label>
-            <input type="number" id="price" required min="1" step="any">
-
-            <label for="description">Description:</label>
-            <input class="description" type="text" name="description" id="description" />
-
-            <input type="submit" value="Add">
+            <input id="addProduct" type="submit" value="Add">
         </div>
     </form>
 </main>
@@ -71,5 +71,8 @@
     subscriptions.html">subscription types</a></p>
 
 </footer>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/addProduct.js"></script>
+<script src="assets/js/log.js"></script>
 </body>
 </html>

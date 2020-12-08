@@ -35,7 +35,7 @@ input[type="button"]{
     display: block;
     margin-left: auto;
     margin-right: 9rem;
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
 }
 
 article{
@@ -61,7 +61,6 @@ article img{
 #amount{
     width: 15%;
     margin-left: 1rem;
-
 }
 
 figure{
@@ -69,10 +68,8 @@ figure{
     margin: 1rem;
 }
 
-
 .heart{
     margin-left: 2.1rem;
-
 }
 
 .emptyheart{
@@ -85,7 +82,7 @@ figure{
     margin-right: 0.4rem;
 }
 .articleContainer {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 #sortby {

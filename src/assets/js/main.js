@@ -15,8 +15,9 @@ async function init() {
     searchProducts();
     loadSortValues();
     document.querySelector('#order').addEventListener('change', marketPlaceSorting);
-    document.querySelector('#sortby').addEventListener('change', marketPlaceFilter)
+    document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
+    document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
 
 async function loadConfig() {

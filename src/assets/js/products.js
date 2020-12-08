@@ -1,6 +1,4 @@
-let newProducts = [];
-
-const products = [
+let products = [
     {
         id: 1,
         name: 'carrots',

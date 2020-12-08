@@ -42,7 +42,6 @@ function filterProducts() {
 }
 
 function filter(checkbox) {
-    log(checkbox);
     document.querySelector('.articleContainer').innerHTML = "";
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
@@ -68,7 +67,6 @@ function disableCheckboxes(checkedCheckbox) {
     filterBox.forEach(checkbox => {
         let checkboxId = checkbox.attributes[2].value;
         if (checkboxId.localeCompare(checkedCheckboxId) !== 0) {
-            log(checkbox);
             checkbox.setAttribute("disabled", "");
         }
     })
@@ -78,7 +76,6 @@ function enableCheckboxes() {
     filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         if (checkbox.getAttribute("disabled") !== null) {
-            log(checkbox);
             checkbox.removeAttribute("disabled");
         }
     })
@@ -120,4 +117,8 @@ function marketPlaceFilter(e) {
         return 0;
     });
     marketPlaceSorting();
+}
+
+function goToAddProduct() {
+    document.location.href = "addProductToSell.html";
 }
