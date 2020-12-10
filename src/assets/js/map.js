@@ -1,9 +1,22 @@
 "use strict"
-
+let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadMapsJSAPI();
+    document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
+}
+
+function openFilterPopUpMap() {
+    let hiddenScrollOut = document.querySelector('#scrollOut');
+    if (!filterIsOpen) {
+        hiddenScrollOut.classList.remove("behind");
+        filterIsOpen = true;
+    } else {
+        hiddenScrollOut.classList.add("behind");
+        filterIsOpen = false;
+    }
+    console.log("df");
 }
 
 function runApp() {
@@ -62,25 +75,14 @@ function displayMap() {
 
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
-
     drawRectangle(map);
     drawPolygon(map);
     getPosition(map);
     insertGallifrey(map);
+
     return map;
 }
 
-function insertGallifrey(map) {
-    const imageBounds = {
-        north: 6,
-        south: 5,
-        east: 6,
-        west: 5,
-    };
-    const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
-    return gallifreyOverlay.setMap(map);
-
-}
 
 function getNormalizedCoord(tileCoord, zoom) {
     const y = tileCoord.y;
@@ -96,6 +98,18 @@ function getNormalizedCoord(tileCoord, zoom) {
     }
 
     return {x: x, y: y};
+}
+
+function insertGallifrey(map) {
+    const imageBounds = {
+        north: 6,
+        south: 5,
+        east: 6,
+        west: 5,
+    };
+    const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
+    return gallifreyOverlay.setMap(map);
+
 }
 
 function getPosition(map) {
