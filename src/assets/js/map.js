@@ -5,6 +5,23 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
     loadMapsJSAPI();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
+    document.querySelector(`input[value='Fruit']`).addEventListener('click', getFruitSeeds);
+    document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggiesSeeds);
+
+}
+
+function getFruitSeeds() {
+    removeHiddenByFilter();
+    console.log("seeds");
+}
+function removeHiddenByFilter() {
+    let removeHidden = document.querySelector('.hidden');
+    removeHidden.classList.remove('hidden');
+}
+
+function getVeggiesSeeds() {
+    removeHiddenByFilter();
+    console.log("veggies");
 }
 
 function openFilterPopUpMap() {
@@ -16,7 +33,6 @@ function openFilterPopUpMap() {
         hiddenScrollOut.classList.add("behind");
         filterIsOpen = false;
     }
-    console.log("df");
 }
 
 function runApp() {
