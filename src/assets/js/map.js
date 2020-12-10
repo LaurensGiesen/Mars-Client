@@ -75,10 +75,9 @@ function displayMap() {
 
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
-    insertGallifrey(map);
-    drawRectangle(map);
-    drawPolygon(map);
-    getPosition(map);
+    // drawRectangle(map);
+    // drawPolygon(map);
+    // getPosition(map);
     insertGallifrey(map);
 
     return map;
