@@ -50,13 +50,13 @@ function filter(checkbox) {
         for (let product of products) {
             let productName = product.name.toLowerCase();
             if (productName === checkedProduct.toLowerCase()) {
-                addProductToList(product);
+                loadPlants(product);
             }
         }
     } else {
         enableCheckboxes();
         for (let product of products) {
-            addProductToList(product);
+            loadPlants(product);
         }
     }
 }
@@ -83,6 +83,7 @@ function enableCheckboxes() {
 
 
 function marketPlaceSorting() {
+    getResOfPlants();
     let searchRes = [];
     for (let product of array) {
         let name = product.name.toLowerCase();
@@ -95,7 +96,7 @@ function marketPlaceSorting() {
     }
     document.querySelector('.articleContainer').innerHTML = "";
     for (let product of searchRes) {
-        addProductToList(product);
+        loadPlants(product);
     }
 }
 
@@ -121,4 +122,23 @@ function marketPlaceFilter(e) {
 
 function goToAddProduct() {
     document.location.href = "addProductToSell.html";
+}
+
+function loadPlants() {
+    document.querySelector('.articleContainer').innerHTML = "";
+    api = `${config.host ? config.host + '/' : ''}`;
+    apiCall("getPlants","GET", null).then((res) => {
+        res.forEach(item => {
+            addProductToList(item);
+        });
+    });
+}
+
+function getResOfPlants() {
+    products = [];
+    document.querySelectorAll('.articleContainer article').forEach(e => {
+        products.push(e);
+    });
+    console.log(products);
+
 }

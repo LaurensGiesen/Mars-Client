@@ -11,9 +11,10 @@ async function init() {
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
     // Small poc
 //    getMessage().then(message => h1Element.innerText = message);
-    loadProducts();
+//     loadProducts();
     searchProducts();
     loadSortValues();
+    loadPlants();
     document.querySelector('#order').addEventListener('change', marketPlaceSorting);
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
