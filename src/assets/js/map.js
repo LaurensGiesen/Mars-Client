@@ -104,6 +104,6 @@ function insertGallifrey(map) {
         east: 0,
         west: 0,
     };
-    const gallifreyOverlay = new google.maps.GroundOverlay("src/assets/img/Gallifrey.png", imageBounds);
+    const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
     return gallifreyOverlay.setMap(map);
 }
