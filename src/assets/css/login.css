@@ -35,4 +35,6 @@ input{
 
 input:hover{
     font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
 }

@@ -41,12 +41,13 @@ input {
 }
 
 input:focus{
-    border: 2px solid #FFBA49;
+    border: 2px solid #588B8B;
 }
 
 input[type="number"] {
     width: 2rem;
 }
+
 
 form div div label {
     padding: 0.5rem 0 0.5rem 0;
@@ -80,6 +81,12 @@ input[type=submit] {
     background-color: #983628;
     color: #ffffff;
     font-family: 'Noto Sans JP', sans-serif;
+}
+
+input[type=submit]:hover{
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
 }
 
 label{
