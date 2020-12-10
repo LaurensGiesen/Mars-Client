@@ -24,9 +24,3 @@ async function loadConfig() {
     const response = await fetch("config.json");
     return response.json();
 }
-
-const app = Vue.createApp({
-    data() {
-
-    }
-})
