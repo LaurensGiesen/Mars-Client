@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadMapsJSAPI();
-    insertGallifrey();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
 }
 
@@ -68,7 +67,7 @@ function displayMap() {
             );
         },
         tileSize: new google.maps.Size(256, 256),
-        maxZoom: 9,
+        maxZoom: 7,
         minZoom: 0,
         // radius: 3389500,
         name: "Mars",
@@ -76,6 +75,7 @@ function displayMap() {
 
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
+    insertGallifrey(map);
 
     return map;
 }
@@ -99,11 +99,55 @@ function getNormalizedCoord(tileCoord, zoom) {
 
 function insertGallifrey(map) {
     const imageBounds = {
-        north: 0,
-        south: 0,
-        east: 0,
-        west: 0,
+        north: 6,
+        south: 5,
+        east: 6,
+        west: 5,
     };
     const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
     return gallifreyOverlay.setMap(map);
+
+}
+
+function getPosition(map) {
+    map.addListener("click", (mapsMouseEvent) => {
+        console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON()))
+    });
+}
+
+function drawRectangle(map) {
+    return new google.maps.Rectangle({
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35,
+        map,
+        bounds: {
+            north: 1,
+            south: -1,
+            east: 1,
+            west: -1,
+        },
+    })
+}
+
+function drawPolygon(map) {
+    const coordinatesArrayExample = [
+        {lat: 1, lng: 1.5},
+        {lat: -0.5, lng: 3},
+        {lat: 0, lng: 1.5},
+        {lat: 1, lng: 1.5}
+    ]
+
+    let polygon = new google.maps.Polygon({
+        paths: coordinatesArrayExample,
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35,
+    });
+    polygon.setMap(map);
+
 }
