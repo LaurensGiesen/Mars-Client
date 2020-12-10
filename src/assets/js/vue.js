@@ -1,0 +1,1 @@
+const header = Vue.createApp({})

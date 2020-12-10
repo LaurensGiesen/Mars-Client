@@ -25,4 +25,4 @@ async function loadConfig() {
     return response.json();
 }
 
-const header = Vue.createApp({})
+// const header = Vue.createApp({})

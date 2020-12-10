@@ -7,28 +7,12 @@
     <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/sharedTools.css">
     <link rel="stylesheet" type="text/css" href="assets/css/sideFilter.css">
+    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: shared tools</title>
 </head>
 <body>
 <header>
-
-    <nav>
-        <ul>
-            <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="marketplace.html">Marketplace</a></li>
-            <li><a href="info.html">Info</a></li>
-            <li><a href="sharedTools.html">Shared Tools</a></li>
-            <li>Profile
-                <ul class="dropdown">
-                    <li><a href="profile.html">Account and Subscription</a></li>
-                    <li><a href="orderHistory.html">Order History</a></li>
-                    <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="login.html">Sign out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <header-display></header-display>
 </header>
 <main>
     <aside class="filter">
@@ -138,6 +122,8 @@
     <p>View the <a href="subscriptions.html">subscription types</a></p>
 
 </footer>
-
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/components/headerDisplay.js"></script>
+<script>const mountedApp = header.mount('header')</script>
 </body>
 </html>
