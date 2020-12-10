@@ -1,1 +1,3 @@
-const header = Vue.createApp({})
+"use strict"
+
+const app = Vue.createApp({});

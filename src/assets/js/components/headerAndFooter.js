@@ -1,4 +1,4 @@
-header.component('header-display', {
+app.component('header-display', {
     template: `
     <nav>
         <ul>
@@ -18,4 +18,23 @@ header.component('header-display', {
         </ul>
     </nav>
               `
+})
+
+app.component('footer-display', {
+    template:
+        `
+        <div>
+            <h3>Contact us</h3>
+                <p>mars@mars.mars</p>
+                <p>MARS inc. Olympus Mons 18.4N, 134W Mars</p>
+
+        </div>
+        <div>
+            <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
+            <img src="../../../assets/img/login.jpg" alt="#">
+            <img src="../../../assets/img/login.jpg" alt="#">
+            <img src="../../../assets/img/login.jpg" alt="#">
+        </div>
+        <p><a href="../../../subscriptions.html">View the subscription types</a></p>
+        `
 })
