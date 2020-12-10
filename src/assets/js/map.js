@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadMapsJSAPI();
+    insertGallifrey();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
 }
 
@@ -94,4 +95,15 @@ function getNormalizedCoord(tileCoord, zoom) {
     }
 
     return {x: x, y: y};
+}
+
+function insertGallifrey(map) {
+    const imageBounds = {
+        north: 0,
+        south: 0,
+        east: 0,
+        west: 0,
+    };
+    const gallifreyOverlay = new google.maps.GroundOverlay("src/assets/img/Gallifrey.png", imageBounds);
+    return gallifreyOverlay.setMap(map);
 }
