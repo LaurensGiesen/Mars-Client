@@ -1,14 +1,14 @@
 header nav ul {
     display: flex;
-    border: 1px solid #983628;
-    background-color: #983628;
+    border: 1px solid #588B8B;
+    background-color: #588B8B;
 }
 
 header nav ul li {
     padding: 2rem 0 2rem 2.5rem;
     font-size: 1.5rem;
     position: relative;
-    background-color: #983628;
+    background-color: #588B8B;
     color: #ffffff;
     font-family: 'PT Sans', sans-serif;
 }
@@ -48,7 +48,8 @@ ul li ul li {
 }
 
 header a:hover{
-    color: #F4F7BE;
+    background-color: #81afaf;
+
 }
 
 #logo{
