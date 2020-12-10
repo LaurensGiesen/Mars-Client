@@ -16,7 +16,6 @@ function addDateInForm() {
 
         <label for="date">Date of the day:</label>
         <input type="date" id="date" name="date" min="2020-12-08" required>
-        
         <label for="price">Price:</label>
         <input type="number" id="price" required min="1" value="1" step="1">
 
@@ -26,7 +25,7 @@ function addDateInForm() {
         <label for="picture">Picture:</label>
         <input type="file" id="picture" required>
 
-        <input id="addProduct" type="submit" value="Add">`
+        <input id="addProduct" type="submit" value="Add">`;
 }
 
 function addProduct(e) {
