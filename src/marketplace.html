@@ -7,32 +7,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css" href="assets/css/marketplace.css">
     <link rel="stylesheet" type="text/css" href="assets/css/sideFilter.css">
-    <meta content="Cedric Puystjens" name="author">
+    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: marketplace</title>
 </head>
 <body>
 
 <header>
-
-    <nav>
-        <ul>
-            <li id="logo"><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="marketplace.html">Marketplace</a></li>
-            <li><a href="info.html">Info</a></li>
-            <li><a href="sharedTools.html">Shared Tools</a></li>
-            <li>Profile
-                <ul class="dropdown">
-                    <li><a href="profile.html">Account and Subscription</a></li>
-                    <li><a href="orderHistory.html">Order History</a></li>
-                    <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="login.html">Sign out</a></li>
-                </ul>
-            </li>
-            <li class="basket" id="basketHeader"><a href="basket.html"><img alt="shopping basket" src="assets/img/shopping%20basket.svg" title="shopping basket"></a></li>
-        </ul>
-    </nav>
-
+    <header-display></header-display>
 </header>
 
 <main>
@@ -118,26 +99,17 @@
 </main>
 
 <footer>
-
-    <div>
-        <h3>Contact us</h3>
-        <p>mars@mars.mars</p>
-        <p>MARS inc. Olympus Moms 18.4N, 134W Mars</p>
-
-    </div>
-    <div>
-        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
-        <img src="assets/img/login.jpg" alt="#">
-        <img src="assets/img/login.jpg" alt="#">
-        <img src="assets/img/login.jpg" alt="#">
-    </div>
-    <p>View the <a href="subscriptions.html">subscription types</a></p>
-
+    <footer-display></footer-display>
 </footer>
+
+<script src="assets/js/products.js"></script>
 <script src="assets/js/loadProducts.js"></script>
 <script src="assets/js/marketplace.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/log.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/components/headerAndFooter.js"></script>
+<script>const mountedApp = app.mount('body')</script>
 <script src="assets/js/api.js"></script>
 </body>
 </html>
