@@ -11,16 +11,18 @@ function init() {
 }
 
 function getFruitSeeds() {
-    removeHiddenByFilter();
-    console.log("seeds");
-}
-function removeHiddenByFilter() {
     let removeHidden = document.querySelector('.hidden');
-    removeHidden.classList.remove('hidden');
+    if (removeHidden.classList.contains('hidden')) {
+        console.log("seeds");
+    } else {
+        removeHidden.classList.remove('hidden');
+    }
 }
 
+
 function getVeggiesSeeds() {
-    removeHiddenByFilter();
+    let removeHidden = document.querySelector('.hidden');
+    removeHidden.classList.remove('hidden');
     console.log("veggies");
 }
 
