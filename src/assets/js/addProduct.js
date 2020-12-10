@@ -51,7 +51,8 @@ function addProduct(e) {
     bla().then(() => {
         api = `${config.host ? config.host + '/' : ''}`;
         apiCall("addProduct", "POST", newProduct);
-    })
+    });
+    document.location.href = "marketplace.html";
 }
 
 async function bla() {
