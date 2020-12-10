@@ -1,3 +1,5 @@
+/*Voor de images vertrekt vue sowieso vanuit 'src', geen relatieve paden (al dan niet met hulp van intellij gebruiken).
+Het is mogelijk dat dit ook het geval is voor links*/
 app.component('header-display', {
     template: `
       <nav>
@@ -16,18 +18,16 @@ app.component('header-display', {
             <li><a href="../../../login.html">Sign out</a></li>
           </ul>
         </li>
-        <li><a href=" ../../../basket.html"><img src="../../img/whiteBasket.svg" title="basket" alt="basket"
+        <li><a href=" ../../../basket.html"><img v-bind:src="whiteBasket" title="basket" alt="basket"
                                                  class="headerBasket"></a></li>
       </ul>
-      <img v-bind:src="google">
       </nav>
     `,
     data() {
         return {
-            logo: 'D:/Git/project II/analysis and development project/client/src/assets/img/logo.png',
-            account: '/src/assets/img/account.svg',
-            whiteBasket: '../img/whiteBasket.svg',
-            google: 'https://www.creare.co.uk/wp-content/uploads/2016/02/google-1018443_1920.png'
+            logo: "assets/img/logo.png",
+            account: "assets/img/account.svg",
+            whiteBasket: "assets/img/whiteBasket.svg",
         }
     }
 })
