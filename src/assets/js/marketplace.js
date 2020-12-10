@@ -122,3 +122,9 @@ function marketPlaceFilter(e) {
 function goToAddProduct() {
     document.location.href = "addProductToSell.html";
 }
+let counter = 0;
+function  AddProductToBasket() {
+    let figcaption = document.querySelector('#counter');
+    counter += 1;
+    figcaption.innerHTML = counter;
+}

@@ -18,6 +18,9 @@ async function init() {
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
+    document.querySelectorAll('.emptybasket').forEach(e => {
+        e.addEventListener('click', AddProductToBasket);
+    });
 }
 
 async function loadConfig() {
