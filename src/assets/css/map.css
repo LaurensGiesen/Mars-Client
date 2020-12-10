@@ -1,7 +1,9 @@
 .hidden {
     display: none;
 }
-
+.behind {
+    z-index: -1;
+}
 body {
     padding: 1rem;
 }
@@ -10,7 +12,6 @@ main {
     border: solid #588B8B;
     border-top: none;
     position: relative;
-
 }
 
 #map {
@@ -51,7 +52,6 @@ span {
     height: 4.5rem;
     width: 60rem;
     border-radius: 5%;
-    z-index: 1;
     display: flex;
     bottom: 1rem;
     left: 2rem;

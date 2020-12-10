@@ -1,9 +1,22 @@
 "use strict"
-
+let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadMapsJSAPI();
+    document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
+}
+
+function openFilterPopUpMap() {
+    let hiddenScrollOut = document.querySelector('#scrollOut');
+    if (!filterIsOpen) {
+        hiddenScrollOut.classList.remove("behind");
+        filterIsOpen = true;
+    } else {
+        hiddenScrollOut.classList.add("behind");
+        filterIsOpen = false;
+    }
+    console.log("df");
 }
 
 function runApp() {

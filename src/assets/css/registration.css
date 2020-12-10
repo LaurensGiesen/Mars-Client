@@ -1,7 +1,6 @@
 header {
     display: flex;
     flex-direction: row;
-    padding: 2rem;
 }
 
 body{
@@ -14,6 +13,7 @@ h1 {
     padding-left: 3rem;
     margin-top: 3rem;
     font-family: 'PT Sans', sans-serif;
+    color: #0C1B33;
 }
 
 #personalDetails {
@@ -37,16 +37,17 @@ input {
     padding: 0.5rem;
     width: 20rem;
     margin-bottom: 1rem;
-    border: 1px solid #413C58;
+    border: 1px solid #0C1B33;
 }
 
 input:focus{
-    border: 2px solid #FFBA49;
+    border: 2px solid #588B8B;
 }
 
 input[type="number"] {
     width: 2rem;
 }
+
 
 form div div label {
     padding: 0.5rem 0 0.5rem 0;
@@ -63,6 +64,10 @@ fieldset input {
     margin: 0.5rem;
 }
 
+legend{
+    margin-left: 0.5rem;
+}
+
 input[type=submit] {
     display: block;
     text-align: center;
@@ -72,13 +77,27 @@ input[type=submit] {
     width: 20rem;
     font-size: 1.2rem;
     border-radius: 3px;
-    border: 2px solid #CF5C36;
-    background-color: #CF5C36;
+    border: 2px solid #983628;
+    background-color: #983628;
     color: #ffffff;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+input[type=submit]:hover{
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
+}
 
+label{
+    color: #0C1B33;
+    margin-bottom: 0.5rem;
+}
+
+
+#favCrops label{
+    margin: 0;
+}
 
 a {
     text-decoration: none;
@@ -89,4 +108,8 @@ a {
     margin: 0 auto 0 auto;
     display: block;
     width: fit-content;
+}
+
+.logo{
+    width: 9rem;
 }

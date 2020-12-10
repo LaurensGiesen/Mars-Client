@@ -15,8 +15,9 @@ main img{
 h1{
     font-size: 4rem;
     text-align: center;
-    margin: 2rem 8rem 3rem 0;
+    margin: 2rem 7rem 3rem 0;
     font-family: 'PT Sans', sans-serif;
+    color: #0C1B33;
 }
 
 input{
@@ -25,8 +26,8 @@ input{
     font-size: 1.2rem;
     margin-left: 29.7rem;
     border-radius: 3px;
-    border: 2px solid #CF5C36;
-    background-color: #CF5C36;
+    border: 2px solid #983628;
+    background-color: #983628;
     color: #ffffff;
     font-family: 'Noto Sans JP', sans-serif;
 
@@ -34,4 +35,6 @@ input{
 
 input:hover{
     font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
 }
