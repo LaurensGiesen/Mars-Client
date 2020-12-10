@@ -1,21 +1,14 @@
 header nav ul {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    border: 1px solid #983628;
+    background-color: #983628;
 }
 
 header nav ul li {
-    border: 1px solid #3E442B;
-    border-right: 1px solid #ffffff;
-    border-bottom: none;
-    flex: 1 1 12rem;
-    text-align: center;
-    align-items: flex-end;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    font-size: 2rem;
+    padding: 2rem 0 2rem 2.5rem;
+    font-size: 1.5rem;
     position: relative;
-    background-color: #3E442B;
+    background-color: #983628;
     color: #ffffff;
     font-family: 'PT Sans', sans-serif;
 }
@@ -63,7 +56,9 @@ header a:hover{
 }
 
 #profile{
-  border-right: 1px solid #3E442B;
+    display: block;
+    margin-left: auto;
+    margin-right: 1.5rem;
 }
 
 #basketHeader{
