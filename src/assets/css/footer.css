@@ -4,12 +4,10 @@ body{
 }
 
 footer{
-    background-color: #3E442B;
+    background-color: #588B8B;
     color: #ffffff;
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
+    padding-top: 0.5rem;
     display: flex;
-    border: solid #3E442B;
     justify-content: space-around;
     flex-wrap: wrap;
     font-family: 'Noto Sans JP', sans-serif;
@@ -29,10 +27,16 @@ footer div img{
 
 footer a {
     text-decoration: none;
-    color: #FFBA49;
+    color: #E0EFDE;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 footer a:hover{
-    text-decoration: underline;
-    color: #CF5C36;
+    display: block;
+    block-size: 1.5rem;
+    color: #E0EFDE;
+    border: 1px solid #81afaf;
+    background-color: #81afaf;
+
 }
