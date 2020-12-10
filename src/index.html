@@ -8,7 +8,7 @@
 <body>
 <header>
     <div id="header">
-        <h1>{{ title }}</h1>
+        <header-display></header-display>
     </div>
 </header>
 
@@ -22,9 +22,9 @@
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/api.js"></script>
-<script src="assets/js/vue.js"></script>
+<script src="assets/js/components/headerDisplay.js"></script>
 <script>
-    const mountedApp = app.mount('#header')
+    const mountedApp = header.mount('#header')
 </script>
 </body>
 </html>
