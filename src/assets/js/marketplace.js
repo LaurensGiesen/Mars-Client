@@ -135,7 +135,10 @@ function loadPlants() {
             addProductToList(item);
         });
         allProducts = getResOfPlants();
+        document.querySelectorAll("img")
+            .forEach(fav => fav.addEventListener("click", addToFavorites));
     });
+
 }
 
 function getResOfPlants() {

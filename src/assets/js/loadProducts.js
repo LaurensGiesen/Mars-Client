@@ -51,14 +51,14 @@ function addProductToList(product) {
     if (ownerName === undefined) {
         ownerName = product.owner;
     }
-    console.log(ownerName);
+    console.log(product);
         document.querySelector('.articleContainer').innerHTML +=
-            `<article id="${product.id}">
+            `<article id="${product.productId}">
                  <a href="marketplaceDetails.html"><img alt="${product.name}" src="${product.image}" title="${product.name}"></a>
                  <div>
                      <h3><a href="marketplaceDetails.html">Name: <span class="name">${product.name}</span></a></h3>
                      <p>Price: <span class="price">${product.price}</span></p>
-                     <p>From: <span class="owner">${ownerName}</span></p>
+                     <p data-ownerId="${product.owner.id}">From: <span class="owner">${ownerName}</span></p>
                      <p>Date product added: <span class="date">${date}</span></p>
                  </div>
                  <form>
