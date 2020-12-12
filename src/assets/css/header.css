@@ -62,8 +62,12 @@ ul li ul li {
 }
 
 header a:hover{
-    background-color: #81afaf;
+    color: #983628;
 
+}
+
+header li.logoHeader a:hover{
+    background-color: #588B8B;
 }
 
 .profile{
