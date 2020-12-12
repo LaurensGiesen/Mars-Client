@@ -9,16 +9,18 @@ async function init() {
     document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
     config = await loadConfig();
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
+    api = `${config.host ? config.host + '/': ''}`;
     // Small poc
 //    getMessage().then(message => h1Element.innerText = message);
 //     loadProducts();
-    searchProducts();
-    loadSortValues();
-    loadPlants();
-    document.querySelector('#order').addEventListener('change', marketPlaceSorting);
-    document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
-    filterProducts();
-    document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
+    //searchProducts();
+    //loadSortValues();
+    //loadPlants();
+    getFavorites();
+    //document.querySelector('#order').addEventListener('change', marketPlaceSorting);
+    //document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
+    //filterProducts();
+    //document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
 
 async function loadConfig() {
