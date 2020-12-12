@@ -27,16 +27,12 @@ footer div img{
 
 footer a {
     text-decoration: none;
-    color: #E0EFDE;
+    color: #ffffff;
     font-weight: bold;
     font-size: 1rem;
 }
 
 footer a:hover{
-    display: block;
-    block-size: 1.5rem;
-    color: #E0EFDE;
-    border: 1px solid #81afaf;
-    background-color: #81afaf;
+    color: #983628;
 
 }
