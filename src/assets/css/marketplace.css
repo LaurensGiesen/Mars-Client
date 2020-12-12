@@ -39,15 +39,16 @@ input[type="button"]{
     background-color: #983628;
     color: #ffffff;
     font-size: 0.9rem;
-    font-weight: bold;
     border: 1px solid #ffffff;
-    width: 9rem;u
+    width: 9rem;
     height: 2rem;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
 input[type="button"]:hover{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
 }
 
 
