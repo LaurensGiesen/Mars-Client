@@ -31,7 +31,8 @@ footer {
 #filterContainer {
     position: absolute;
     margin: 2rem;
-    background: #d9d9d9;
+    color: #ffffff;
+    background: #983628;
     height: 4.5rem;
     width: 6rem;
     border-radius: 45%;
@@ -48,7 +49,7 @@ span {
     position: absolute;
     margin: 2rem;
     padding-left: 5rem;
-    background: #e4e4e4;
+    background: #983628;
     height: 4.5rem;
     width: 60rem;
     border-radius: 5%;
@@ -62,7 +63,7 @@ span {
 #circle {
     position: absolute;
     margin: 2rem;
-    background: #e4e4e4;
+    background: #983628;
     height: 4.5rem;
     width: 6rem;
     border-radius: 45%;
