@@ -1,9 +1,8 @@
 "use strict";
-let config;
-let api;
 document.addEventListener("DOMContentLoaded", init);
 
-function init() {
+async function init() {
+    config = await loadConfig();
     addDateInForm();
     document.querySelector('#addProduct').addEventListener('click', addProduct);
 }
@@ -48,21 +47,7 @@ function addProduct(e) {
         amount: amount,
         type: "plant"
     });
-    bla().then(() => {
-        api = `${config.host ? config.host + '/' : ''}`;
-        apiCall("addProduct", "POST", newProduct);
-    });
-    document.location.href = "marketplace.html";
+    apiCall("addProduct", "POST", newProduct).then(() => document.location.href = "marketplace.html");
+
 }
 
-async function bla() {
-    // Temporary hack to allow local testing of the web client and server.
-    document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
-    config = await loadConfig();
-    api = `${config.host ? config.host + '/' : ''}${config.group ? config.group + '/' : ''}api/`;
-}
-
-async function loadConfig() {
-    const response = await fetch("config.json");
-    return response.json();
-}

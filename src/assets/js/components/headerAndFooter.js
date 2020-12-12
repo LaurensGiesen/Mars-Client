@@ -30,7 +30,7 @@ app.component('header-display', {
             whiteBasket: "assets/img/whiteBasket.svg",
         }
     }
-})
+});
 
 app.component('footer-display', {
     template:
@@ -49,4 +49,4 @@ app.component('footer-display', {
         </div>
         <p><a href="subscriptions.html">View the subscription types</a></p>
         `
-})
+});

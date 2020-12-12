@@ -1,14 +1,8 @@
-function addToFavorites(e){
-    let type = "plant";
-    if (document.location.pathname === "/client/src/map.html"){
-        type = "seed";
-    }
-    const data = JSON.stringify({
-        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": type
-    });
-    apiCall("addProductToFavorite", "POST", data);
+document.addEventListener("DOMContentLoaded", init);
+
+async function init() {
+    config = await loadConfig();
+    getFavorites();
 }
 
 function getFavorites(){
@@ -26,7 +20,7 @@ function displayFavorites(response){
             <div>
                 <h2>Name: <span>${item.name}</span></h2>
                 <p>Price: <span>${item.price}</span></p>
-                <p>Date: <span>${item.date.dayOfMonth}-${item.date.monthValue}-${item.date.year}</span></p>
+                <p>Date: <span>${item.date["dayOfMonth"]}-${item.date["monthValue"]}-${item.date.year}</span></p>
             </div>
             <div>
                 <label for="amount">Amount: ${item.amount}</label>
@@ -41,5 +35,5 @@ function displayFavorites(response){
                 </figure>
             </div>
         </article>`
-    })
+    });
 }

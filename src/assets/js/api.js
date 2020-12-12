@@ -3,14 +3,13 @@ function getMessage() {
 }
 
 function apiCall(uri, httpVerb, body) {
-    log(body);
+    console.log(body);
     const request = new Request(api + uri, {
         method: httpVerb,
         body: body,
         credentials: 'include',
     });
-
-    log(request);
+    console.log(request);
     return fetch(request)
         .then(response => response.json());
 }
