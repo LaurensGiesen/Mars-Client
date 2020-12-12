@@ -1,6 +1,6 @@
 function addToFavorites(e){
     let type = "plant";
-    if (document.location.pathname === "/client/src/marketplace.html"){
+    if (document.location.pathname === "/client/src/map.html"){
         type = "seed";
     }
     const data = JSON.stringify({
