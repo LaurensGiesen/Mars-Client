@@ -53,12 +53,4 @@ function addProduct(e) {
         apiCall("addProduct", "POST", newProduct).then(() => document.location.href = "marketplace.html");
     }
     reader.readAsDataURL(file);
-
 }
-
-function encodeImageFileAsURL(element) {
-
-
-
-}
-
