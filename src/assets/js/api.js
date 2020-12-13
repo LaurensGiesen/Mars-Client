@@ -4,6 +4,7 @@ function getMessage() {
 
 function apiCall(uri, httpVerb, body) {
     console.log(body);
+    let api = `${config.host ? config.host + '/': ''}`
     const request = new Request(api + uri, {
         method: httpVerb,
         body: body,

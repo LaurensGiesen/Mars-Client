@@ -6,15 +6,17 @@ async function init() {
 }
 
 function getFavorites(){
-    apiCall("getFavorites/1", "GET", null).then((response) => {
-        displayFavorites(response);
-    })
-}
-
-function displayFavorites(response){
     const articleContainer = document.querySelector(".articleContainer");
     articleContainer.innerHTML = "";
-    response.forEach(item => {
+    apiCall("getFavorites/1", "GET", null).then((response) => {
+        response.forEach(item => {
+            displayFavorites(item, articleContainer);
+        });
+
+    });
+}
+
+function displayFavorites(item, articleContainer){
         articleContainer.innerHTML += `<article id="${item.id}">
             <img src="${item.image}" alt="product image" title="product-image">
             <div>
@@ -35,5 +37,4 @@ function displayFavorites(response){
                 </figure>
             </div>
         </article>`
-    });
 }

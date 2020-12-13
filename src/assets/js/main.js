@@ -1,5 +1,4 @@
 let config;
-let api;
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -7,7 +6,7 @@ async function init() {
     document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
     config = await loadConfig();
     //api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
-    api = `${config.host ? config.host + '/': ''}`
+
 }
 
 async function loadConfig() {
