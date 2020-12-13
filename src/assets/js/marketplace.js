@@ -23,7 +23,7 @@ function loadPlants() {
             addProductToList(item);
         });
         allProducts = getResOfPlants();
-        document.querySelectorAll("img")
+        document.querySelectorAll(".emptyheart")
             .forEach(fav => fav.addEventListener("click", addToFavorites));
     });
 
@@ -142,9 +142,9 @@ function getResOfPlants() {
         let owner = product.querySelector(".owner").innerHTML;
         let date = product.querySelector(".date").innerHTML;
         let amount = product.querySelector(".amount").innerHTML;
-        //let img = product.querySelector("img").getAttribute("src");
-
-        products.push({name: name, price: price, owner: owner, date: date, amount: amount, img: null});
+        let img = product.querySelector("img").getAttribute("src");
+        //console.log(img);
+        products.push({name: name, price: price, owner: owner, date: date, amount: amount, image: img});
     });
     return products;
 }
