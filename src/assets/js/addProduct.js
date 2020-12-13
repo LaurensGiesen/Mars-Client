@@ -1,9 +1,8 @@
 "use strict";
-let config;
-let api;
 document.addEventListener("DOMContentLoaded", init);
 
-function init() {
+async function init() {
+    config = await loadConfig();
     addDateInForm();
     document.querySelector('#addProduct').addEventListener('click', addProduct);
 }
@@ -37,32 +36,21 @@ function addProduct(e) {
     let date = document.querySelector('#date').value;
     let price = parseInt(document.querySelector('#price').value);
     let amount = parseInt(document.querySelector('#amount').value);
-    let img = document.querySelector('#picture').value;
-
-    let newProduct = JSON.stringify({
-        name: name,
-        image: img,
-        price: price,
-        ownerId: 1,
-        date: date,
-        amount: amount,
-        type: "plant"
-    });
-    bla().then(() => {
-        api = `${config.host ? config.host + '/' : ''}`;
-        apiCall("addProduct", "POST", newProduct);
-    });
-    document.location.href = "marketplace.html";
-}
-
-async function bla() {
-    // Temporary hack to allow local testing of the web client and server.
-    document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
-    config = await loadConfig();
-    api = `${config.host ? config.host + '/' : ''}${config.group ? config.group + '/' : ''}api/`;
-}
-
-async function loadConfig() {
-    const response = await fetch("config.json");
-    return response.json();
+    let img = document.querySelector('#picture');
+    let file = img.files[0];
+    let reader = new FileReader();
+    reader.onloadend = function() {
+        let newProduct = JSON.stringify({
+            name: name,
+            image: reader.result,
+            price: price,
+            ownerId: 1,
+            date: date,
+            amount: amount,
+            type: "plant"
+        });
+        console.log(newProduct)
+        apiCall("addProduct", "POST", newProduct).then(() => document.location.href = "marketplace.html");
+    }
+    reader.readAsDataURL(file);
 }
