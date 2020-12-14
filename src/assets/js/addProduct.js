@@ -49,8 +49,7 @@ function addProduct(e) {
             amount: amount,
             type: "plant"
         });
-        console.log(newProduct)
         apiCall("addProduct", "POST", newProduct).then(() => document.location.href = "marketplace.html");
-    }
+    };
     reader.readAsDataURL(file);
 }
