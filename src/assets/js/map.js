@@ -4,15 +4,70 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadMapsJSAPI();
+    loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
-    document.querySelector(`input[value='Fruit']`).addEventListener('click', getFruitSeeds);
-    document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggieSeeds);
+    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible);
+    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
+    document.querySelector('#search').addEventListener('keyup', search);
+    document.querySelector('#search').addEventListener('click', resetSearchBar);
+}
+
+
+function loadShop() {
+    const products = document.querySelector("#products")
+    // todo: placeholder function voor import database
+    const seeds = [
+        {
+            fruitOrVeg: "fruit",
+            name: "apple"
+        },
+        {
+            fruitOrVeg: "fruit",
+            name: "apricot"
+        },
+        {
+            fruitOrVeg: "fruit",
+            name: "pear"
+        },
+        {
+            fruitOrVeg: "vegetable",
+            name: "broccoli"
+        },
+        {
+            fruitOrVeg: "vegetable",
+            name: "cucumber"
+        },
+        {
+            fruitOrVeg: "vegetable",
+            name: "corn"
+        },
+    ]
+
+    seeds.forEach(seed => {
+        products.innerHTML += `<input type="button" value="${seed.name}" class="${seed.fruitOrVeg} hidden">`
+    })
+}
+
+function search(e) {
+    let searchString = e.target.value.toLowerCase();
+    let products = document.getElementById("products").getElementsByTagName("input");
+    [...products].forEach(product => {
+        if (product.value.toLowerCase().includes(searchString)) {
+            product.classList.remove('hidden');
+        } else {
+            product.classList.add('hidden');
+        }
+    })
+}
+
+function resetSearchBar() {
+    document.querySelector('#search').value = '';
+    makeAllSeedsHidden();
 
 }
 
-function getFruitSeeds() {
+function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
-
     document.querySelectorAll('#products .fruit').forEach(input => {
         if (input.classList.contains('hidden')) {
             input.classList.remove('hidden');
@@ -30,7 +85,7 @@ function makeAllSeedsHidden() {
     });
 }
 
-function getVeggieSeeds() {
+function makeVeggieVisible() {
     makeAllSeedsHidden();
     document.querySelectorAll('#products .veggie').forEach(input => {
         if (input.classList.contains('hidden')) {

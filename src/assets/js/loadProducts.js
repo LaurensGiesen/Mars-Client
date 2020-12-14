@@ -13,7 +13,7 @@ function addProductToList(product) {
     }
         document.querySelector('.articleContainer').innerHTML +=
             `<article id="${product.productId}">
-                 <a href="marketplaceDetails.html"><img alt="${product.name}" src="${product.image}" title="${product.name}"></a>
+                 <a href="marketplaceDetails.html"><img alt="${product.name}" src="${product.image}" title="${product.name}" class="productImg"></a>
                  <div>
                      <h3><a href="marketplaceDetails.html">Name: <span class="name">${product.name}</span></a></h3>
                      <p>Price: <span class="price">${product.price}</span></p>
@@ -21,8 +21,8 @@ function addProductToList(product) {
                      <p>Date product added: <span class="date">${date}</span></p>
                  </div>
                  <form>
-                     <label for="amount">Amount: <span class="amount">${product.amount}</span></label>
-                     <input class="amount" min="1" step="1" type="number" value="1">
+                     <label for="amount" class="amount">Amount:</label>
+                     <input min="1" step="1" type="number" value="1">
 
                      <figure class="basket">
                          <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"

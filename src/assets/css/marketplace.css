@@ -1,5 +1,6 @@
 main{
     display: flex;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 
@@ -20,23 +21,47 @@ a{
     text-decoration: none;
 }
 
+main img.productImg{
+    width: 10rem;
+    height: 6rem;
+    margin-right: 4rem;
+    margin-left: 7rem;
+}
 
 form{
     padding-left: 8rem;
 }
 
-form select, form input{
+form.filterMarket select, form.filterMarket input{
     margin-left: 2rem;
     width: 10%;
+
+}
+
+form input{
+    width: 18%;
     padding: 0.1rem;
 }
 
 input[type="button"]{
     display: block;
-    margin-left: auto;
-    margin-right: 9rem;
+    margin-left: 65rem;
     margin-top: 0.8rem;
+    background-color: #983628;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border: 1px solid #ffffff;
+    width: 9rem;
+    height: 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
 }
+
+input[type="button"]:hover{
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
+}
+
 
 article{
     display: flex;
@@ -50,6 +75,11 @@ form label, article label{
     margin-left: 1rem;
 }
 
+label.amount{
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+}
+
 article img{
     margin-right: 2rem;
 }
@@ -58,10 +88,6 @@ article img{
     margin-right: 5.5rem;
 }
 
-#amount{
-    width: 15%;
-    margin-left: 1rem;
-}
 
 figure{
     display: flex;
