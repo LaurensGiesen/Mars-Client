@@ -15,7 +15,6 @@ async function init(){
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
 
-
 function loadPlants() {
     document.querySelector('.articleContainer').innerHTML = "";
     apiCall("getPlants", "GET", null).then((res) => {
@@ -25,8 +24,14 @@ function loadPlants() {
         allProducts = getResOfPlants();
         document.querySelectorAll(".emptyheart")
             .forEach(fav => fav.addEventListener("click", addToFavorites));
+        document.querySelectorAll('.articleContainer .img').forEach(product => product.addEventListener('click', getProductDetails))
+        document.querySelectorAll('.articleContainer h3').forEach(product => product.addEventListener('click', () => getProductDetails( product)));
     });
+}
 
+function getProductDetails(product) {
+    let article = product.parentNode.parentNode;
+    console.log(article.childNodes[2]);
 }
 function searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
