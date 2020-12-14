@@ -4,10 +4,47 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadMapsJSAPI();
+    loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
-    document.querySelector(`input[value='Fruit']`).addEventListener('click', getFruitSeeds);
-    document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggieSeeds);
+    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible);
+    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
     document.querySelector('#search').addEventListener('keyup', search);
+}
+
+
+function loadShop() {
+    const products = document.querySelector("#products")
+    // todo: placeholder function voor import database
+    const seeds = [
+        {
+            fruitOrVeg: "fruit",
+            name: "apple"
+        },
+        {
+            fruitOrVeg: "fruit",
+            name: "apricot"
+        },
+        {
+            fruitOrVeg: "fruit",
+            name: "pear"
+        },
+        {
+            fruitOrVeg: "vegetable",
+            name: "broccoli"
+        },
+        {
+            fruitOrVeg: "vegetable",
+            name: "cucumber"
+        },
+        {
+            fruitOrVeg: "vegetable",
+            name: "corn"
+        },
+    ]
+
+    seeds.forEach(seed => {
+        products.innerHTML += `<input type="button" value="${seed.name}" class="${seed.fruitOrVeg} hidden">`
+    })
 }
 
 function search(e) {
@@ -15,7 +52,6 @@ function search(e) {
     let searchString = e.target.value.toLowerCase();
     let products = document.getElementById("products").getElementsByTagName("input");
     [...products].forEach(product => {
-        //TODO explanation of spread operator
         if (product.value.toLowerCase() === searchString.toLowerCase()) {
             product.classList.remove('hidden');
         }
@@ -23,7 +59,7 @@ function search(e) {
 }
 
 
-function getFruitSeeds() {
+function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
 
     document.querySelectorAll('#products .fruit').forEach(input => {
@@ -43,7 +79,7 @@ function makeAllSeedsHidden() {
     });
 }
 
-function getVeggieSeeds() {
+function makeVeggieVisible() {
     makeAllSeedsHidden();
     document.querySelectorAll('#products .veggie').forEach(input => {
         if (input.classList.contains('hidden')) {
