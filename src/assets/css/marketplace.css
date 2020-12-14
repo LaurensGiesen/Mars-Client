@@ -21,6 +21,10 @@ a{
     text-decoration: none;
 }
 
+main img.productImg{
+    width: 10rem;
+    height: 6rem;
+}
 
 form{
     padding-left: 8rem;
