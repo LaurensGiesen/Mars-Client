@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
@@ -6,24 +6,39 @@ function init() {
     loadMapsJSAPI();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
     document.querySelector(`input[value='Fruit']`).addEventListener('click', getFruitSeeds);
-    document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggiesSeeds);
+    document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggieSeeds);
 
 }
 
 function getFruitSeeds() {
-    let removeHidden = document.querySelector('.hidden');
-    if (removeHidden.classList.contains('hidden')) {
-        console.log("seeds");
-    } else {
-        removeHidden.classList.remove('hidden');
-    }
+    makeAllSeedsHidden();
+
+    document.querySelectorAll('#products .fruit').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
 }
 
+function makeAllSeedsHidden() {
+    document.querySelectorAll('#products input').forEach(input => {
+        if (!input.classList.contains('hidden')) {
+            input.classList.add('hidden');
+        }
+    });
+}
 
-function getVeggiesSeeds() {
-    let removeHidden = document.querySelector('.hidden');
-    removeHidden.classList.remove('hidden');
-    console.log("veggies");
+function getVeggieSeeds() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .veggie').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
 }
 
 function openFilterPopUpMap() {
@@ -159,7 +174,7 @@ function drawPolygon(map) {
         {lat: -0.5, lng: 3},
         {lat: 0, lng: 1.5},
         {lat: 1, lng: 1.5}
-    ]
+    ];
 
     let polygon = new google.maps.Polygon({
         paths: coordinatesArrayExample,
