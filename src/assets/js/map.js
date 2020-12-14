@@ -217,7 +217,6 @@ function addMarkers(map) {
         }
         const marker = new google.maps.Marker(markerOptions);
         markers.push(marker);
-        console.log('ok')
     }
     return markers;
 
