@@ -1,28 +1,37 @@
 "use strict";
-let searchField;
-let filterBox;
-let products = [];
+
+document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
 
-function searchProducts() {
-    searchField = document.querySelector('#search');
-    searchField.addEventListener("keyup", searchList);
+
+async function init(){
+    config = await loadConfig();
+    loadPlants();
+    searchProducts();
+    loadSortValues();
+    document.querySelector('#order').addEventListener('change', marketPlaceSorting);
+    document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
+    filterProducts();
+    document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
 
-function searchList() {
-    products = [];
-    let searchString = searchField.value;
 
+function loadPlants() {
     document.querySelector('.articleContainer').innerHTML = "";
-    for (let product of allProducts) {
-        let txtValue = product.name.toLowerCase();
+    apiCall("getPlants", "GET", null).then((res) => {
+        res.forEach(item => {
+            addProductToList(item);
+        });
+        allProducts = getResOfPlants();
+        document.querySelectorAll(".emptyheart")
+            .forEach(fav => fav.addEventListener("click", addToFavorites));
+    });
 
-        if (txtValue.includes(searchString)) {
-            products.push(product);
-        }
-    }
-    marketPlaceSorting();
 }
+function searchProducts() {
+    document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
+}
+
 
 function loadSortValues() {
     document.querySelector('#sortby').innerHTML =
@@ -34,7 +43,7 @@ function loadSortValues() {
 }
 
 function filterProducts() {
-    filterBox = document.querySelectorAll('.filter input[type=checkbox]');
+    let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             filter(checkbox);
@@ -43,7 +52,7 @@ function filterProducts() {
 }
 
 function filter(checkbox) {
-    products = [];
+    let products = [];
     document.querySelector('.articleContainer').innerHTML = "";
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
@@ -67,7 +76,7 @@ function filter(checkbox) {
 
 function disableCheckboxes(checkedCheckbox) {
     let checkedCheckboxId = checkedCheckbox.attributes[2].value;
-    filterBox = document.querySelectorAll('.filter input[type=checkbox]');
+    let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         let checkboxId = checkbox.attributes[2].value;
         if (checkboxId.localeCompare(checkedCheckboxId) !== 0) {
@@ -77,7 +86,7 @@ function disableCheckboxes(checkedCheckbox) {
 }
 
 function enableCheckboxes() {
-    filterBox = document.querySelectorAll('.filter input[type=checkbox]');
+    let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         if (checkbox.getAttribute("disabled") !== null) {
             checkbox.removeAttribute("disabled");
@@ -110,9 +119,7 @@ function marketPlaceFilter(e) {
     } else {
         selectedItem = e.target.value;
     }
-    let sortedProducts = allProducts;
-    products = sortedProducts;
-    sortedProducts.sort(function (a, b) {
+    allProducts.sort(function (a, b) {
         if (a[selectedItem] > b[selectedItem]) {
             return 1
         } else if (a[selectedItem] < b[selectedItem]) {
@@ -127,28 +134,31 @@ function goToAddProduct() {
     document.location.href = "addProductToSell.html";
 }
 
-function loadPlants() {
-    document.querySelector('.articleContainer').innerHTML = "";
-    api = `${config.host ? config.host + '/' : ''}`;
-    apiCall("getPlants", "GET", null).then((res) => {
-        res.forEach(item => {
-            addProductToList(item);
-        });
-        allProducts = getResOfPlants();
-    });
-}
-
 function getResOfPlants() {
-    products = [];
+    let products = [];
     document.querySelectorAll('.articleContainer article').forEach(product => {
         let name = product.querySelector(".name").innerHTML;
         let price = product.querySelector(".price").innerHTML;
         let owner = product.querySelector(".owner").innerHTML;
         let date = product.querySelector(".date").innerHTML;
         let amount = product.querySelector(".amount").innerHTML;
-        //let img = product.querySelector("img").getAttribute("src");
-
-        products.push({name: name, price: price, owner: owner, date: date, amount: amount, img: null});
+        let img = product.querySelector("img").getAttribute("src");
+        //console.log(img);
+        products.push({name: name, price: price, owner: owner, date: date, amount: amount, image: img});
     });
     return products;
+}
+
+function addToFavorites(e){
+    e.target.src = "assets/img/fullHeart.png";
+    let type = "plant";
+    if (document.location.pathname === "/client/src/map.html"){
+        type = "seed";
+    }
+    const data = JSON.stringify({
+        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
+        "userId": 1, //NYI
+        "productType": type
+    });
+    apiCall("addProductToFavorite", "POST", data).then();
 }

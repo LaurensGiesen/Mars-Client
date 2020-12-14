@@ -9,39 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@next"></script>
     <title>Map</title>
 
 
 </head>
 <body>
 <header>
-
-    <nav>
-        <ul>
-            <li class="logoHeader"><a href="map.html"><img src="assets/img/logo.png" alt="logo" title="logo" class="logo"></a></li>
-            <li class="mapHeader"><a href="map.html">Map</a></li>
-            <li><a href="marketplace.html">Marketplace</a></li>
-            <li><a href="info.html">Info</a></li>
-            <li><a href="sharedTools.html">Shared Tools</a></li>
-            <li class="profile"><img src="assets/img/account.svg" title="account" alt="account">
-                <ul class="dropdown">
-                    <li class="account"><a href="profile.html">Account and Subscription</a></li>
-                    <li><a href="orderHistory.html">Order History</a></li>
-                    <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="login.html">Sign out</a></li>
-                </ul>
-            </li>
-            <li><a href="basket.html"><img src="assets/img/whiteBasket.svg" title="basket" alt="basket" class="headerBasket"></a> </li>
-        </ul>
-    </nav>
-
+    <header-display></header-display>
 </header>
 <main>
-
-
-    <div id="map">
-
-    </div>
+    <div id="map"></div>
 
     <div id="filterContainer">
         <span>Click</span>
@@ -84,24 +62,18 @@
 
 
 <footer>
-
-    <div>
-        <h3>Contact us</h3>
-        <p>mars@mars.mars</p>
-        <p>MARS inc. Olympus Mons 18.4N, 134W Mars</p>
-
-    </div>
-    <div>
-        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
-        <img src="assets/img/login.jpg" alt="#">
-        <img src="assets/img/login.jpg" alt="#">
-        <img src="assets/img/login.jpg" alt="#">
-    </div>
-    <p><a href="subscriptions.html">View the subscription types</a></p>
-
+    <footer-display></footer-display>
 </footer>
 
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/components/headerAndFooter.js"></script>
 <script src="assets/js/map.js"></script>
+<script src="assets/js/marketplace.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/loadProducts.js"></script>
+
+
+<script>app.mount('body')</script>
 
 </body>
 </html>
