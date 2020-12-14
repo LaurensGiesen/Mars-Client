@@ -9,6 +9,7 @@ function init() {
     document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible);
     document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
     document.querySelector('#search').addEventListener('keyup', search);
+    document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
 
 
@@ -48,20 +49,25 @@ function loadShop() {
 }
 
 function search(e) {
-    //searches for an exact word as it is written, but does not reset
     let searchString = e.target.value.toLowerCase();
     let products = document.getElementById("products").getElementsByTagName("input");
     [...products].forEach(product => {
-        if (product.value.toLowerCase() === searchString.toLowerCase()) {
+        if (product.value.toLowerCase().includes(searchString)) {
             product.classList.remove('hidden');
+        } else {
+            product.classList.add('hidden');
         }
     })
 }
 
+function resetSearchBar() {
+    document.querySelector('#search').value = '';
+    makeAllSeedsHidden();
+
+}
 
 function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
-
     document.querySelectorAll('#products .fruit').forEach(input => {
         if (input.classList.contains('hidden')) {
             input.classList.remove('hidden');
