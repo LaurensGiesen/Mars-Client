@@ -18,7 +18,6 @@
 <header>
     <header-display></header-display>
 </header>
-
 <main>
     <div id="map"></div>
 
@@ -43,17 +42,13 @@
                 <input type="button" value="Veggies">
             </figure>
         </div>
-        <div class="hidden">
-            <div id="otherFilters">
-                <input type="button" value="Fruit">
-                <input type="button" value="Veggies">
-            </div>
+        <div id="filters">
             <div id="products">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
+                <input type="button" value="Apple" class="fruit hidden">
+                <input type="button" value="Pear" class="fruit hidden">
+                <input type="button" value="Cucumber" class="veggie hidden">
+                <input type="button" value="Carrot" class="veggie hidden">
+                <input type="button" value="Broccoli" class="veggie hidden">
             </div>
         </div>
         <div id="circle"></div>
@@ -69,7 +64,6 @@
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/components/headerAndFooter.js"></script>
 <script src="assets/js/map.js"></script>
-<script src="assets/js/marketplace.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/loadProducts.js"></script>
 

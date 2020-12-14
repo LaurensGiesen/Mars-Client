@@ -27,7 +27,7 @@ placeholder="01-01-2000"  required>
         <label for="picture">Picture:</label>
         <input type="file" id="picture" required>
 
-        <input id="addProduct" type="submit" value="Add">`
+        <input id="addProduct" type="submit" value="Add">`;
 }
 
 function addProduct(e) {
@@ -49,8 +49,7 @@ function addProduct(e) {
             amount: amount,
             type: "plant"
         });
-        console.log(newProduct)
         apiCall("addProduct", "POST", newProduct).then(() => document.location.href = "marketplace.html");
-    }
+    };
     reader.readAsDataURL(file);
 }
