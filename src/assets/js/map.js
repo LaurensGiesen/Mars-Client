@@ -7,7 +7,6 @@ function init() {
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
     document.querySelector(`input[value='Fruit']`).addEventListener('click', getFruitSeeds);
     document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggieSeeds);
-
 }
 
 function getFruitSeeds() {
