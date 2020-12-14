@@ -13,7 +13,7 @@ async function init(){
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
-}
+    }
 
 
 function loadPlants() {
