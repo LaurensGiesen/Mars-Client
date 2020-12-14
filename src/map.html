@@ -9,48 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@next"></script>
     <title>Map</title>
 
 
 </head>
 <body>
 <header>
-
-    <nav>
-        <ul>
-            <li><a href="map.html"><img src="#" alt="logo" title="logo"></a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="marketplace.html">Marketplace</a></li>
-            <li><a href="info.html">Info</a></li>
-            <li><a href="sharedTools.html">Shared Tools</a></li>
-            <li id="profile">Profile
-                <ul class="dropdown">
-                    <li><a href="profile.html">Account and Subscription</a></li>
-                    <li><a href="orderHistory.html">Order History</a></li>
-                    <li><a href="favorite.html">Favorite</a></li>
-                    <li><a href="login.html">Sign out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
+    <header-display></header-display>
 </header>
 
 <main>
-
-
-    <div id="map">
-
-    </div>
+    <div id="map"></div>
 
     <div id="filterContainer">
         <span>Click</span>
 
     </div>
-    <div id="scrollOut">
+    <div id="scrollOut"  class="behind">
         <label for="search"></label>
         <input id="search" placeholder="Search" type="text">
-        <div class="hidden" id="filterOptions">
+        <div id="filterOptions">
             <figure>
                 <img alt="#" src="#">
                 <input type="button" value="Tools">
@@ -84,28 +63,18 @@
 
 
 <footer>
-
-    <div>
-        <h3>Contact us</h3>
-        <p>mars@mars.mars</p>
-        <p>MARS inc. Olympus Mons 18.4N, 134W Mars</p>
-
-    </div>
-    <div>
-        <p>&copy; Mars Agricultural and Research Services – Sitemap – Privacy Policy</p>
-        <img src="assets/img/login.jpg" alt="#">
-        <img src="assets/img/login.jpg" alt="#">
-        <img src="assets/img/login.jpg" alt="#">
-    </div>
-    <p><a href="subscriptions.html">View the subscription types</a></p>
-
+    <footer-display></footer-display>
 </footer>
 
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/components/headerAndFooter.js"></script>
 <script src="assets/js/map.js"></script>
-<script src="assets/js/products.js"></script>
 <script src="assets/js/marketplace.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/loadProducts.js"></script>
+
+
+<script>app.mount('body')</script>
 
 </body>
 </html>
