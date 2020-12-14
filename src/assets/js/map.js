@@ -7,7 +7,21 @@ function init() {
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
     document.querySelector(`input[value='Fruit']`).addEventListener('click', getFruitSeeds);
     document.querySelector(`input[value='Veggies']`).addEventListener('click', getVeggieSeeds);
+    document.querySelector('#search').addEventListener('keyup', search);
 }
+
+function search(e) {
+    //searches for an exact word as it is written, but does not reset
+    let searchString = e.target.value.toLowerCase();
+    let products = document.getElementById("products").getElementsByTagName("input");
+    [...products].forEach(product => {
+        //TODO explanation of spread operator
+        if (product.value.toLowerCase() === searchString.toLowerCase()) {
+            product.classList.remove('hidden');
+        }
+    })
+}
+
 
 function getFruitSeeds() {
     makeAllSeedsHidden();
