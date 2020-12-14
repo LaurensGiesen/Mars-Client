@@ -24,15 +24,22 @@ a{
 main img.productImg{
     width: 10rem;
     height: 6rem;
+    margin-right: 4rem;
+    margin-left: 7rem;
 }
 
 form{
     padding-left: 8rem;
 }
 
-form select, form input{
+form.filterMarket select, form.filterMarket input{
     margin-left: 2rem;
     width: 10%;
+
+}
+
+form input{
+    width: 18%;
     padding: 0.1rem;
 }
 
@@ -68,6 +75,11 @@ form label, article label{
     margin-left: 1rem;
 }
 
+label.amount{
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+}
+
 article img{
     margin-right: 2rem;
 }
@@ -76,10 +88,6 @@ article img{
     margin-right: 5.5rem;
 }
 
-#amount{
-    width: 15%;
-    margin-left: 1rem;
-}
 
 figure{
     display: flex;

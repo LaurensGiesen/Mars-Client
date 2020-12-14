@@ -21,8 +21,8 @@ function addProductToList(product) {
                      <p>Date product added: <span class="date">${date}</span></p>
                  </div>
                  <form>
-                     <label for="amount">Amount: <span class="amount">${product.amount}</span></label>
-                     <input class="amount" min="1" step="1" type="number" value="1">
+                     <label for="amount" class="amount">Amount:</label>
+                     <input min="1" step="1" type="number" value="1">
 
                      <figure>
                          <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"
