@@ -2,10 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", init);
 
-let totalArticlePrice = 0;
-let totalTransportPrice = 0;
-let total = 0;
-
 async function init() {
     config = await loadConfig();
     loadProductsInBasket();
@@ -26,15 +22,19 @@ function loadProductsInBasket() {
 }
 
 function calculateBasketInformation(products) {
+    let totalArticlePrice = 0;
+    let totalTransportPrice = 0;
+
     products.forEach(product => {
         totalArticlePrice += product.price;
         totalTransportPrice += 1.5;
     });
-    total = totalArticlePrice + totalTransportPrice;
-    fillBasketInformation();
+    fillBasketInformation(totalArticlePrice, totalTransportPrice);
 }
 
-function fillBasketInformation() {
+function fillBasketInformation(totalArticlePrice, totalTransportPrice) {
+    let total = totalArticlePrice + totalTransportPrice;
+
     document.querySelector(".fullBasketInformation").innerHTML +=
         `<h3 class="totalArticles">Total for articles: <span>${totalArticlePrice}</span></h3>
         <h3 class="totalTransportation">Transportation costs: <span>${totalTransportPrice}</span></h3>
