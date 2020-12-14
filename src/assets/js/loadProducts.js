@@ -24,15 +24,15 @@ function addProductToList(product) {
                      <label for="amount">Amount: <span class="amount">${product.amount}</span></label>
                      <input class="amount" min="1" step="1" type="number" value="1">
 
-                     <figure>
+                     <figure class="basket">
                          <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"
-                              class="emptybasket"/>
+                              class="emptyBasket"/>
                          <figcaption>Add to basket</figcaption>
                      </figure>
 
                      <figure class="heart">
                          <img src="assets/img/emptyHeart.svg" title="add to favorite" alt="add to favorite"
-                              class="emptyheart"/>
+                              class="emptyHeart"/>
                          <figcaption>Add to favorite</figcaption>
                      </figure>
                  </form>
