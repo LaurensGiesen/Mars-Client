@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
+    config = await loadConfig();
     calculateBasketAmount();
 }
 
@@ -11,3 +12,5 @@ function calculateBasketAmount() {
         document.querySelector('.counter').innerHTML = "" + res.length;
     });
 }
+
+

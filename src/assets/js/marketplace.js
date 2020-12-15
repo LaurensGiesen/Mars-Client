@@ -235,7 +235,8 @@ function removeFromBasket(e) {
         "userId": 1, //NYI
         "productType": "plant"
     });
-    apiCall("removeProductFromBasket", "POST", data).then(subtractBasketAmount);
+    apiCall("removeProductFromBasket", "POST", data).then();
+    calculateBasketAmount();
 }
 
 function addToFavorites(e) {
