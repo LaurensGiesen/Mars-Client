@@ -24,7 +24,7 @@ function register(e) {
         crop2: document.querySelector("#crop2").value,
         crop3: document.querySelector("#crop3").value,
     });
-    registerCall("register", 'POST', data).then((response ) => {
+    registerCall("register", 'POST', data).then((response) => {
         if(response){
             window.location.href = "map.html";
         }else{
