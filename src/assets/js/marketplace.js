@@ -33,6 +33,8 @@ function getProductDetailsByName(product) {
 
 function getProductDetail(product, article) {
     let img = article.childNodes[1];
+    console.log(article);
+    let id = article.getAttribute("id");
     let name = article.childNodes[3].childNodes[1].childNodes[1];
     let nameValue = name.innerHTML;
     let price = article.childNodes[3].childNodes[3].childNodes[1];
@@ -49,8 +51,9 @@ function getProductDetail(product, article) {
         price: priceValue,
         owner: ownerValue,
         date: dateValue,
-        amount: amountValue
-    }
+        amount: amountValue,
+        productId: id
+    };
     let detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
     document.location.href = 'marketplaceDetails.html';
@@ -74,7 +77,7 @@ function changeBasketState(e) {
 function changeFavoriteState(e) {
     let favoriteImage = e.target.src;
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
-        addToFavorites(e);
+        addProductToFavorites(e);
     } else {
         removeFromFavorites(e);
     }
@@ -234,7 +237,7 @@ function removeFromBasket(e) {
     apiCall("removeProductFromBasket", "POST", data).then();
 }
 
-function addToFavorites(e) {
+function addProductToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     e.target.src = "assets/img/fullHeart.svg";
 
