@@ -21,7 +21,7 @@ a{
     text-decoration: none;
 }
 
-main img.productImg{
+main img.productImg {
     width: 10rem;
     height: 6rem;
     margin-right: 4rem;
@@ -119,6 +119,6 @@ figure{
     margin-left: 0.2rem;
 }
 
-#counter {
-    font-size: 1.3rem;
+.articleContainer .productImg, .articleContainer h3 {
+    cursor: pointer;
 }

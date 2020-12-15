@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
 
 
-async function init(){
+async function init() {
     config = await loadConfig();
     loadPlants();
     searchProducts();
@@ -13,8 +13,7 @@ async function init(){
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
-    }
-
+}
 
 function loadPlants() {
     document.querySelector('.articleContainer').innerHTML = "";
@@ -23,17 +22,48 @@ function loadPlants() {
             addProductToList(item);
         });
         allProducts = getResOfPlants();
-        document.querySelectorAll(".emptyHeart")
-            .forEach(fav => fav.addEventListener("click", changeFavoriteState));
-        document.querySelectorAll(".emptyBasket")
-            .forEach(basket => basket.addEventListener("click", changeBasketState));
+        getClickEvents();
     });
+}
 
+function getProductDetailsByName(product) {
+    let article = product.parentNode.parentNode;
+    getProductDetail(product, article);
+}
+
+function getProductDetail(product, article) {
+    let img = article.childNodes[1];
+    let name = article.childNodes[3].childNodes[1].childNodes[1];
+    let nameValue = name.innerHTML;
+    let price = article.childNodes[3].childNodes[3].childNodes[1];
+    let priceValue = price.innerHTML;
+    let owner = article.childNodes[3].childNodes[5].childNodes[1];
+    let ownerValue = owner.innerHTML;
+    let date = article.childNodes[3].childNodes[7].childNodes[1];
+    let dateValue = date.innerHTML;
+    let amount = article.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
+    let productDetail = {
+        image: img.src,
+        name: nameValue,
+        price: priceValue,
+        owner: ownerValue,
+        date: dateValue,
+        amount: amountValue
+    }
+    let detailStorage = JSON.stringify(productDetail);
+    localStorage.setItem('productDetail', detailStorage);
+    document.location.href = 'marketplaceDetails.html';
+    loadProductDetails();
+}
+
+function getProductDetailsByImg(product) {
+    let article = product.parentNode;
+    getProductDetail(product, article);
 }
 
 function changeBasketState(e) {
     let basketImage = e.target.src;
-    console.log(basketImage);
     if (basketImage.match("assets/img/basketPlus.svg")) {
         addToBasket(e);
     } else {
@@ -43,7 +73,6 @@ function changeBasketState(e) {
 
 function changeFavoriteState(e) {
     let favoriteImage = e.target.src;
-    console.log(favoriteImage);
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
         addToFavorites(e);
     } else {
@@ -65,6 +94,7 @@ function loadSortValues() {
          `;
 }
 
+
 function filterProducts() {
     let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
@@ -72,6 +102,13 @@ function filterProducts() {
             filter(checkbox);
         })
     });
+}
+
+function getClickEvents() {
+    document.querySelectorAll(".emptyHeart").forEach(fav => fav.addEventListener("click", changeFavoriteState));
+    document.querySelectorAll(".emptyBasket").forEach(basket => basket.addEventListener("click", changeBasketState));
+    document.querySelectorAll('.articleContainer .productImg').forEach(product => product.addEventListener('click', () => getProductDetailsByImg( product)));
+    document.querySelectorAll('.articleContainer h3').forEach(product => product.addEventListener('click', () => getProductDetailsByName( product)));
 }
 
 function filter(checkbox) {
@@ -95,6 +132,7 @@ function filter(checkbox) {
     for (let product of products) {
         addProductToList(product);
     }
+    getClickEvents();
 }
 
 function disableCheckboxes(checkedCheckbox) {
@@ -133,6 +171,7 @@ function marketPlaceSorting() {
     for (let product of searchRes) {
         addProductToList(product);
     }
+    getClickEvents();
 }
 
 function marketPlaceFilter(e) {
@@ -166,7 +205,6 @@ function getResOfPlants() {
         let date = product.querySelector(".date").innerHTML;
         let amount = product.querySelector(".amount").innerHTML;
         let img = product.querySelector("img").getAttribute("src");
-        //console.log(img);
         products.push({name: name, price: price, owner: owner, date: date, amount: amount, image: img});
     });
     return products;
@@ -196,7 +234,7 @@ function removeFromBasket(e) {
     apiCall("removeProductFromBasket", "POST", data).then();
 }
 
-function addToFavorites(e){
+function addToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     e.target.src = "assets/img/fullHeart.png";
 
