@@ -25,32 +25,8 @@
     </div>
 
 
-    <article>
-        <img id="product" alt="Product" src="#"/>
-        <div>
-            <h2>Name:</h2>
-            <p>Price:</p>
-            <p>From:</p>
-            <p>Date product added:</p>
-        </div>
-
-        <div id="choice">
-            <label for="number">Number:</label>
-            <input id="number" min="1" type="number">
-            <figure>
-                <img alt="add to basket" class="emptybasket" src="assets/img/basketPlus.svg"
-                     title="add to basket"/>
-                <figcaption>Add to basket</figcaption>
-            </figure>
-
-            <figure class="heart">
-                <img alt="add to favorite" class="emptyheart" src="assets/img/emptyHeart.svg"
-                     title="add to favorite"/>
-                <figcaption>Add to favorite</figcaption>
-            </figure>
-        </div>
-
-    </article>
+    <div id="productDetail">
+    </div>
 
 </main>
 <footer>
@@ -60,6 +36,8 @@
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/components/headerAndFooter.js"></script>
 <script>const mountedApp = app.mount('body')</script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/marketplaceDetails.js"></script>
 </body>
 
 </html>
