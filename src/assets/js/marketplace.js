@@ -22,15 +22,16 @@ function loadPlants() {
             addProductToList(item);
         });
         allProducts = getResOfPlants();
-        document.querySelectorAll(".emptyHeart").forEach(fav => fav.addEventListener("click", changeFavoriteState));
-        document.querySelectorAll(".emptyBasket").forEach(basket => basket.addEventListener("click", changeBasketState));
-        // document.querySelectorAll('.articleContainer .img').forEach(product => product.addEventListener('click', getProductDetails))
-        document.querySelectorAll('.articleContainer h3').forEach(product => product.addEventListener('click', () => getProductDetails( product)));
+        getClickEvents();
     });
 }
 
-function getProductDetails(product) {
+function getProductDetailsByName(product) {
     let article = product.parentNode.parentNode;
+    getProductDetail(product, article);
+}
+
+function getProductDetail(product, article) {
     let img = article.childNodes[1];
     let name = article.childNodes[3].childNodes[1].childNodes[1];
     let nameValue = name.innerHTML;
@@ -56,9 +57,13 @@ function getProductDetails(product) {
     loadProductDetails();
 }
 
+function getProductDetailsByImg(product) {
+    let article = product.parentNode;
+    getProductDetail(product, article);
+}
+
 function changeBasketState(e) {
     let basketImage = e.target.src;
-    console.log(basketImage);
     if (basketImage.match("assets/img/basketPlus.svg")) {
         addToBasket(e);
     } else {
@@ -68,7 +73,6 @@ function changeBasketState(e) {
 
 function changeFavoriteState(e) {
     let favoriteImage = e.target.src;
-    console.log(favoriteImage);
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
         addToFavorites(e);
     } else {
@@ -100,6 +104,13 @@ function filterProducts() {
     });
 }
 
+function getClickEvents() {
+    document.querySelectorAll(".emptyHeart").forEach(fav => fav.addEventListener("click", changeFavoriteState));
+    document.querySelectorAll(".emptyBasket").forEach(basket => basket.addEventListener("click", changeBasketState));
+    document.querySelectorAll('.articleContainer .productImg').forEach(product => product.addEventListener('click', () => getProductDetailsByImg( product)));
+    document.querySelectorAll('.articleContainer h3').forEach(product => product.addEventListener('click', () => getProductDetailsByName( product)));
+}
+
 function filter(checkbox) {
     let products = [];
     document.querySelector('.articleContainer').innerHTML = "";
@@ -121,6 +132,7 @@ function filter(checkbox) {
     for (let product of products) {
         addProductToList(product);
     }
+    getClickEvents();
 }
 
 function disableCheckboxes(checkedCheckbox) {
@@ -159,6 +171,7 @@ function marketPlaceSorting() {
     for (let product of searchRes) {
         addProductToList(product);
     }
+    getClickEvents();
 }
 
 function marketPlaceFilter(e) {
@@ -192,7 +205,6 @@ function getResOfPlants() {
         let date = product.querySelector(".date").innerHTML;
         let amount = product.querySelector(".amount").innerHTML;
         let img = product.querySelector("img").getAttribute("src");
-        //console.log(img);
         products.push({name: name, price: price, owner: owner, date: date, amount: amount, image: img});
     });
     return products;

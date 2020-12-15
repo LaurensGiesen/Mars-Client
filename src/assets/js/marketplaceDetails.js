@@ -4,15 +4,20 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
     loadProductDetails();
+    document.querySelector('#backButton').addEventListener('click', goToMarketPlace);
+}
+function goToMarketPlace() {
+    document.location.href = "marketplace.html";
 }
 
 function loadProductDetails() {
     let jsonProductDetails = localStorage.getItem('productDetail');
     let parseProductDetails = JSON.parse(jsonProductDetails);
-    document.querySelector('#productDetail').innerHTML += `
+    document.querySelector('#productDetail').innerHTML +=
+        `<article id="productDetail">
             <img class="productImg" id="${parseProductDetails.name}" alt="${parseProductDetails.name}" src="${parseProductDetails.image}"/>
-        <div>
-            <h2>Name: ${parseProductDetails.name}</h2>
+       <div>
+            <h3>Name: ${parseProductDetails.name}</h3>
             <p>Price: ${parseProductDetails.price}</p>
             <p>From: ${parseProductDetails.owner}</p>
             <p>Date product added: ${parseProductDetails.date}</p>
@@ -20,7 +25,7 @@ function loadProductDetails() {
 
         <div id="choice">
             <label for="number">Number: ${parseProductDetails.amount}</label>
-            <input id="number" min="1" type="number">
+            <input id="number" min="1" type="number" max="${parseProductDetails.amount}">
             <figure>
                 <img alt="add to basket" class="emptybasket" src="assets/img/basketPlus.svg"
                      title="add to basket"/>
@@ -33,6 +38,6 @@ function loadProductDetails() {
                 <figcaption>Add to favorite</figcaption>
             </figure>
         </div>
-        `
+        </article>`
 }
 
