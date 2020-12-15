@@ -27,7 +27,7 @@ function addProductToList(product) {
                      <figure class="basket">
                          <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"
                               class="emptyBasket"/>
-                         <figcaption>Add to basket</figcaption>
+                         <figcaption class="basket">Add to basket</figcaption>
                      </figure>
 
                      <figure class="heart">
