@@ -13,8 +13,7 @@ function addProductToList(product) {
     }
         document.querySelector('.articleContainer').innerHTML +=
             `<article id="${product.productId}">
-                 <img class="img" alt="${product.name}" src="${product.image}" title="${product.name}">
-                 <a href="marketplaceDetails.html"><img alt="${product.name}" src="${product.image}" title="${product.name}" class="productImg"></a>
+               <img alt="${product.name}" src="${product.image}" title="${product.name}" class="productImg">
                  <div>
                      <h3>Name: <span class="name">${product.name}</span></h3>
                      <p>Price: <span class="price">${product.price}</span></p>

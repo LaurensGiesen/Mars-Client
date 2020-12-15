@@ -62,7 +62,6 @@ div#backButton{
     margin-top: 0.5rem;
     height: 2rem;
     text-align: center;
-
 }
 
 
@@ -75,3 +74,9 @@ a#back{
     padding-right: 0.5rem;
 }
 
+#productDetail .productImg {
+    width: 10rem;
+    height: 6rem;
+    margin-right: 4rem;
+    margin-left: 7rem;
+}
