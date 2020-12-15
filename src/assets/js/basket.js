@@ -111,7 +111,7 @@ function changeFavoriteState(product) {
 
 function addProductToFavorite(product) {
         product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-        product.target.src = "assets/img/fullHeart.png";
+        product.target.src = "assets/img/fullHeart.svg";
 
         const data = JSON.stringify({
             "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),

@@ -30,7 +30,7 @@ a {
 
 hr{
     width: 13rem;
-    margin-right: 5rem;
+    margin-right: 7.5rem;
 }
 
 h2.price{
@@ -56,7 +56,7 @@ article{
 figure{
     margin-top: 0.5rem ;
     display: flex;
-    max-width: 9rem;
+    max-width: 13rem;
 
 }
 
@@ -89,9 +89,10 @@ input{
 
 }
 
-.emptyheart{
+.emptyHeart{
     width: 1.4rem;
     margin-right: 0.4rem;
+    margin-left: 0.2rem;
 }
 
 .bin{
@@ -108,11 +109,24 @@ figcaption.heart{
 }
 
 
-
-input[type="button"]{
+input[type="button"] {
     display: block;
-    margin: 5rem 0 0 auto;
-    padding: 0.7rem;
+    background-color: #983628;
+    color: #ffffff;
+    font-size: 0.95rem;
+    border: 1px solid #ffffff;
+    border-radius: 0.3rem;
+    width: 11rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: 2rem 7.5rem 0 auto;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+input[type="button"]:hover{
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
 }
 
 div.fullBasketInformation{
