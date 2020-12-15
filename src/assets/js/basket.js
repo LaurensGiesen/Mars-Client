@@ -48,10 +48,10 @@ function fillBasketInformation(totalArticlePrice, totalTransportPrice) {
     let total = totalArticlePrice + totalTransportPrice;
 
     document.querySelector(".fullBasketInformation").innerHTML +=
-        `<h3 class="totalArticles">Total for articles: <span>${totalArticlePrice}</span></h3>
-        <h3 class="totalTransportation">Transportation costs: <span>${totalTransportPrice}</span></h3>
+        `<h3 class="totalArticles">Total for articles: € <span>${totalArticlePrice}</span></h3>
+        <h3 class="totalTransportation">Transportation costs: € <span>${totalTransportPrice}</span></h3>
         <hr>
-        <h3 class="total">Total: <span>${total}</span></h3>
+        <h3 class="total">Total: € <span>${total}</span></h3>
         <input type="button" value="Continue to payment">`
 }
 
@@ -64,19 +64,19 @@ function addProductToBasket(product) {
 
     document.querySelector(".basketProducts").innerHTML +=
         `<article id="${product.productId}">
-            <img src="${product.image}" alt="${product.name}" title="${product.name}">
+            <img src="${product.image}" alt="${product.name}" title="${product.name}" class="productImg">
             <div>
-                <h2>Name: <span class="name">${product.name}</span></h2>
+                <h2>${product.name}</h2>
                 <p data-ownerId="${product.owner.id}">From: <span class="owner">${product.owner.lastName}</span></p>
                 <p>Date product added: <span class="date">${date}</span></p>
             </div>
             <form>
-                <label for="amount">Amount: <span class="amount">${product.amount}</span></label>
+                <label for="amount">Amount: </label>
                 <input id="amount" min="1" step="1" type="number" value="1">
 
                 <figure>
                     <img src="assets/img/emptyHeart.svg" alt="heart" title="heart" class="emptyHeart"/>
-                    <figcaption>Add to favorite</figcaption>
+                    <figcaption class="heart">Add to favorite</figcaption>
                 </figure>
 
                 <figure>
@@ -85,7 +85,7 @@ function addProductToBasket(product) {
                 </figure>
 
             </form>
-            <h2 class="price">Price: <span>${product.price}</span></h2>
+            <h2 class="price">€ <span>${product.price}</span></h2>
         </article>`
 }
 
@@ -111,7 +111,7 @@ function changeFavoriteState(product) {
 
 function addProductToFavorite(product) {
         product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-        product.target.src = "assets/img/fullHeart.png";
+        product.target.src = "assets/img/fullHeart.svg";
 
         const data = JSON.stringify({
             "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
