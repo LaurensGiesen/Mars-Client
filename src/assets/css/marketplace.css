@@ -98,15 +98,17 @@ figure{
     margin-left: 2.1rem;
 }
 
-.emptyheart{
+.emptyHeart{
     width: 1.3rem;
     margin-right: 0.4rem;
 }
 
-.emptybasket{
-    width: 2rem;
+.emptyBasket{
+    width: 2.5rem;
     margin-right: 0.4rem;
 }
+
+
 .articleContainer {
     margin-top: 3rem;
 }
