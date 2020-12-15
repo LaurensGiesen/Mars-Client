@@ -16,9 +16,21 @@ function loadProductsInBasket() {
                 res.forEach(product => {
                     addProductToBasket(product);
                 });
+                document.querySelectorAll(".bin").forEach(bin => {
+                    bin.addEventListener("click", removeProductFromBasket);
+                });
+                document.querySelectorAll(".emptyHeart").forEach(heart => {
+                    heart.addEventListener("click", changeFavoriteState);
+                })
             }
         }
     )
+}
+
+function clearBasket() {
+    document.querySelector(".emptyBasket").innerHTML = "";
+    document.querySelector(".basketProducts").innerHTML = "";
+    document.querySelector(".fullBasketInformation").innerHTML = "";
 }
 
 function calculateBasketInformation(products) {
@@ -63,8 +75,8 @@ function addProductToBasket(product) {
                 <input id="amount" min="1" step="1" type="number" value="1">
 
                 <figure>
-                    <img src="assets/img/emptyHeart.svg" alt="heart" title="heart" class="emptyheart"/>
-                    <figcaption class="heart">Move to favorite</figcaption>
+                    <img src="assets/img/emptyHeart.svg" alt="heart" title="heart" class="emptyHeart"/>
+                    <figcaption class="heart">Add to favorite</figcaption>
                 </figure>
 
                 <figure>
@@ -75,4 +87,48 @@ function addProductToBasket(product) {
             </form>
             <h2 class="price">€ <span>${product.price}</span></h2>
         </article>`
+}
+
+function removeProductFromBasket(product) {
+        clearBasket();
+        const data = JSON.stringify({
+                    "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
+                    "userId": 1, //NYI
+                    "productType": "plant"
+        });
+        apiCall("removeProductFromBasket", "POST", data).then(loadProductsInBasket);
+}
+
+function changeFavoriteState(product) {
+    let favoriteImage = product.target.src;
+    console.log(favoriteImage);
+    if (favoriteImage.match("assets/img/emptyHeart.svg")) {
+        addProductToFavorite(product);
+    } else {
+        removeFromFavorites(product);
+    }
+}
+
+function addProductToFavorite(product) {
+        product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
+        product.target.src = "assets/img/fullHeart.png";
+
+        const data = JSON.stringify({
+            "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
+            "userId": 1, //NYI
+            "productType": "plant"
+        });
+        apiCall("addProductToFavorite", "POST", data).then();
+}
+
+function removeFromFavorites(product) {
+    product.target.parentNode.children["1"].innerHTML = "Add to favorite";
+    product.target.src = "assets/img/emptyHeart.svg";
+
+    const data = JSON.stringify({
+               "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
+               "userId": 1, //NYI
+                "productType": "plant"
+    });
+    apiCall("removeProductFromFavorite", "POST", data).then();
 }
