@@ -2,7 +2,8 @@
 let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
-function init() {
+async function init() {
+    config = await loadConfig();
     loadMapsJSAPI();
     loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
@@ -13,62 +14,9 @@ function init() {
 }
 
 function loadShop() {
-    const products = document.querySelector("#products")
-    // todo: placeholder function voor import database
-    const seeds = [
-        {
-            fruitOrVeg: "fruit",
-            name: "apple",
-            locations: [
-                {lat: -1.8567844, lng: 3.213108},
-                {lat: -2.8472767, lng: 2.2188164}
-            ]
-        },
-        {
-            fruitOrVeg: "fruit",
-            name: "apricot",
-            locations: [
-                {lat: -3.8209738, lng: 4.2563253},
-                {lat: -5.8690081, lng: 1.2052393},
-                {lat: -1.8587568, lng: 2.2058246}
-            ]
-        },
-        {
-            fruitOrVeg: "fruit",
-            name: "pear",
-            locations: [
-                {lat: -2.858761, lng: 3.2055688}
-            ]
-        },
-        {
-            fruitOrVeg: "vegetable",
-            name: "broccoli",
-            locations: [
-                {lat: -1.852228, lng: 4.2038374},
-                {lat: -4.8737375, lng: 1.222569},
-                {lat: -1.864167, lng: 1.216387}
-            ]
-        },
-        {
-            fruitOrVeg: "vegetable",
-            name: "cucumber",
-            locations: [
-                {lat: -1.8636005, lng: 1.2092542},
-                {lat: -1.869395, lng: 1.198648}
-            ]
-        },
-        {
-            fruitOrVeg: "vegetable",
-            name: "corn",
-            locations: [
-                {lat: -1.8665445, lng: 1.1989808}
-            ]
-        },
-    ]
-
-    seeds.forEach(seed => {
-        products.innerHTML += `<input type="button" value="${seed.name}" class="${seed.fruitOrVeg} hidden">`
-    })
+    const products = document.querySelector("#products");
+    apiCall("getLocations", "GET", null).then(r => r.forEach(element => products.innerHTML
+        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`))
 }
 
 function search(e) {
