@@ -240,7 +240,7 @@ function removeFromBasket(e) {
 
 function addToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-    e.target.src = "assets/img/fullHeart.png";
+    e.target.src = "assets/img/fullHeart.svg";
 
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),

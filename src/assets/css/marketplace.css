@@ -1,6 +1,7 @@
 main{
     display: flex;
     font-family: 'Noto Sans JP', sans-serif;
+    color: #0C1B33;
 }
 
 
@@ -32,11 +33,6 @@ form{
     padding-left: 8rem;
 }
 
-form.filterMarket select, form.filterMarket input{
-    margin-left: 2rem;
-    width: 10%;
-
-}
 
 form input{
     width: 18%;
@@ -54,12 +50,41 @@ input[type="button"]{
     width: 9rem;
     height: 2rem;
     font-family: 'Noto Sans JP', sans-serif;
+    border-radius: 0.3rem;
 }
 
 input[type="button"]:hover{
     font-weight: bold;
     background-color: #ac5e52;
     border-color: #ac5e52;
+}
+
+input[type="search"]{
+    height: 2rem;
+    padding-right: 1.5rem;
+    width: 10rem;
+    border: 2px solid #0C1B33;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    color: #0C1B33;
+    background-image: url("../img/search.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 1.5rem;
+}
+
+form.filterMarket select{
+    height: 2rem;
+    padding-right: 1.5rem;
+    width: 10rem;
+    border: 2px solid #0C1B33;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    color: #0C1B33;
+}
+
+figcaption.basket{
+    margin-top: 0.3rem;
 }
 
 
@@ -98,15 +123,17 @@ figure{
     margin-left: 2.1rem;
 }
 
-.emptyheart{
+.emptyHeart{
     width: 1.3rem;
     margin-right: 0.4rem;
 }
 
-.emptybasket{
+.emptyBasket{
     width: 2.5rem;
     margin-right: 0.4rem;
 }
+
+
 .articleContainer {
     margin-top: 3rem;
 }

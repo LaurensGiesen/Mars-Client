@@ -87,7 +87,7 @@ function makeAllSeedsHidden() {
 
 function makeVeggieVisible() {
     makeAllSeedsHidden();
-    document.querySelectorAll('#products .veggie').forEach(input => {
+    document.querySelectorAll('#products .vegetable').forEach(input => {
         if (input.classList.contains('hidden')) {
             input.classList.remove('hidden');
         } else {
@@ -97,6 +97,7 @@ function makeVeggieVisible() {
 }
 
 function openFilterPopUpMap() {
+    resetSearchBar()
     let hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
