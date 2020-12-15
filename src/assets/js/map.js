@@ -12,34 +12,57 @@ function init() {
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
 
-
 function loadShop() {
     const products = document.querySelector("#products")
     // todo: placeholder function voor import database
     const seeds = [
         {
             fruitOrVeg: "fruit",
-            name: "apple"
+            name: "apple",
+            locations: [
+                {lat: -1.8567844, lng: 3.213108},
+                {lat: -2.8472767, lng: 2.2188164}
+            ]
         },
         {
             fruitOrVeg: "fruit",
-            name: "apricot"
+            name: "apricot",
+            locations: [
+                {lat: -3.8209738, lng: 4.2563253},
+                {lat: -5.8690081, lng: 1.2052393},
+                {lat: -1.8587568, lng: 2.2058246}
+            ]
         },
         {
             fruitOrVeg: "fruit",
-            name: "pear"
+            name: "pear",
+            locations: [
+                {lat: -2.858761, lng: 3.2055688}
+            ]
         },
         {
             fruitOrVeg: "vegetable",
-            name: "broccoli"
+            name: "broccoli",
+            locations: [
+                {lat: -1.852228, lng: 4.2038374},
+                {lat: -4.8737375, lng: 1.222569},
+                {lat: -1.864167, lng: 1.216387}
+            ]
         },
         {
             fruitOrVeg: "vegetable",
-            name: "cucumber"
+            name: "cucumber",
+            locations: [
+                {lat: -1.8636005, lng: 1.2092542},
+                {lat: -1.869395, lng: 1.198648}
+            ]
         },
         {
             fruitOrVeg: "vegetable",
-            name: "corn"
+            name: "corn",
+            locations: [
+                {lat: -1.8665445, lng: 1.1989808}
+            ]
         },
     ]
 
@@ -245,22 +268,24 @@ function drawPolygon(map) {
 
 function addMarkers(map) {
 //    TODO: locations for testing only, needs to be linked to DB
+
     const locations = {
-        location1: {lat: -1.8567844, lng: 3.213108},
-        location2: {lat: -2.8472767, lng: 2.2188164},
-        location3: {lat: -3.8209738, lng: 4.2563253},
-        location4: {lat: -5.8690081, lng: 1.2052393},
-        location5: {lat: -1.8587568, lng: 2.2058246},
-        location6: {lat: -2.858761, lng: 3.2055688},
-        location7: {lat: -1.852228, lng: 4.2038374},
-        location8: {lat: -4.8737375, lng: 1.222569},
-        location9: {lat: -1.864167, lng: 1.216387},
-        location10: {lat: -1.8636005, lng: 1.2092542},
-        location11: {lat: -1.869395, lng: 1.198648},
-        location12: {lat: -1.8665445, lng: 1.1989808},
-        location13: {lat: -1.869627, lng: 1.202146},
-        location14: {lat: -1.87488, lng: 1.1987113},
-        location15: {lat: -1.8605523, lng: 1.1972205}
+        // location1: {lat: -1.8567844, lng: 3.213108},
+        // location2: {lat: -2.8472767, lng: 2.2188164},
+        // location3: {lat: -3.8209738, lng: 4.2563253},
+        // location4: {lat: -5.8690081, lng: 1.2052393},
+        // location5: {lat: -1.8587568, lng: 2.2058246},
+        // location6: {lat: -2.858761, lng: 3.2055688},
+        // location7: {lat: -1.852228, lng: 4.2038374},
+        // location8: {lat: -4.8737375, lng: 1.222569},
+        // location9: {lat: -1.864167, lng: 1.216387},
+        // location10: {lat: -1.8636005, lng: 1.2092542},
+        // location11: {lat: -1.869395, lng: 1.198648},
+        // location12: {lat: -1.8665445, lng: 1.1989808},
+        // location13: {lat: -1.869627, lng: 1.202146},
+        // location14: {lat: -1.87488, lng: 1.1987113},
+        // location15: {lat: -1.8605523, lng: 1.1972205}
+
     }
 
     const markers = [];
