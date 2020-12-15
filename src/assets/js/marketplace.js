@@ -47,6 +47,7 @@ function loadSortValues() {
          `;
 }
 
+
 function filterProducts() {
     let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
