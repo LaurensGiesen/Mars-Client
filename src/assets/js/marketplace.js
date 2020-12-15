@@ -184,8 +184,16 @@ function addToBasket(e) {
 }
 
 function removeFromBasket(e) {
+    console.log(e);
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
+
+    const data = JSON.stringify({
+                "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
+                "userId": 1, //NYI
+                "productType": "plant"
+    });
+    apiCall("removeProductFromBasket", "POST", data).then();
 }
 
 function addToFavorites(e){
@@ -203,4 +211,11 @@ function addToFavorites(e){
 function removeFromFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Add to favorite";
     e.target.src = "assets/img/emptyHeart.svg";
+
+    const data = JSON.stringify({
+               "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
+               "userId": 1, //NYI
+                "productType": "plant"
+    });
+    apiCall("removeProductFromFavorite", "POST", data).then();
 }
