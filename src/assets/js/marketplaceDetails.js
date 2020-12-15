@@ -94,10 +94,10 @@ function addToBasket(e) {
         "productType": "plant"
     });
     apiCall("addProductToBasket", "POST", data).then();
+    calculateBasketAmount();
 }
 
 function removeFromBasket(e) {
-    console.log(e);
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
 
@@ -107,5 +107,6 @@ function removeFromBasket(e) {
         "productType": "plant"
     });
     apiCall("removeProductFromBasket", "POST", data).then();
+    calculateBasketAmount();
 }
 

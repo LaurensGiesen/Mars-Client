@@ -22,7 +22,6 @@ function loadPlants() {
             addProductToList(item);
         });
         allProducts = getResOfPlants();
-        console.log(allProducts);
         getClickEvents();
     });
 }
@@ -34,7 +33,6 @@ function getProductDetailsByName(product) {
 
 function getProductDetail(product, article) {
     let img = article.childNodes[1];
-    console.log(article);
     let id = article.getAttribute("id");
     let name = article.childNodes[3].childNodes[1].childNodes[1];
     let nameValue = name.innerHTML;
@@ -121,7 +119,6 @@ function filter(checkbox) {
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
         let checkedProduct = checkbox.labels[0].innerHTML;
-        console.log(allProducts);
         for (let product of allProducts) {
             let productName = product.name.toLowerCase();
             if (productName === checkedProduct.toLowerCase()) {
@@ -212,7 +209,6 @@ function getResOfPlants() {
         let img = product.querySelector("img").getAttribute("src");
         products.push({productId: id, name: name, price: price, owner: owner, date: date, amount: amount, image: img});
     });
-    console.log(products);
     return products;
 }
 

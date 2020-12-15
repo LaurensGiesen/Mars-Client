@@ -197,7 +197,7 @@ function insertCity(map) {
         east: 6,
         west: 5,
     };
-    const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
+    const gallifreyOverlay = new google.calculateBasketAmount();maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
     return gallifreyOverlay.setMap(map);
 
 }
