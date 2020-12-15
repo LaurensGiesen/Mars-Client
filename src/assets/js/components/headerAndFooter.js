@@ -18,8 +18,8 @@ app.component('header-display', {
             <li><a href="login.html">Sign out</a></li>
           </ul>
         </li>
-        <li><a href="basket.html"><img v-bind:src="whiteBasket" title="basket" alt="basket"
-                                                 class="headerBasket"></a></li>
+        <li><a href="basket.html"><figure><img v-bind:src="whiteBasket" title="basket" alt="basket"
+                                                 class="headerBasket"><figcaption class="counter"></figcaption></figure></a></li>
       </ul>
       </nav>
     `,
