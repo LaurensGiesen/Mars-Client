@@ -13,7 +13,7 @@ async function init(){
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
-}
+    }
 
 function loadPlants() {
     document.querySelector('.articleContainer').innerHTML = "";
@@ -22,10 +22,12 @@ function loadPlants() {
             addProductToList(item);
         });
         allProducts = getResOfPlants();
-        document.querySelectorAll(".emptyheart")
-            .forEach(fav => fav.addEventListener("click", addToFavorites));
         document.querySelectorAll('.articleContainer .img').forEach(product => product.addEventListener('click', getProductDetails))
         document.querySelectorAll('.articleContainer h3').forEach(product => product.addEventListener('click', () => getProductDetails( product)));
+        document.querySelectorAll(".emptyHeart")
+            .forEach(fav => fav.addEventListener("click", changeFavoriteState));
+        document.querySelectorAll(".emptyBasket")
+            .forEach(basket => basket.addEventListener("click", changeBasketState));
     });
 }
 
@@ -33,6 +35,27 @@ function getProductDetails(product) {
     let article = product.parentNode.parentNode;
     console.log(article.childNodes[2]);
 }
+
+function changeBasketState(e) {
+    let basketImage = e.target.src;
+    console.log(basketImage);
+    if (basketImage.match("assets/img/basketPlus.svg")) {
+        addToBasket(e);
+    } else {
+        removeFromBasket(e);
+    }
+}
+
+function changeFavoriteState(e) {
+    let favoriteImage = e.target.src;
+    console.log(favoriteImage);
+    if (favoriteImage.match("assets/img/emptyHeart.svg")) {
+        addToFavorites(e);
+    } else {
+        removeFromFavorites(e);
+    }
+}
+
 function searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
@@ -155,16 +178,35 @@ function getResOfPlants() {
     return products;
 }
 
-function addToFavorites(e){
-    e.target.src = "assets/img/fullHeart.png";
-    let type = "plant";
-    if (document.location.pathname === "/client/src/map.html"){
-        type = "seed";
-    }
+function addToBasket(e) {
+    e.target.parentNode.children["1"].innerHTML = "Remove from basket";
+    e.target.src = "assets/img/shopping basket checkmark.svg";
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": type
+        "productType": "plant"
+    });
+    apiCall("addProductToBasket", "POST", data).then();
+}
+
+function removeFromBasket(e) {
+    e.target.src = "assets/img/basketPlus.svg";
+    e.target.parentNode.children["1"].innerHTML = "Add to basket";
+}
+
+function addToFavorites(e){
+    e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
+    e.target.src = "assets/img/fullHeart.png";
+
+    const data = JSON.stringify({
+        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
+        "userId": 1, //NYI
+        "productType": "plant"
     });
     apiCall("addProductToFavorite", "POST", data).then();
+}
+
+function removeFromFavorites(e) {
+    e.target.parentNode.children["1"].innerHTML = "Add to favorite";
+    e.target.src = "assets/img/emptyHeart.svg";
 }
