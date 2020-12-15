@@ -1,20 +1,36 @@
+main{
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #0C1B33;
+}
+
 h1 {
     font-size: 2rem;
-    margin-top: 3rem;
-    margin-left: 15rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
     padding-left: 2rem;
+    font-family: 'PT Sans', sans-serif;
+
 }
 
 form {
-    display: flex;
-    margin-left: 15rem;
+    margin: 2.5rem 0 2.5rem 15rem;
+    border: 1px solid #ffffff;
+    width: 60rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding-bottom: 1.5rem;
+
 }
 
-form div {
+div#info{
+    display: flex;
+    margin-left: 10rem;
+}
+
+form div div {
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    padding: 2rem;
+    padding: 2.5rem 2rem 0.5rem 2rem;
 }
 
 label {
@@ -25,14 +41,66 @@ input, select {
     width: 20rem;
     padding: 0.5rem;
     margin: 0.5rem 0 0.5rem 0;
+    border: 1px solid #0C1B33;
+    border-radius: 0.3rem;
+}
+
+input[type="text"]{
+    color: #0C1B33;
+    height: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 input[type="number"] {
-    width: 3rem;
+    width: 7rem;
+    color: #0C1B33;
 }
 
 input[type="submit"] {
-    width: 3rem;
+    display: block;
+    background-color: #983628;
+    color: #ffffff;
+    font-size: 0.95rem;
+    border: 1px solid #ffffff;
+    border-radius: 0.3rem;
+    width: 10rem;
+    height: 2.5rem;
+    padding: 0;
+    margin-left: 12.2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+input[type="submit"]:hover{
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
+}
+
+input[type="file"]{
+    padding: 0;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    border: 0;
+}
+
+input[type="file"]::-webkit-file-upload-button{
+    display: block;
+    border: 1px solid #983628;
+    background-color: #ffffff;
+    color: #983628;
+    font-weight: bold;
+    width: 8rem;
+    height: 2.2rem;
+    margin-bottom: 0.2rem;
+    border-radius: 0.3rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+    font-weight: bold;
+    background-color: #ac5e52;
+    border-color: #ac5e52;
+    color: #ffffff;
 }
 
 .description:focus{
