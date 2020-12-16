@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', init);
 async function init() {
     config = await loadConfig();
     loadMapsJSAPI();
-    loadShop();
+    await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
     document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible);
     document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
@@ -13,11 +13,15 @@ async function init() {
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
 
-function loadShop() {
-    const products = document.querySelector("#products");
-    apiCall("getLocations", "GET", null).then(r => r.forEach(element => products.innerHTML
-        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`))
-    //Todo fix doubles
+async function loadShop() {
+    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
+        element => element.cropName))).map(cropName => {
+        return (r.find(element => element.cropName === cropName))
+    }))
+    const crops = await result;
+
+    crops.forEach(element => document.querySelector("#products").innerHTML
+        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`)
 }
 
 function search(e) {
