@@ -15,11 +15,11 @@ app.component('header-display', {
             <li class="account"><a href="profile.html">Account and Subscription</a></li>
             <li><a href="orderHistory.html">Order History</a></li>
             <li><a href="favorite.html">Favorite</a></li>
-            <li><a href="login.html">Sign out</a></li>
+            <li><a href="index.html">Sign out</a></li>
           </ul>
         </li>
-        <li><a href="basket.html"><img v-bind:src="whiteBasket" title="basket" alt="basket"
-                                                 class="headerBasket"></a></li>
+        <li><a href="basket.html"><figure><img v-bind:src="whiteBasket" title="basket" alt="basket"
+                                                 class="headerBasket"><figcaption class="counter"></figcaption></figure></a></li>
       </ul>
       </nav>
     `,

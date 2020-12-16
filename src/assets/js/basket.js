@@ -9,8 +9,8 @@ async function init() {
 
 function loadProductsInBasket() {
     apiCall("getBasket/1", "GET", null).then((res) => {
-        calculateBasketInformation(res);
-        if (res.length === 0) {
+            calculateBasketInformation(res);
+            if (res.length === 0) {
                 showEmptyBasket();
             } else {
                 res.forEach(product => {
@@ -90,18 +90,18 @@ function addProductToBasket(product) {
 }
 
 function removeProductFromBasket(product) {
-        clearBasket();
-        const data = JSON.stringify({
-                    "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
-                    "userId": 1, //NYI
-                    "productType": "plant"
-        });
-        apiCall("removeProductFromBasket", "POST", data).then(loadProductsInBasket);
+    clearBasket();
+    const data = JSON.stringify({
+        "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
+        "userId": 1, //NYI
+        "productType": "plant"
+    });
+    apiCall("removeProductFromBasket", "POST", data).then(loadProductsInBasket);
+    calculateBasketAmount();
 }
 
 function changeFavoriteState(product) {
     let favoriteImage = product.target.src;
-    console.log(favoriteImage);
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
         addProductToFavorite(product);
     } else {
@@ -110,15 +110,15 @@ function changeFavoriteState(product) {
 }
 
 function addProductToFavorite(product) {
-        product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-        product.target.src = "assets/img/fullHeart.svg";
+    product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
+    product.target.src = "assets/img/fullHeart.svg";
 
-        const data = JSON.stringify({
-            "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
-            "userId": 1, //NYI
-            "productType": "plant"
-        });
-        apiCall("addProductToFavorite", "POST", data).then();
+    const data = JSON.stringify({
+        "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
+        "userId": 1, //NYI
+        "productType": "plant"
+    });
+    apiCall("addProductToFavorite", "POST", data).then();
 }
 
 function removeFromFavorites(product) {
@@ -126,9 +126,9 @@ function removeFromFavorites(product) {
     product.target.src = "assets/img/emptyHeart.svg";
 
     const data = JSON.stringify({
-               "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
-               "userId": 1, //NYI
-                "productType": "plant"
+        "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
+        "userId": 1, //NYI
+        "productType": "plant"
     });
     apiCall("removeProductFromFavorite", "POST", data).then();
 }

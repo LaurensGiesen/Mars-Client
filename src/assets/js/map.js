@@ -70,6 +70,7 @@ function makeVeggieVisible() {
 }
 
 function openFilterPopUpMap() {
+    resetSearchBar()
     let hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
