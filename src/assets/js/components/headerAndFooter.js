@@ -20,10 +20,11 @@ app.component('header-display', {
                         <li><a href="index.html">Sign out</a></li>
                     </ul>
                 </li>
-                <li><a href="basket.html">
-                    <figure><img v-bind:src="whiteBasket" title="basket" alt="basket"
-                                 class="headerBasket">
-                        <figcaption class="counter"></figcaption>
+                <li class="basketHeader"><a href="basket.html">
+                    <figure>
+                    <figcaption class="counter"></figcaption>
+                    <img v-bind:src="whiteBasket" title="basket" alt="basket"
+                                 class="basketHeaderImg">
                     </figure>
                 </a></li>
             </ul>
