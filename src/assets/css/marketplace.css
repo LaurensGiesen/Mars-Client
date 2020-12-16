@@ -113,8 +113,7 @@ article img{
     margin-right: 5.5rem;
 }
 
-
-figure{
+main figure{
     display: flex;
     margin: 1rem;
 }
