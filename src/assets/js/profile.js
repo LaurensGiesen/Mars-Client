@@ -1,12 +1,60 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", run);
+document.addEventListener("DOMContentLoaded", init);
 
-function run() {
-    document.querySelector('#changeData').addEventListener('click', changeDataUser)
+async function init() {
+    config = await loadConfig();
+    requestFillingUsersDAta();
     document.querySelector("#change > table > tbody > tr:nth-child(1) > th:nth-child(2) > a")
         .addEventListener("click", openPopupSubscription);
     document.querySelector(".close").addEventListener("click", closePopupSubscription);
+}
+
+function requestFillingUsersDAta() {
+    apiCall("getUser/1", "GET", null).then(
+        (res) => fillValuesInProfile(res)
+    );
+}
+
+function fillValuesInProfile(res) {
+    let firstName = res.firstName;
+    let lastName = res.lastName;
+    let email = res.email;
+    let dateOfBirth = res.dateOfBirth.dayOfMonth + "-" + res.dateOfBirth.monthValue + "-" + res.dateOfBirth.year;
+    let street = res.address.street;
+    let number = res.address.number;
+    let dome = res.address.dome;
+
+    document.querySelector('form div:nth-child(1)').innerHTML =
+        `
+        <label for="forename">Forename: </label>
+    <input type="text" id="forename" name="forename" value="${firstName}">
+
+        <label for="email">Email: </label>
+    <input type="email" id="email" name="email" value="${email}">
+
+        <label for="address">Street: </label>
+    <input type="text" id="address" name="address" value="${street}">
+
+        <label for="dome">Dome: </label>
+    <input type="text" id="dome" name="dome" value="${dome}">
+        `
+    document.querySelector('form div:nth-child(2)').innerHTML =
+        `
+        <label for="surname">Surname: </label>
+        <input type="text" id="surname" name="surname" value="${lastName}">
+
+        <label for="dateOfBirth">Date of Birth: </label>
+        <input type="text" required pattern="\\d{2}-\\d{2}-\\d{4}" id="dateOfBirth" value="${dateOfBirth}">
+
+
+        <label for="number">House Number:</label>
+        <input type="number" id="number" name="number" value="${number}" min="1" >
+
+        <label for="changeData"></label>
+        <p class="timerMessage"></p>
+        <input type="button" id="changeData" value="Change data">
+        `
 }
 
 function changeDataUser() {
@@ -17,7 +65,7 @@ function changeDataUser() {
     let address = document.querySelector('#address').value;
     let number = document.querySelector('#number').value;
     let dome = document.querySelector('#dome').value;
-const data = JSON.stringify({
+    const data = JSON.stringify({
         firstname: forename,
         lastname: surname,
         email: email,
@@ -27,9 +75,10 @@ const data = JSON.stringify({
         dome: dome
     });
     apiCall("updateUser/1", "POST", data).then(
-        (res) => addSituation(res)
-    );
+        (res) =>  { addSituation(res);
+    document.querySelector('#changeData').addEventListener('click', changeDataUser)});
 }
+
 function clear() {
     document.querySelector('.timerMessage').innerHTML = "";
 }
