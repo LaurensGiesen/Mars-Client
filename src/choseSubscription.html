@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/subscriptions.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue@next"></script>
@@ -14,17 +12,17 @@
 </head>
 <body>
 
+<header>
+    <img src="assets/img/logo.png" alt="logo" id="logo" class="logo">
+    <h1>Choose your subscription</h1>
+
+</header>
 
 <main>
-    <div id="backButton">
-        <a href="profile.html"><img id="arrow" alt="arrow back" src="assets/img/arrow.png" title="arrow back"></a>
-        <a id="back" href="profile.html">Back</a>
-    </div>
-    <h1>Type of Subscriptions</h1>
     <div id="subscriptions">
         <section id="subscriptionFree">
             <h2>Free</h2>
-            <ul class="subscriptionStyle">
+            <ul>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
@@ -35,7 +33,7 @@
 
         <section id="subscriptionBasic">
             <h2>Basic</h2>
-            <ul class="subscriptionStyle">
+            <ul>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
@@ -45,7 +43,7 @@
 
         <section id="subscriptionPremium">
             <h2>Premium</h2>
-            <ul class="subscriptionStyle">
+            <ul>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
                 <li>Lorem ipsum dolor sit amet, consetetur</li>
@@ -53,10 +51,11 @@
             <p>Monthly Price: € XXX,XX</p>
         </section>
     </div>
+    <input type="button" value="Proceed to payment">
+
 </main>
 
-
 <script src="assets/js/subscriptions.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/basketCounter.js"></script>
 </body>
 </html>
