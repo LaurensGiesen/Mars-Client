@@ -1,3 +1,6 @@
+.hidden {
+    visibility: hidden;
+}
 main{
     padding: 2rem 5rem;
 }
@@ -44,6 +47,9 @@ span a {
 
 caption{
     visibility: hidden;
+}
+.timerMessage {
+    margin-bottom: 1rem;
 }
 
 
