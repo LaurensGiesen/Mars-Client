@@ -92,13 +92,13 @@ function openFilterPopUpMap() {
 
 function runApp() {
     const map = displayMap();
-    insertCity(map);
     const markers = addMarkers(map);
+    insertCity(map);
+    getPosition(map);
     clusterMarkers(map, markers);
     addPanToMarker(map, markers);
     // drawRectangle(map);
     // drawPolygon(map);
-    // getPosition(map);
 }
 
 function loadMapsJSAPI() {
@@ -153,7 +153,7 @@ function displayMap() {
 
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
-    getPosition(map);
+
 
     return map;
 }
