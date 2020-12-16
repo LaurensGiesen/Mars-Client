@@ -1,4 +1,5 @@
 "use strict";
+
 let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
@@ -78,7 +79,7 @@ function makeVeggieVisible() {
 }
 
 function openFilterPopUpMap() {
-    resetSearchBar()
+    resetSearchBar();
     let hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
@@ -90,7 +91,10 @@ function openFilterPopUpMap() {
 }
 
 function runApp() {
-    displayMap();
+    const map = displayMap();
+    const markers = addMarkers(map);
+    clusterMarkers(map, markers);
+    addPanToMarker(map, markers);
 }
 
 function loadMapsJSAPI() {
@@ -107,7 +111,7 @@ function loadMapsJSAPI() {
 }
 
 function displayMap() {
-    const mapDiv = document.getElementById('map');
+    const mapDiv = document.querySelector('#map');
     const mapOptions = {
         center: {lat: 0, lng: 0},
         zoom: 4,
@@ -147,9 +151,8 @@ function displayMap() {
     map.setMapTypeId("mars");
     // drawRectangle(map);
     // drawPolygon(map);
-    // getPosition(map);
+    getPosition(map);
     insertCity(map);
-    addMarkers(map)
 
     return map;
 }
@@ -185,8 +188,9 @@ function insertCity(map) {
 
 function getPosition(map) {
     map.addListener("click", (mapsMouseEvent) => {
-        console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON()))
+        clickOnMarker(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
     });
+    return null;
 }
 
 function drawRectangle(map) {
@@ -244,7 +248,7 @@ function addMarkers(map) {
         // location13: {lat: -1.869627, lng: 1.202146},
         // location14: {lat: -1.87488, lng: 1.1987113},
         // location15: {lat: -1.8605523, lng: 1.1972205}
-    }
+    };
 
     const markers = [];
     for (const location in locations) {
@@ -252,10 +256,57 @@ function addMarkers(map) {
             map: map,
             position: locations[location],
             icon: './assets/img/pin green.png'
-        }
+        };
         const marker = new google.maps.Marker(markerOptions);
         markers.push(marker);
     }
     return markers;
 
+}
+
+function addPanToMarker(map, markers) {
+    markers = markers.map(marker => {
+        marker.addListener('click', event => {
+            const location = { lat: event.latLng.lat(), lng: event.latLng.lng() };
+            map.panTo(location);
+            console.log(location);
+            clickOnMarker(location);
+        });
+    });
+    return markers;
+}
+
+function clusterMarkers(map, markers) {
+    const clusterOptions = { minimumClusterSize: 10 };
+    const markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+}
+
+function clickOnMarker(location) {
+    let mapLong = location.lng;
+    let mapLat = location.lat;
+
+    apiCall("getLocations", "GET", null).then((res) => {
+        res.forEach(marker => {
+            if (mapLong === marker.longitude && mapLat === marker.latitude) {
+                showPopup(marker);
+            }
+        })
+    });
+}
+
+function closePopup() {
+    document.querySelector("#popUp").classList.add("hidden");
+}
+
+function showPopup(location) {
+    document.querySelector('#popUp').classList.remove('hidden');
+    document.querySelector('#popUp').innerHTML +=
+        `<h2>Crop Information</h2>
+        <p>Longitude: <span class="longitude">${location.longitude}</span></p>
+        <p>Latitude: <span class="latitude">${location.latitude}</span></p>
+        <p>Crop name: <span class="cropName">${location.cropName}</span></p>
+        <p>Crop type: <span class="cropType">${location.cropType}</span></p>
+        <p>Ratio: <span class="ratio">${location.ratio}</span></p>
+        <a class="close" href="#"></a>
+        `
 }
