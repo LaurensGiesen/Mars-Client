@@ -55,6 +55,6 @@ app.component('footer-display', {
             <img src="assets/img/login.jpg" alt="#">
             <img src="assets/img/login.jpg" alt="#">
         </div>
-        <p><a href="subscriptions.html">View the subscription types</a></p>
+        <p><a href="showSubscriptions.html">View the subscription types</a></p>
         `
 });
