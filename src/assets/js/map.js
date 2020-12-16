@@ -17,6 +17,8 @@ function loadShop() {
     const products = document.querySelector("#products");
     apiCall("getLocations", "GET", null).then(r => r.forEach(element => products.innerHTML
         += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`))
+    //Todo fix doubles
+    //Todo fix results on backspace
 }
 
 function search(e) {
@@ -233,7 +235,6 @@ function addMarkers(map) {
         // location13: {lat: -1.869627, lng: 1.202146},
         // location14: {lat: -1.87488, lng: 1.1987113},
         // location15: {lat: -1.8605523, lng: 1.1972205}
-
     }
 
     const markers = [];
