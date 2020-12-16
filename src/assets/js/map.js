@@ -232,7 +232,7 @@ async function addMarkers(map) {
     locations.forEach(location => {
         const markerOptions = {
             map: map,
-            position: {lat: 0, lng: 0},
+            position: {lat: location.latitude, lng: location.longitude},
             icon: './assets/img/pin green.png'
         }
         const marker = new google.maps.Marker(markerOptions);
