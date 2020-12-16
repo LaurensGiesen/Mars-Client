@@ -18,19 +18,23 @@ function loadShop() {
     apiCall("getLocations", "GET", null).then(r => r.forEach(element => products.innerHTML
         += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`))
     //Todo fix doubles
-    //Todo fix results on backspace
 }
 
 function search(e) {
-    let searchString = e.target.value.toLowerCase();
-    let products = document.getElementById("products").getElementsByTagName("input");
-    [...products].forEach(product => {
-        if (product.value.toLowerCase().includes(searchString)) {
-            product.classList.remove('hidden');
-        } else {
-            product.classList.add('hidden');
-        }
-    })
+    if (e.target.value.length < 1 && e.key === "Backspace") {
+        makeAllSeedsHidden();
+    } else {
+        makeAllSeedsHidden();
+        let searchString = e.target.value.toLowerCase();
+        let products = document.getElementById("products").getElementsByTagName("input");
+        [...products].forEach(product => {
+            if (product.value.toLowerCase().includes(searchString)) {
+                product.classList.remove('hidden');
+            } else {
+                product.classList.add('hidden');
+            }
+        })
+    }
 }
 
 function resetSearchBar() {
