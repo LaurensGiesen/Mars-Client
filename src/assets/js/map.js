@@ -2,9 +2,10 @@
 let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
-function init() {
+async function init() {
+    config = await loadConfig();
     loadMapsJSAPI();
-    loadShop();
+    await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
     document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible);
     document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
@@ -12,52 +13,32 @@ function init() {
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
 
+async function loadShop() {
+    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
+        element => element.cropName))).map(cropName => {
+        return (r.find(element => element.cropName === cropName))
+    }))
+    const crops = await result;
 
-function loadShop() {
-    const products = document.querySelector("#products")
-    // todo: placeholder function voor import database
-    const seeds = [
-        {
-            fruitOrVeg: "fruit",
-            name: "apple"
-        },
-        {
-            fruitOrVeg: "fruit",
-            name: "apricot"
-        },
-        {
-            fruitOrVeg: "fruit",
-            name: "pear"
-        },
-        {
-            fruitOrVeg: "vegetable",
-            name: "broccoli"
-        },
-        {
-            fruitOrVeg: "vegetable",
-            name: "cucumber"
-        },
-        {
-            fruitOrVeg: "vegetable",
-            name: "corn"
-        },
-    ]
-
-    seeds.forEach(seed => {
-        products.innerHTML += `<input type="button" value="${seed.name}" class="${seed.fruitOrVeg} hidden">`
-    })
+    crops.forEach(element => document.querySelector("#products").innerHTML
+        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`)
 }
 
 function search(e) {
-    let searchString = e.target.value.toLowerCase();
-    let products = document.getElementById("products").getElementsByTagName("input");
-    [...products].forEach(product => {
-        if (product.value.toLowerCase().includes(searchString)) {
-            product.classList.remove('hidden');
-        } else {
-            product.classList.add('hidden');
-        }
-    })
+    if (e.target.value.length < 1 && e.key === "Backspace") {
+        makeAllSeedsHidden();
+    } else {
+        makeAllSeedsHidden();
+        let searchString = e.target.value.toLowerCase();
+        let products = document.getElementById("products").getElementsByTagName("input");
+        [...products].forEach(product => {
+            if (product.value.toLowerCase().includes(searchString)) {
+                product.classList.remove('hidden');
+            } else {
+                product.classList.add('hidden');
+            }
+        })
+    }
 }
 
 function resetSearchBar() {
@@ -246,22 +227,23 @@ function drawPolygon(map) {
 
 function addMarkers(map) {
 //    TODO: locations for testing only, needs to be linked to DB
+
     const locations = {
-        location1: {lat: -1.8567844, lng: 3.213108},
-        location2: {lat: -2.8472767, lng: 2.2188164},
-        location3: {lat: -3.8209738, lng: 4.2563253},
-        location4: {lat: -5.8690081, lng: 1.2052393},
-        location5: {lat: -1.8587568, lng: 2.2058246},
-        location6: {lat: -2.858761, lng: 3.2055688},
-        location7: {lat: -1.852228, lng: 4.2038374},
-        location8: {lat: -4.8737375, lng: 1.222569},
-        location9: {lat: -1.864167, lng: 1.216387},
-        location10: {lat: -1.8636005, lng: 1.2092542},
-        location11: {lat: -1.869395, lng: 1.198648},
-        location12: {lat: -1.8665445, lng: 1.1989808},
-        location13: {lat: -1.869627, lng: 1.202146},
-        location14: {lat: -1.87488, lng: 1.1987113},
-        location15: {lat: -1.8605523, lng: 1.1972205}
+        // location1: {lat: -1.8567844, lng: 3.213108},
+        // location2: {lat: -2.8472767, lng: 2.2188164},
+        // location3: {lat: -3.8209738, lng: 4.2563253},
+        // location4: {lat: -5.8690081, lng: 1.2052393},
+        // location5: {lat: -1.8587568, lng: 2.2058246},
+        // location6: {lat: -2.858761, lng: 3.2055688},
+        // location7: {lat: -1.852228, lng: 4.2038374},
+        // location8: {lat: -4.8737375, lng: 1.222569},
+        // location9: {lat: -1.864167, lng: 1.216387},
+        // location10: {lat: -1.8636005, lng: 1.2092542},
+        // location11: {lat: -1.869395, lng: 1.198648},
+        // location12: {lat: -1.8665445, lng: 1.1989808},
+        // location13: {lat: -1.869627, lng: 1.202146},
+        // location14: {lat: -1.87488, lng: 1.1987113},
+        // location15: {lat: -1.8605523, lng: 1.1972205}
     }
 
     const markers = [];
