@@ -1,3 +1,4 @@
+
 header nav ul {
     display: flex;
     border: 1px solid #588B8B;
@@ -62,8 +63,12 @@ ul li ul li {
 }
 
 header a:hover{
-    background-color: #81afaf;
+    color: #983628;
 
+}
+
+header li.logoHeader a:hover{
+    background-color: #588B8B;
 }
 
 .profile{
@@ -72,12 +77,25 @@ header a:hover{
     margin-right: 2rem;
 }
 
-.headerBasket{
+li.basketHeader{
+    padding-top: 0.3rem;
+}
+
+
+.basketHeaderImg{
     display: block;
     margin-left: auto;
     margin-right: 3rem;
     width: 2.5rem;
+}
 
+li.basketHeader a:hover{
+    color: #ffffff;
+}
+
+
+figcaption.counter{
+    padding-left: 2rem;
 }
 
 .logo{

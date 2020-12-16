@@ -19,8 +19,7 @@ article.search{
 
 .filter{
     padding-right: 2rem;
-    border-left: solid black;
-    border-right: 5px solid black;
+    border-right: 5px solid #0C1B33;
 }
 
 .filter article{

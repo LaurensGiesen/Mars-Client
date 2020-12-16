@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css" href="assets/css/favorite.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: favorite</title>
 </head>
@@ -17,85 +19,11 @@
 <main>
     <h1>Favorite</h1>
 
+    <div class="emptyFavorites">
+
+    </div>
+
     <div class="articleContainer">
-        <article>
-            <img src="#" alt="product image" title="product-image">
-            <div>
-                <h2>Name: <span></span></h2>
-                <p>From: <span></span></p>
-            </div>
-            <div>
-                <label for="amount">Amount:</label>
-                <input id="amount" min="1" type="number" value="1">
-                <figure>
-                    <img src="assets/img/shopping%20basket.svg" title="favorite button" alt="favorite button">
-                    <figcaption>Add To Basket</figcaption>
-                </figure>
-                <figure>
-                    <img alt="heart" src="assets/img/fullHeart.png" title="heart" class="heart">
-                    <figcaption>Remove From Favorites</figcaption>
-                </figure>
-            </div>
-        </article>
-        <article>
-            <img src="#" alt="product image" title="product-image">
-            <div>
-                <h2>Name: <span></span></h2>
-                <p>From: <span></span></p>
-            </div>
-            <div>
-                <label for="amount1">Amount:</label>
-                <input id="amount1" min="1" type="number" value="1">
-                <figure>
-                    <img src="assets/img/shopping%20basket.svg" title="favorite button" alt="favorite button">
-                    <figcaption>Add To Basket</figcaption>
-                </figure>
-                <figure>
-                    <img alt="heart" src="assets/img/fullHeart.png" title="heart" class="heart">
-                    <figcaption>Remove From Favorites</figcaption>
-                </figure>
-            </div>
-        </article>
-        <article>
-            <img src="#" alt="product image" title="product-image">
-            <div>
-                <h2>Name: <span></span></h2>
-                <p>Price: <span></span></p>
-                <p>Date: <span></span></p>
-            </div>
-            <div>
-                <label for="amount2">Amount:</label>
-                <input id="amount2" min="1" type="number" value="1">
-                <figure>
-                    <img src="assets/img/shopping%20basket.svg" title="favorite button" alt="favorite button">
-                    <figcaption>Add To Basket</figcaption>
-                </figure>
-                <figure>
-                    <img alt="heart" src="assets/img/fullHeart.png" title="heart" class="heart">
-                    <figcaption>Remove From Favorites</figcaption>
-                </figure>
-            </div>
-        </article>
-        <article>
-            <img src="#" alt="product image" title="product-image">
-            <div>
-                <h2>Name: <span></span></h2>
-                <p>Price: <span></span></p>
-                <p>Date: <span></span></p>
-            </div>
-            <div>
-                <label for="amount3">Amount:</label>
-                <input id="amount3" min="1" type="number" value="1">
-                <figure>
-                    <img src="assets/img/shopping%20basket.svg" title="favorite button" alt="favorite button">
-                    <figcaption>Add To Basket</figcaption>
-                </figure>
-                <figure>
-                    <img alt="heart" src="assets/img/fullHeart.png" title="heart" class="heart">
-                    <figcaption>Remove From Favorites</figcaption>
-                </figure>
-            </div>
-        </article>
 
     </div>
 </main>
@@ -103,8 +31,13 @@
 <footer>
     <footer-display></footer-display>
 </footer>
+
+<script src="assets/js/main.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/components/headerAndFooter.js"></script>
+<script src="assets/js/favorites.js"></script>
 <script>app.mount('body')</script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/basketCounter.js"></script>
 </body>
 </html>

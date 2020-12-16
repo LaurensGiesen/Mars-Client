@@ -9,18 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>Subscriptions</title>
+    <title>Change Subscription</title>
 
 </head>
 <body>
 
-
+<header>
+    <header-display></header-display>
+</header>
 <main>
     <div id="backButton">
         <a href="profile.html"><img id="arrow" alt="arrow back" src="assets/img/arrow.png" title="arrow back"></a>
         <a id="back" href="profile.html">Back</a>
     </div>
-    <h1>Type of Subscriptions</h1>
+    <h1>Change your subscription here</h1>
     <div id="subscriptions">
         <section id="subscriptionFree">
             <h2>Free</h2>
@@ -53,10 +55,18 @@
             <p>Monthly Price: € XXX,XX</p>
         </section>
     </div>
+    <input type="button" value="Proceed to payment">
 </main>
+<footer>
+    <footer-display></footer-display>
+</footer>
 
-
-<script src="assets/js/subscriptions.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/components/headerAndFooter.js"></script>
+<script src="assets/js/subscriptions.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/basketCounter.js"></script>
+<script>app.mount('body')</script>
 </body>
 </html>

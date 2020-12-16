@@ -10,23 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
     <title>Map</title>
-
 
 </head>
 <body>
 <header>
     <header-display></header-display>
 </header>
-
 <main>
     <div id="map"></div>
+
+    <div id="popUp" class="hidden"></div>
 
     <div id="filterContainer">
         <span>Click</span>
 
     </div>
-    <div id="scrollOut"  class="behind">
+    <div id="scrollOut" class="behind">
         <label for="search"></label>
         <input id="search" placeholder="Search" type="text">
         <div id="filterOptions">
@@ -43,17 +44,8 @@
                 <input type="button" value="Veggies">
             </figure>
         </div>
-        <div class="hidden">
-            <div id="otherFilters">
-                <input type="button" value="Fruit">
-                <input type="button" value="Veggies">
-            </div>
+        <div id="filters">
             <div id="products">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
-                <input type="button" value="Apple">
             </div>
         </div>
         <div id="circle"></div>
@@ -66,14 +58,14 @@
     <footer-display></footer-display>
 </footer>
 
-<script src="assets/js/map.js"></script>
-<script src="assets/js/products.js"></script>
-<script src="assets/js/marketplace.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/loadProducts.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/components/headerAndFooter.js"></script>
 <script>app.mount('body')</script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/loadProducts.js"></script>
+<script src="assets/js/basketCounter.js"></script>
 
 </body>
 </html>

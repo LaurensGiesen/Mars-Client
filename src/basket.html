@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
-    <link rel="stylesheet" type="text/css"  href="assets/css/basket.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/basket.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: Basket</title>
 </head>
@@ -16,40 +18,16 @@
 
 <main>
     <h1>Basket</h1>
+    <div class="emptyBasket">
 
+    </div>
+    <div class="basketProducts">
 
-    <h2 class="hidden">You're basket is empty</h2>
-        <article>
-            <img src="#" alt="product image" title="product-image">
-            <div>
-                <h2>Name:</h2>
-                <p>From:</p>
-                <p>Date product added:</p>
-            </div>
-            <form>
-                <label for="amount">Amount:</label>
-                <input id="amount" min="1" step="1" type="number" value="1">
+    </div>
 
-                <figure>
-                    <img src="assets/img/emptyHeart.svg" alt="heart" title="heart" class="emptyheart"/>
-                    <figcaption>Move to favorite</figcaption>
-                </figure>
+    <div class="fullBasketInformation">
 
-                <figure>
-                    <img src="assets/img/bin.png" alt="trash bin" title="trash bin" class="bin"/>
-                    <figcaption>Delete</figcaption>
-                </figure>
-
-            </form>
-            <h2 class="price">Price:</h2>
-        </article>
-
-    <h3 class="total">Total for articles:</h3>
-    <h3>Transportation costs:</h3>
-    <hr>
-    <h3>Total:</h3>
-    <input type="button" value="Continue to payment">
-
+    </div>
 </main>
 
 <footer>
@@ -59,6 +37,9 @@
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/components/headerAndFooter.js"></script>
 <script>app.mount('body')</script>
-
+<script src="assets/js/main.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/basket.js"></script>
+<script src="assets/js/basketCounter.js"></script>
 </body>
 </html>

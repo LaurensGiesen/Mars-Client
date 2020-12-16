@@ -1,34 +1,17 @@
 "use strict";
-let config;
-let api;
 
 document.addEventListener("DOMContentLoaded", init);
 
-const h1 = document.querySelector("h1");
-
 async function init() {
-
-    //document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
     config = await loadConfig();
-    api = `${config.host ? config.host + '/' : ''}api/`;
     // Small poc
-    getFoo().then(message => h1.innerText = message);
-
+    autoFill()
     document.querySelector("input[type='submit']").addEventListener("click", register);
-    document.querySelector("#autoFill").addEventListener("click", autoFill);
 
 }
 
-async function loadConfig() {
-    const response = await fetch("config.json");
-    return response.json();
-}
-
-function getFoo() {
-    return apiCall("message");
-}
-
-function register() {
+function register(e) {
+    e.preventDefault();
     const data = JSON.stringify({
         firstname: document.querySelector("#foreName").value,
         lastname: document.querySelector("#surName").value,
@@ -41,16 +24,13 @@ function register() {
         crop2: document.querySelector("#crop2").value,
         crop3: document.querySelector("#crop3").value,
     });
-
-    api = `${config.host ? config.host + '/' : ''}`;
-    registerCall("register", 'POST', data).then((response ) => {
+    registerCall("register", 'POST', data).then((response) => {
         if(response){
             window.location.href = "map.html";
         }else{
-            log(response);
+            console.log(response);
         }
     });
-
 }
 
 function autoFill(){

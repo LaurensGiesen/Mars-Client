@@ -3,14 +3,12 @@ function getMessage() {
 }
 
 function apiCall(uri, httpVerb, body) {
-    log(body);
+    let api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
     const request = new Request(api + uri, {
         method: httpVerb,
         body: body,
         credentials: 'include',
     });
-
-    log(request);
     return fetch(request)
         .then(response => response.json());
 }
