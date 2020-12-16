@@ -45,7 +45,6 @@ function search(e) {
 function resetSearchBar() {
     document.querySelector('#search').value = '';
     makeAllSeedsHidden();
-
 }
 
 function makeFruitSeedsVisible() {
@@ -96,7 +95,6 @@ async function runApp() {
     insertCity(map);
     clusterMarkers(map, markers);
     await addMarkerFunctionalities(map, markers);
-
 }
 
 function loadMapsJSAPI() {
@@ -152,7 +150,6 @@ function displayMap() {
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
 
-
     return map;
 }
 
@@ -182,7 +179,6 @@ function insertCity(map) {
     };
     const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
     return gallifreyOverlay.setMap(map);
-
 }
 
 async function addMarkers(map) {
