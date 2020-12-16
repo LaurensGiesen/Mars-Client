@@ -23,6 +23,7 @@ function loadProductDetails() {
             <p>Price: ${parseProductDetails.price}</p>
             <p>From: ${parseProductDetails.owner}</p>
             <p>Date product added: ${parseProductDetails.date}</p>
+            <p>Amount of products left: <span>${parseProductDetails.amount}</span></p>
         </div>
 
         <div id="choice">

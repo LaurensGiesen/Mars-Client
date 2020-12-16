@@ -22,6 +22,10 @@ a{
     text-decoration: none;
 }
 
+p{
+    margin-bottom: 0.2rem;
+}
+
 main img.productImg {
     width: 10rem;
     height: 6rem;
