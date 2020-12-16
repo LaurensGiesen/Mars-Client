@@ -34,12 +34,10 @@ function getProductDetailsByName(product) {
 function getProductDetail(product, article) {
     let img = article.childNodes[1];
     let id = article.getAttribute("id");
-    let name = article.childNodes[3].childNodes[1].childNodes[1];
-    let nameValue = name.innerHTML;
+    let name = article.childNodes[3].childNodes[1];
+    let nameValue = name.innerText;
     let price = article.childNodes[3].childNodes[3].childNodes[1];
     let priceValue = price.innerHTML;
-    let owner = article.childNodes[3].childNodes[5].childNodes[1];
-    let ownerValue = owner.innerHTML;
     let date = article.childNodes[3].childNodes[7].childNodes[1];
     let dateValue = date.innerHTML;
     let amount = article.childNodes[5].childNodes[3];
@@ -48,7 +46,6 @@ function getProductDetail(product, article) {
         image: img.src,
         name: nameValue,
         price: priceValue,
-        owner: ownerValue,
         date: dateValue,
         amount: amountValue,
         productId: id
@@ -203,11 +200,10 @@ function getResOfPlants() {
         let id = product.getAttribute('id');
         let name = product.querySelector(".name").innerHTML;
         let price = product.querySelector(".price").innerHTML;
-        let owner = product.querySelector(".owner").innerHTML;
         let date = product.querySelector(".date").innerHTML;
         let amount = product.querySelector(".amount").innerHTML;
         let img = product.querySelector("img").getAttribute("src");
-        products.push({productId: id, name: name, price: price, owner: owner, date: date, amount: amount, image: img});
+        products.push({productId: id, name: name, price: price, date: date, amount: amount, image: img});
     });
     return products;
 }
