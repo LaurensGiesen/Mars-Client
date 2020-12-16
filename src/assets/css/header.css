@@ -1,3 +1,4 @@
+
 header nav ul {
     display: flex;
     border: 1px solid #588B8B;
@@ -76,12 +77,25 @@ header li.logoHeader a:hover{
     margin-right: 2rem;
 }
 
-.headerBasket{
+li.basketHeader{
+    padding-top: 0.3rem;
+}
+
+
+.basketHeaderImg{
     display: block;
     margin-left: auto;
     margin-right: 3rem;
     width: 2.5rem;
+}
 
+li.basketHeader a:hover{
+    color: #ffffff;
+}
+
+
+figcaption.counter{
+    padding-left: 2rem;
 }
 
 .logo{
