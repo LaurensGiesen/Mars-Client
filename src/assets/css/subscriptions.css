@@ -1,14 +1,31 @@
-header {
-    display: flex;
-    flex-direction: row;
-    color: #0C1B33;
-}
-
 h1 {
     font-size: 2rem;
     padding-left: 2rem;
     margin-top: 4rem;
     font-family: 'PT Sans', sans-serif;
+}
+#arrow{
+    margin-top: 0.2rem;
+    width: 2rem;
+}
+
+a#back{
+    padding-right: 0.5rem;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+div#backButton{
+    display: flex;
+    align-items: center;
+    width: 5rem;
+    border: 2px solid #000000;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    height: 2rem;
+    text-align: center;
 }
 
 h2 {
@@ -35,6 +52,7 @@ h2 {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 input {
@@ -72,7 +90,7 @@ section:active {
 
 }
 
-ul {
+.subscriptionStyle {
     list-style-type: circle;
 }
 

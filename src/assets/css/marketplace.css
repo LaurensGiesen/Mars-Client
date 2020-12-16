@@ -22,6 +22,10 @@ a{
     text-decoration: none;
 }
 
+p{
+    margin-bottom: 0.2rem;
+}
+
 main img.productImg {
     width: 10rem;
     height: 6rem;
@@ -71,6 +75,7 @@ input[type="search"]{
     background-repeat: no-repeat;
     background-position: right;
     background-size: 1.5rem;
+    padding-left: 0.5rem;
 }
 
 form.filterMarket select{
@@ -81,6 +86,7 @@ form.filterMarket select{
     background-color: #ffffff;
     border-radius: 0.3rem;
     color: #0C1B33;
+    padding-left: 0.4rem;
 }
 
 figcaption.basket{
@@ -113,8 +119,7 @@ article img{
     margin-right: 5.5rem;
 }
 
-
-figure{
+main figure{
     display: flex;
     margin: 1rem;
 }
