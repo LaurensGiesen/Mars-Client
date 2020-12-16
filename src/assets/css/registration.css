@@ -34,10 +34,15 @@ form{
 }
 
 input {
-    padding: 0.5rem;
-    width: 20rem;
-    margin-bottom: 1rem;
+    height: 2rem;
+    padding-right: 1.5rem;
+    width: 17rem;
     border: 1px solid #0C1B33;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    color: #0C1B33;
+    margin-bottom: 0.7rem;
+    padding-left: 0.5rem;;
 }
 
 input:focus{
@@ -71,12 +76,11 @@ legend{
 input[type=submit] {
     display: block;
     text-align: center;
-    margin-right: 10rem;
-    margin-left: 9rem;
-    margin-top: 3rem;
-    width: 20rem;
+    margin: 3rem 9rem 0 9rem;
+    width: 18.5rem;
+    height: 2.5rem;
     font-size: 1.2rem;
-    border-radius: 3px;
+    border-radius: 0.3rem;
     border: 2px solid #983628;
     background-color: #983628;
     color: #ffffff;
