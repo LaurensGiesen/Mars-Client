@@ -9,6 +9,7 @@ async function init() {
     loadPlants();
     searchProducts();
     loadSortValues();
+    loadFilterValues();
     document.querySelector('#order').addEventListener('change', marketPlaceSorting);
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     filterProducts();
@@ -83,7 +84,30 @@ function searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
 
+function loadFilterValues() {
+    apiCall("getLocations", "GET", null).then((res) => {
+        res.forEach(item => {
+            fillFilterValues(item);
+        });
+    });
+}
 
+function fillFilterValues(item) {
+    if (item.cropType === "vegetable") {
+        console.log(item);
+        document.querySelector('.search:first-of-type').innerHTML +=
+            `            <div>
+            <input type="checkbox" name="${item.cropType}" id="${item.cropName}">
+            <label for="${item.cropName}">${item.cropName}</label>
+            </div>`
+    } else {
+        document.querySelector('.search:last-of-type').innerHTML +=
+            `            <div>
+            <input type="checkbox" name="${item.cropType}" id="${item.cropName}">
+            <label for="${item.cropName}">${item.cropName}</label>
+            </div>`
+    }
+}
 function loadSortValues() {
     document.querySelector('#sortby').innerHTML =
         `<option value="name">Name</option>
