@@ -17,8 +17,8 @@ function addProductToList(product) {
                  <div>
                      <h3>${product.name}</span></h3>
                      <p>Price: <span class="price">${product.price}</span></p>
-                     <p data-ownerId="${product.owner.id}">From: <span class="owner">${ownerName}</span></p>
                      <p>Date product added: <span class="date">${date}</span></p>
+                     <p>Amount of products left: <span>${product.amount}</span></p>
                  </div>
                  <form>
                      <label for="amount" class="amount">Amount:</label>
