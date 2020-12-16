@@ -12,7 +12,7 @@ app.component('header-display', {
                 <li><a href="info.html">Info</a></li>
                 <li><a href="sharedTools.html">Shared Tools</a></li>
                 <li class="profile"><img v-bind:src="account" title="account" alt="account">
-                    <ul class="dropdown">
+                    <ul class="dropdown swing-in-top-fwd">
                         <li class="account"><a href="profile.html">Account and Subscription</a></li>
                         <li><a href="myProducts.html">My Products</a></li>
                         <li><a href="orderHistory.html">Order History</a></li>
