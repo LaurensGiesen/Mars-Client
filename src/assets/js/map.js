@@ -93,8 +93,12 @@ function openFilterPopUpMap() {
 function runApp() {
     const map = displayMap();
     const markers = addMarkers(map);
+    insertCity(map);
+    getPosition(map);
     clusterMarkers(map, markers);
     addPanToMarker(map, markers);
+    // drawRectangle(map);
+    // drawPolygon(map);
 }
 
 function loadMapsJSAPI() {
@@ -149,10 +153,7 @@ function displayMap() {
 
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
-    // drawRectangle(map);
-    // drawPolygon(map);
-    getPosition(map);
-    insertCity(map);
+
 
     return map;
 }
@@ -229,39 +230,20 @@ function drawPolygon(map) {
     polygon.setMap(map);
 }
 
-function addMarkers(map) {
-//    TODO: locations for testing only, needs to be linked to DB
-
-    const locations = {
-        // location1: {lat: -1.8567844, lng: 3.213108},
-        // location2: {lat: -2.8472767, lng: 2.2188164},
-        // location3: {lat: -3.8209738, lng: 4.2563253},
-        // location4: {lat: -5.8690081, lng: 1.2052393},
-        // location5: {lat: -1.8587568, lng: 2.2058246},
-        // location6: {lat: -2.858761, lng: 3.2055688},
-        // location7: {lat: -1.852228, lng: 4.2038374},
-        // location8: {lat: -4.8737375, lng: 1.222569},
-        // location9: {lat: -1.864167, lng: 1.216387},
-        // location10: {lat: -1.8636005, lng: 1.2092542},
-        // location11: {lat: -1.869395, lng: 1.198648},
-        // location12: {lat: -1.8665445, lng: 1.1989808},
-        // location13: {lat: -1.869627, lng: 1.202146},
-        // location14: {lat: -1.87488, lng: 1.1987113},
-        // location15: {lat: -1.8605523, lng: 1.1972205}
-    };
-
+async function addMarkers(map) {
     const markers = [];
-    for (const location in locations) {
+    let locations = [];
+    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+    locations.forEach(location => {
         const markerOptions = {
             map: map,
-            position: locations[location],
+            position: {lat: location.latitude, lng: location.longitude},
             icon: './assets/img/pin green.png'
-        };
+        }
         const marker = new google.maps.Marker(markerOptions);
-        markers.push(marker);
-    }
+        markers.push(marker)
+    })
     return markers;
-
 }
 
 function addPanToMarker(map, markers) {
