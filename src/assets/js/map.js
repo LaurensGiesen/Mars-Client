@@ -90,9 +90,9 @@ function openFilterPopUpMap() {
     }
 }
 
-function runApp() {
+async function runApp() {
     const map = displayMap();
-    const markers = addMarkers(map);
+    const markers = await addMarkers(map);
     insertCity(map);
     getPosition(map);
     clusterMarkers(map, markers);
@@ -239,10 +239,10 @@ async function addMarkers(map) {
             map: map,
             position: {lat: location.latitude, lng: location.longitude},
             icon: './assets/img/pin green.png'
-        }
+        };
         const marker = new google.maps.Marker(markerOptions);
         markers.push(marker)
-    })
+    });
     return markers;
 }
 
@@ -259,7 +259,8 @@ function addPanToMarker(map, markers) {
 }
 
 function clusterMarkers(map, markers) {
-    const clusterOptions = { minimumClusterSize: 10 };
+    const path = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer";
+    const clusterOptions = { minimumClusterSize: 10, imagePath: `${path}/m`};
     const markerCluster = new MarkerClusterer(map, markers, clusterOptions);
 }
 
@@ -276,11 +277,8 @@ function clickOnMarker(location) {
     });
 }
 
-function closePopup() {
-    document.querySelector("#popUp").classList.add("hidden");
-}
-
 function showPopup(location) {
+    document.querySelector("#popUp").innerHTML = "";
     document.querySelector('#popUp').classList.remove('hidden');
     document.querySelector('#popUp').innerHTML +=
         `<h2>Crop Information</h2>
