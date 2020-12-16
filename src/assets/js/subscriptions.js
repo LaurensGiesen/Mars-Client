@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    document.querySelector("main").addEventListener("click", selectSubscription)
+    document.querySelector("main #subscriptions").addEventListener("click", selectSubscription)
 }
 
 
