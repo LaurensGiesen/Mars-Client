@@ -31,7 +31,7 @@ article{
 }
 
 
-figure{
+main figure{
     display: flex;
     margin: 1rem;
 }

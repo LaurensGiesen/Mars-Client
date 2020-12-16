@@ -1,4 +1,5 @@
 "use strict";
+
 let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
 
@@ -78,7 +79,7 @@ function makeVeggieVisible() {
 }
 
 function openFilterPopUpMap() {
-    resetSearchBar()
+    resetSearchBar();
     let hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
@@ -90,7 +91,14 @@ function openFilterPopUpMap() {
 }
 
 function runApp() {
-    displayMap();
+    const map = displayMap();
+    const markers = addMarkers(map);
+    insertCity(map);
+    getPosition(map);
+    clusterMarkers(map, markers);
+    addPanToMarker(map, markers);
+    // drawRectangle(map);
+    // drawPolygon(map);
 }
 
 function loadMapsJSAPI() {
@@ -107,7 +115,7 @@ function loadMapsJSAPI() {
 }
 
 function displayMap() {
-    const mapDiv = document.getElementById('map');
+    const mapDiv = document.querySelector('#map');
     const mapOptions = {
         center: {lat: 0, lng: 0},
         zoom: 4,
@@ -145,11 +153,7 @@ function displayMap() {
 
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
-    // drawRectangle(map);
-    // drawPolygon(map);
-    // getPosition(map);
-    insertCity(map);
-    addMarkers(map)
+
 
     return map;
 }
@@ -185,8 +189,9 @@ function insertCity(map) {
 
 function getPosition(map) {
     map.addListener("click", (mapsMouseEvent) => {
-        console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON()))
+        clickOnMarker(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
     });
+    return null;
 }
 
 function drawRectangle(map) {
@@ -225,37 +230,65 @@ function drawPolygon(map) {
     polygon.setMap(map);
 }
 
-function addMarkers(map) {
-//    TODO: locations for testing only, needs to be linked to DB
-
-    const locations = {
-        // location1: {lat: -1.8567844, lng: 3.213108},
-        // location2: {lat: -2.8472767, lng: 2.2188164},
-        // location3: {lat: -3.8209738, lng: 4.2563253},
-        // location4: {lat: -5.8690081, lng: 1.2052393},
-        // location5: {lat: -1.8587568, lng: 2.2058246},
-        // location6: {lat: -2.858761, lng: 3.2055688},
-        // location7: {lat: -1.852228, lng: 4.2038374},
-        // location8: {lat: -4.8737375, lng: 1.222569},
-        // location9: {lat: -1.864167, lng: 1.216387},
-        // location10: {lat: -1.8636005, lng: 1.2092542},
-        // location11: {lat: -1.869395, lng: 1.198648},
-        // location12: {lat: -1.8665445, lng: 1.1989808},
-        // location13: {lat: -1.869627, lng: 1.202146},
-        // location14: {lat: -1.87488, lng: 1.1987113},
-        // location15: {lat: -1.8605523, lng: 1.1972205}
-    }
-
+async function addMarkers(map) {
     const markers = [];
-    for (const location in locations) {
+    let locations = [];
+    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+    locations.forEach(location => {
         const markerOptions = {
             map: map,
-            position: locations[location],
+            position: {lat: location.latitude, lng: location.longitude},
             icon: './assets/img/pin green.png'
         }
         const marker = new google.maps.Marker(markerOptions);
-        markers.push(marker);
-    }
+        markers.push(marker)
+    })
     return markers;
+}
 
+function addPanToMarker(map, markers) {
+    markers = markers.map(marker => {
+        marker.addListener('click', event => {
+            const location = { lat: event.latLng.lat(), lng: event.latLng.lng() };
+            map.panTo(location);
+            console.log(location);
+            clickOnMarker(location);
+        });
+    });
+    return markers;
+}
+
+function clusterMarkers(map, markers) {
+    const clusterOptions = { minimumClusterSize: 10 };
+    const markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+}
+
+function clickOnMarker(location) {
+    let mapLong = location.lng;
+    let mapLat = location.lat;
+
+    apiCall("getLocations", "GET", null).then((res) => {
+        res.forEach(marker => {
+            if (mapLong === marker.longitude && mapLat === marker.latitude) {
+                showPopup(marker);
+            }
+        })
+    });
+}
+
+function closePopup() {
+    document.querySelector("#popUp").classList.add("hidden");
+}
+
+function showPopup(location) {
+    document.querySelector('#popUp').classList.remove('hidden');
+    document.querySelector('#popUp').innerHTML +=
+        `<h2>Crop Information</h2>
+        <p>Longitude: <span class="longitude">${location.longitude}</span></p>
+        <p>Latitude: <span class="latitude">${location.latitude}</span></p>
+        <p>Crop name: <span class="cropName">${location.cropName}</span></p>
+        <p>Crop type: <span class="cropType">${location.cropType}</span></p>
+        <p>Ratio: <span class="ratio">${location.ratio}</span></p>
+        <a class="close" href="#"></a>
+        `
 }
