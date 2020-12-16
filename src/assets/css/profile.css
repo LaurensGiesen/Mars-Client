@@ -22,6 +22,7 @@ h2{
 form{
     display: flex;
     justify-content: space-around;
+    padding-top: 2rem;
 }
 
 input{
@@ -38,11 +39,26 @@ input{
     padding-left: 0.5rem;
 }
 
+input[type="button"]{
+    display: block;
+    background-color: #983628;
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border: 1px solid #ffffff;
+    width: 10rem;
+    height: 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    border-radius: 0.3rem;
+    margin-top: 1.8rem;
+    padding: 0;
+}
+
 #change {
     margin-top: 1rem;
     border: solid #0C1B33;
-    margin-bottom: 9rem;
-    padding: 0 1rem;
+    margin-bottom: 6rem;
+    padding: 0 1rem 2rem 1rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
