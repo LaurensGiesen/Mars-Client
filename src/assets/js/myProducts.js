@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
     config = await loadConfig();
-    loadOwnAddedProducts()
+    loadOwnAddedProducts();
+
 }
 
 function loadOwnAddedProducts() {
@@ -15,7 +16,7 @@ function loadOwnAddedProducts() {
             res.forEach(product => {
                 addProductToOwnList(product);
             });
-            document.querySelectorAll("").forEach(bin => {
+            document.querySelectorAll(".bin").forEach(bin => {
                 bin.addEventListener("click", removeProductFromOwnList);
             });
         }
@@ -33,18 +34,18 @@ function removeProductFromOwnList(product) {
 }
 
 function clearList() {
-    document.querySelector("").innerHTML = "";
-    document.querySelector("").innerHTML = "";
+    document.querySelector(".myProducts").innerHTML = "";
+
 }
 
 function showEmptyPage() {
-    document.querySelector('').innerHTML = `<h2>you have not yet added your own products</h2>`
+    document.querySelector('.emptyMyProducts').innerHTML = `<h2>you have not yet added your own products</h2>`
 }
 
 function addProductToOwnList(product) {
     let date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
 
-    document.querySelector('').innerHTML +=
+    document.querySelector('.myProducts').innerHTML +=
         `<article id="${product.productId}">
             <img src="${product.image}" alt="${product.name}" title="${product.name}" class="productImg">
             <div>

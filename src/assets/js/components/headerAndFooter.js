@@ -2,26 +2,32 @@
 Het is mogelijk dat dit ook het geval is voor links*/
 app.component('header-display', {
     template: `
-      <nav>
-      <ul>
-        <li class="logoHeader"><a href="map.html"><img v-bind:src="logo" alt="logo" title="logo" class="logo"></a>
-        </li>
-        <li class="mapHeader"><a href="map.html">Map</a></li>
-        <li><a href="marketplace.html">Marketplace</a></li>
-        <li><a href="info.html">Info</a></li>
-        <li><a href="sharedTools.html">Shared Tools</a></li>
-        <li class="profile"><img v-bind:src="account" title="account" alt="account">
-          <ul class="dropdown">
-            <li class="account"><a href="profile.html">Account and Subscription</a></li>
-            <li><a href="orderHistory.html">Order History</a></li>
-            <li><a href="favorite.html">Favorite</a></li>
-            <li><a href="index.html">Sign out</a></li>
-          </ul>
-        </li>
-        <li><a href="basket.html"><figure><img v-bind:src="whiteBasket" title="basket" alt="basket"
-                                                 class="headerBasket"><figcaption class="counter"></figcaption></figure></a></li>
-      </ul>
-      </nav>
+        <nav>
+            <ul>
+                <li class="logoHeader"><a href="map.html"><img v-bind:src="logo" alt="logo" title="logo"
+                                                               class="logo"></a>
+                </li>
+                <li class="mapHeader"><a href="map.html">Map</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="info.html">Info</a></li>
+                <li><a href="sharedTools.html">Shared Tools</a></li>
+                <li class="profile"><img v-bind:src="account" title="account" alt="account">
+                    <ul class="dropdown">
+                        <li class="account"><a href="profile.html">Account and Subscription</a></li>
+                        <li><a href="myProducts.html">My Products</a></li>
+                        <li><a href="orderHistory.html">Order History</a></li>
+                        <li><a href="favorite.html">Favorite</a></li>
+                        <li><a href="index.html">Sign out</a></li>
+                    </ul>
+                </li>
+                <li><a href="basket.html">
+                    <figure><img v-bind:src="whiteBasket" title="basket" alt="basket"
+                                 class="headerBasket">
+                        <figcaption class="counter"></figcaption>
+                    </figure>
+                </a></li>
+            </ul>
+        </nav>
     `,
     data() {
         return {
