@@ -22,27 +22,30 @@
     <form method="post" action="#">
         <div>
             <label for="forename">Forename: </label>
-            <input type="text" id="forename" name="forename">
+            <input type="text" id="forename" name="forename" placeholder="forename">
 
             <label for="surname">Surname: </label>
-            <input type="text" id="surname" name="surname">
+            <input type="text" id="surname" name="surname" placeholder="surname">
 
             <label for="email">Email: </label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" placeholder="email">
 
             <label for="dateOfBirth">Date of Birth: </label>
-            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="dateOfBirth">
+            <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="dateOfBirth" placeholder="date of birth (01-01-2054)">
 
             <label for="address">Address: </label>
-            <input type="text" id="address" name="address">
-
+            <input type="text" id="address" name="address" placeholder="address">
+            <label for="number">House Number:</label>
+            <input type="number" id="number" name="number" placeholder="14" min="1" >
             <label for="dome">Dome: </label>
-            <input type="text" id="dome" name="dome">
+            <input type="text" id="dome" name="dome" placeholder="14">
+            <label for="changeData"></label>
+            <p class="timerMessage"></p>
+            <input type="button" id="changeData" value="Change data">
+
         </div>
 
         <div id="change">
-
-
             <table>
                 <caption>Subscriptions</caption>
                 <tr>
@@ -106,10 +109,12 @@
     <a href="#" class="close">X</a>
 </div>
 
-<script src="assets/js/profile.js"></script>
+
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/components/headerAndFooter.js"></script>
 <script>const mountedApp = app.mount('body')</script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/profile.js"></script>
+<script src="assets/js/api.js"></script>
 </body>
 </html>
