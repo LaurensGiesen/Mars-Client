@@ -19,23 +19,24 @@ function loadProductDetails() {
         `<article id="${parseProductDetails.productId}">
             <img class="productImg" id="${parseProductDetails.name}" alt="${parseProductDetails.name}" src="${parseProductDetails.image}"/>
        <div>
-            <h3>Name: ${parseProductDetails.name}</h3>
+            <h3>${parseProductDetails.name}</h3>
             <p>Price: ${parseProductDetails.price}</p>
             <p>From: ${parseProductDetails.owner}</p>
             <p>Date product added: ${parseProductDetails.date}</p>
+            <p>Amount of products left: <span>${parseProductDetails.amount}</span></p>
         </div>
 
         <div id="choice">
-            <label for="number">Number: ${parseProductDetails.amount}</label>
+            <label for="number" class="amount">Amount:</label>
             <input id="number" min="1" type="number" max="${parseProductDetails.amount}">
             <figure class="basket">
-                <img alt="add to basket" class="emptybasket" src="assets/img/basketPlus.svg"
+                <img alt="add to basket" class="emptyBasket" src="assets/img/basketPlus.svg"
                      title="add to basket"/>
-                <figcaption>Add to basket</figcaption>
+                <figcaption class="basket">Add to basket</figcaption>
             </figure>
 
             <figure class="heart">
-                <img alt="add to favorite" class="emptyheart" src="assets/img/emptyHeart.svg"
+                <img alt="add to favorite" class="emptyHeart" src="assets/img/emptyHeart.svg"
                      title="add to favorite"/>
                 <figcaption>Add to favorite</figcaption>
             </figure>
