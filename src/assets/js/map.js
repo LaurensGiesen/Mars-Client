@@ -1,7 +1,7 @@
 "use strict";
 
-let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
+let filterIsOpen = false;
 
 async function init() {
     config = await loadConfig();
@@ -94,11 +94,9 @@ async function runApp() {
     const map = displayMap();
     const markers = await addMarkers(map);
     insertCity(map);
-    getPosition(map);
     clusterMarkers(map, markers);
-    addMarkerFunctionalities(map, markers);
-    // drawRectangle(map);
-    // drawPolygon(map);
+    await addMarkerFunctionalities(map, markers);
+
 }
 
 function loadMapsJSAPI() {
@@ -187,49 +185,6 @@ function insertCity(map) {
 
 }
 
-function getPosition(map) {
-    map.addListener("click", (mapsMouseEvent) => {
-        clickOnMarker(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
-    });
-    return null;
-}
-
-function drawRectangle(map) {
-    return new google.maps.Rectangle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        bounds: {
-            north: 1,
-            south: -1,
-            east: 1,
-            west: -1,
-        },
-    })
-}
-
-function drawPolygon(map) {
-    const coordinatesArrayExample = [
-        {lat: 1, lng: 1.5},
-        {lat: -0.5, lng: 3},
-        {lat: 0, lng: 1.5},
-        {lat: 1, lng: 1.5}
-    ];
-
-    let polygon = new google.maps.Polygon({
-        paths: coordinatesArrayExample,
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-    });
-    polygon.setMap(map);
-}
-
 async function addMarkers(map) {
     const markers = [];
     let locations = [];
@@ -278,28 +233,45 @@ function clusterMarkers(map, markers) {
     new MarkerClusterer(map, markers, clusterOptions);
 }
 
-function clickOnMarker(location) {
-    let mapLong = location.lng;
-    let mapLat = location.lat;
-
-    apiCall("getLocations", "GET", null).then((res) => {
-        res.forEach(marker => {
-            if (mapLong === marker.longitude && mapLat === marker.latitude) {
-                showPopup(marker);
-            }
-        })
+function getPosition(map) {
+    map.addListener("click", (mapsMouseEvent) => {
+        clickOnMarker(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
     });
+    return null;
 }
 
-function showPopup(location) {
-    document.querySelector("#popUp").innerHTML = "";
-    document.querySelector('#popUp').classList.remove('hidden');
-    document.querySelector('#popUp').innerHTML +=
-        `<h2>Crop Information</h2>
-        <p>Longitude: <span class="longitude">${location.longitude}</span></p>
-        <p>Latitude: <span class="latitude">${location.latitude}</span></p>
-        <p>Crop name: <span class="cropName">${location.cropName}</span></p>
-        <p>Crop type: <span class="cropType">${location.cropType}</span></p>
-        <p>Ratio: <span class="ratio">${location.ratio}</span></p>
-        `
+function drawRectangle(map) {
+    return new google.maps.Rectangle({
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35,
+        map,
+        bounds: {
+            north: 1,
+            south: -1,
+            east: 1,
+            west: -1,
+        },
+    })
+}
+
+function drawPolygon(map) {
+    const coordinatesArrayExample = [
+        {lat: 1, lng: 1.5},
+        {lat: -0.5, lng: 3},
+        {lat: 0, lng: 1.5},
+        {lat: 1, lng: 1.5}
+    ];
+
+    let polygon = new google.maps.Polygon({
+        paths: coordinatesArrayExample,
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35,
+    });
+    polygon.setMap(map);
 }
