@@ -96,7 +96,7 @@ async function runApp() {
     insertCity(map);
     getPosition(map);
     clusterMarkers(map, markers);
-    addPanToMarker(map, markers);
+    addMarkerFunctionalities(map, markers);
     // drawRectangle(map);
     // drawPolygon(map);
 }
@@ -246,22 +246,36 @@ async function addMarkers(map) {
     return markers;
 }
 
-function addPanToMarker(map, markers) {
-    markers = markers.map(marker => {
+async function addMarkerFunctionalities(map, markers) {
+    let locations = [];
+    let infoWindow = new google.maps.InfoWindow()
+    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+    markers.map(marker => {
         marker.addListener('click', event => {
-            const location = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-            map.panTo(location);
-            console.log(location);
-            clickOnMarker(location);
+            const loc = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+            map.panTo(loc);
+            locations.forEach(element => {
+                if (element.longitude === loc.lng && element.latitude === loc.lat) {
+                    infoWindow.setContent(
+                        `<h2>Crop Information</h2>
+                        <p>Longitude: <span class="longitude">${element.longitude}</span></p>
+                        <p>Latitude: <span class="latitude">${element.latitude}</span></p>
+                        <p>Crop name: <span class="cropName">${element.cropName}</span></p>
+                        <p>Crop type: <span class="cropType">${element.cropType}</span></p>
+                        <p>Ratio: <span class="ratio">${element.ratio}</span></p>`
+                    )
+                    infoWindow.open(map, marker)
+                }
+            });
         });
     });
-    return markers;
 }
+
 
 function clusterMarkers(map, markers) {
     const path = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer";
     const clusterOptions = { minimumClusterSize: 10, imagePath: `${path}/m`};
-    const markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+    new MarkerClusterer(map, markers, clusterOptions);
 }
 
 function clickOnMarker(location) {
@@ -287,6 +301,5 @@ function showPopup(location) {
         <p>Crop name: <span class="cropName">${location.cropName}</span></p>
         <p>Crop type: <span class="cropType">${location.cropType}</span></p>
         <p>Ratio: <span class="ratio">${location.ratio}</span></p>
-        <a class="close" href="#"></a>
         `
 }
