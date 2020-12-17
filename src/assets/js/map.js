@@ -14,6 +14,83 @@ async function init() {
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
 
+//FILTER
+
+async function loadShop() {
+    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
+        element => element.cropName))).map(cropName => {
+        return (r.find(element => element.cropName === cropName))
+    }))
+    const crops = await result;
+
+    crops.forEach(element => document.querySelector("#products").innerHTML
+        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`)
+}
+
+function search(e) {
+    if (e.target.value.length < 1 && e.key === "Backspace") {
+        makeAllSeedsHidden();
+    } else {
+        makeAllSeedsHidden();
+        let searchString = e.target.value.toLowerCase();
+        let products = document.getElementById("products").getElementsByTagName("input");
+        [...products].forEach(product => {
+            if (product.value.toLowerCase().includes(searchString)) {
+                product.classList.remove('hidden');
+            } else {
+                product.classList.add('hidden');
+            }
+        })
+    }
+}
+
+function resetSearchBar() {
+    document.querySelector('#search').value = '';
+    makeAllSeedsHidden();
+}
+
+function makeFruitSeedsVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .fruit').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
+}
+
+function makeAllSeedsHidden() {
+    document.querySelectorAll('#products input').forEach(input => {
+        if (!input.classList.contains('hidden')) {
+            input.classList.add('hidden');
+        }
+    });
+}
+
+function makeVeggieVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .vegetable').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
+}
+
+function openFilterPopUpMap() {
+    resetSearchBar();
+    let hiddenScrollOut = document.querySelector('#scrollOut');
+    if (!filterIsOpen) {
+        hiddenScrollOut.classList.remove("behind");
+        filterIsOpen = true;
+    } else {
+        hiddenScrollOut.classList.add("behind");
+        filterIsOpen = false;
+    }
+}
+
 //MAP
 
 async function runApp() {
@@ -197,80 +274,3 @@ function clusterMarkers(map, markers) {
 //     });
 //     polygon.setMap(map);
 // }
-
-//FILTER
-
-async function loadShop() {
-    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
-        element => element.cropName))).map(cropName => {
-        return (r.find(element => element.cropName === cropName))
-    }))
-    const crops = await result;
-
-    crops.forEach(element => document.querySelector("#products").innerHTML
-        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`)
-}
-
-function search(e) {
-    if (e.target.value.length < 1 && e.key === "Backspace") {
-        makeAllSeedsHidden();
-    } else {
-        makeAllSeedsHidden();
-        let searchString = e.target.value.toLowerCase();
-        let products = document.getElementById("products").getElementsByTagName("input");
-        [...products].forEach(product => {
-            if (product.value.toLowerCase().includes(searchString)) {
-                product.classList.remove('hidden');
-            } else {
-                product.classList.add('hidden');
-            }
-        })
-    }
-}
-
-function resetSearchBar() {
-    document.querySelector('#search').value = '';
-    makeAllSeedsHidden();
-}
-
-function makeFruitSeedsVisible() {
-    makeAllSeedsHidden();
-    document.querySelectorAll('#products .fruit').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
-        }
-    });
-}
-
-function makeAllSeedsHidden() {
-    document.querySelectorAll('#products input').forEach(input => {
-        if (!input.classList.contains('hidden')) {
-            input.classList.add('hidden');
-        }
-    });
-}
-
-function makeVeggieVisible() {
-    makeAllSeedsHidden();
-    document.querySelectorAll('#products .vegetable').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
-        }
-    });
-}
-
-function openFilterPopUpMap() {
-    resetSearchBar();
-    let hiddenScrollOut = document.querySelector('#scrollOut');
-    if (!filterIsOpen) {
-        hiddenScrollOut.classList.remove("behind");
-        filterIsOpen = true;
-    } else {
-        hiddenScrollOut.classList.add("behind");
-        filterIsOpen = false;
-    }
-}
