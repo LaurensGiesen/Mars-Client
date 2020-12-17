@@ -116,7 +116,7 @@ function loadSortValues() {
         `<option value="name">Name</option>
          <option value="price">Price</option>
          <option value="date">Date</option>
-         <option value="amount">Amount</option>
+         <option value="amount">Total of products</option>
          `;
 }
 
