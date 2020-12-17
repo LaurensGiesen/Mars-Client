@@ -80,10 +80,19 @@ input {
 
 #scrollOut input[type="text"] {
     height: 1.5rem;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
     width: 10rem;
     border: 2px solid #983628;
+    border-radius: 0.3rem;
     background-color: #ffffff;
+    margin-right: 2rem;
+    background-image: url("../img/searchRed.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 1.5rem;
+    padding-left: 0.5rem;
+    color: #0C1B33;
+
 }
 
 input[type = "button"] {
@@ -101,12 +110,12 @@ input[type = "button"]:hover{
 }
 
 #filterOptions {
-    width: 20rem;
+    width: 10rem;
     display: flex;
     justify-content: space-around;
 }
 
-#filterOptions figure {
+#filterOptions div.products {
     justify-content: center;
     border-left: solid #d0cfcf;
     height: 4.5rem;
@@ -129,4 +138,25 @@ input[type = "button"]:hover{
 
 #filtered div {
     margin-left: 1.5rem;
+}
+
+
+div.popup{
+    width: 16rem;
+    height: 10rem;
+}
+
+div.popup h2{
+    font-size: 1.2rem;
+    font-family: 'Noto Sans JP', sans-serif ;
+    margin-bottom: 1rem;
+}
+
+div.popup p{
+    margin-top: 0.6rem;
+    padding: 0;
+}
+
+div.popup span{
+    line-height: 0;
 }
