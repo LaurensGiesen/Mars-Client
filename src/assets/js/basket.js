@@ -61,7 +61,6 @@ function showEmptyBasket() {
 
 function addProductToBasket(product) {
     let date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
-
     document.querySelector(".basketProducts").innerHTML +=
         `<article id="${product.productId}">
             <img src="${product.image}" alt="${product.name}" title="${product.name}" class="productImg">
@@ -72,7 +71,7 @@ function addProductToBasket(product) {
             </div>
             <form>
                 <label for="amount">Amount: </label>
-                <input id="amount" min="1" step="1" type="number" value="1">
+                <input id="amount" min="1" step="1" type="number" value="${product.amount}">
 
                 <figure>
                     <img src="assets/img/emptyHeart.svg" alt="heart" title="heart" class="emptyHeart"/>
@@ -91,10 +90,13 @@ function addProductToBasket(product) {
 
 function removeProductFromBasket(product) {
     clearBasket();
+    let amount = product.target.parentNode.parentNode.childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("removeProductFromBasket", "POST", data).then(loadProductsInBasket);
     calculateBasketAmount();
@@ -112,11 +114,13 @@ function changeFavoriteState(product) {
 function addProductToFavorite(product) {
     product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     product.target.src = "assets/img/fullHeart.svg";
-
+    let amount = product.target.parentNode.parentNode.childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("addProductToFavorite", "POST", data).then();
 }
@@ -124,11 +128,13 @@ function addProductToFavorite(product) {
 function removeFromFavorites(product) {
     product.target.parentNode.children["1"].innerHTML = "Add to favorite";
     product.target.src = "assets/img/emptyHeart.svg";
-
+    let amount = product.target.parentNode.parentNode.childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("removeProductFromFavorite", "POST", data).then();
 }

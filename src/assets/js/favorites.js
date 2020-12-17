@@ -5,21 +5,21 @@ async function init() {
     getFavorites();
 }
 
-function getFavorites(){
+function getFavorites() {
     const articleContainer = document.querySelector(".articleContainer");
     apiCall("getFavorites/1", "GET", null).then((response) => {
         if (response.length === 0) {
             showEmptyFavorites();
         } else {
-           response.forEach(item => {
-               displayFavorites(item, articleContainer);
-           })
-           document.querySelectorAll(".basket").forEach(basket => {
+            response.forEach(item => {
+                displayFavorites(item, articleContainer);
+            })
+            document.querySelectorAll(".basket").forEach(basket => {
                 basket.addEventListener("click", addProductToBasket);
-           });
-           document.querySelectorAll(".heart").forEach(heart => {
+            });
+            document.querySelectorAll(".heart").forEach(heart => {
                 heart.addEventListener("click", removeProductFromFavorite);
-           })
+            })
         }
     });
 }
@@ -28,8 +28,8 @@ function showEmptyFavorites() {
     document.querySelector(".emptyFavorites").innerHTML += `<h2>You have no favorites</h2>`
 }
 
-function displayFavorites(item, articleContainer){
-        articleContainer.innerHTML += `<article id="${item.productId}">
+function displayFavorites(item, articleContainer) {
+    articleContainer.innerHTML += `<article id="${item.productId}">
             <img src="${item.image}" alt="product image" title="product-image" class="productImg">
             <div>
                 <h2>${item.name}</h2>
@@ -57,24 +57,29 @@ function clearFavorites() {
 }
 
 function removeProductFromFavorite(e) {
-        clearFavorites();
-        e.target.parentNode.children["1"].innerHTML = "Add to favorite";
-        e.target.src = "assets/img/emptyHeart.svg";
-
-        const data = JSON.stringify({
-           "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-           "userId": 1, //NYI
-           "productType": "plant"
-        });
-        apiCall("removeProductFromFavorite", "POST", data).then(getFavorites);
+    clearFavorites();
+    e.target.parentNode.children["1"].innerHTML = "Add to favorite";
+    e.target.src = "assets/img/emptyHeart.svg";
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
+    const data = JSON.stringify({
+        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
+        "userId": 1, //NYI
+        "productType": "plant",
+        "amount": parseInt(amountValue)
+    });
+    console.log(data);
+    apiCall("removeProductFromFavorite", "POST", data).then(getFavorites);
 }
 
 function addProductToBasket(product) {
-
+    let amount = product.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("addProductToBasket", "POST", data).then();
     document.location.href = "basket.html"

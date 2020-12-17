@@ -40,7 +40,6 @@ function getProductDetail(product, article) {
     let priceValue = price.innerText;
     let amount = article.childNodes[5].childNodes[3];
     let amountValue = amount.value;
-    console.log(amountValue);
     let date = article.childNodes[3].childNodes[5].childNodes[1];
     let dateValue = date.innerText;
     let total = article.childNodes[3].childNodes[7].childNodes[1];
@@ -101,13 +100,13 @@ function fillFilterValues(item) {
     if (item.type === "vegetable") {
         document.querySelector('.search:first-of-type').innerHTML +=
             `            <div>
-            <input type="checkbox" name="${item.type}" id="${item.type}">
+            <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.name}">${item.name}</label>
             </div>`
     } else {
         document.querySelector('.search:last-of-type').innerHTML +=
             `            <div>
-            <input type="checkbox" name="${item.type}" id="${item.type}">
+            <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.type}">${item.name}</label>
             </div>`
     }
@@ -139,13 +138,11 @@ function getClickEvents() {
 }
 
 function filter(checkbox) {
-    console.log(checkbox);
     let products = [];
     document.querySelector('.articleContainer').innerHTML = "";
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
-        let checkedProduct = checkbox.labels;
-        console.log(checkedProduct);
+        let checkedProduct = checkbox.id;
         for (let product of allProducts) {
             let productName = product.name.toLowerCase();
             if (productName === checkedProduct.toLowerCase()) {
@@ -164,7 +161,6 @@ function filter(checkbox) {
 }
 
 function disableCheckboxes(checkedCheckbox) {
-    console.log(checkedCheckbox);
     let checkedCheckboxId = checkedCheckbox.attributes[2].value;
     let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
@@ -188,7 +184,6 @@ function enableCheckboxes() {
 function marketPlaceSorting() {
     let searchRes = [];
     for (let product of allProducts) {
-        console.log(product);
         let name = product.name.toLowerCase();
         if (name.includes(document.querySelector('#search').value.toLowerCase())) {
             searchRes.push(product);
@@ -243,11 +238,13 @@ function getResOfPlants() {
 function addToBasket(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from basket";
     e.target.src = "assets/img/shopping basket checkmark.svg";
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
         "productType": "plant",
-        "Amount": parseInt(e.target.parentNode.parentNode.parentNode.children["2"]["0"].value)
+        "amount": parseInt(amountValue)
     });
     apiCall("addProductToBasket", "POST", data).then()
     calculateBasketAmount();
@@ -257,11 +254,13 @@ function addToBasket(e) {
 function removeFromBasket(e) {
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
-
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("removeProductFromBasket", "POST", data).then();
     calculateBasketAmount();
@@ -270,11 +269,13 @@ function removeFromBasket(e) {
 function addProductToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     e.target.src = "assets/img/fullHeart.svg";
-
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("addProductToFavorite", "POST", data).then();
 }
@@ -282,10 +283,13 @@ function addProductToFavorites(e) {
 function removeFromFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Add to favorite";
     e.target.src = "assets/img/emptyHeart.svg";
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("removeProductFromFavorite", "POST", data).then();
 }
