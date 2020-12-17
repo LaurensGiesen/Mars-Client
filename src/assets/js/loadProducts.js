@@ -22,7 +22,7 @@ function addProductToList(product) {
                  </div>
                  <form>
                      <label for="amount" class="amount">Amount:</label>
-                     <input min="1" step="1" type="number" value="1">
+                     <input min="1" step="1" type="number" value="1" max="${product.amount}">
 
                      <figure class="basket">
                          <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"

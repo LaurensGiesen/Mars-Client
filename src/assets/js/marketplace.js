@@ -94,7 +94,6 @@ function loadFilterValues() {
 
 function fillFilterValues(item) {
     if (item.cropType === "vegetable") {
-        console.log(item);
         document.querySelector('.search:first-of-type').innerHTML +=
             `            <div>
             <input type="checkbox" name="${item.cropType}" id="${item.cropName}">
@@ -238,8 +237,10 @@ function addToBasket(e) {
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "Amount": parseInt(e.target.parentNode.parentNode.parentNode.children["2"]["0"].value)
     });
+    console.log(data);
     apiCall("addProductToBasket", "POST", data).then()
     calculateBasketAmount();
 }
