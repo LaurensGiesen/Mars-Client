@@ -21,10 +21,10 @@ function loadProductsInBasket() {
                 });
                 document.querySelectorAll(".emptyHeart").forEach(heart => {
                     heart.addEventListener("click", changeFavoriteState);
-                })
+                });
             }
         }
-    )
+    );
 }
 
 function clearBasket() {
@@ -52,11 +52,11 @@ function fillBasketInformation(totalArticlePrice, totalTransportPrice) {
         <h3 class="totalTransportation">Transportation costs: € <span>${totalTransportPrice}</span></h3>
         <hr>
         <h3 class="total">Total: € <span>${total}</span></h3>
-        <input type="button" value="Continue to payment">`
+        <input type="button" value="Continue to payment">`;
 }
 
 function showEmptyBasket() {
-    document.querySelector(".emptyBasket").innerHTML += `<h2 class="hidden">You're basket is empty</h2>`
+    document.querySelector(".emptyBasket").innerHTML += `<h2 class="hidden">You're basket is empty</h2>`;
 }
 
 function addProductToBasket(product) {
@@ -86,7 +86,7 @@ function addProductToBasket(product) {
 
             </form>
             <h2 class="price">€ <span>${product.price}</span></h2>
-        </article>`
+        </article>`;
 }
 
 function removeProductFromBasket(product) {

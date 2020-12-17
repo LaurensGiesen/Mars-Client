@@ -41,7 +41,7 @@ function loadProductDetails() {
                 <figcaption>Add to favorite</figcaption>
             </figure>
         </div>
-        </article>`
+        </article>`;
 }
 
 function changeBasketState(e) {

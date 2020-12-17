@@ -25,7 +25,6 @@ app.component('header-display', {
                     <figcaption class="counter"></figcaption>
                     <img v-bind:src="whiteBasket" title="basket" alt="basket"
                                  class="basketHeaderImg">
-                                
                     </figure>
                 </a></li>
             </ul>
@@ -36,7 +35,7 @@ app.component('header-display', {
             logo: "assets/img/logo.png",
             account: "assets/img/account.svg",
             whiteBasket: "assets/img/whiteBasket.svg",
-        }
+        };
     }
 });
 

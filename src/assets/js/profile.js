@@ -38,7 +38,7 @@ function fillValuesInProfile(res) {
 
         <label for="dome">Dome: </label>
     <input type="text" id="dome" name="dome" value="${dome}">
-        `
+        `;
     document.querySelector('form div:nth-child(2)').innerHTML =
         `
         <label for="surname">Surname: </label>
@@ -54,7 +54,7 @@ function fillValuesInProfile(res) {
         <label for="changeData"></label>
         <p class="timerMessage"></p>
         <input type="button" id="changeData" value="Change data">
-        `
+        `;
 }
 
 function changeDataUser() {

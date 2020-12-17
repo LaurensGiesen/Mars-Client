@@ -44,10 +44,10 @@ function emptyNonSelectedSubscriptions(selectedSubscription) {
             section.style.color = "#0C1B33";
             section.style.borderColor = "#0C1B33";
             section.querySelector("h2").style.borderColor = "#0C1B33";
-            section.querySelector("p").style.borderColor = "#0C1B33"
+            section.querySelector("p").style.borderColor = "#0C1B33";
             section.classList.remove("selected");
         }
-    })
+    });
 }
 
 function checkIfReadyToPay(e) {
