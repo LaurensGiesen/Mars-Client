@@ -21,8 +21,6 @@
 <main>
     <div id="map"></div>
 
-    <div id="popUp" class="hidden"></div>
-
     <div id="filterContainer">
         <span>Click</span>
 
@@ -31,20 +29,23 @@
         <label for="search"></label>
         <input id="search" placeholder="Search" type="text">
         <div id="filterOptions">
-            <figure>
-                <img alt="#" src="#">
-                <input type="button" value="Fruit">
-            </figure>
-            <figure>
-                <img alt="#" src="#">
-                <input type="button" value="Veggies">
-            </figure>
-        </div>
-        <div id="filters">
-            <div id="products">
+
+            <div class="products">
+                <label for="fruitButton"></label>
+                <input type="button" value="Fruit" id="fruitButton">
+                <div id="fruit">
+
+                </div>
+            </div>
+
+            <div class="products">
+                <label for="veggieButton"></label>
+                <input type="button" value="Veggies" id="veggieButton">
+            <div id="veggie">
             </div>
         </div>
         <div id="circle"></div>
+    </div>
     </div>
 
 </main>
