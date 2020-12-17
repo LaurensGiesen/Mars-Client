@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", init);
 async function init() {
     config = await loadConfig();
     // Small poc
-    autoFill()
+    autoFill();
     document.querySelector("input[type='submit']").addEventListener("click", register);
 
 }
@@ -26,7 +26,7 @@ function register(e) {
     });
     registerCall("register", 'POST', data).then((response) => {
         if(response){
-            window.location.href = "map.html";
+            window.location.href = "chooseSubscription.html";
         }else{
             console.log(response);
         }
