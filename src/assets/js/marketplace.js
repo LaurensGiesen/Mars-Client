@@ -102,7 +102,7 @@ function filterProducts() {
     filterBox.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             filter(checkbox);
-        })
+        });
     });
 }
 
@@ -217,10 +217,10 @@ function addToBasket(e) {
     e.target.src = "assets/img/shopping basket checkmark.svg";
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
+        "userId": 1, //NYI;
         "productType": "plant"
     });
-    apiCall("addProductToBasket", "POST", data).then()
+    apiCall("addProductToBasket", "POST", data).then();
     calculateBasketAmount();
 }
 
@@ -244,7 +244,7 @@ function addProductToFavorites(e) {
 
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
+        "userId": 1, //NYI;
         "productType": "plant"
     });
     apiCall("addProductToFavorite", "POST", data).then();

@@ -11,9 +11,9 @@ function getFavorites(){
         if (response.length === 0) {
             showEmptyFavorites();
         } else {
-           response.forEach(item => {
-               displayFavorites(item, articleContainer);
-           });
+            response.forEach(item => {
+                displayFavorites(item, articleContainer);
+            });
             document.querySelectorAll(".basket").forEach(basket => {
                 basket.addEventListener("click", addProductToBasket);
             });
