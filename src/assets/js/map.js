@@ -43,6 +43,7 @@ async function loadShop() {
 function search(e) {
     if (e.target.value.length < 1 && e.key === "Backspace") {
         makeAllSeedsHidden();
+        addMarkers();
     } else {
         makeAllSeedsHidden();
         let searchString = e.target.value.toLowerCase();
