@@ -8,8 +8,8 @@ async function init() {
     loadMapsJSAPI();
     await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
-    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible);
-    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
+    document.querySelector('input[value=Fruit]').addEventListener('click', changeLocationOfFruit);
+    document.querySelector('input[value=Veggies]').addEventListener('click', changeLocationOfVeggie);
     document.querySelector('#search').addEventListener('keyup', search);
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
@@ -20,14 +20,14 @@ async function loadShop() {
     const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
         element => element.cropName))).map(cropName => {
         return (r.find(element => element.cropName === cropName))
-    }))
+    }));
     const crops = await result;
-    console.log(crops)
+    console.log(crops);
     crops.forEach(element => {
         let product;
-        if (element.cropType === "fruit"){
+        if (element.cropType === "fruit") {
             product = document.querySelector("#fruit");
-        }else{
+        } else {
             product = document.querySelector("#veggie");
         }
         console.log(element);
@@ -57,35 +57,62 @@ function resetSearchBar() {
     makeAllSeedsHidden();
 }
 
-function makeFruitSeedsVisible() {
-    makeAllSeedsHidden();
-    console.log()
-    document.querySelectorAll('#fruit input').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
-        }
-    });
-}
-
 function makeAllSeedsHidden() {
-    document.querySelectorAll('#products input').forEach(input => {
+    document.querySelectorAll('.products div input').forEach(input => {
         if (!input.classList.contains('hidden')) {
             input.classList.add('hidden');
         }
     });
 }
 
-function makeVeggieVisible() {
-    makeAllSeedsHidden();
-    document.querySelectorAll('#veggie input').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
-        }
-    });
+function changeLocationOfVeggie() {
+    document.querySelector("#filterOptions").innerHTML = "";
+    document.querySelector("#filterOptions").innerHTML += `
+        <div class="products">
+            <input type="button" value="Fruit" id="fruitButton">
+            <div id="fruit">
+                <input type="button" value="Apple" class="fruit hidden">
+                <input type="button" value="Apricot" class="fruit hidden">
+                <input type="button" value="Banana" class="fruit hidden">
+            </div>
+        </div>
+        <div class="products">
+            <input type="button" value="Veggies" id="veggieButton">
+            <div id="veggie">
+                <input type="button" value="Asparagus" class="vegetable">
+                <input type="button" value="Broccoli" class="vegetable">
+                <input type="button" value="Tomato" class="vegetable">
+            </div>
+        </div>
+        <div id="circle"></div>
+        </div>`;
+    document.querySelector('input[value=Fruit]').addEventListener('click', changeLocationOfFruit);
+}
+
+function changeLocationOfFruit() {
+        document.querySelector("#filterOptions").innerHTML = "";
+        document.querySelector("#filterOptions").innerHTML += `
+        <div class="products">
+            <label for="veggieButton"></label>
+            <input type="button" value="Veggies" id="veggieButton">
+            <div id="veggie">
+                <input type="button" value="Asparagus" class="vegetable hidden">
+                <input type="button" value="Broccoli" class="vegetable hidden">
+                <input type="button" value="Tomato" class="vegetable hidden">
+            </div>
+        </div>
+        <div class="products">
+            <label for="fruitButton"></label>
+            <input type="button" value="Fruit" id="fruitButton">
+            <div id="fruit">
+                <input type="button" value="Apple" class="fruit">
+                <input type="button" value="Apricot" class="fruit">
+                <input type="button" value="Banana" class="fruit">
+            </div>
+        </div>
+        <div id="circle"></div>
+        </div>`;
+    document.querySelector('input[value=Veggies]').addEventListener('click', changeLocationOfVeggie);
 }
 
 function openFilterPopUpMap() {
@@ -212,7 +239,7 @@ async function addMarkers(map) {
 
 async function addMarkerFunctionalities(map, markers) {
     let locations = [];
-    let infoWindow = new google.maps.InfoWindow()
+    let infoWindow = new google.maps.InfoWindow();
     await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
     markers.map(marker => {
         marker.addListener('click', event => {
@@ -229,7 +256,7 @@ async function addMarkerFunctionalities(map, markers) {
                         <p>Crop type: <span class="cropType">${element.cropType}</span></p>
                         <p>Ratio: <span class="ratio">${element.ratio}</span></p>
                         </div>`
-                    )
+                    );
                     infoWindow.open(map, marker)
                 }
             });
