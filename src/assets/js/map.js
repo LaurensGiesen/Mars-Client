@@ -65,7 +65,8 @@ function resetSearchBar() {
 
 function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
-    document.querySelectorAll('#products .fruit').forEach(input => {
+    console.log()
+    document.querySelectorAll('#fruit input').forEach(input => {
         if (input.classList.contains('hidden')) {
             input.classList.remove('hidden');
         } else {
@@ -84,7 +85,7 @@ function makeAllSeedsHidden() {
 
 function makeVeggieVisible() {
     makeAllSeedsHidden();
-    document.querySelectorAll('#products .vegetable').forEach(input => {
+    document.querySelectorAll('#veggie input').forEach(input => {
         if (input.classList.contains('hidden')) {
             input.classList.remove('hidden');
         } else {
@@ -240,12 +241,14 @@ async function addMarkerFunctionalities() {
             locations.forEach(element => {
                 if (element.longitude === loc.lng && element.latitude === loc.lat) {
                     infoWindow.setContent(
-                        `<h2>Crop Information</h2>
+                        `<div class="popup">
+                        <h2>Crop Information</h2>
                         <p>Longitude: <span class="longitude">${element.longitude}</span></p>
                         <p>Latitude: <span class="latitude">${element.latitude}</span></p>
                         <p>Crop name: <span class="cropName">${element.cropName}</span></p>
                         <p>Crop type: <span class="cropType">${element.cropType}</span></p>
-                        <p>Ratio: <span class="ratio">${element.ratio}</span></p>`
+                        <p>Ratio: <span class="ratio">${element.ratio}</span></p>
+                        </div>`
                     )
                     infoWindow.open(map, marker)
                 }
