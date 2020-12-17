@@ -33,7 +33,7 @@ async function loadShop() {
     const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
         element => element.cropName))).map(cropName => {
         return (r.find(element => element.cropName === cropName))
-    }))
+    }));
     const crops = await result;
 
     crops.forEach(element => document.querySelector("#products").innerHTML
