@@ -8,12 +8,13 @@ async function init() {
     document.querySelector("#change > table > tbody > tr:nth-child(1) > th:nth-child(2) > a")
         .addEventListener("click", openPopupSubscription);
     document.querySelector(".close").addEventListener("click", closePopupSubscription);
+
 }
 
 function requestFillingUsersDAta() {
     apiCall("getUser/1", "GET", null).then(
-        (res) => fillValuesInProfile(res)
-    );
+        (res) => {fillValuesInProfile(res)
+    document.querySelector('#changeData').addEventListener('click', changeDataUser)});
 }
 
 function fillValuesInProfile(res) {
@@ -76,7 +77,7 @@ function changeDataUser() {
     });
     apiCall("updateUser/1", "POST", data).then(
         (res) =>  { addSituation(res);
-    document.querySelector('#changeData').addEventListener('click', changeDataUser)});
+    });
 }
 
 function clear() {
