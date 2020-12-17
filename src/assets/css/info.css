@@ -1,34 +1,128 @@
 main{
-    margin: 3rem;
+    padding: 2rem 5rem;
     position: relative;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #0C1B33;
 }
 
 aside{
     position: absolute;
-    border: solid black;
+    border: solid #983628;
     top: 0;
     right: 0;
+    margin-top: 1rem;
+    margin-right: 5rem;
     padding: 1rem;
+    background-color: #983628;
+    color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+
+}
+
+aside:hover{
+    background-color: #ac5e52;
+    border-color: #ac5e52;
+}
+
+
+article{
+    padding-bottom: 2rem;
 }
 
 main h2{
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-top: 1rem;
+    font-size: 1.6rem;
+    padding: 2rem 0 1rem 1rem;
+}
+
+aside h2{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.3rem;
+    padding: 0.5rem;
 }
 
 main h3{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding-left: 2rem;
+    padding-top: 2rem;
+    font-family: 'PT Sans', sans-serif;
 }
 
-main h4, main p{
+main h4{
+    padding-top: 1rem;
     padding-left: 3rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+main h5{
+    font-size: 1rem;
+    padding-left: 4rem;
+    padding-top: 0.4rem;
+}
+
+.maintenance {
+    padding-bottom: 1.5rem;
+}
+
+main p{
+    padding-left: 5rem;
+    padding-bottom: 0.7rem;
+
+}
+
+aside figure{
+    display: flex;
+}
+
+aside figure img{
+    padding-left: 0.5rem;
+    width: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+faside igcaption{
+    padding-top: 0.5rem;
+    padding-left: 0.2rem;
 }
 
 main label{
-    font-size: 1.3rem;
-    margin-left: 1rem;
-    padding-right: 1rem;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    font-family: 'PT Sans', sans-serif;
+}
+
+hr{
+   border: 1px solid #588B8B;
+    width: 30%;
+}
+
+.veggie{
+    margin-top: 2rem;;
+}
+
+.more{
+    border: 1px solid #E0EFDE;
+    background-color: #E0EFDE;
+    color: rgba(0,0,0,0.05);
+}
+
+section.more h3{
+    color: #0C1B33;
+}
+
+input[type="search"]{
+    height: 2rem;
+    padding-right: 1.5rem;
+    width: 10rem;
+    border: 2px solid #0C1B33;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    color: #0C1B33;
+    background-image: url("../img/searchBlue.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 1.5rem;
+    padding-left: 0.5rem;
 }
