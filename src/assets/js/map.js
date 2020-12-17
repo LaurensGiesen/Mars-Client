@@ -46,8 +46,8 @@ function search(e) {
         addMarkers();
     } else {
         makeAllSeedsHidden();
-        let searchString = e.target.value.toLowerCase();
-        let products = document.querySelector("#products").getElementsByTagName("input");
+        const searchString = e.target.value.toLowerCase();
+        const products = document.querySelector("#products").getElementsByTagName("input");
         [...products].forEach(product => {
             if (product.value.toLowerCase().includes(searchString)) {
                 product.classList.remove('hidden');
@@ -95,7 +95,7 @@ function makeVeggieVisible() {
 
 function openFilterPopUpMap() {
     resetSearchBar();
-    let hiddenScrollOut = document.querySelector('#scrollOut');
+    const hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
         filterIsOpen = true;
@@ -199,7 +199,7 @@ function clearMarkers() {
 
 async function addMarkers(crop) {
     clearMarkers();
-    let locations = [];
+    const locations = [];
     await apiCall("getLocations", "GET", null).then(r => r.forEach(element => {
         locations.push(element)
     }));
@@ -230,8 +230,8 @@ async function addMarkers(crop) {
 }
 
 async function addMarkerFunctionalities() {
-    let locations = [];
-    let infoWindow = new google.maps.InfoWindow()
+    const locations = [];
+    const infoWindow = new google.maps.InfoWindow()
     await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
     markers.map(marker => {
         marker.addListener('click', event => {

@@ -14,9 +14,9 @@ async function init() {
     filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
-
+const articleContainer = document.querySelector('.articleContainer');
 function loadPlants() {
-    document.querySelector('.articleContainer').innerHTML = "";
+    articleContainer.innerHTML = "";
     apiCall("getPlants", "GET", null).then((res) => {
         res.forEach(item => {
             addProductToList(item);
@@ -27,24 +27,24 @@ function loadPlants() {
 }
 
 function getProductDetailsByName(product) {
-    let article = product.parentNode.parentNode;
+    const article = product.parentNode.parentNode;
     getProductDetail(product, article);
 }
 
 function getProductDetail(product, article) {
-    let img = article.childNodes[1];
-    let id = article.getAttribute("id");
-    let name = article.childNodes[3].childNodes[1].childNodes[1];
-    let nameValue = name.innerHTML;
-    let price = article.childNodes[3].childNodes[3].childNodes[1];
-    let priceValue = price.innerHTML;
-    let owner = article.childNodes[3].childNodes[5].childNodes[1];
-    let ownerValue = owner.innerHTML;
-    let date = article.childNodes[3].childNodes[7].childNodes[1];
-    let dateValue = date.innerHTML;
-    let amount = article.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
-    let productDetail = {
+    const img = article.childNodes[1];
+    const id = article.getAttribute("id");
+    const name = article.childNodes[3].childNodes[1].childNodes[1];
+    const nameValue = name.innerHTML;
+    const price = article.childNodes[3].childNodes[3].childNodes[1];
+    const priceValue = price.innerHTML;
+    const owner = article.childNodes[3].childNodes[5].childNodes[1];
+    const ownerValue = owner.innerHTML;
+    const date = article.childNodes[3].childNodes[7].childNodes[1];
+    const dateValue = date.innerHTML;
+    const amount = article.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
+    const productDetail = {
         image: img.src,
         name: nameValue,
         price: priceValue,
@@ -53,19 +53,19 @@ function getProductDetail(product, article) {
         amount: amountValue,
         productId: id
     };
-    let detailStorage = JSON.stringify(productDetail);
+    const detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
     document.location.href = 'marketplaceDetails.html';
     loadProductDetails();
 }
 
 function getProductDetailsByImg(product) {
-    let article = product.parentNode;
+    const article = product.parentNode;
     getProductDetail(product, article);
 }
 
 function changeBasketState(e) {
-    let basketImage = e.target.src;
+    const basketImage = e.target.src;
     if (basketImage.match("assets/img/basketPlus.svg")) {
         addToBasket(e);
     } else {
@@ -98,7 +98,7 @@ function loadSortValues() {
 
 
 function filterProducts() {
-    let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
+    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             filter(checkbox);
@@ -115,12 +115,12 @@ function getClickEvents() {
 
 function filter(checkbox) {
     let products = [];
-    document.querySelector('.articleContainer').innerHTML = "";
+    articleContainer.innerHTML = "";
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
-        let checkedProduct = checkbox.labels[0].innerHTML;
-        for (let product of allProducts) {
-            let productName = product.name.toLowerCase();
+        const checkedProduct = checkbox.labels[0].innerHTML;
+        for (const product of allProducts) {
+            const productName = product.name.toLowerCase();
             if (productName === checkedProduct.toLowerCase()) {
                 products.push(product);
             }
@@ -130,17 +130,17 @@ function filter(checkbox) {
         loadPlants();
     }
 
-    for (let product of products) {
+    for (const product of products) {
         addProductToList(product);
     }
     getClickEvents();
 }
 
 function disableCheckboxes(checkedCheckbox) {
-    let checkedCheckboxId = checkedCheckbox.attributes[2].value;
-    let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
+    const checkedCheckboxId = checkedCheckbox.attributes[2].value;
+    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
-        let checkboxId = checkbox.attributes[2].value;
+        const checkboxId = checkbox.attributes[2].value;
         if (checkboxId.localeCompare(checkedCheckboxId) !== 0) {
             checkbox.setAttribute("disabled", "");
         }
@@ -148,7 +148,7 @@ function disableCheckboxes(checkedCheckbox) {
 }
 
 function enableCheckboxes() {
-    let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
+    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         if (checkbox.getAttribute("disabled") !== null) {
             checkbox.removeAttribute("disabled");
@@ -158,8 +158,8 @@ function enableCheckboxes() {
 
 
 function marketPlaceSorting() {
-    let searchRes = [];
-    for (let product of allProducts) {
+    const searchRes = [];
+    for (const product of allProducts) {
         let name = product.name.toLowerCase();
         if (name.includes(document.querySelector('#search').value.toLowerCase())) {
             searchRes.push(product);
@@ -168,8 +168,8 @@ function marketPlaceSorting() {
     if (document.querySelector('#order').value === "desc") {
         searchRes.reverse();
     }
-    document.querySelector('.articleContainer').innerHTML = "";
-    for (let product of searchRes) {
+    articleContainer.innerHTML = "";
+    for (const product of searchRes) {
         addProductToList(product);
     }
     getClickEvents();
@@ -198,15 +198,15 @@ function goToAddProduct() {
 }
 
 function getResOfPlants() {
-    let products = [];
+    const products = [];
     document.querySelectorAll('.articleContainer article').forEach(product => {
-        let id = product.getAttribute('id');
-        let name = product.querySelector(".name").innerHTML;
-        let price = product.querySelector(".price").innerHTML;
-        let owner = product.querySelector(".owner").innerHTML;
-        let date = product.querySelector(".date").innerHTML;
-        let amount = product.querySelector(".amount").innerHTML;
-        let img = product.querySelector("img").getAttribute("src");
+        const id = product.getAttribute('id');
+        const name = product.querySelector(".name").innerHTML;
+        const price = product.querySelector(".price").innerHTML;
+        const owner = product.querySelector(".owner").innerHTML;
+        const date = product.querySelector(".date").innerHTML;
+        const amount = product.querySelector(".amount").innerHTML;
+        const img = product.querySelector("img").getAttribute("src");
         products.push({productId: id, name: name, price: price, owner: owner, date: date, amount: amount, image: img});
     });
     return products;
@@ -228,7 +228,6 @@ function addToBasket(e) {
 function removeFromBasket(e) {
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
-
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
