@@ -43,7 +43,7 @@ function showEmptyPage() {
 }
 
 function addProductToOwnList(product) {
-    let date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
+    const date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
 
     document.querySelector('.myProducts').innerHTML +=
         `<article id="${product.productId}">

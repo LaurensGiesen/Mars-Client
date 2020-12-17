@@ -60,7 +60,7 @@ function showEmptyBasket() {
 }
 
 function addProductToBasket(product) {
-    let date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
+    const date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
 
     document.querySelector(".basketProducts").innerHTML +=
         `<article id="${product.productId}">
@@ -101,7 +101,7 @@ function removeProductFromBasket(product) {
 }
 
 function changeFavoriteState(product) {
-    let favoriteImage = product.target.src;
+    const favoriteImage = product.target.src;
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
         addProductToFavorite(product);
     } else {

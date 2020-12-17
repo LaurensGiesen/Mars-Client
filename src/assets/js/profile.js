@@ -17,13 +17,13 @@ function requestFillingUsersDAta() {
 }
 
 function fillValuesInProfile(res) {
-    let firstName = res.firstName;
-    let lastName = res.lastName;
-    let email = res.email;
-    let dateOfBirth = res.dateOfBirth.dayOfMonth + "-" + res.dateOfBirth.monthValue + "-" + res.dateOfBirth.year;
-    let street = res.address.street;
-    let number = res.address.number;
-    let dome = res.address.dome;
+    const firstName = res.firstName;
+    const lastName = res.lastName;
+    const email = res.email;
+    const dateOfBirth = res.dateOfBirth.dayOfMonth + "-" + res.dateOfBirth.monthValue + "-" + res.dateOfBirth.year;
+    const street = res.address.street;
+    const number = res.address.number;
+    const dome = res.address.dome;
 
     document.querySelector('form div:nth-child(1)').innerHTML =
         `
@@ -58,13 +58,13 @@ function fillValuesInProfile(res) {
 }
 
 function changeDataUser() {
-    let forename = document.querySelector('#forename').value;
-    let surname = document.querySelector('#surname').value;
-    let email = document.querySelector('#email').value;
-    let dateOfBirth = document.querySelector('#dateOfBirth').value;
-    let address = document.querySelector('#address').value;
-    let number = document.querySelector('#number').value;
-    let dome = document.querySelector('#dome').value;
+    const forename = document.querySelector('#forename').value;
+    const surname = document.querySelector('#surname').value;
+    const email = document.querySelector('#email').value;
+    const dateOfBirth = document.querySelector('#dateOfBirth').value;
+    const address = document.querySelector('#address').value;
+    const number = document.querySelector('#number').value;
+    const dome = document.querySelector('#dome').value;
     const data = JSON.stringify({
         firstname: forename,
         lastname: surname,

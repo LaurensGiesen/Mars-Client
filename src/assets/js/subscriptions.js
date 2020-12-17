@@ -13,7 +13,7 @@ async function init() {
 
 function selectSubscription(e) {
     e.preventDefault();
-    let selectedSubscription = e.target.closest("section",);
+    const selectedSubscription = e.target.closest("section",);
     if (selectedSubscription === document.querySelector("#subscriptionFree") ||
         selectedSubscription === document.querySelector("#subscriptionBasic") ||
         selectedSubscription === document.querySelector("#subscriptionPremium")) {
@@ -36,7 +36,7 @@ function fillInSelectedSubscription(subscriptionTypeSection) {
 }
 
 function emptyNonSelectedSubscriptions(selectedSubscription) {
-    let sections = [];
+    const sections = [];
     document.querySelectorAll("section").forEach(element => sections.push(element));
     sections.forEach(section => {
         if (section !== selectedSubscription) {
@@ -51,9 +51,9 @@ function emptyNonSelectedSubscriptions(selectedSubscription) {
 }
 
 function checkIfReadyToPay(e) {
-    let subscriptions = e.target.parentNode.children[0].children;
+    const subscriptions = e.target.parentNode.children[0].children;
     let subscriptionId = 0;
-    for (let subscription of subscriptions) {
+    for (const subscription of subscriptions) {
         subscriptionId++;
         if (subscription.classList.contains("selected")) {
             console.log(subscriptionId);
