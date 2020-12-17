@@ -37,6 +37,14 @@ form{
     padding-left: 8rem;
 }
 
+form select, form input{
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    width: 20%;
+    padding: 0.1rem;
+}
+
 
 form input{
     width: 18%;

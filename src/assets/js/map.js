@@ -1,7 +1,7 @@
 "use strict";
 
-let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
+let filterIsOpen = false;
 
 async function init() {
     config = await loadConfig();
@@ -13,6 +13,8 @@ async function init() {
     document.querySelector('#search').addEventListener('keyup', search);
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
+
+//FILTER
 
 async function loadShop() {
     const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
@@ -45,7 +47,6 @@ function search(e) {
 function resetSearchBar() {
     document.querySelector('#search').value = '';
     makeAllSeedsHidden();
-
 }
 
 function makeFruitSeedsVisible() {
@@ -90,15 +91,14 @@ function openFilterPopUpMap() {
     }
 }
 
+//MAP
+
 async function runApp() {
     const map = displayMap();
     const markers = await addMarkers(map);
     insertCity(map);
-    getPosition(map);
     clusterMarkers(map, markers);
-    addPanToMarker(map, markers);
-    // drawRectangle(map);
-    // drawPolygon(map);
+    await addMarkerFunctionalities(map, markers);
 }
 
 function loadMapsJSAPI() {
@@ -154,7 +154,6 @@ function displayMap() {
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
 
-
     return map;
 }
 
@@ -184,50 +183,6 @@ function insertCity(map) {
     };
     const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
     return gallifreyOverlay.setMap(map);
-
-}
-
-function getPosition(map) {
-    map.addListener("click", (mapsMouseEvent) => {
-        clickOnMarker(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
-    });
-    return null;
-}
-
-function drawRectangle(map) {
-    return new google.maps.Rectangle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        bounds: {
-            north: 1,
-            south: -1,
-            east: 1,
-            west: -1,
-        },
-    })
-}
-
-function drawPolygon(map) {
-    const coordinatesArrayExample = [
-        {lat: 1, lng: 1.5},
-        {lat: -0.5, lng: 3},
-        {lat: 0, lng: 1.5},
-        {lat: 1, lng: 1.5}
-    ];
-
-    let polygon = new google.maps.Polygon({
-        paths: coordinatesArrayExample,
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-    });
-    polygon.setMap(map);
 }
 
 async function addMarkers(map) {
@@ -246,47 +201,76 @@ async function addMarkers(map) {
     return markers;
 }
 
-function addPanToMarker(map, markers) {
-    markers = markers.map(marker => {
+async function addMarkerFunctionalities(map, markers) {
+    let locations = [];
+    let infoWindow = new google.maps.InfoWindow()
+    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+    markers.map(marker => {
         marker.addListener('click', event => {
-            const location = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-            map.panTo(location);
-            console.log(location);
-            clickOnMarker(location);
+            const loc = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+            map.panTo(loc);
+            locations.forEach(element => {
+                if (element.longitude === loc.lng && element.latitude === loc.lat) {
+                    infoWindow.setContent(
+                        `<h2>Crop Information</h2>
+                        <p>Longitude: <span class="longitude">${element.longitude}</span></p>
+                        <p>Latitude: <span class="latitude">${element.latitude}</span></p>
+                        <p>Crop name: <span class="cropName">${element.cropName}</span></p>
+                        <p>Crop type: <span class="cropType">${element.cropType}</span></p>
+                        <p>Ratio: <span class="ratio">${element.ratio}</span></p>`
+                    )
+                    infoWindow.open(map, marker)
+                }
+            });
         });
     });
-    return markers;
 }
 
 function clusterMarkers(map, markers) {
     const path = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer";
-    const clusterOptions = { minimumClusterSize: 10, imagePath: `${path}/m`};
-    const markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+    const clusterOptions = {minimumClusterSize: 10, imagePath: `${path}/m`};
+    new MarkerClusterer(map, markers, clusterOptions);
 }
 
-function clickOnMarker(location) {
-    let mapLong = location.lng;
-    let mapLat = location.lat;
-
-    apiCall("getLocations", "GET", null).then((res) => {
-        res.forEach(marker => {
-            if (mapLong === marker.longitude && mapLat === marker.latitude) {
-                showPopup(marker);
-            }
-        })
-    });
-}
-
-function showPopup(location) {
-    document.querySelector("#popUp").innerHTML = "";
-    document.querySelector('#popUp').classList.remove('hidden');
-    document.querySelector('#popUp').innerHTML +=
-        `<h2>Crop Information</h2>
-        <p>Longitude: <span class="longitude">${location.longitude}</span></p>
-        <p>Latitude: <span class="latitude">${location.latitude}</span></p>
-        <p>Crop name: <span class="cropName">${location.cropName}</span></p>
-        <p>Crop type: <span class="cropType">${location.cropType}</span></p>
-        <p>Ratio: <span class="ratio">${location.ratio}</span></p>
-        <a class="close" href="#"></a>
-        `
-}
+// function getPosition(map) {
+//     map.addListener("click", (mapsMouseEvent) => {
+//         console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
+//     });
+//     return null;
+// }
+//
+// function drawRectangle(map) {
+//     return new google.maps.Rectangle({
+//         strokeColor: "#FF0000",
+//         strokeOpacity: 0.8,
+//         strokeWeight: 2,
+//         fillColor: "#FF0000",
+//         fillOpacity: 0.35,
+//         map,
+//         bounds: {
+//             north: 1,
+//             south: -1,
+//             east: 1,
+//             west: -1,
+//         },
+//     })
+// }
+//
+// function drawPolygon(map) {
+//     const coordinatesArrayExample = [
+//         {lat: 1, lng: 1.5},
+//         {lat: -0.5, lng: 3},
+//         {lat: 0, lng: 1.5},
+//         {lat: 1, lng: 1.5}
+//     ];
+//
+//     let polygon = new google.maps.Polygon({
+//         paths: coordinatesArrayExample,
+//         strokeColor: "#FF0000",
+//         strokeOpacity: 0.8,
+//         strokeWeight: 2,
+//         fillColor: "#FF0000",
+//         fillOpacity: 0.35,
+//     });
+//     polygon.setMap(map);
+// }
