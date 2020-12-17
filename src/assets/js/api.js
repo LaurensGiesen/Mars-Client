@@ -3,7 +3,7 @@ function getMessage() {
 }
 
 function apiCall(uri, httpVerb, body) {
-    let api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
+    const api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
     const request = new Request(api + uri, {
         method: httpVerb,
         body: body,

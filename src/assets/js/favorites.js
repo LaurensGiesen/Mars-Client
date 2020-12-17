@@ -11,21 +11,21 @@ function getFavorites(){
         if (response.length === 0) {
             showEmptyFavorites();
         } else {
-           response.forEach(item => {
-               displayFavorites(item, articleContainer);
-           })
-           document.querySelectorAll(".basket").forEach(basket => {
+            response.forEach(item => {
+                displayFavorites(item, articleContainer);
+            });
+            document.querySelectorAll(".basket").forEach(basket => {
                 basket.addEventListener("click", addProductToBasket);
-           });
-           document.querySelectorAll(".heart").forEach(heart => {
+            });
+            document.querySelectorAll(".heart").forEach(heart => {
                 heart.addEventListener("click", removeProductFromFavorite);
-           })
+            });
         }
     });
 }
 
 function showEmptyFavorites() {
-    document.querySelector(".emptyFavorites").innerHTML += `<h2>You have no favorites</h2>`
+    document.querySelector(".emptyFavorites").innerHTML += `<h2>You have no favorites</h2>`;
 }
 
 function displayFavorites(item, articleContainer){
@@ -49,7 +49,7 @@ function displayFavorites(item, articleContainer){
                     <figcaption>Remove From Favorites</figcaption>
                 </figure>
             </div>
-        </article>`
+        </article>`;
 }
 
 function clearFavorites() {
@@ -62,9 +62,9 @@ function removeProductFromFavorite(e) {
         e.target.src = "assets/img/emptyHeart.svg";
 
         const data = JSON.stringify({
-           "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-           "userId": 1, //NYI
-           "productType": "plant"
+            "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
+            "userId": 1, //NYI;
+            "productType": "plant"
         });
         apiCall("removeProductFromFavorite", "POST", data).then(getFavorites);
 }

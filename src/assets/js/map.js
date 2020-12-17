@@ -2,16 +2,29 @@
 
 document.addEventListener('DOMContentLoaded', init);
 let filterIsOpen = false;
+let map;
+let markers = [];
 
 async function init() {
     config = await loadConfig();
     loadMapsJSAPI();
+}
+
+async function runApp() {
+    map = displayMap();
+    markers = await addMarkers();
+    insertCity();
+    clusterMarkers();
     await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
-    document.querySelector('input[value=Fruit]').addEventListener('click', changeLocationOfFruit);
-    document.querySelector('input[value=Veggies]').addEventListener('click', changeLocationOfVeggie);
+    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible,);
+    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
     document.querySelector('#search').addEventListener('keyup', search);
     document.querySelector('#search').addEventListener('click', resetSearchBar);
+    document.querySelectorAll(".crops").forEach(crop => {
+        crop.addEventListener('click', () => addMarkers(crop));
+    });
+
 }
 
 //FILTER
@@ -22,33 +35,26 @@ async function loadShop() {
         return (r.find(element => element.cropName === cropName))
     }));
     const crops = await result;
-    console.log(crops);
-    crops.forEach(element => {
-        let product;
-        if (element.cropType === "fruit") {
-            product = document.querySelector("#fruit");
-        } else {
-            product = document.querySelector("#veggie");
-        }
-        console.log(element);
-        product.innerHTML += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`;
-    });
+
+    crops.forEach(element => document.querySelector("#products").innerHTML
+        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden crops">`);
 }
 
 function search(e) {
     if (e.target.value.length < 1 && e.key === "Backspace") {
         makeAllSeedsHidden();
+        addMarkers();
     } else {
         makeAllSeedsHidden();
-        let searchString = e.target.value.toLowerCase();
-        let products = document.getElementById("products").getElementsByTagName("input");
+        const searchString = e.target.value.toLowerCase();
+        const products = document.querySelector("#products").getElementsByTagName("input");
         [...products].forEach(product => {
             if (product.value.toLowerCase().includes(searchString)) {
                 product.classList.remove('hidden');
             } else {
                 product.classList.add('hidden');
             }
-        })
+        });
     }
 }
 
@@ -57,67 +63,39 @@ function resetSearchBar() {
     makeAllSeedsHidden();
 }
 
+function makeFruitSeedsVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .fruit').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
+}
+
 function makeAllSeedsHidden() {
-    document.querySelectorAll('.products div input').forEach(input => {
+    document.querySelectorAll('#products input').forEach(input => {
         if (!input.classList.contains('hidden')) {
             input.classList.add('hidden');
         }
     });
 }
 
-function changeLocationOfVeggie() {
-    document.querySelector("#filterOptions").innerHTML = "";
-    document.querySelector("#filterOptions").innerHTML += `
-        <div class="products">
-            <input type="button" value="Fruit" id="fruitButton">
-            <div id="fruit">
-                <input type="button" value="Apple" class="fruit hidden">
-                <input type="button" value="Apricot" class="fruit hidden">
-                <input type="button" value="Banana" class="fruit hidden">
-            </div>
-        </div>
-        <div class="products">
-            <input type="button" value="Veggies" id="veggieButton">
-            <div id="veggie">
-                <input type="button" value="Asparagus" class="vegetable">
-                <input type="button" value="Broccoli" class="vegetable">
-                <input type="button" value="Tomato" class="vegetable">
-            </div>
-        </div>
-        <div id="circle"></div>
-        </div>`;
-    document.querySelector('input[value=Fruit]').addEventListener('click', changeLocationOfFruit);
-}
-
-function changeLocationOfFruit() {
-        document.querySelector("#filterOptions").innerHTML = "";
-        document.querySelector("#filterOptions").innerHTML += `
-        <div class="products">
-            <label for="veggieButton"></label>
-            <input type="button" value="Veggies" id="veggieButton">
-            <div id="veggie">
-                <input type="button" value="Asparagus" class="vegetable hidden">
-                <input type="button" value="Broccoli" class="vegetable hidden">
-                <input type="button" value="Tomato" class="vegetable hidden">
-            </div>
-        </div>
-        <div class="products">
-            <label for="fruitButton"></label>
-            <input type="button" value="Fruit" id="fruitButton">
-            <div id="fruit">
-                <input type="button" value="Apple" class="fruit">
-                <input type="button" value="Apricot" class="fruit">
-                <input type="button" value="Banana" class="fruit">
-            </div>
-        </div>
-        <div id="circle"></div>
-        </div>`;
-    document.querySelector('input[value=Veggies]').addEventListener('click', changeLocationOfVeggie);
+function makeVeggieVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .vegetable').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
 }
 
 function openFilterPopUpMap() {
     resetSearchBar();
-    let hiddenScrollOut = document.querySelector('#scrollOut');
+    const hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
         filterIsOpen = true;
@@ -129,14 +107,6 @@ function openFilterPopUpMap() {
 
 //MAP
 
-async function runApp() {
-    const map = displayMap();
-    const markers = await addMarkers(map);
-    insertCity(map);
-    clusterMarkers(map, markers);
-    await addMarkerFunctionalities(map, markers);
-}
-
 function loadMapsJSAPI() {
     const googleMapsAPIKey = 'AIzaSyBdX-KCWP0DzXrBpOXmDDUIhHNXz0fTkUs';
     const googleMapsAPIURL = `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&callback=runApp`;
@@ -147,7 +117,7 @@ function loadMapsJSAPI() {
     script.async = true;
 
     window.runApp = runApp;
-    document.head.appendChild(script)
+    document.head.appendChild(script);
 }
 
 function displayMap() {
@@ -160,11 +130,11 @@ function displayMap() {
             mapTypeIds: ["mars"],
         }
     };
-    const map = new google.maps.Map(mapDiv, mapOptions);
+    map = new google.maps.Map(mapDiv, mapOptions);
 
     const marsMapType = new google.maps.ImageMapType({
         getTileUrl(tileCoord, zoom) {
-            const normalizedCoord = getNormalizedCoord(tileCoord, zoom);
+            const normalizedCoord = getNormalizedCoordinates(tileCoord, zoom);
             if (!normalizedCoord) {
                 return "";
             }
@@ -194,9 +164,9 @@ function displayMap() {
 }
 
 
-function getNormalizedCoord(tileCoord, zoom) {
-    const y = tileCoord.y;
-    let x = tileCoord.x;
+function getNormalizedCoordinates(tileCoordinates, zoom) {
+    const y = tileCoordinates.y;
+    let x = tileCoordinates.x;
     const tileRange = 1 << zoom;
 
     if (y < 0 || y >= tileRange) {
@@ -210,7 +180,7 @@ function getNormalizedCoord(tileCoord, zoom) {
     return {x: x, y: y};
 }
 
-function insertCity(map) {
+function insertCity() {
     const imageBounds = {
         north: 6,
         south: 5,
@@ -221,25 +191,47 @@ function insertCity(map) {
     return gallifreyOverlay.setMap(map);
 }
 
-async function addMarkers(map) {
-    const markers = [];
-    let locations = [];
-    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+function clearMarkers() {
+    for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+}
+
+async function addMarkers(crop) {
+    clearMarkers();
+    const locations = [];
+    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => {
+        locations.push(element)
+    }));
     locations.forEach(location => {
-        const markerOptions = {
-            map: map,
-            position: {lat: location.latitude, lng: location.longitude},
-            icon: './assets/img/pin green.png'
-        };
-        const marker = new google.maps.Marker(markerOptions);
-        markers.push(marker)
+        if (crop === undefined) {
+            const markerOptions = {
+                map: map,
+                position: {lat: location.latitude, lng: location.longitude},
+                icon: './assets/img/pin green.png'
+            };
+            const marker = new google.maps.Marker(markerOptions);
+            markers.push(marker)
+        } else {
+            if (location.cropName.toLowerCase() === crop.value.toLowerCase()) {
+                const markerOptions = {
+                    map: map,
+                    position: {lat: location.latitude, lng: location.longitude},
+                    icon: './assets/img/pin green.png'
+                };
+                const marker = new google.maps.Marker(markerOptions);
+                markers.push(marker);
+            }
+        }
+
     });
+    await addMarkerFunctionalities();
     return markers;
 }
 
-async function addMarkerFunctionalities(map, markers) {
-    let locations = [];
-    let infoWindow = new google.maps.InfoWindow();
+async function addMarkerFunctionalities() {
+    const locations = [];
+    const infoWindow = new google.maps.InfoWindow()
     await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
     markers.map(marker => {
         marker.addListener('click', event => {
@@ -257,14 +249,14 @@ async function addMarkerFunctionalities(map, markers) {
                         <p>Ratio: <span class="ratio">${element.ratio}</span></p>
                         </div>`
                     );
-                    infoWindow.open(map, marker)
+                    infoWindow.open(map, marker);
                 }
             });
         });
     });
 }
 
-function clusterMarkers(map, markers) {
+function clusterMarkers() {
     const path = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer";
     const clusterOptions = {minimumClusterSize: 10, imagePath: `${path}/m`};
     new MarkerClusterer(map, markers, clusterOptions);
