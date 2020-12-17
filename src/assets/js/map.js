@@ -1,7 +1,7 @@
 "use strict";
 
-let filterIsOpen = false;
 document.addEventListener('DOMContentLoaded', init);
+let filterIsOpen = false;
 
 async function init() {
     config = await loadConfig();
@@ -14,91 +14,14 @@ async function init() {
     document.querySelector('#search').addEventListener('click', resetSearchBar);
 }
 
-async function loadShop() {
-    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
-        element => element.cropName))).map(cropName => {
-        return (r.find(element => element.cropName === cropName))
-    }))
-    const crops = await result;
-
-    crops.forEach(element => document.querySelector("#products").innerHTML
-        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`)
-}
-
-function search(e) {
-    if (e.target.value.length < 1 && e.key === "Backspace") {
-        makeAllSeedsHidden();
-    } else {
-        makeAllSeedsHidden();
-        let searchString = e.target.value.toLowerCase();
-        let products = document.getElementById("products").getElementsByTagName("input");
-        [...products].forEach(product => {
-            if (product.value.toLowerCase().includes(searchString)) {
-                product.classList.remove('hidden');
-            } else {
-                product.classList.add('hidden');
-            }
-        })
-    }
-}
-
-function resetSearchBar() {
-    document.querySelector('#search').value = '';
-    makeAllSeedsHidden();
-
-}
-
-function makeFruitSeedsVisible() {
-    makeAllSeedsHidden();
-    document.querySelectorAll('#products .fruit').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
-        }
-    });
-}
-
-function makeAllSeedsHidden() {
-    document.querySelectorAll('#products input').forEach(input => {
-        if (!input.classList.contains('hidden')) {
-            input.classList.add('hidden');
-        }
-    });
-}
-
-function makeVeggieVisible() {
-    makeAllSeedsHidden();
-    document.querySelectorAll('#products .vegetable').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
-        }
-    });
-}
-
-function openFilterPopUpMap() {
-    resetSearchBar();
-    let hiddenScrollOut = document.querySelector('#scrollOut');
-    if (!filterIsOpen) {
-        hiddenScrollOut.classList.remove("behind");
-        filterIsOpen = true;
-    } else {
-        hiddenScrollOut.classList.add("behind");
-        filterIsOpen = false;
-    }
-}
+//MAP
 
 async function runApp() {
     const map = displayMap();
     const markers = await addMarkers(map);
     insertCity(map);
-    getPosition(map);
     clusterMarkers(map, markers);
-    addPanToMarker(map, markers);
-    // drawRectangle(map);
-    // drawPolygon(map);
+    await addMarkerFunctionalities(map, markers);
 }
 
 function loadMapsJSAPI() {
@@ -154,7 +77,6 @@ function displayMap() {
     map.mapTypes.set("mars", marsMapType);
     map.setMapTypeId("mars");
 
-
     return map;
 }
 
@@ -184,50 +106,6 @@ function insertCity(map) {
     };
     const gallifreyOverlay = new google.maps.GroundOverlay("assets/img/Gallifrey.png", imageBounds);
     return gallifreyOverlay.setMap(map);
-
-}
-
-function getPosition(map) {
-    map.addListener("click", (mapsMouseEvent) => {
-        clickOnMarker(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
-    });
-    return null;
-}
-
-function drawRectangle(map) {
-    return new google.maps.Rectangle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        bounds: {
-            north: 1,
-            south: -1,
-            east: 1,
-            west: -1,
-        },
-    })
-}
-
-function drawPolygon(map) {
-    const coordinatesArrayExample = [
-        {lat: 1, lng: 1.5},
-        {lat: -0.5, lng: 3},
-        {lat: 0, lng: 1.5},
-        {lat: 1, lng: 1.5}
-    ];
-
-    let polygon = new google.maps.Polygon({
-        paths: coordinatesArrayExample,
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-    });
-    polygon.setMap(map);
 }
 
 async function addMarkers(map) {
@@ -246,47 +124,153 @@ async function addMarkers(map) {
     return markers;
 }
 
-function addPanToMarker(map, markers) {
-    markers = markers.map(marker => {
+async function addMarkerFunctionalities(map, markers) {
+    let locations = [];
+    let infoWindow = new google.maps.InfoWindow()
+    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+    markers.map(marker => {
         marker.addListener('click', event => {
-            const location = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-            map.panTo(location);
-            console.log(location);
-            clickOnMarker(location);
+            const loc = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+            map.panTo(loc);
+            locations.forEach(element => {
+                if (element.longitude === loc.lng && element.latitude === loc.lat) {
+                    infoWindow.setContent(
+                        `<h2>Crop Information</h2>
+                        <p>Longitude: <span class="longitude">${element.longitude}</span></p>
+                        <p>Latitude: <span class="latitude">${element.latitude}</span></p>
+                        <p>Crop name: <span class="cropName">${element.cropName}</span></p>
+                        <p>Crop type: <span class="cropType">${element.cropType}</span></p>
+                        <p>Ratio: <span class="ratio">${element.ratio}</span></p>`
+                    )
+                    infoWindow.open(map, marker)
+                }
+            });
         });
     });
-    return markers;
 }
 
 function clusterMarkers(map, markers) {
     const path = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer";
-    const clusterOptions = { minimumClusterSize: 10, imagePath: `${path}/m`};
-    const markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+    const clusterOptions = {minimumClusterSize: 10, imagePath: `${path}/m`};
+    new MarkerClusterer(map, markers, clusterOptions);
 }
 
-function clickOnMarker(location) {
-    let mapLong = location.lng;
-    let mapLat = location.lat;
+// function getPosition(map) {
+//     map.addListener("click", (mapsMouseEvent) => {
+//         console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON()));
+//     });
+//     return null;
+// }
+//
+// function drawRectangle(map) {
+//     return new google.maps.Rectangle({
+//         strokeColor: "#FF0000",
+//         strokeOpacity: 0.8,
+//         strokeWeight: 2,
+//         fillColor: "#FF0000",
+//         fillOpacity: 0.35,
+//         map,
+//         bounds: {
+//             north: 1,
+//             south: -1,
+//             east: 1,
+//             west: -1,
+//         },
+//     })
+// }
+//
+// function drawPolygon(map) {
+//     const coordinatesArrayExample = [
+//         {lat: 1, lng: 1.5},
+//         {lat: -0.5, lng: 3},
+//         {lat: 0, lng: 1.5},
+//         {lat: 1, lng: 1.5}
+//     ];
+//
+//     let polygon = new google.maps.Polygon({
+//         paths: coordinatesArrayExample,
+//         strokeColor: "#FF0000",
+//         strokeOpacity: 0.8,
+//         strokeWeight: 2,
+//         fillColor: "#FF0000",
+//         fillOpacity: 0.35,
+//     });
+//     polygon.setMap(map);
+// }
 
-    apiCall("getLocations", "GET", null).then((res) => {
-        res.forEach(marker => {
-            if (mapLong === marker.longitude && mapLat === marker.latitude) {
-                showPopup(marker);
+//FILTER
+
+async function loadShop() {
+    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
+        element => element.cropName))).map(cropName => {
+        return (r.find(element => element.cropName === cropName))
+    }))
+    const crops = await result;
+
+    crops.forEach(element => document.querySelector("#products").innerHTML
+        += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden">`)
+}
+
+function search(e) {
+    if (e.target.value.length < 1 && e.key === "Backspace") {
+        makeAllSeedsHidden();
+    } else {
+        makeAllSeedsHidden();
+        let searchString = e.target.value.toLowerCase();
+        let products = document.getElementById("products").getElementsByTagName("input");
+        [...products].forEach(product => {
+            if (product.value.toLowerCase().includes(searchString)) {
+                product.classList.remove('hidden');
+            } else {
+                product.classList.add('hidden');
             }
         })
+    }
+}
+
+function resetSearchBar() {
+    document.querySelector('#search').value = '';
+    makeAllSeedsHidden();
+}
+
+function makeFruitSeedsVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .fruit').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
     });
 }
 
-function showPopup(location) {
-    document.querySelector("#popUp").innerHTML = "";
-    document.querySelector('#popUp').classList.remove('hidden');
-    document.querySelector('#popUp').innerHTML +=
-        `<h2>Crop Information</h2>
-        <p>Longitude: <span class="longitude">${location.longitude}</span></p>
-        <p>Latitude: <span class="latitude">${location.latitude}</span></p>
-        <p>Crop name: <span class="cropName">${location.cropName}</span></p>
-        <p>Crop type: <span class="cropType">${location.cropType}</span></p>
-        <p>Ratio: <span class="ratio">${location.ratio}</span></p>
-        <a class="close" href="#"></a>
-        `
+function makeAllSeedsHidden() {
+    document.querySelectorAll('#products input').forEach(input => {
+        if (!input.classList.contains('hidden')) {
+            input.classList.add('hidden');
+        }
+    });
+}
+
+function makeVeggieVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .vegetable').forEach(input => {
+        if (input.classList.contains('hidden')) {
+            input.classList.remove('hidden');
+        } else {
+            input.classList.add('hidden');
+        }
+    });
+}
+
+function openFilterPopUpMap() {
+    resetSearchBar();
+    let hiddenScrollOut = document.querySelector('#scrollOut');
+    if (!filterIsOpen) {
+        hiddenScrollOut.classList.remove("behind");
+        filterIsOpen = true;
+    } else {
+        hiddenScrollOut.classList.add("behind");
+        filterIsOpen = false;
+    }
 }
