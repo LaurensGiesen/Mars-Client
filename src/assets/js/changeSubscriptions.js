@@ -8,8 +8,8 @@ async function init() {
     config = await loadConfig();
     document.querySelector("main #subscriptions").addEventListener("click", selectSubscription);
     document.querySelector("input").addEventListener("click", checkIfReadyToPay);
-}
 
+}
 
 function selectSubscription(e) {
     e.preventDefault();
@@ -51,14 +51,16 @@ function emptyNonSelectedSubscriptions(selectedSubscription) {
 }
 
 function checkIfReadyToPay(e) {
-    let subscriptions = e.target.parentNode.children[0].children;
+    console.log(e);
+    let subscriptions = e.target.parentNode.children[2].children;
+    console.log(subscriptions);
     let subscriptionId = 0;
     for (let subscription of subscriptions) {
         subscriptionId++;
         if (subscription.classList.contains("selected")) {
             console.log(subscriptionId);
             apiCall(`updateSubscription/1/${subscriptionId}`, "GET", null).then(() => {
-                setTimeout(window.location.href = "map.html", 1000);
+                setTimeout(window.location.href = "profile.html", 1000);
             });
         }
     }
