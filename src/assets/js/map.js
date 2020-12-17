@@ -54,7 +54,7 @@ function search(e) {
             } else {
                 product.classList.add('hidden');
             }
-        })
+        });
     }
 }
 
@@ -117,7 +117,7 @@ function loadMapsJSAPI() {
     script.async = true;
 
     window.runApp = runApp;
-    document.head.appendChild(script)
+    document.head.appendChild(script);
 }
 
 function displayMap() {
@@ -248,8 +248,8 @@ async function addMarkerFunctionalities() {
                         <p>Crop type: <span class="cropType">${element.cropType}</span></p>
                         <p>Ratio: <span class="ratio">${element.ratio}</span></p>
                         </div>`
-                    )
-                    infoWindow.open(map, marker)
+                    );
+                    infoWindow.open(map, marker);
                 }
             });
         });

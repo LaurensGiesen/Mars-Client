@@ -20,7 +20,7 @@ function loadOwnAddedProducts() {
                 bin.addEventListener("click", removeProductFromOwnList);
             });
         }
-    })
+    });
 }
 
 function removeProductFromOwnList(product) {
@@ -39,7 +39,7 @@ function clearList() {
 }
 
 function showEmptyPage() {
-    document.querySelector('.emptyMyProducts').innerHTML = `<h2>you have not yet added your own products</h2>`
+    document.querySelector('.emptyMyProducts').innerHTML = `<h2>you have not yet added your own products</h2>`;
 }
 
 function addProductToOwnList(product) {
@@ -60,6 +60,6 @@ function addProductToOwnList(product) {
                     <figcaption>Remove Product</figcaption>
                 </figure>
             </form>
-        </article>`
+        </article>`;
 }
 

@@ -11,8 +11,8 @@ function addProductToList(product) {
     if (ownerName === undefined) {
         ownerName = product.owner;
     }
-        document.querySelector('.articleContainer').innerHTML +=
-            `<article id="${product.productId}">
+    document.querySelector('.articleContainer').innerHTML +=
+        `<article id="${product.productId}">
                <img alt="${product.name}" src="${product.image}" title="${product.name}" class="productImg">
                  <div>
                      <h3>${product.name}</span></h3>
@@ -36,8 +36,5 @@ function addProductToList(product) {
                          <figcaption>Add to favorite</figcaption>
                      </figure>
                  </form>
-             </article>`
-    }
-
-
-
+             </article>`;
+}
