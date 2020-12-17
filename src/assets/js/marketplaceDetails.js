@@ -21,14 +21,13 @@ function loadProductDetails() {
        <div>
             <h3>${parseProductDetails.name}</h3>
             <p>Price: ${parseProductDetails.price}</p>
-            <p>From: ${parseProductDetails.owner}</p>
             <p>Date product added: ${parseProductDetails.date}</p>
-            <p>Amount of products left: <span>${parseProductDetails.amount}</span></p>
+            <p>Amount of products left: <span class="amount">${parseProductDetails.total}</span></p>
         </div>
 
         <div id="choice">
             <label for="number" class="amount">Amount:</label>
-            <input id="number" min="1" type="number" max="${parseProductDetails.amount}">
+            <input id="number" min="1" value="${parseProductDetails.amount}" type="number" max="${parseProductDetails.amount}">
             <figure class="basket">
                 <img alt="add to basket" class="emptyBasket" src="assets/img/basketPlus.svg"
                      title="add to basket"/>

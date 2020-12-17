@@ -12,7 +12,6 @@ async function init() {
     loadFilterValues();
     document.querySelector('#order').addEventListener('change', marketPlaceSorting);
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
-    filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
 
@@ -38,22 +37,26 @@ function getProductDetail(product, article) {
     let name = article.childNodes[3].childNodes[1];
     let nameValue = name.innerText;
     let price = article.childNodes[3].childNodes[3].childNodes[1];
-    let priceValue = price.innerHTML;
-    let date = article.childNodes[3].childNodes[7].childNodes[1];
-    let dateValue = date.innerHTML;
+    let priceValue = price.innerText;
     let amount = article.childNodes[5].childNodes[3];
     let amountValue = amount.value;
+    console.log(amountValue);
+    let date = article.childNodes[3].childNodes[5].childNodes[1];
+    let dateValue = date.innerText;
+    let total = article.childNodes[3].childNodes[7].childNodes[1];
+    let totalValue = total.innerText;
     let productDetail = {
         image: img.src,
         name: nameValue,
+        amount: amountValue,
         price: priceValue,
         date: dateValue,
-        amount: amountValue,
+        total: totalValue,
         productId: id
     };
     let detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
-    document.location.href = 'marketplaceDetails.html';
+    window.location.href = 'marketplaceDetails.html';
     loadProductDetails();
 }
 
@@ -80,30 +83,32 @@ function changeFavoriteState(e) {
     }
 }
 
-function searchProducts() {
+function    searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
 
 function loadFilterValues() {
-    apiCall("getLocations", "GET", null).then((res) => {
+    apiCall("getCrops", "GET", null).then((res) => {
         res.forEach(item => {
             fillFilterValues(item);
         });
+        filterProducts();
     });
+
 }
 
 function fillFilterValues(item) {
-    if (item.cropType === "vegetable") {
+    if (item.type === "vegetable") {
         document.querySelector('.search:first-of-type').innerHTML +=
             `            <div>
-            <input type="checkbox" name="${item.cropType}" id="${item.cropName}">
-            <label for="${item.cropName}">${item.cropName}</label>
+            <input type="checkbox" name="${item.type}" id="${item.type}">
+            <label for="${item.name}">${item.name}</label>
             </div>`
     } else {
         document.querySelector('.search:last-of-type').innerHTML +=
             `            <div>
-            <input type="checkbox" name="${item.cropType}" id="${item.cropName}">
-            <label for="${item.cropName}">${item.cropName}</label>
+            <input type="checkbox" name="${item.type}" id="${item.type}">
+            <label for="${item.type}">${item.name}</label>
             </div>`
     }
 }
@@ -134,11 +139,13 @@ function getClickEvents() {
 }
 
 function filter(checkbox) {
+    console.log(checkbox);
     let products = [];
     document.querySelector('.articleContainer').innerHTML = "";
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
-        let checkedProduct = checkbox.labels[0].innerHTML;
+        let checkedProduct = checkbox.labels;
+        console.log(checkedProduct);
         for (let product of allProducts) {
             let productName = product.name.toLowerCase();
             if (productName === checkedProduct.toLowerCase()) {
@@ -157,6 +164,7 @@ function filter(checkbox) {
 }
 
 function disableCheckboxes(checkedCheckbox) {
+    console.log(checkedCheckbox);
     let checkedCheckboxId = checkedCheckbox.attributes[2].value;
     let filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
@@ -180,6 +188,7 @@ function enableCheckboxes() {
 function marketPlaceSorting() {
     let searchRes = [];
     for (let product of allProducts) {
+        console.log(product);
         let name = product.name.toLowerCase();
         if (name.includes(document.querySelector('#search').value.toLowerCase())) {
             searchRes.push(product);
@@ -240,7 +249,6 @@ function addToBasket(e) {
         "productType": "plant",
         "Amount": parseInt(e.target.parentNode.parentNode.parentNode.children["2"]["0"].value)
     });
-    console.log(data);
     apiCall("addProductToBasket", "POST", data).then()
     calculateBasketAmount();
 }
