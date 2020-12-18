@@ -16,7 +16,6 @@ async function runApp() {
     clusterMarkers();
     await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
-    document.querySelector('#filterContainer').addEventListener('click', displaySeedAndVeggieButton);
     document.querySelector('#search').addEventListener('keyup', search);
     document.querySelector('#search').addEventListener('click', resetSearchBar);
     document.querySelectorAll(".crops").forEach(crop => {
@@ -71,32 +70,32 @@ function resetSearchBar() {
     makeAllSeedsHidden();
 }
 
-function makeFruitSeedsVisible() {
-    makeAllSeedsHidden();
-    document.querySelectorAll('#products .fruit').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
-        } else {
-            input.classList.add('hidden');
+function makeAllSeedsHidden() {
+    document.querySelectorAll('#products input').forEach(product => {
+        if (!product.classList.contains('hidden')) {
+            product.classList.add('hidden');
         }
     });
 }
 
-function makeAllSeedsHidden() {
-    document.querySelectorAll('#products input').forEach(input => {
-        if (!input.classList.contains('hidden')) {
-            input.classList.add('hidden');
+function makeFruitSeedsVisible() {
+    makeAllSeedsHidden();
+    document.querySelectorAll('#products .fruit').forEach(product => {
+        if (product.classList.contains('hidden')) {
+            product.classList.remove('hidden');
+        } else {
+            product.classList.add('hidden');
         }
     });
 }
 
 function makeVeggieVisible() {
     makeAllSeedsHidden();
-    document.querySelectorAll('#products .vegetable').forEach(input => {
-        if (input.classList.contains('hidden')) {
-            input.classList.remove('hidden');
+    document.querySelectorAll('#products .vegetable').forEach(product => {
+        if (product.classList.contains('hidden')) {
+            product.classList.remove('hidden');
         } else {
-            input.classList.add('hidden');
+            product.classList.add('hidden');
         }
     });
 }
@@ -111,6 +110,7 @@ function openFilterPopUpMap() {
         hiddenScrollOut.classList.add("behind");
         filterIsOpen = false;
     }
+    document.querySelector('#filterContainer').addEventListener('click', displaySeedAndVeggieButton);
     document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible,);
     document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
 }
