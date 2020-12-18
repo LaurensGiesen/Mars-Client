@@ -94,9 +94,27 @@ function checkProductVisibility(product) {
     }
 }
 
-function makeFruitSeedsVisible() {
+function checkAllProductVisibilities() {
+    document.querySelectorAll('#products .fruit').forEach(product => {
+        checkProductVisibility(product);
+    });
+}
+
+function changeActiveButton() {
     const veggieButton = document.querySelector(veggieButtonId);
     const fruitButton = document.querySelector(fruitButtonId);
+    if (veggieButton.classList.contains("active")) {
+        fruitButton.classList.add('active');
+        veggieButton.classList.remove('active');
+        checkAllProductVisibilities();
+    } else {
+        veggieButton.classList.add('active');
+        fruitButton.classList.remove('active');
+        checkAllProductVisibilities();
+    }
+}
+
+function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
     document.querySelector('#fruitButton').classList.add('active');
     document.querySelector('#veggieButton').classList.remove('active');
@@ -107,8 +125,6 @@ function makeFruitSeedsVisible() {
 }
 
 function makeVeggieVisible() {
-    const veggieButton = document.querySelector(veggieButtonId);
-    const fruitButton = document.querySelector(fruitButtonId);
     makeAllSeedsHidden();
     document.querySelector('#veggieButton').classList.add('active');
     document.querySelector('#fruitButton').classList.remove('active');
