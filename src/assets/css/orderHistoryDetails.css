@@ -1,73 +1,134 @@
+main{
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #0C1B33;
+    height: 36.5em;
+}
+
+
 table {
     margin-top: 2rem;
     margin-right: 15rem;
     margin-bottom: 5rem;
 }
 
+input{
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+    height: 1rem;
+    width: 10%;
+    padding: 0.1rem;
+}
+
+
+label{
+    margin-left: 5rem;
+    margin-top: 1.5rem;
+}
+
+main figure{
+    display: flex;
+    cursor: pointer;
+}
+
+.emptyBasket{
+    width: 2.5rem;
+    margin-top: 1rem;
+    margin-left: 6rem;
+    margin-right: 0.4rem;
+}
+
+main figcaption{
+    margin-top: 1.5rem;
+    color: #983628;
+}
+
+main figcaption:hover{
+    color: #ac5e52;
+
+}
+
+
 div#backButton{
     display: flex;
     align-items: center;
-    border: 2px solid #000000;
     width: 5rem;
+    border: 2px solid #983628;
+    border-radius: 0.3rem;
+    background-color: #983628;
     margin-left: 2rem;
     margin-top: 0.5rem;
     height: 2rem;
     text-align: center;
+
+}
+
+
+div#backButton:hover{
+    background-color: #ac5e52;
+    border-color: #ac5e52;
 }
 
 
 #arrow{
-    margin-top: 0.2rem;
-    width: 2rem;
+    margin: 0.2rem 0.5rem 0.2rem 0.7rem;
+    width: 0.7rem;
 }
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 
 a#back{
     padding-right: 0.5rem;
-    text-decoration: none;
+    margin-bottom: 0.3rem;
+}
+
+section{
+    border: 1px solid #0C1B33;
+    width: 40rem;
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+    margin-left: 12rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+article{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+main h2{
+    margin-left: 4rem;
+    width: 13rem;
+    margin-right: 3rem;
 }
 
 caption{
     visibility: hidden;
 }
 
-th{
-    font-size: 1.3rem;
-    padding-bottom: 2rem;
-    padding-left: 10rem;
 
+
+article h2{
+    margin-left: 4rem;
+    width: 13rem;
 }
 
-td.product{
-    padding-left: 14rem;
+article h3{
+    margin-left: 7rem;
 }
 
-td.price{
-    padding-left: 10.5rem;
-}
-
-td.order div{
-    padding-left: 17rem;
-    display: flex;
-
-}
-
-td.order input{
-    width: 2rem;
-    height: 1rem;
-}
-
-td.order label, td.order input{
-    margin-top: 0.5rem;
-}
-
-figure{
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    margin-left: 1.5rem;
-}
 
 .emptybasket{
     width: 3rem;
     margin-right: 0.5rem;
+}
+
+.order{
+    color: #983628;
+    font-weight: bolder;
 }
