@@ -25,26 +25,6 @@ async function runApp() {
     });
 }
 
-
-function changeSeedAndVeggieButtonOrder() {
-    if (document.querySelector('#fruitButton').classList.contains('active')) {
-        document.querySelector("#filterOptions").innerHTML = `
-            <label for="veggieButton"></label>
-            <input id="veggieButton" type="button" value="Veggies">
-            <label for="fruitButton"></label>
-            <input id="fruitButton" type="button" value="Fruit">`
-    } else {
-        document.querySelector("#filterOptions").innerHTML = `
-            <label for="fruitButton"></label>
-            <input id="fruitButton" type="button" value="Fruit">
-            <label for="veggieButton"></label>
-            <input id="veggieButton" type="button" value="Veggies">`
-    }
-    document.querySelector('#fruitButton').addEventListener('click', makeFruitSeedsVisible,);
-    document.querySelector('#veggieButton').addEventListener('click', makeVeggieVisible);
-
-}
-
 //FILTER
 
 async function loadShop() {
@@ -56,6 +36,21 @@ async function loadShop() {
 
     crops.forEach(element => document.querySelector("#products").innerHTML
         += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden crops">`);
+}
+
+function openFilterPopUpMap() {
+    resetSearchBar();
+    makeAllSeedsHidden();
+    const hiddenScrollOut = document.querySelector('#scrollOut');
+    if (!filterIsOpen) {
+        hiddenScrollOut.classList.remove("behind");
+        filterIsOpen = true;
+    } else {
+        hiddenScrollOut.classList.add("behind");
+        document.querySelector('#veggieButton').classList.remove('active');
+        document.querySelector('#fruitButton').classList.remove('active');
+        filterIsOpen = false;
+    }
 }
 
 function search(e) {
@@ -79,6 +74,7 @@ function search(e) {
 function resetSearchBar() {
     document.querySelector('#search').value = '';
     makeAllSeedsHidden();
+    addMarkers();
 }
 
 function makeAllSeedsHidden() {
@@ -117,19 +113,22 @@ function makeVeggieVisible() {
     changeSeedAndVeggieButtonOrder();
 }
 
-function openFilterPopUpMap() {
-    resetSearchBar();
-    makeAllSeedsHidden();
-    const hiddenScrollOut = document.querySelector('#scrollOut');
-    if (!filterIsOpen) {
-        hiddenScrollOut.classList.remove("behind");
-        filterIsOpen = true;
+function changeSeedAndVeggieButtonOrder() {
+    if (document.querySelector('#fruitButton').classList.contains('active')) {
+        document.querySelector("#filterOptions").innerHTML = `
+            <label for="veggieButton"></label>
+            <input id="veggieButton" type="button" value="Veggies">
+            <label for="fruitButton"></label>
+            <input id="fruitButton" type="button" value="Fruit">`
     } else {
-        hiddenScrollOut.classList.add("behind");
-        document.querySelector('#veggieButton').classList.remove('active');
-        document.querySelector('#fruitButton').classList.remove('active');
-        filterIsOpen = false;
+        document.querySelector("#filterOptions").innerHTML = `
+            <label for="fruitButton"></label>
+            <input id="fruitButton" type="button" value="Fruit">
+            <label for="veggieButton"></label>
+            <input id="veggieButton" type="button" value="Veggies">`
     }
+    document.querySelector('#fruitButton').addEventListener('click', makeFruitSeedsVisible);
+    document.querySelector('#veggieButton').addEventListener('click', makeVeggieVisible);
 }
 
 //MAP

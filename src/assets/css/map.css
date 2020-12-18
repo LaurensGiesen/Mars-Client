@@ -119,6 +119,7 @@ input[type = "button"]:hover {
 
 #filterOptions input {
     background-color: #56423E;
+    border: 1px solid #56423E;
 
 }
 
