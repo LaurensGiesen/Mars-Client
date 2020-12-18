@@ -1,5 +1,4 @@
 "use strict";
-
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -85,12 +84,13 @@ function clear() {
 }
 
 function addSituation(res) {
+    const clearTimerMessage = document.querySelector('.timerMessage');
     if (res) {
-        document.querySelector('.timerMessage').innerHTML = `SUCCESSFULLY CHANGED YOUR DATA`;
+        clearTimerMessage.innerHTML = `SUCCESSFULLY CHANGED YOUR DATA`;
         setTimeout(clear, 3000);
 
     } else {
-        document.querySelector('.timerMessage').innerHTML = `FAILED TO CHANGE YOUR DATA`;
+        clearTimerMessage.innerHTML = `FAILED TO CHANGE YOUR DATA`;
         setTimeout(clear, 3000);
     }
 

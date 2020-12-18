@@ -56,7 +56,6 @@ function checkIfReadyToPay(e) {
     for (const subscription of subscriptions) {
         subscriptionId++;
         if (subscription.classList.contains("selected")) {
-            console.log(subscriptionId);
             apiCall(`updateSubscription/1/${subscriptionId}`, "GET", null).then(() => {
                 setTimeout(window.location.href = "map.html", 1000);
             });
