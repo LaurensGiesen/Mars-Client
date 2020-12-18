@@ -117,3 +117,10 @@ a {
 .logo{
     width: 9rem;
 }
+
+.timer {
+    font-size: 2rem;
+    margin-left: 8rem;
+    background-color: #44b648;
+    margin-top: 2rem;
+}

@@ -17,8 +17,9 @@ function showCurrentSubscription(e) {
         for (const subscription of subscriptions) {
             const subscriptionText = subscription.innerText.replace(/\s+/g, '').toLowerCase().split("€");
             if (subscriptionText[0] === currentSubscription.toLowerCase()) {
-                document.querySelector(`.${subscriptionText[0]}`).style.backgroundColor = "#983628";
-                document.querySelector(`.${subscriptionText[0]}`).style.color = "white";
+                document.querySelector(`.${subscriptionText[0]}`).style.color = "#983628";
+                document.querySelector(`.${subscriptionText[0]}`).style.fontWeight= "bold";
+                document.querySelector(`.${subscriptionText[0]}`).style.fontSize= "1.05rem";
             }
         }
     });
