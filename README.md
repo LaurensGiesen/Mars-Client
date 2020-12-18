@@ -1,4 +1,4 @@
-# Mars Agriculture and Research Service - project groep 14, Web
+# Mars Agriculture and Research Service - Web (groep 14)
 
 *door Timo De Clercq, Annelin De Gols, Robin De Kinders Laurens Giesen, Cedric Puystjens*
 
