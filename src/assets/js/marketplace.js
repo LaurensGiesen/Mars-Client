@@ -2,7 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
-let counter = 0;
 
 async function init() {
     config = await loadConfig();
@@ -14,14 +13,15 @@ async function init() {
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
-const articleContainer = document.querySelector('.articleContainer');
+
 function loadPlants() {
+    const articleContainer = document.querySelector('.articleContainer');
     articleContainer.innerHTML = "";
     apiCall("getPlants", "GET", null).then((res) => {
+        allProducts = res;
         res.forEach(item => {
             addProductToList(item);
         });
-        allProducts = getResOfPlants();
         getClickEvents();
     });
 }
@@ -53,7 +53,6 @@ function getProductDetail(product, article) {
         total: totalValue,
         productId: id
     };
-    console.log(productDetail);
     const detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
     window.location.href = 'marketplaceDetails.html';
@@ -83,7 +82,7 @@ function changeFavoriteState(e) {
     }
 }
 
-function    searchProducts() {
+function searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
 
@@ -94,7 +93,6 @@ function loadFilterValues() {
         });
         filterProducts();
     });
-
 }
 
 function fillFilterValues(item) {
@@ -106,12 +104,13 @@ function fillFilterValues(item) {
             </div>`
     } else {
         document.querySelector('.search:last-of-type').innerHTML +=
-            `            <div>
+            `<div>
             <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.type}">${item.name}</label>
             </div>`
     }
 }
+
 function loadSortValues() {
     document.querySelector('#sortby').innerHTML =
         `<option value="name">Name</option>
@@ -121,13 +120,10 @@ function loadSortValues() {
          `;
 }
 
-
 function filterProducts() {
     const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            filter(checkbox);
-        });
+        checkbox.addEventListener('change', filter);
     });
 }
 
@@ -138,51 +134,40 @@ function getClickEvents() {
     document.querySelectorAll('.articleContainer h3').forEach(product => product.addEventListener('click', () => getProductDetailsByName(product)));
 }
 
-function filter(checkbox) {
-    let products = [];
-    articleContainer.innerHTML = "";
+function filter(e) {
+    const articleContainer = document.querySelector('.articleContainer');
+    if (countCheckedBoxes() === 1) {
+        articleContainer.innerHTML = "";
+    }
+    const checkbox = e.target;
+    console.log(e);
     if (checkbox.checked) {
-        disableCheckboxes(checkbox);
-        const checkedProduct = checkbox.labels[0].innerHTML;
         for (const product of allProducts) {
             const productName = product.name.toLowerCase();
-            if (productName === checkedProduct.toLowerCase()) {
-                products.push(product);
+            if (productName === checkbox.attributes.id.value.toLowerCase()) {
+                addProductToList(product);
             }
         }
     } else {
-        enableCheckboxes();
         loadPlants();
-    }
-
-    for (const product of products) {
-        addProductToList(product);
     }
     getClickEvents();
 }
 
-function disableCheckboxes(checkedCheckbox) {
-    const checkedCheckboxId = checkedCheckbox.attributes[2].value;
+function countCheckedBoxes() {
+    let checkedBoxes = 0;
+
     const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
-        const checkboxId = checkbox.attributes[2].value;
-        if (checkboxId.localeCompare(checkedCheckboxId) !== 0) {
-            checkbox.setAttribute("disabled", "");
+        if (checkbox.checked) {
+            checkedBoxes++
         }
-    })
+    });
+    return checkedBoxes;
 }
-
-function enableCheckboxes() {
-    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
-    filterBox.forEach(checkbox => {
-        if (checkbox.getAttribute("disabled") !== null) {
-            checkbox.removeAttribute("disabled");
-        }
-    })
-}
-
 
 function marketPlaceSorting() {
+    const articleContainer = document.querySelector('.articleContainer');
     const searchRes = [];
     for (const product of allProducts) {
         let name = product.name.toLowerCase();
@@ -220,20 +205,6 @@ function marketPlaceFilter(e) {
 
 function goToAddProduct() {
     document.location.href = "addProductToSell.html";
-}
-
-function getResOfPlants() {
-    const products = [];
-    document.querySelectorAll('.articleContainer article').forEach(product => {
-        const id = product.getAttribute('id');
-        const name = product.querySelector(".name").innerHTML;
-        const price = product.querySelector(".price").innerHTML;
-        const date = product.querySelector(".date").innerHTML;
-        const amount = product.querySelector(".amount").innerHTML;
-        const img = product.querySelector("img").getAttribute("src");
-        products.push({productId: id, name: name, price: price, date: date, amount: amount, image: img});
-    });
-    return products;
 }
 
 function addToBasket(e) {
