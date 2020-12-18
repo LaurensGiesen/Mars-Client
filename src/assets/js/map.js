@@ -16,6 +16,8 @@ async function runApp() {
     clusterMarkers();
     await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
+    document.querySelector('#fruitButton').addEventListener('click', makeFruitSeedsVisible,);
+    document.querySelector('#veggieButton').addEventListener('click', makeVeggieVisible);
     document.querySelector('#search').addEventListener('keyup', search);
     document.querySelector('#search').addEventListener('click', resetSearchBar);
     document.querySelectorAll(".crops").forEach(crop => {
@@ -24,14 +26,23 @@ async function runApp() {
 }
 
 
-function displaySeedAndVeggieButton(e) {
-    e.innerHTML =
-        `
+function changeSeedAndVeggieButtonOrder() {
+    if (document.querySelector('#fruitButton').classList.contains('active')) {
+        document.querySelector("#filterOptions").innerHTML = `
+            <label for="veggieButton"></label>
+            <input id="veggieButton" type="button" value="Veggies">
+            <label for="fruitButton"></label>
+            <input id="fruitButton" type="button" value="Fruit">`
+    } else {
+        document.querySelector("#filterOptions").innerHTML = `
             <label for="fruitButton"></label>
             <input id="fruitButton" type="button" value="Fruit">
             <label for="veggieButton"></label>
-            <input id="veggieButton" type="button" value="Veggies">
-        `
+            <input id="veggieButton" type="button" value="Veggies">`
+    }
+    document.querySelector('#fruitButton').addEventListener('click', makeFruitSeedsVisible,);
+    document.querySelector('#veggieButton').addEventListener('click', makeVeggieVisible);
+
 }
 
 //FILTER
@@ -80,6 +91,8 @@ function makeAllSeedsHidden() {
 
 function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
+    document.querySelector('#fruitButton').classList.add('active');
+    document.querySelector('#veggieButton').classList.remove('active');
     document.querySelectorAll('#products .fruit').forEach(product => {
         if (product.classList.contains('hidden')) {
             product.classList.remove('hidden');
@@ -87,10 +100,13 @@ function makeFruitSeedsVisible() {
             product.classList.add('hidden');
         }
     });
+    changeSeedAndVeggieButtonOrder();
 }
 
 function makeVeggieVisible() {
     makeAllSeedsHidden();
+    document.querySelector('#veggieButton').classList.add('active');
+    document.querySelector('#fruitButton').classList.remove('active');
     document.querySelectorAll('#products .vegetable').forEach(product => {
         if (product.classList.contains('hidden')) {
             product.classList.remove('hidden');
@@ -98,21 +114,22 @@ function makeVeggieVisible() {
             product.classList.add('hidden');
         }
     });
+    changeSeedAndVeggieButtonOrder();
 }
 
 function openFilterPopUpMap() {
     resetSearchBar();
+    makeAllSeedsHidden();
     const hiddenScrollOut = document.querySelector('#scrollOut');
     if (!filterIsOpen) {
         hiddenScrollOut.classList.remove("behind");
         filterIsOpen = true;
     } else {
         hiddenScrollOut.classList.add("behind");
+        document.querySelector('#veggieButton').classList.remove('active');
+        document.querySelector('#fruitButton').classList.remove('active');
         filterIsOpen = false;
     }
-    document.querySelector('#filterContainer').addEventListener('click', displaySeedAndVeggieButton);
-    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible,);
-    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
 }
 
 //MAP
