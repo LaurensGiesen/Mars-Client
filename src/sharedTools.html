@@ -49,16 +49,18 @@
 
     <div>
         <form action="#" id="filters" method="post" class="filterMarket">
-            <label for="search"></label>
-            <input id="search" name="search" placeholder="search here" type="search">
+            <label for="sortby">Sort items by
+                <select name="sortby" id="sortby">
 
+                </select>
+            </label>
             <label for="order"></label>
             <select id="order" name="order">
-                <option value="asc">price: ascending</option>
-                <option value="desc">price: descending</option>
-                <option value="name">name</option>
-                <option value="date">date</option>
+
             </select>
+
+            <label for="search"></label>
+            <input id="search" name="search" placeholder="search here" type="search">
         </form>
 
         <div class="articleContainer">
@@ -131,5 +133,6 @@
 <script src="assets/js/basketCounter.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/sharedTools.js"></script>
 </body>
 </html>
