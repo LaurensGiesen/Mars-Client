@@ -56,7 +56,7 @@ function openFilterPopUpMap() {
 function search(e) {
     if (e.target.value.length < 1 && e.key === "Backspace") {
         makeAllSeedsHidden();
-        addMarkers();
+        addMarkers().then();
     } else {
         makeAllSeedsHidden();
         const searchString = e.target.value.toLowerCase();
@@ -74,7 +74,7 @@ function search(e) {
 function resetSearchBar() {
     document.querySelector('#search').value = '';
     makeAllSeedsHidden();
-    addMarkers();
+    addMarkers().then();
 }
 
 function makeAllSeedsHidden() {
@@ -257,7 +257,7 @@ async function addMarkers(crop) {
 
 async function addMarkerFunctionalities() {
     const locations = [];
-    const infoWindow = new google.maps.InfoWindow()
+    const infoWindow = new google.maps.InfoWindow();
     await apiCall("getLocations/1", "GET", null).then(r => r.forEach(element => locations.push(element)));
     markers.map(marker => {
         marker.addListener('click', event => {

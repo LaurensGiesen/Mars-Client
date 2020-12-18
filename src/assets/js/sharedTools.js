@@ -3,11 +3,11 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    loadOrdervalues();
+    loadOrderValues();
     loadSortValues();
 }
 
-function loadOrdervalues() {
+function loadOrderValues() {
     document.querySelector('#order').innerHTML =
         ` <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>`
