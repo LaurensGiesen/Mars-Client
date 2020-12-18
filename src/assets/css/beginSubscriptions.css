@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    flex-direction: row;
+    color: #0C1B33;
+}
+
+h1 {
+    font-size: 2rem;
+    padding-left: 2rem;
+    margin-top: 4rem;
+}
+
+.logo{
+    width: 9rem;
+}
+
+
+
+

@@ -1,4 +1,10 @@
-.emptyheart{
-    width: 1.3rem;
-    margin-right: 0.4rem;
+main{
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #0C1B33;
 }
+
+h1{
+    font-family: 'PT Sans', sans-serif;
+}
+
+

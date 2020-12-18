@@ -119,8 +119,10 @@ a {
 }
 
 .timer {
-    font-size: 2rem;
-    margin-left: 8rem;
-    background-color: #44b648;
-    margin-top: 2rem;
+    font-weight: bold;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.7rem;
+    margin-left: 10rem;
+    color: #983628;
+    margin-top: 3rem;
 }
