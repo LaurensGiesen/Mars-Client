@@ -1,6 +1,4 @@
-function getMessage() {
-    return apiCall("message", "GET", null);
-}
+"use strict";
 
 function apiCall(uri, httpVerb, body) {
     const api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;

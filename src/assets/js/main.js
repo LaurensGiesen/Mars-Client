@@ -1,3 +1,5 @@
+"use strict";
+
 let config;
 document.addEventListener("DOMContentLoaded", init);
 

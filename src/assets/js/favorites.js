@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -39,7 +41,7 @@ function displayFavorites(item, articleContainer) {
             </div>
             <div>
                 <label for="amount">Amount: </label>
-                <input id="amount" min="1" type="number" value="1">
+                <input id="amount" min="${item.amount}" type="number" value="${item.amount}" max="${item.amount}">
                 <figure>
                     <img src="assets/img/shopping%20basket.svg" title="basket" alt="basket" class="basket">
                     <figcaption>Add To Basket</figcaption>
@@ -60,21 +62,20 @@ function removeProductFromFavorite(e) {
     clearFavorites();
     e.target.parentNode.children["1"].innerHTML = "Add to favorite";
     e.target.src = "assets/img/emptyHeart.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
         "productType": "plant",
         "amount": parseInt(amountValue)
     });
-    console.log(data);
     apiCall("removeProductFromFavorite", "POST", data).then(getFavorites);
 }
 
 function addProductToBasket(product) {
-    let amount = product.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = product.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
