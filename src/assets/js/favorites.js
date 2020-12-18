@@ -66,5 +66,5 @@ function removeProductFromFavorite(e) {
 
 function addProductToBasket(e) {
     addToBasket(e);
-    document.location.href = "basket.html"
+    document.location.href = "basket.html";
 }

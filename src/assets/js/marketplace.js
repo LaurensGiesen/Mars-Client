@@ -83,13 +83,13 @@ function fillFilterValues(item) {
             `            <div>
             <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.name}">${item.name}</label>
-            </div>`
+            </div>`;
     } else {
         document.querySelector('.search:last-of-type').innerHTML +=
             `<div>
             <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.type}">${item.name}</label>
-            </div>`
+            </div>`;
     }
 }
 
@@ -142,7 +142,7 @@ function countCheckedBoxes() {
     const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         if (checkbox.checked) {
-            checkedBoxes++
+            checkedBoxes++;
         }
     });
     return checkedBoxes;
@@ -176,9 +176,9 @@ function marketPlaceFilter(e) {
     }
     allProducts.sort(function (a, b) {
         if (a[selectedItem] > b[selectedItem]) {
-            return 1
+            return 1;
         } else if (a[selectedItem] < b[selectedItem]) {
-            return -1
+            return -1;
         }
         return 0;
     });

@@ -30,7 +30,7 @@ async function runApp() {
 async function loadShop() {
     const result = apiCall("getLocations/1", "GET", null).then(r => Array.from(new Set(r.map(
         element => element.cropName))).map(cropName => {
-        return (r.find(element => element.cropName === cropName))
+        return (r.find(element => element.cropName === cropName));
     }));
     const crops = await result;
 
@@ -119,13 +119,13 @@ function changeSeedAndVeggieButtonOrder() {
             <label for="veggieButton"></label>
             <input id="veggieButton" type="button" value="Veggies">
             <label for="fruitButton"></label>
-            <input id="fruitButton" type="button" value="Fruit">`
+            <input id="fruitButton" type="button" value="Fruit">`;
     } else {
         document.querySelector("#filterOptions").innerHTML = `
             <label for="fruitButton"></label>
             <input id="fruitButton" type="button" value="Fruit">
             <label for="veggieButton"></label>
-            <input id="veggieButton" type="button" value="Veggies">`
+            <input id="veggieButton" type="button" value="Veggies">`;
     }
     document.querySelector('#fruitButton').addEventListener('click', makeFruitSeedsVisible);
     document.querySelector('#veggieButton').addEventListener('click', makeVeggieVisible);
@@ -166,14 +166,8 @@ function displayMap() {
             }
             const bound = Math.pow(2, zoom);
             return (
-                "http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/"
-                +
-                zoom +
-                "/" +
-                normalizedCoord.x +
-                "/" +
-                (bound - normalizedCoord.y - 1) +
-                ".png"
+                `http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/
+                ${zoom}/${normalizedCoord.x}/${(bound - normalizedCoord.y - 1)}.png`
             );
         },
         // tileSize: new google.maps.Size(256, 256),
@@ -227,7 +221,7 @@ async function addMarkers(crop) {
     clearMarkers();
     const locations = [];
     await apiCall("getLocations/1", "GET", null).then(r => r.forEach(element => {
-        locations.push(element)
+        locations.push(element);
     }));
     locations.forEach(location => {
         if (crop === undefined) {
@@ -237,7 +231,7 @@ async function addMarkers(crop) {
                 icon: './assets/img/pin green.png'
             };
             const marker = new google.maps.Marker(markerOptions);
-            markers.push(marker)
+            markers.push(marker);
         } else {
             if (location.cropName.toLowerCase() === crop.value.toLowerCase()) {
                 const markerOptions = {

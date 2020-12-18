@@ -12,8 +12,10 @@ async function init() {
 
 function requestFillingUsersDAta() {
     apiCall("getUser/1", "GET", null).then(
-        (res) => {fillValuesInProfile(res)
-    document.querySelector('#changeData').addEventListener('click', changeDataUser)});
+        (res) => {
+            fillValuesInProfile(res);
+            document.querySelector('#changeData').addEventListener('click', changeDataUser);
+        });
 }
 
 function fillValuesInProfile(res) {
@@ -75,8 +77,9 @@ function changeDataUser() {
         dome: dome
     });
     apiCall("updateUser/1", "POST", data).then(
-        (res) =>  { addSituation(res);
-    });
+        (res) => {
+            addSituation(res);
+        });
 }
 
 function clear() {
