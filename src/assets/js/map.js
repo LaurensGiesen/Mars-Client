@@ -166,8 +166,7 @@ function displayMap() {
             }
             const bound = Math.pow(2, zoom);
             return (
-                `http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/
-                ${zoom}/${normalizedCoord.x}/${(bound - normalizedCoord.y - 1)}.png`
+                `http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/${zoom}/${normalizedCoord.x}/${(bound - normalizedCoord.y - 1)}.png`
             );
         },
         // tileSize: new google.maps.Size(256, 256),
