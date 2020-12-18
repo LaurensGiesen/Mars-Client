@@ -1,13 +1,10 @@
-main {
-    font-family: 'Noto Sans JP', sans-serif;
-}
+
 
 h1 {
     font-size: 2rem;
     padding-top: 1rem;
     padding-left: 5rem;
     margin-top: 1rem;
-    font-family: 'PT Sans', sans-serif;
 }
 
 
@@ -26,8 +23,4 @@ h2 {
     font-family: 'PT Sans', sans-serif;
 }
 
-
-/******************************************************/
-/************* subscriptions ************/
-/******************************************************/
 

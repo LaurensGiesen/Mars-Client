@@ -1,7 +1,6 @@
 main{
     display: flex;
-    font-family: 'Noto Sans JP', sans-serif;
-    color: #0C1B33;
+    min-height: 37.2rem;
 }
 
 

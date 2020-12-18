@@ -1,7 +1,5 @@
 main{
     display: flex;
-    font-family: 'Noto Sans JP', sans-serif;
-    color: #0C1B33;
 }
 
 
@@ -18,19 +16,12 @@ h2{
 }
 
 a{
-    color: black;
+    color: #0C1B33;
     text-decoration: none;
 }
 
 p{
     margin-bottom: 0.2rem;
-}
-
-main img.productImg {
-    width: 10rem;
-    height: 6rem;
-    margin-right: 4rem;
-    margin-left: 7rem;
 }
 
 form{
@@ -43,10 +34,34 @@ form select, form input{
     padding: 0.1rem;
 }
 
-
 form input{
     width: 18%;
     padding: 0.1rem;
+}
+
+form label, article label{
+    margin-left: 1rem;
+}
+
+#sortby {
+    margin-left: 0.4rem;
+}
+
+label.amount{
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+}
+
+
+/******************************************************/
+/************* article ************/
+/******************************************************/
+
+main img.productImg {
+    width: 10rem;
+    height: 6rem;
+    margin-right: 4rem;
+    margin-left: 7rem;
 }
 
 input[type="button"]{
@@ -115,13 +130,8 @@ article{
     margin-left: 1rem;
 }
 
-form label, article label{
-    margin-left: 1rem;
-}
-
-label.amount{
-    margin-right: 0.5rem;
-    margin-left: 2rem;
+.articleContainer .productImg, .articleContainer h3 {
+    cursor: pointer;
 }
 
 article img{
@@ -154,13 +164,4 @@ main figure{
 
 .articleContainer {
     margin-top: 3rem;
-}
-
-#sortby {
-    margin-left: 0.4rem;
-}
-
-
-.articleContainer .productImg, .articleContainer h3 {
-    cursor: pointer;
 }
