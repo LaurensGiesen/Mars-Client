@@ -9,9 +9,9 @@ async function init() {
     loadPlants();
     searchProducts();
     loadSortValues();
+    loadFilterValues();
     document.querySelector('#order').addEventListener('change', marketPlaceSorting);
     document.querySelector('#sortby').addEventListener('change', marketPlaceFilter);
-    filterProducts();
     document.querySelector('#linkToAddProduct').addEventListener('click', goToAddProduct);
 }
 const articleContainer = document.querySelector('.articleContainer');
@@ -34,28 +34,29 @@ function getProductDetailsByName(product) {
 function getProductDetail(product, article) {
     const img = article.childNodes[1];
     const id = article.getAttribute("id");
-    const name = article.childNodes[3].childNodes[1].childNodes[1];
-    const nameValue = name.innerHTML;
+    const name = article.childNodes[3].childNodes[1].childNodes[0];
+    const nameValue = name.innerText;
+    const total = article.childNodes[3].childNodes[7].childNodes[1];
+    const totalValue = total.innerHTML;
     const price = article.childNodes[3].childNodes[3].childNodes[1];
     const priceValue = price.innerHTML;
-    const owner = article.childNodes[3].childNodes[5].childNodes[1];
-    const ownerValue = owner.innerHTML;
-    const date = article.childNodes[3].childNodes[7].childNodes[1];
+    const date = article.childNodes[3].childNodes[5].childNodes[1];
     const dateValue = date.innerHTML;
     const amount = article.childNodes[5].childNodes[3];
     const amountValue = amount.value;
     const productDetail = {
         image: img.src,
         name: nameValue,
-        price: priceValue,
-        owner: ownerValue,
-        date: dateValue,
         amount: amountValue,
+        price: priceValue,
+        date: dateValue,
+        total: totalValue,
         productId: id
     };
+    console.log(productDetail);
     const detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
-    document.location.href = 'marketplaceDetails.html';
+    window.location.href = 'marketplaceDetails.html';
     loadProductDetails();
 }
 
@@ -82,17 +83,41 @@ function changeFavoriteState(e) {
     }
 }
 
-function searchProducts() {
+function    searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
 
+function loadFilterValues() {
+    apiCall("getCrops", "GET", null).then((res) => {
+        res.forEach(item => {
+            fillFilterValues(item);
+        });
+        filterProducts();
+    });
 
+}
+
+function fillFilterValues(item) {
+    if (item.type === "vegetable") {
+        document.querySelector('.search:first-of-type').innerHTML +=
+            `            <div>
+            <input type="checkbox" name="${item.type}" id="${item.name}">
+            <label for="${item.name}">${item.name}</label>
+            </div>`
+    } else {
+        document.querySelector('.search:last-of-type').innerHTML +=
+            `            <div>
+            <input type="checkbox" name="${item.type}" id="${item.name}">
+            <label for="${item.type}">${item.name}</label>
+            </div>`
+    }
+}
 function loadSortValues() {
     document.querySelector('#sortby').innerHTML =
         `<option value="name">Name</option>
          <option value="price">Price</option>
          <option value="date">Date</option>
-         <option value="amount">Amount</option>
+         <option value="amount">Total of products</option>
          `;
 }
 
@@ -203,11 +228,10 @@ function getResOfPlants() {
         const id = product.getAttribute('id');
         const name = product.querySelector(".name").innerHTML;
         const price = product.querySelector(".price").innerHTML;
-        const owner = product.querySelector(".owner").innerHTML;
         const date = product.querySelector(".date").innerHTML;
         const amount = product.querySelector(".amount").innerHTML;
         const img = product.querySelector("img").getAttribute("src");
-        products.push({productId: id, name: name, price: price, owner: owner, date: date, amount: amount, image: img});
+        products.push({productId: id, name: name, price: price, date: date, amount: amount, image: img});
     });
     return products;
 }
@@ -215,10 +239,13 @@ function getResOfPlants() {
 function addToBasket(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from basket";
     e.target.src = "assets/img/shopping basket checkmark.svg";
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI;
-        "productType": "plant"
+        "userId": 1, //NYI
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("addProductToBasket", "POST", data).then();
     calculateBasketAmount();
@@ -228,10 +255,13 @@ function addToBasket(e) {
 function removeFromBasket(e) {
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("removeProductFromBasket", "POST", data).then();
     calculateBasketAmount();
@@ -240,11 +270,13 @@ function removeFromBasket(e) {
 function addProductToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     e.target.src = "assets/img/fullHeart.svg";
-
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI;
-        "productType": "plant"
+        "userId": 1, //NYI
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("addProductToFavorite", "POST", data).then();
 }
@@ -252,10 +284,13 @@ function addProductToFavorites(e) {
 function removeFromFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Add to favorite";
     e.target.src = "assets/img/emptyHeart.svg";
+    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    let amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
-        "productType": "plant"
+        "productType": "plant",
+        "amount": parseInt(amountValue)
     });
     apiCall("removeProductFromFavorite", "POST", data).then();
 }
