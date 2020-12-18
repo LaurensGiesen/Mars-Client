@@ -32,7 +32,7 @@ function checkIfReadyToPay(e) {
         subscriptionId++;
         if (subscription.classList.contains("selected")) {
             apiCall(`updateSubscription/1/${subscriptionId}`, "GET", null).then(() => {
-                setTimeout(window.location.href = "profile.html", 1000);
+                window.location.href = "profile.html";
             });
         }
     }

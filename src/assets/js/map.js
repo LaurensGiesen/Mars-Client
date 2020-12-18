@@ -9,6 +9,7 @@ async function init() {
     config = await loadConfig();
     loadMapsJSAPI();
 }
+
 async function runApp() {
     map = displayMap();
     markers = await addMarkers();
@@ -85,16 +86,20 @@ function makeAllSeedsHidden() {
     });
 }
 
+function checkProductVisibility(product) {
+    if (product.classList.contains('hidden')) {
+        product.classList.remove('hidden');
+    } else {
+        product.classList.add('hidden');
+    }
+}
+
 function makeFruitSeedsVisible() {
     makeAllSeedsHidden();
     document.querySelector('#fruitButton').classList.add('active');
     document.querySelector('#veggieButton').classList.remove('active');
     document.querySelectorAll('#products .fruit').forEach(product => {
-        if (product.classList.contains('hidden')) {
-            product.classList.remove('hidden');
-        } else {
-            product.classList.add('hidden');
-        }
+        checkProductVisibility(product);
     });
     changeSeedAndVeggieButtonOrder();
 }
@@ -104,11 +109,7 @@ function makeVeggieVisible() {
     document.querySelector('#veggieButton').classList.add('active');
     document.querySelector('#fruitButton').classList.remove('active');
     document.querySelectorAll('#products .vegetable').forEach(product => {
-        if (product.classList.contains('hidden')) {
-            product.classList.remove('hidden');
-        } else {
-            product.classList.add('hidden');
-        }
+        checkProductVisibility(product);
     });
     changeSeedAndVeggieButtonOrder();
 }
