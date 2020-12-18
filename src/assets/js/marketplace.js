@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
+const articleContainerClass = '.articleContainer';
 
 async function init() {
     config = await loadConfig();
@@ -15,7 +16,7 @@ async function init() {
 }
 
 function loadPlants() {
-    const articleContainer = document.querySelector('.articleContainer');
+    const articleContainer = document.querySelector(articleContainerClass);
     articleContainer.innerHTML = "";
     apiCall("getPlants", "GET", null).then((res) => {
         allProducts = res;
@@ -64,24 +65,6 @@ function getProductDetailsByImg(product) {
     getProductDetail(product, article);
 }
 
-function changeBasketState(e) {
-    const basketImage = e.target.src;
-    if (basketImage.match("assets/img/basketPlus.svg")) {
-        addToBasket(e);
-    } else {
-        removeFromBasket(e);
-    }
-}
-
-function changeFavoriteState(e) {
-    const favoriteImage = e.target.src;
-    if (favoriteImage.match("assets/img/emptyHeart.svg")) {
-        addProductToFavorites(e);
-    } else {
-        removeFromFavorites(e);
-    }
-}
-
 function searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
@@ -101,13 +84,13 @@ function fillFilterValues(item) {
             `            <div>
             <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.name}">${item.name}</label>
-            </div>`
+            </div>`;
     } else {
         document.querySelector('.search:last-of-type').innerHTML +=
             `<div>
             <input type="checkbox" name="${item.type}" id="${item.name}">
             <label for="${item.type}">${item.name}</label>
-            </div>`
+            </div>`;
     }
 }
 
@@ -135,7 +118,7 @@ function getClickEvents() {
 }
 
 function filter(e) {
-    const articleContainer = document.querySelector('.articleContainer');
+    const articleContainer = document.querySelector(articleContainerClass);
     if (countCheckedBoxes() === 1) {
         articleContainer.innerHTML = "";
     }
@@ -160,14 +143,14 @@ function countCheckedBoxes() {
     const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         if (checkbox.checked) {
-            checkedBoxes++
+            checkedBoxes++;
         }
     });
     return checkedBoxes;
 }
 
 function marketPlaceSorting() {
-    const articleContainer = document.querySelector('.articleContainer');
+    const articleContainer = document.querySelector(articleContainerClass);
     const searchRes = [];
     for (const product of allProducts) {
         const name = product.name.toLowerCase();
@@ -194,9 +177,9 @@ function marketPlaceFilter(e) {
     }
     allProducts.sort(function (a, b) {
         if (a[selectedItem] > b[selectedItem]) {
-            return 1
+            return 1;
         } else if (a[selectedItem] < b[selectedItem]) {
-            return -1
+            return -1;
         }
         return 0;
     });
@@ -205,63 +188,4 @@ function marketPlaceFilter(e) {
 
 function goToAddProduct() {
     document.location.href = "addProductToSell.html";
-}
-
-function addToBasket(e) {
-    e.target.parentNode.children["1"].innerHTML = "Remove from basket";
-    e.target.src = "assets/img/shopping basket checkmark.svg";
-    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("addProductToBasket", "POST", data).then();
-    calculateBasketAmount();
-}
-
-
-function removeFromBasket(e) {
-    e.target.src = "assets/img/basketPlus.svg";
-    e.target.parentNode.children["1"].innerHTML = "Add to basket";
-    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("removeProductFromBasket", "POST", data).then();
-    calculateBasketAmount();
-}
-
-function addProductToFavorites(e) {
-    e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-    e.target.src = "assets/img/fullHeart.svg";
-    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("addProductToFavorite", "POST", data).then();
-}
-
-function removeFromFavorites(e) {
-    e.target.parentNode.children["1"].innerHTML = "Add to favorite";
-    e.target.src = "assets/img/emptyHeart.svg";
-    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("removeProductFromFavorite", "POST", data).then();
 }

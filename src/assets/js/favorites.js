@@ -60,28 +60,11 @@ function clearFavorites() {
 
 function removeProductFromFavorite(e) {
     clearFavorites();
-    e.target.parentNode.children["1"].innerHTML = "Add to favorite";
-    e.target.src = "assets/img/emptyHeart.svg";
-    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("removeProductFromFavorite", "POST", data).then(getFavorites);
+    removeFromFavorites(e);
+    getFavorites();
 }
 
-function addProductToBasket(product) {
-    const amount = product.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("addProductToBasket", "POST", data).then();
-    document.location.href = "basket.html"
+function addProductToBasket(e) {
+    addToBasket(e);
+    document.location.href = "basket.html";
 }

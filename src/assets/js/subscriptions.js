@@ -25,31 +25,6 @@ function selectSubscription(e) {
     emptyNonSelectedSubscriptions(selectedSubscription);
 }
 
-function fillInSelectedSubscription(subscriptionTypeSection) {
-    subscriptionTypeSection.style.backgroundColor = "#983628";
-    subscriptionTypeSection.style.color = "white";
-    subscriptionTypeSection.style.borderColor = "white";
-    subscriptionTypeSection.querySelector("h2").style.borderColor = "white";
-    subscriptionTypeSection.querySelector("p").style.borderColor = "white";
-    subscriptionTypeSection.classList.add("selected");
-
-}
-
-function emptyNonSelectedSubscriptions(selectedSubscription) {
-    const sections = [];
-    document.querySelectorAll("section").forEach(element => sections.push(element));
-    sections.forEach(section => {
-        if (section !== selectedSubscription) {
-            section.style.backgroundColor = "white";
-            section.style.color = "#0C1B33";
-            section.style.borderColor = "#0C1B33";
-            section.querySelector("h2").style.borderColor = "#0C1B33";
-            section.querySelector("p").style.borderColor = "#0C1B33";
-            section.classList.remove("selected");
-        }
-    });
-}
-
 function checkIfReadyToPay(e) {
     const subscriptions = e.target.parentNode.children[0].children;
     let subscriptionId = 0;
@@ -57,7 +32,7 @@ function checkIfReadyToPay(e) {
         subscriptionId++;
         if (subscription.classList.contains("selected")) {
             apiCall(`updateSubscription/1/${subscriptionId}`, "GET", null).then(() => {
-                setTimeout(window.location.href = "map.html", 1000);
+                window.location.href = "map.html";
             });
         }
     }
