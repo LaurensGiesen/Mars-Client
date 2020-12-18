@@ -10,16 +10,6 @@ h1 {
     font-family: 'PT Sans', sans-serif;
 }
 
-#arrow{
-    margin-top: 0.2rem;
-    width: 2rem;
-}
-
-a#back{
-    padding-right: 0.5rem;
-    margin-bottom: 0.3rem;
-}
-
 
 a {
     text-decoration: none;
@@ -27,32 +17,11 @@ a {
     font-weight: bold;
 }
 
-div#backButton{
-    display: flex;
-    align-items: center;
-    width: 5rem;
-    border: 2px solid #000000;
-    margin-left: 2rem;
-    margin-top: 2rem;
-    height: 2rem;
-    text-align: center;
-}
-
 h2 {
-    border: 1px solid #0C1B33;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     border-radius: 0.3rem;
     background-color: #0C1B33;
     color: #ffffff;
-    width: fit-content;
-    padding: 0.5rem;
-    margin: 0 auto 2rem auto;
-    font-size: 1.5rem;
-    font-family: 'PT Sans', sans-serif;
-}
-
-.logo{
-    width: 9rem;
 }
 
 
@@ -60,14 +29,6 @@ h2 {
 /************* subscriptions ************/
 /******************************************************/
 
-
-#subscriptions {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
 
 input {
     width: 18rem;
@@ -84,41 +45,30 @@ input {
 }
 
 input:hover{
-    font-weight: bold;
-    background-color: #ac5e52;
-    border-color: #ac5e52;
+    font-weight: normal;
+    background-color: #983628;
+    border-color: #983628;
 }
 
 section {
-    border: 1px solid #0C1B33;
     border-radius: 0.3rem;
+    margin-bottom: 3rem;
     background-color: #ffffff;
     height: 20rem;
-    padding: 3rem;
     color: #0C1B33;
     font-family: 'PT Sans', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
+section:hover{
+    box-shadow: none;
+}
+
 section p {
-    border: 1px solid #0C1B33;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 0.3rem;
     background-color: #0C1B33;
     color: #ffffff;
-    padding: 0.5rem;
-    text-align: center;
-    margin-top: 7rem;
-    font-family: 'PT Sans', sans-serif;
 }
 
-
-.subscriptionStyle {
-    list-style-type: circle;
-}
-
-li {
-    line-height: 2rem;
-    font-family: 'Noto Sans JP', sans-serif;
-}
 

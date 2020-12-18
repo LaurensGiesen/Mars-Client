@@ -1,13 +1,8 @@
-header {
-    display: flex;
-    flex-direction: row;
-    color: #0C1B33;
-}
-
 h1 {
     font-size: 2rem;
-    padding-left: 2rem;
-    margin-top: 4rem;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    margin-top: 1rem;
     font-family: 'PT Sans', sans-serif;
 }
 
@@ -19,16 +14,6 @@ h2 {
     font-size: 1.5rem;
     font-family: 'PT Sans', sans-serif;
 }
-
-.logo{
-    width: 9rem;
-}
-
-
-/******************************************************/
-/************* subscriptions ************/
-/******************************************************/
-
 
 #subscriptions {
     display: flex;
@@ -42,7 +27,7 @@ input{
     height: 3rem;
     text-align: center;
     font-size: 1.2rem;
-    margin: 3rem auto 0 36rem;
+    margin: 3rem auto 2rem 36rem;
     border-radius: 3px;
     border: 2px solid #983628;
     background-color: #983628;
@@ -67,15 +52,6 @@ section:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-section:active {
-    background-color: darkgrey;
-
-}
-
-ul {
-    list-style-type: circle;
-}
-
 li {
     line-height: 2rem;
     font-family: 'Noto Sans JP', sans-serif;
@@ -87,4 +63,8 @@ section p {
     text-align: center;
     margin-top: 7rem;
     font-family: 'PT Sans', sans-serif;
+}
+
+.subscriptionStyle {
+    list-style-type: circle;
 }
