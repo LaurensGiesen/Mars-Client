@@ -4,6 +4,9 @@ main{
     height: 36.5em;
 }
 
+h1{
+    visibility: hidden;
+}
 
 table {
     margin-top: 2rem;
