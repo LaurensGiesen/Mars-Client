@@ -1,5 +1,4 @@
 "use strict";
-const clearTimerMessage = document.querySelector('.timerMessage');
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -81,10 +80,11 @@ function changeDataUser() {
 }
 
 function clear() {
-    clearTimerMessage.innerHTML = "";
+    document.querySelector('.timerMessage').innerHTML = "";
 }
 
 function addSituation(res) {
+    const clearTimerMessage = document.querySelector('.timerMessage');
     if (res) {
         clearTimerMessage.innerHTML = `SUCCESSFULLY CHANGED YOUR DATA`;
         setTimeout(clear, 3000);

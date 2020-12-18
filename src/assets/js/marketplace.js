@@ -52,7 +52,6 @@ function getProductDetail(product, article) {
         total: totalValue,
         productId: id
     };
-    console.log(productDetail);
     const detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
     window.location.href = 'marketplaceDetails.html';
@@ -82,7 +81,7 @@ function changeFavoriteState(e) {
     }
 }
 
-function    searchProducts() {
+function searchProducts() {
     document.querySelector('#search').addEventListener("keyup", marketPlaceSorting);
 }
 
@@ -93,7 +92,6 @@ function loadFilterValues() {
         });
         filterProducts();
     });
-
 }
 
 function fillFilterValues(item) {

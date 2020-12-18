@@ -24,13 +24,23 @@ function register(e) {
         crop2: document.querySelector("#crop2").value,
         crop3: document.querySelector("#crop3").value,
     });
-    registerCall("register", 'POST', data).then((response) => {
-        if(response){
-            window.location.href = "chooseSubscription.html";
-        }else{
-            console.log(response);
-        }
-    });
+        registerCall("register", 'POST', data).then((response) => {
+            addTimer(response);
+        });
+}
+function addTimer(res) {
+    const timer = document.querySelector('.timer');
+    if (res) {
+        timer.innerHTML = `successfully logged in`;
+        setTimeout(clearTimer, 3000);
+        window.location.href = "chooseSubscription.html";
+    } else {
+        timer.innerHTML = `failed to login`;
+        setTimeout(clearTimer, 3000);
+    }
+}
+function clearTimer() {
+    document.querySelector('.timer').innerHTML = "";
 }
 
 function autoFill(){

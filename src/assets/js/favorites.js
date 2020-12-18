@@ -39,7 +39,7 @@ function displayFavorites(item, articleContainer) {
             </div>
             <div>
                 <label for="amount">Amount: </label>
-                <input id="amount" min="1" type="number" value="1">
+                <input id="amount" min="${item.amount}" type="number" value="${item.amount}" max="${item.amount}">
                 <figure>
                     <img src="assets/img/shopping%20basket.svg" title="basket" alt="basket" class="basket">
                     <figcaption>Add To Basket</figcaption>

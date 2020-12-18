@@ -38,7 +38,7 @@ function calculateBasketInformation(products) {
     let totalTransportPrice = 0;
 
     products.forEach(product => {
-        totalArticlePrice += product.price;
+        totalArticlePrice += product.price * product.amount;
         totalTransportPrice += 1.5;
     });
     fillBasketInformation(totalArticlePrice, totalTransportPrice);
@@ -85,7 +85,7 @@ function addProductToBasket(product) {
                 </figure>
 
             </form>
-            <h2 class="price">€ <span>${product.price}</span></h2>
+            <h2 class="price">€ <span>${product.price * product.amount}</span></h2>
         </article>`;
 }
 
