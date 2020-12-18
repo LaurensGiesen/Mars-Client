@@ -1,28 +1,23 @@
 "use strict";
 
 function addProductToList(product) {
-    let ownerName = product["owner"]["lastName"];
     let date = product.date["dayOfMonth"] + "-" + product.date["monthValue"] + "-" + product.date.year;
 
     if (date === "undefined-undefined-undefined") {
         date = product.date;
     }
-
-    if (ownerName === undefined) {
-        ownerName = product.owner;
-    }
-    document.querySelector('.articleContainer').innerHTML +=
-        `<article id="${product.productId}">
+        document.querySelector('.articleContainer').innerHTML +=
+            `<article id="${product.productId}">
                <img alt="${product.name}" src="${product.image}" title="${product.name}" class="productImg">
                  <div>
-                     <h3>${product.name}</span></h3>
+                     <h3><span class="name">${product.name}</span></h3>
                      <p>Price: <span class="price">${product.price}</span></p>
                      <p>Date product added: <span class="date">${date}</span></p>
-                     <p>Amount of products left: <span>${product.amount}</span></p>
+                     <p>Amount of products left: <span class="amount">${product.amount}</span></p>
                  </div>
                  <form>
-                     <label for="amount" class="amount">Amount:</label>
-                     <input min="1" step="1" type="number" value="1">
+                     <label for="amount">Amount:</label>
+                     <input min="1" step="1" type="number" value="1" max="${product.amount}">
 
                      <figure class="basket">
                          <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"
