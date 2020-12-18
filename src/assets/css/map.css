@@ -97,6 +97,8 @@ input {
 
 input[type = "button"] {
     height: 2rem;
+    min-width: 4rem;
+    margin-right: 1rem;
     background-color: #983628;
     border: 1px solid #983628;
     color: #ffffff;
@@ -105,7 +107,7 @@ input[type = "button"] {
     opacity: 1.0;
 }
 
-input[type = "button"]:hover{
+input[type = "button"]:hover {
     box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -113,6 +115,11 @@ input[type = "button"]:hover{
     width: 10rem;
     display: flex;
     justify-content: space-around;
+}
+
+#filterOptions input {
+    background-color: #56423E;
+
 }
 
 #filterOptions div.products {
