@@ -1,5 +1,5 @@
 "use strict";
-
+const clearTimerMessage = document.querySelector('.timerMessage');
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -81,16 +81,16 @@ function changeDataUser() {
 }
 
 function clear() {
-    document.querySelector('.timerMessage').innerHTML = "";
+    clearTimerMessage.innerHTML = "";
 }
 
 function addSituation(res) {
     if (res) {
-        document.querySelector('.timerMessage').innerHTML = `SUCCESSFULLY CHANGED YOUR DATA`;
+        clearTimerMessage.innerHTML = `SUCCESSFULLY CHANGED YOUR DATA`;
         setTimeout(clear, 3000);
 
     } else {
-        document.querySelector('.timerMessage').innerHTML = `FAILED TO CHANGE YOUR DATA`;
+        clearTimerMessage.innerHTML = `FAILED TO CHANGE YOUR DATA`;
         setTimeout(clear, 3000);
     }
 

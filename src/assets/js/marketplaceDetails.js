@@ -66,8 +66,8 @@ function changeFavoriteState(e) {
 function addProductToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     e.target.src = "assets/img/fullHeart.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -80,8 +80,8 @@ function addProductToFavorites(e) {
 function removeFromFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Add to favorite";
     e.target.src = "assets/img/emptyHeart.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -94,8 +94,8 @@ function removeFromFavorites(e) {
 function addToBasket(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from basket";
     e.target.src = "assets/img/shopping basket checkmark.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -109,8 +109,8 @@ function addToBasket(e) {
 function removeFromBasket(e) {
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI

@@ -2,8 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
-let counter = 0;
-
+const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
 async function init() {
     config = await loadConfig();
     loadPlants();
@@ -75,7 +74,7 @@ function changeBasketState(e) {
 }
 
 function changeFavoriteState(e) {
-    let favoriteImage = e.target.src;
+    const favoriteImage = e.target.src;
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
         addProductToFavorites(e);
     } else {
@@ -123,7 +122,6 @@ function loadSortValues() {
 
 
 function filterProducts() {
-    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             filter(checkbox);
@@ -139,7 +137,7 @@ function getClickEvents() {
 }
 
 function filter(checkbox) {
-    let products = [];
+    const products = [];
     articleContainer.innerHTML = "";
     if (checkbox.checked) {
         disableCheckboxes(checkbox);
@@ -163,7 +161,6 @@ function filter(checkbox) {
 
 function disableCheckboxes(checkedCheckbox) {
     const checkedCheckboxId = checkedCheckbox.attributes[2].value;
-    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         const checkboxId = checkbox.attributes[2].value;
         if (checkboxId.localeCompare(checkedCheckboxId) !== 0) {
@@ -173,7 +170,6 @@ function disableCheckboxes(checkedCheckbox) {
 }
 
 function enableCheckboxes() {
-    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         if (checkbox.getAttribute("disabled") !== null) {
             checkbox.removeAttribute("disabled");
@@ -185,7 +181,7 @@ function enableCheckboxes() {
 function marketPlaceSorting() {
     const searchRes = [];
     for (const product of allProducts) {
-        let name = product.name.toLowerCase();
+        const name = product.name.toLowerCase();
         if (name.includes(document.querySelector('#search').value.toLowerCase())) {
             searchRes.push(product);
         }
@@ -239,8 +235,8 @@ function getResOfPlants() {
 function addToBasket(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from basket";
     e.target.src = "assets/img/shopping basket checkmark.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -255,8 +251,8 @@ function addToBasket(e) {
 function removeFromBasket(e) {
     e.target.src = "assets/img/basketPlus.svg";
     e.target.parentNode.children["1"].innerHTML = "Add to basket";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -270,8 +266,8 @@ function removeFromBasket(e) {
 function addProductToFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     e.target.src = "assets/img/fullHeart.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -284,8 +280,8 @@ function addProductToFavorites(e) {
 function removeFromFavorites(e) {
     e.target.parentNode.children["1"].innerHTML = "Add to favorite";
     e.target.src = "assets/img/emptyHeart.svg";
-    let amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
-    let amountValue = amount.value;
+    const amount = e.target.parentNode.parentNode.parentNode.childNodes[5].childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(e.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI

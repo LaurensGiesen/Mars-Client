@@ -45,7 +45,7 @@ function calculateBasketInformation(products) {
 }
 
 function fillBasketInformation(totalArticlePrice, totalTransportPrice) {
-    let total = totalArticlePrice + totalTransportPrice;
+    const total = totalArticlePrice + totalTransportPrice;
 
     document.querySelector(".fullBasketInformation").innerHTML +=
         `<h3 class="totalArticles">Total for articles: € <span>${totalArticlePrice}</span></h3>
@@ -91,8 +91,8 @@ function addProductToBasket(product) {
 
 function removeProductFromBasket(product) {
     clearBasket();
-    let amount = product.target.parentNode.parentNode.childNodes[3];
-    let amountValue = amount.value;
+    const amount = product.target.parentNode.parentNode.childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -115,8 +115,8 @@ function changeFavoriteState(product) {
 function addProductToFavorite(product) {
     product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
     product.target.src = "assets/img/fullHeart.svg";
-    let amount = product.target.parentNode.parentNode.childNodes[3];
-    let amountValue = amount.value;
+    const amount = product.target.parentNode.parentNode.childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
@@ -129,8 +129,8 @@ function addProductToFavorite(product) {
 function removeFromFavorites(product) {
     product.target.parentNode.children["1"].innerHTML = "Add to favorite";
     product.target.src = "assets/img/emptyHeart.svg";
-    let amount = product.target.parentNode.parentNode.childNodes[3];
-    let amountValue = amount.value;
+    const amount = product.target.parentNode.parentNode.childNodes[3];
+    const amountValue = amount.value;
     const data = JSON.stringify({
         "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
         "userId": 1, //NYI
