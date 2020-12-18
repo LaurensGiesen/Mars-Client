@@ -9,7 +9,6 @@ async function init() {
     config = await loadConfig();
     loadMapsJSAPI();
 }
-
 async function runApp() {
     map = displayMap();
     markers = await addMarkers();
@@ -17,14 +16,23 @@ async function runApp() {
     clusterMarkers();
     await loadShop();
     document.querySelector('#filterContainer').addEventListener('click', openFilterPopUpMap);
-    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible,);
-    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
+    document.querySelector('#filterContainer').addEventListener('click', displaySeedAndVeggieButton);
     document.querySelector('#search').addEventListener('keyup', search);
     document.querySelector('#search').addEventListener('click', resetSearchBar);
     document.querySelectorAll(".crops").forEach(crop => {
         crop.addEventListener('click', () => addMarkers(crop));
     });
+}
 
+
+function displaySeedAndVeggieButton(e) {
+    e.innerHTML =
+        `
+            <label for="fruitButton"></label>
+            <input id="fruitButton" type="button" value="Fruit">
+            <label for="veggieButton"></label>
+            <input id="veggieButton" type="button" value="Veggies">
+        `
 }
 
 //FILTER
@@ -103,6 +111,8 @@ function openFilterPopUpMap() {
         hiddenScrollOut.classList.add("behind");
         filterIsOpen = false;
     }
+    document.querySelector(`input[value='Fruit']`).addEventListener('click', makeFruitSeedsVisible,);
+    document.querySelector(`input[value='Veggies']`).addEventListener('click', makeVeggieVisible);
 }
 
 //MAP
