@@ -37,6 +37,7 @@ async function loadShop() {
 
     crops.forEach(element => document.querySelector("#products").innerHTML
         += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden crops">`);
+    console.log(crops);
 }
 
 function openFilterPopUpMap() {
@@ -95,6 +96,8 @@ function checkProductVisibility(product) {
 }
 
 function makeFruitSeedsVisible() {
+    const veggieButton = document.querySelector(veggieButtonId);
+    const fruitButton = document.querySelector(fruitButtonId);
     makeAllSeedsHidden();
     document.querySelector('#fruitButton').classList.add('active');
     document.querySelector('#veggieButton').classList.remove('active');
@@ -105,6 +108,8 @@ function makeFruitSeedsVisible() {
 }
 
 function makeVeggieVisible() {
+    const veggieButton = document.querySelector(veggieButtonId);
+    const fruitButton = document.querySelector(fruitButtonId);
     makeAllSeedsHidden();
     document.querySelector('#veggieButton').classList.add('active');
     document.querySelector('#fruitButton').classList.remove('active');
