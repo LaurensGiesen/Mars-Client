@@ -2,7 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
-const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
 
 async function init() {
     config = await loadConfig();
@@ -122,6 +121,7 @@ function loadSortValues() {
 }
 
 function filterProducts() {
+    const filterBox = document.querySelectorAll('.filter input[type=checkbox]');
     filterBox.forEach(checkbox => {
         checkbox.addEventListener('change', filter);
     });
