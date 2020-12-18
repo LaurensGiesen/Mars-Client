@@ -37,7 +37,6 @@ async function loadShop() {
 
     crops.forEach(element => document.querySelector("#products").innerHTML
         += `<input type="button" value="${element.cropName}" class="${element.cropType} hidden crops">`);
-    console.log(crops);
 }
 
 function openFilterPopUpMap() {
