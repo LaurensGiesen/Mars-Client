@@ -34,13 +34,13 @@ function getProductDetailsByName(product) {
 function getProductDetail(product, article) {
     const img = article.childNodes[1];
     const id = article.getAttribute("id");
-    const name = article.childNodes[3].childNodes[1].childNodes[1];
-    const nameValue = name.innerHTML;
+    const name = article.childNodes[3].childNodes[1].childNodes[0];
+    const nameValue = name.innerText;
+    const total = article.childNodes[3].childNodes[7].childNodes[1];
+    const totalValue = total.innerHTML;
     const price = article.childNodes[3].childNodes[3].childNodes[1];
     const priceValue = price.innerHTML;
-    const owner = article.childNodes[3].childNodes[5].childNodes[1];
-    const ownerValue = owner.innerHTML;
-    const date = article.childNodes[3].childNodes[7].childNodes[1];
+    const date = article.childNodes[3].childNodes[5].childNodes[1];
     const dateValue = date.innerHTML;
     const amount = article.childNodes[5].childNodes[3];
     const amountValue = amount.value;
@@ -53,6 +53,7 @@ function getProductDetail(product, article) {
         total: totalValue,
         productId: id
     };
+    console.log(productDetail);
     const detailStorage = JSON.stringify(productDetail);
     localStorage.setItem('productDetail', detailStorage);
     window.location.href = 'marketplaceDetails.html';
@@ -227,11 +228,10 @@ function getResOfPlants() {
         const id = product.getAttribute('id');
         const name = product.querySelector(".name").innerHTML;
         const price = product.querySelector(".price").innerHTML;
-        const owner = product.querySelector(".owner").innerHTML;
         const date = product.querySelector(".date").innerHTML;
         const amount = product.querySelector(".amount").innerHTML;
         const img = product.querySelector("img").getAttribute("src");
-        products.push({productId: id, name: name, price: price, owner: owner, date: date, amount: amount, image: img});
+        products.push({productId: id, name: name, price: price, date: date, amount: amount, image: img});
     });
     return products;
 }

@@ -15,6 +15,7 @@ function goToMarketPlace() {
 function loadProductDetails() {
     const jsonProductDetails = localStorage.getItem('productDetail');
     const parseProductDetails = JSON.parse(jsonProductDetails);
+    console.log(parseProductDetails);
     document.querySelector('#productDetail').innerHTML +=
         `<article id="${parseProductDetails.productId}">
             <img class="productImg" id="${parseProductDetails.name}" alt="${parseProductDetails.name}" src="${parseProductDetails.image}"/>
