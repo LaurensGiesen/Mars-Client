@@ -112,30 +112,14 @@ function changeFavoriteState(product) {
     }
 }
 
-function addProductToFavorite(product) {
-    product.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-    product.target.src = "assets/img/fullHeart.svg";
-    const amount = product.target.parentNode.parentNode.childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("addProductToFavorite", "POST", data).then();
+function addProductToFavorite(e) {
+    e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
+    e.target.src = "assets/img/fullHeart.svg";
+    apiCall("addProductToFavorite", "POST", takeProductData(e)).then();
 }
 
-function removeFromFavorites(product) {
-    product.target.parentNode.children["1"].innerHTML = "Add to favorite";
-    product.target.src = "assets/img/emptyHeart.svg";
-    const amount = product.target.parentNode.parentNode.childNodes[3];
-    const amountValue = amount.value;
-    const data = JSON.stringify({
-        "productId": parseInt(product.target.parentNode.parentNode.parentNode.id),
-        "userId": 1, //NYI
-        "productType": "plant",
-        "amount": parseInt(amountValue)
-    });
-    apiCall("removeProductFromFavorite", "POST", data).then();
+function removeFromFavorites(e) {
+    e.target.parentNode.children["1"].innerHTML = "Add to favorite";
+    e.target.src = "assets/img/emptyHeart.svg";
+    apiCall("removeProductFromFavorite", "POST", takeProductData(e)).then();
 }
