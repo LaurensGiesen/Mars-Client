@@ -94,7 +94,11 @@ span{
 caption{
     visibility: hidden;
 }
+
+
 .timerMessage {
+    font-size: 1rem;
+    color: #983628;
     margin-bottom: 1rem;
 }
 

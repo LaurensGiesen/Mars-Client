@@ -89,11 +89,11 @@ function clear() {
 function addSituation(res) {
     const clearTimerMessage = document.querySelector('.timerMessage');
     if (res) {
-        clearTimerMessage.innerHTML = `SUCCESSFULLY CHANGED YOUR DATA`;
+        clearTimerMessage.innerHTML = `Successfully changed yor data`;
         setTimeout(clear, 3000);
 
     } else {
-        clearTimerMessage.innerHTML = `FAILED TO CHANGE YOUR DATA`;
+        clearTimerMessage.innerHTML = `Failed to change your data`;
         setTimeout(clear, 3000);
     }
 
