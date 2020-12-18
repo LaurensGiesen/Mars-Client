@@ -13,8 +13,8 @@ function goToMarketPlace() {
 }
 
 function loadProductDetails() {
-    let jsonProductDetails = localStorage.getItem('productDetail');
-    let parseProductDetails = JSON.parse(jsonProductDetails);
+    const jsonProductDetails = localStorage.getItem('productDetail');
+    const parseProductDetails = JSON.parse(jsonProductDetails);
     document.querySelector('#productDetail').innerHTML +=
         `<article id="${parseProductDetails.productId}">
             <img class="productImg" id="${parseProductDetails.name}" alt="${parseProductDetails.name}" src="${parseProductDetails.image}"/>
@@ -41,11 +41,11 @@ function loadProductDetails() {
                 <figcaption>Add to favorite</figcaption>
             </figure>
         </div>
-        </article>`
+        </article>`;
 }
 
 function changeBasketState(e) {
-    let basketImage = e.target.src;
+    const basketImage = e.target.src;
     if (basketImage.match("assets/img/basketPlus.svg")) {
         addToBasket(e);
     } else {
@@ -54,7 +54,7 @@ function changeBasketState(e) {
 }
 
 function changeFavoriteState(e) {
-    let favoriteImage = e.target.src;
+    const favoriteImage = e.target.src;
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
         addProductToFavorites(e);
     } else {

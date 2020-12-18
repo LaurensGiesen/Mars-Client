@@ -8,15 +8,15 @@ async function init() {
 
 function addProduct(e) {
     e.preventDefault();
-    let name = document.querySelector('#name').value;
-    let date = document.querySelector('#date').value;
-    let price = parseInt(document.querySelector('#price').value);
-    let amount = parseInt(document.querySelector('#amount').value);
-    let img = document.querySelector('#picture');
-    let file = img.files[0];
-    let reader = new FileReader();
+    const name = document.querySelector('#name').value;
+    const date = document.querySelector('#date').value;
+    const price = parseInt(document.querySelector('#price').value);
+    const amount = parseInt(document.querySelector('#amount').value);
+    const img = document.querySelector('#picture');
+    const file = img.files[0];
+    const reader = new FileReader();
     reader.onloadend = function() {
-        let newProduct = JSON.stringify({
+        const newProduct = JSON.stringify({
             name: name,
             image: reader.result,
             price: price,

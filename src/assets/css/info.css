@@ -81,7 +81,7 @@ aside figure img{
     margin-top: 0.5rem;
 }
 
-faside igcaption{
+aside figcaption {
     padding-top: 0.5rem;
     padding-left: 0.2rem;
 }
@@ -98,8 +98,8 @@ hr{
     width: 30%;
 }
 
-.veggie{
-    margin-top: 2rem;;
+.veggie {
+    margin-top: 2rem;
 }
 
 .more{

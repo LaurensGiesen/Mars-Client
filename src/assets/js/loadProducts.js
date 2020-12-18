@@ -31,8 +31,5 @@ function addProductToList(product) {
                          <figcaption>Add to favorite</figcaption>
                      </figure>
                  </form>
-             </article>`
-    }
-
-
-
+             </article>`;
+}

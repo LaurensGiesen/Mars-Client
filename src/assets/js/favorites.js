@@ -13,19 +13,19 @@ function getFavorites() {
         } else {
             response.forEach(item => {
                 displayFavorites(item, articleContainer);
-            })
+            });
             document.querySelectorAll(".basket").forEach(basket => {
                 basket.addEventListener("click", addProductToBasket);
             });
             document.querySelectorAll(".heart").forEach(heart => {
                 heart.addEventListener("click", removeProductFromFavorite);
-            })
+            });
         }
     });
 }
 
 function showEmptyFavorites() {
-    document.querySelector(".emptyFavorites").innerHTML += `<h2>You have no favorites</h2>`
+    document.querySelector(".emptyFavorites").innerHTML += `<h2>You have no favorites</h2>`;
 }
 
 function displayFavorites(item, articleContainer) {
@@ -49,7 +49,7 @@ function displayFavorites(item, articleContainer) {
                     <figcaption>Remove From Favorites</figcaption>
                 </figure>
             </div>
-        </article>`
+        </article>`;
 }
 
 function clearFavorites() {
