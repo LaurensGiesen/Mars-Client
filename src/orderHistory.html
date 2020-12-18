@@ -21,32 +21,30 @@
         <label for="search">Order history</label>
         <input id="search" type="search" placeholder="Search"> <!-- list attribute is a possibility for auto complete -->
 
-    <table>
-        <caption>order history</caption>
-        <tr>
-            <th id="orderPlaced">Order placed</th>
-            <th id="orderDetails">Order details</th>
-            <th id="total">Total</th>
-            <th id="amount">Amount</th>
-            <th id="empty">Order Again</th> <!-- this is an empty cell for the add to shopping cart button -->
-        </tr>
-        <tr>
-            <!-- this is fake data -->
-            <td>05-11-2020</td>
-            <td>5 - Organic Pumpkin Seeds</td>
-            <td>€ 20.50</td>
-            <td><label><input type="number" class="amount" min="1"></label></td>
-            <td><img src="assets/img/basket.png" alt="shoppingCartIcon"></td>
-        </tr>
-        <tr>
-            <!-- this is fake data -->
-            <td>29-10-2020</td>
-            <td>20 - Organic Pumpkin Seeds, 1 - strawberry, sensor package cabbage</td>
-            <td>€ 47.30</td>
-            <td><label><input type="number" class="amount" min="1"></label></td>
-            <td><img src="assets/img/basket.png" alt="shoppingCartIcon"></td>
-        </tr>
-    </table>
+   <section>
+       <h1>05-11-2020</h1>
+       <article>
+           <h2>5 - Organic Pumpkin Seeds</h2>
+           <h3>€ 20.50</h3>
+           <img src="assets/img/arrowForward.svg" alt="arrow" title="continue">
+       </article>
+   </section>
+
+    <section class="more">
+        <h1>05-11-2020</h1>
+        <article>
+            <h2>20 - Apples</h2>
+            <h3>€ 8,21</h3>
+            <img src="assets/img/arrowForward.svg" alt="arrow" title="continue">
+        </article>
+
+        <article>
+            <h2>1 - strawberry</h2>
+            <h3>€ 1,10</h3>
+            <img src="assets/img/arrowForward.svg" alt="arrow" title="continue">
+        </article>
+    </section>
+
 </main>
 <footer>
     <footer-display></footer-display>
