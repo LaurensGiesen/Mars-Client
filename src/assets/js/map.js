@@ -28,7 +28,7 @@ async function runApp() {
 //FILTER
 
 async function loadShop() {
-    const result = apiCall("getLocations", "GET", null).then(r => Array.from(new Set(r.map(
+    const result = apiCall("getLocations/1", "GET", null).then(r => Array.from(new Set(r.map(
         element => element.cropName))).map(cropName => {
         return (r.find(element => element.cropName === cropName))
     }));
@@ -226,7 +226,7 @@ function clearMarkers() {
 async function addMarkers(crop) {
     clearMarkers();
     const locations = [];
-    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => {
+    await apiCall("getLocations/1", "GET", null).then(r => r.forEach(element => {
         locations.push(element)
     }));
     locations.forEach(location => {
@@ -258,7 +258,7 @@ async function addMarkers(crop) {
 async function addMarkerFunctionalities() {
     const locations = [];
     const infoWindow = new google.maps.InfoWindow()
-    await apiCall("getLocations", "GET", null).then(r => r.forEach(element => locations.push(element)));
+    await apiCall("getLocations/1", "GET", null).then(r => r.forEach(element => locations.push(element)));
     markers.map(marker => {
         marker.addListener('click', event => {
             const loc = {lat: event.latLng.lat(), lng: event.latLng.lng()};
