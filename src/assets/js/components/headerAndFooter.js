@@ -7,10 +7,10 @@ app.component('header-display', {
                 <li class="logoHeader"><a href="map.html"><img v-bind:src="logo" alt="logo" title="logo"
                                                                class="logo"></a>
                 </li>
-                <li class="mapHeader"><a href="map.html">Map</a></li>
-                <li><a href="marketplace.html">Marketplace</a></li>
-                <li><a href="info.html">Info</a></li>
-                <li><a href="sharedTools.html">Shared Tools</a></li>
+                <li class="mapHeader tracking-in-expand"><a href="map.html">Map</a></li>
+                <li class="tracking-in-expand"><a href="marketplace.html">Marketplace</a></li>
+                <li class="tracking-in-expand"><a href="info.html">Info</a></li>
+                <li class="tracking-in-expand"><a href="sharedTools.html">Shared Tools</a></li>
                 <li class="profile"><img v-bind:src="account" title="account" alt="account">
                     <ul class="dropdown swing-in-top-fwd">
                         <li class="account"><a href="profile.html">Account and Subscription</a></li>
