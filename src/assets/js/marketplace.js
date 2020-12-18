@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", init);
 let allProducts = [];
+const articleContainerClass = '.articleContainer';
 
 async function init() {
     config = await loadConfig();
@@ -15,7 +16,7 @@ async function init() {
 }
 
 function loadPlants() {
-    const articleContainer = document.querySelector('.articleContainer');
+    const articleContainer = document.querySelector(articleContainerClass);
     articleContainer.innerHTML = "";
     apiCall("getPlants", "GET", null).then((res) => {
         allProducts = res;
@@ -117,7 +118,7 @@ function getClickEvents() {
 }
 
 function filter(e) {
-    const articleContainer = document.querySelector('.articleContainer');
+    const articleContainer = document.querySelector(articleContainerClass);
     if (countCheckedBoxes() === 1) {
         articleContainer.innerHTML = "";
     }
@@ -149,7 +150,7 @@ function countCheckedBoxes() {
 }
 
 function marketPlaceSorting() {
-    const articleContainer = document.querySelector('.articleContainer');
+    const articleContainer = document.querySelector(articleContainerClass);
     const searchRes = [];
     for (const product of allProducts) {
         const name = product.name.toLowerCase();
