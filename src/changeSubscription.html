@@ -11,15 +11,11 @@
     <link rel="stylesheet" type="text/css" href="assets/css/subscription.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@3.0.4"></script>
     <title>Change Subscription</title>
 
 </head>
 <body>
-
-<header>
-    <header-display></header-display>
-</header>
+<display-header></display-header>
 <main>
     <div id="backButton">
         <a href="profile.html"><img id="arrow" alt="arrow back" src="assets/img/arrow.svg" title="arrow back"></a>
@@ -30,18 +26,17 @@
     </div>
     <input type="button" value="Proceed to payment">
 </main>
-<footer>
-    <footer-display></footer-display>
-</footer>
+<display-footer></display-footer>
 
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/vue.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/loremIpsum.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
 <script src="assets/js/changeSubscriptions.js"></script>
 <script src="assets/js/subscriptionStyling.js"></script>
 <script src="assets/js/basketCounter.js"></script>
-<script>app.mount('body')</script>
 </body>
 </html>
