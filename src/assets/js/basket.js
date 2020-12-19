@@ -67,7 +67,7 @@ function addProductToBasket(product) {
             <img src="${product.image}" alt="${product.name}" title="${product.name}" class="productImg">
             <div>
                 <h2>${product.name}</h2>
-                <p data-ownerId="${product.owner.id}">From: <span class="owner">${product.owner.lastName}</span></p>
+                <p data-ownerId="${product["owner"].id}">From: <span class="owner">${product["owner"]["lastName"]}</span></p>
                 <p>Date product added: <span class="date">${date}</span></p>
             </div>
             <form>
@@ -106,20 +106,8 @@ function removeProductFromBasket(product) {
 function changeFavoriteState(product) {
     const favoriteImage = product.target.src;
     if (favoriteImage.match("assets/img/emptyHeart.svg")) {
-        addProductToFavorite(product);
+        addProductToFavorites(product);
     } else {
         removeFromFavorites(product);
     }
-}
-
-function addProductToFavorite(e) {
-    e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-    e.target.src = "assets/img/fullHeart.svg";
-    apiCall("addProductToFavorite", "POST", takeProductData(e)).then();
-}
-
-function removeFromFavorites(e) {
-    e.target.parentNode.children["1"].innerHTML = "Add to favorite";
-    e.target.src = "assets/img/emptyHeart.svg";
-    apiCall("removeProductFromFavorite", "POST", takeProductData(e)).then();
 }

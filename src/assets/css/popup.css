@@ -11,10 +11,20 @@
     height: 7rem;
     width: 20rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+
 }
 
 #popup input{
-    margin-left: 0rem;
+    margin: 0 0 0 0 ;
+    display: block;
+    background-color: #983628;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border: 1px solid #ffffff;
+    width: 9rem;
+    height: 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    border-radius: 0.3rem;
 }
 
 .close{
