@@ -22,7 +22,7 @@ app.component('header-display', {
                 </li>
                 <li class="basketHeader"><a href="basket.html">
                     <figure>
-                    <figcaption class="counter"></figcaption>
+                    <figcaption class="counter">0</figcaption>
                     <img v-bind:src="whiteBasket" title="basket" alt="basket"
                                  class="basketHeaderImg">
                     </figure>

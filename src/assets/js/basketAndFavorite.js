@@ -4,14 +4,25 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
     config = await loadConfig();
+    document.querySelector("#popup input").addEventListener("click", closePopup);
+    document.querySelector(".close").addEventListener("click", closePopup);
+}
 
+function closePopup(e){
+    e.target.parentNode.classList.add("hidden");
 }
 
 function addToBasket(e) {
-    e.target.parentNode.children["1"].innerHTML = "Remove from basket";
-    e.target.src = "assets/img/shopping basket checkmark.svg";
-    apiCall("addProductToBasket", "POST", takeProductData(e)).then();
-    calculateBasketAmount();
+    apiCall("addProductToBasket", "POST", takeProductData(e)).then(res => {
+        if (res.status !== 409) {
+            e.target.parentNode.children["1"].innerHTML = "Remove from basket";
+            e.target.src = "assets/img/shopping basket checkmark.svg";
+            calculateBasketAmount();
+        } else {
+            document.querySelector("#popup").classList.remove("hidden");
+            document.querySelector("#popup p").innerHTML = "This Product Is Already In Your Basket"
+        }
+    });
 }
 
 function removeFromBasket(e) {
@@ -33,9 +44,15 @@ function takeProductData(e) {
 }
 
 function addProductToFavorites(e) {
-    e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
-    e.target.src = "assets/img/fullHeart.svg";
-    apiCall("addProductToFavorite", "POST", takeProductData(e)).then();
+    apiCall("addProductToFavorite", "POST", takeProductData(e)).then(res => {
+        if (res.status !== 409) {
+            e.target.parentNode.children["1"].innerHTML = "Remove from favorite";
+            e.target.src = "assets/img/fullHeart.svg";
+        } else {
+            document.querySelector("#popup").classList.remove("hidden");
+            document.querySelector("#popup p").innerHTML = "This Product Is Already In Your Favorite"
+        }
+    });
 }
 
 function removeFromFavorites(e) {
