@@ -18,11 +18,11 @@ h2 {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 3rem;
-    width: 90rem;
+    width: 95rem;
 }
 
 input{
-    margin: 3rem 36rem 3rem 36rem ;
+    margin: 3rem 38.5rem 3rem 38.5rem ;
     width: 18rem;
     height: 3rem;
     text-align: center;
@@ -58,11 +58,23 @@ li {
 section p {
     border: 1px solid #0C1B33;
     padding: 0.5rem;
-    text-align: center;
     margin-top: 7rem;
+}
+
+p{
+    margin-top: 2rem;
+    text-align: center;
     font-family: 'PT Sans', sans-serif;
 }
 
 .subscriptionStyle {
     list-style-type: circle;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.error{
+    color: red;
 }
