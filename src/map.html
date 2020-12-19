@@ -11,15 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
     <script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
     <title>Map</title>
-
 </head>
+
 <body>
-<header>
-    <header-display></header-display>
-</header>
+
+<display-header></display-header>
+
 <main>
     <div id="map"></div>
 
@@ -45,14 +44,14 @@
 
 </main>
 
+<display-footer></display-footer>
 
-<footer>
-    <footer-display></footer-display>
-</footer>
-
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>app.mount('body')</script>
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/map.js"></script>

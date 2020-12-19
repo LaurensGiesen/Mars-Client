@@ -56,7 +56,7 @@ function fillBasketInformation(totalArticlePrice, totalTransportPrice) {
 }
 
 function showEmptyBasket() {
-    document.querySelector(".emptyBasket").innerHTML += `<h2 class="hidden">You're basket is empty</h2>`;
+    document.querySelector(".emptyBasket").innerHTML += `<h2 class="hidden">Your basket is empty</h2>`;
 }
 
 function addProductToBasket(product) {

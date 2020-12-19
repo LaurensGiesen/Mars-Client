@@ -10,14 +10,13 @@
     <link rel="stylesheet" href="assets/css/addProductToSell.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
 </head>
-<body>
-<header>
-    <header-display></header-display>
-</header>
-<main>
 
+<body>
+
+<display-header></display-header>
+
+<main>
     <form method="post" action="#" enctype="multipart/form-data">
         <h1>Add product</h1>
         <div id="info">
@@ -38,22 +37,23 @@
 
                 <label for="picture">Picture:</label>
                 <input type="file" id="picture" required>
-
             </div>
         </div>
-
-            <input id="addProduct" type="submit" value="Add">
+        <input id="addProduct" type="submit" value="Add">
     </form>
 </main>
-<footer>
-    <footer-display></footer-display>
-</footer>
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
+
+<display-footer></display-footer>
+
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/addProduct.js"></script>
-<script>app.mount('body')</script>
 <script src="assets/js/basketCounter.js"></script>
 
 </body>

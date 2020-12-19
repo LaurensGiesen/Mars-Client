@@ -10,13 +10,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: favorite</title>
 </head>
 <body>
-<header>
-    <header-display></header-display>
-</header>
+<display-header></display-header>
 
 <main>
     <h1>Favorite</h1>
@@ -30,9 +27,7 @@
     </div>
 </main>
 
-<footer>
-    <footer-display></footer-display>
-</footer>
+<display-footer></display-footer>
 
 <div id="popup" class="hidden">
     <p></p>
@@ -40,13 +35,17 @@
     <a href="#" class="close">X</a>
 </div>
 
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
 <script src="assets/js/favorites.js"></script>
 <script src="assets/js/basketAndFavorite.js"></script>
-<script>app.mount('body')</script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/basketCounter.js"></script>
+
 </body>
 </html>

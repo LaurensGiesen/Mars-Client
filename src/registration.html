@@ -9,13 +9,15 @@
     <link rel="stylesheet" type="text/css" href="assets/css/popupRegistration.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
+
 <header>
     <img src="assets/img/logo.png" alt="logo" id="logo" class="logo">
     <h1>Registration</h1>
 </header>
+
 <main>
     <form method="post" id="registrationForm">
         <div id="personalDetails">
@@ -40,26 +42,27 @@
 
                 <label for="dome">Dome:</label>
                 <input type="text" id="dome" name="dome" required>
-
         </div>
 
         <div>
-        <fieldset id="favCrops">
-            <legend>3 Favorite Crops:</legend>
-            <label for="crop1"></label>
-            <input type="text" id="crop1" name="crop1" required placeholder="carrot">
+            <fieldset id="favCrops">
+                <legend>3 Favorite Crops:</legend>
+                <label for="crop1"></label>
+                <input id="crop1" name="crop1" placeholder="carrot" required type="text">
 
-            <label for="crop2"></label>
-            <input type="text" id="crop2" name="crop2" required placeholder="tomato">
+                <label for="crop2"></label>
+                <input id="crop2" name="crop2" placeholder="tomato" required type="text">
 
-            <label for="crop3"></label>
-            <input type="text" id="crop3" name="crop3" required placeholder="potato">
-        </fieldset>
+                <label for="crop3"></label>
+                <input id="crop3" name="crop3" placeholder="potato" required type="text">
+            </fieldset>
+
             <input type="submit" value="Continue">
             <p class="timer"></p>
         </div>
     </form>
 </main>
+
 <div id="popup" class="hidden">
     <section id="registration">
         <h2>Fill in your details automatically</h2>
