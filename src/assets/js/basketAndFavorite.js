@@ -20,7 +20,7 @@ function addToBasket(e) {
             calculateBasketAmount();
         } else {
             document.querySelector("#popup").classList.remove("hidden");
-            document.querySelector("#popup p").innerHTML = "This Product Is Already In Your Basket"
+            document.querySelector("#popup p").innerHTML = "This Product Is Already In Your Basket";
         }
     });
 }
@@ -50,7 +50,7 @@ function addProductToFavorites(e) {
             e.target.src = "assets/img/fullHeart.svg";
         } else {
             document.querySelector("#popup").classList.remove("hidden");
-            document.querySelector("#popup p").innerHTML = "This Product Is Already In Your Favorite"
+            document.querySelector("#popup p").innerHTML = "This Product Is Already In Your Favorite";
         }
     });
 }

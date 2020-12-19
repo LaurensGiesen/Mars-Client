@@ -5,4 +5,4 @@ const App = {
 
 };
 
-const app = Vue.createApp(App).mount('body')
+const app = Vue.createApp(App).mount('body');
