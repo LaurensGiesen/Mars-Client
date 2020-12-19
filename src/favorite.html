@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
     <link rel="stylesheet" type="text/css" href="assets/css/favorite.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <title>MARS: favorite</title>
@@ -27,6 +28,12 @@
 </main>
 
 <display-footer></display-footer>
+
+<div id="popup" class="hidden">
+    <p></p>
+    <input type="button" value="Close"/>
+    <a href="#" class="close">X</a>
+</div>
 
 <script src="https://unpkg.com/vue@3.0.4"></script>
 <script src="assets/js/components/DisplayHeader.js"></script>
