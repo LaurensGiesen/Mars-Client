@@ -11,10 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
-<display-header></display-header>
-<main>
 
+<body>
+
+<display-header></display-header>
+
+<main>
     <form method="post" action="#" enctype="multipart/form-data">
         <h1>Add product</h1>
         <div id="info">
@@ -35,10 +37,8 @@
 
                 <label for="picture">Picture:</label>
                 <input type="file" id="picture" required>
-
             </div>
         </div>
-
         <input id="addProduct" type="submit" value="Add">
     </form>
 </main>
@@ -47,6 +47,8 @@
 
 <script src="https://unpkg.com/vue@3.0.4"></script>
 <script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
 <script src="assets/js/components/DisplayFooter.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/api.js"></script>

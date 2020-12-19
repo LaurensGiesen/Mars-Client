@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/backbutton.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@3.0.4"></script>
     <title>History Details</title>
 </head>
+
 <body>
-<header>
-    <header-display></header-display>
-</header>
+
+<display-header></display-header>
+
 <main>
     <div id="backButton">
         <a href="marketplace.html"><img src="assets/img/arrow.svg" alt="arrow back" title="arrow back" id="arrow"></a>
@@ -32,29 +32,31 @@
             </div>
         </div>
         <h2 class="order">Order again</h2>
-            <div>
+        <div>
+            <label for="amount">Amount:</label>
+            <input id="amount" type="number" value="1">
 
-                <label for="amount">Amount:</label>
-                <input id="amount" type="number" value="1">
-
-                <figure class="basket">
-                    <img src="assets/img/basketPlus.svg" title="add to basket" alt="add to basket"
-                         class="emptyBasket"/>
-                    <figcaption class="basket">Add to basket</figcaption>
-                </figure>
+            <figure class="basket">
+                <img alt="add to basket" class="emptyBasket" src="assets/img/basketPlus.svg"
+                     title="add to basket"/>
+                <figcaption class="basket">Add to basket</figcaption>
+            </figure>
         </div>
     </article>
 
 </main>
-<footer>
-    <footer-display></footer-display>
-</footer>
 
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>const mountedApp = app.mount('body')</script>
+<display-footer></display-footer>
+
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/basketCounter.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>

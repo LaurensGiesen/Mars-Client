@@ -9,33 +9,31 @@
     <link rel="stylesheet" type="text/css" href="assets/css/basket.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@3.0.4"></script>
     <title>MARS: myProducts</title>
 </head>
+
 <body>
-<header>
-    <header-display></header-display>
-</header>
+
+<display-header></display-header>
 
 <main>
     <h1>My Products</h1>
-    <div class="emptyMyProducts">
-
-    </div>
-    <div class="myProducts">
-
-    </div>
+    <div class="emptyMyProducts"></div>
+    <div class="myProducts"></div>
 </main>
 
-<footer>
-    <footer-display></footer-display>
-</footer>
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>app.mount('body')</script>
+<display-footer></display-footer>
+
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/basketCounter.js"></script>
 <script src="assets/js/myProducts.js"></script>
+
 </body>
 </html>
