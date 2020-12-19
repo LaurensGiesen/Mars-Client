@@ -16,6 +16,10 @@ footer div p,h3{
     margin-bottom: 1rem;
 }
 
+footer div h3{
+    text-align: left;
+}
+
 footer div img{
     width: 2rem;
 }
