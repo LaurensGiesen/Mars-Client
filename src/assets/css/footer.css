@@ -35,3 +35,8 @@ footer a:hover{
     color: #983628;
 
 }
+
+footer div:nth-of-type(2){
+    display: flex;
+    flex-direction: column;
+}
