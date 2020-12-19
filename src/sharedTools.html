@@ -5,24 +5,23 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
     <link rel="stylesheet" type="text/css" href="assets/css/sharedTools.css">
     <link rel="stylesheet" type="text/css" href="assets/css/sideFilter.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: shared tools</title>
 </head>
+
 <body>
-<header>
-    <header-display></header-display>
-</header>
+
+<display-header></display-header>
+
 <main>
     <aside class="filter">
         <h1>Search info</h1>
-
         <article class="search">
             <h2>Tools</h2>
-
             <div>
                 <input type="checkbox" name="tools" id="tool1">
                 <label for="tool1">Chainsaw</label>
@@ -42,22 +41,17 @@
                 <input type="checkbox" name="tool" id="tool4">
                 <label for="tool4">Pruning shears</label>
             </div>
-
         </article>
-
     </aside>
 
     <div>
         <form action="#" id="filters" method="post" class="filterMarket">
             <label for="sortby">Sort items by
-                <select name="sortby" id="sortby">
-
-                </select>
+                <select id="sortby" name="sortby"></select>
             </label>
-            <label for="order"></label>
-            <select id="order" name="order">
 
-            </select>
+            <label for="order"></label>
+            <select id="order" name="order"></select>
 
             <label for="search"></label>
             <input id="search" name="search" placeholder="search here" type="search">
@@ -74,10 +68,12 @@
                     <form class="reserve">
                         <label for="reserve1">Reserve from: </label>
                         <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="reserve1" name="reserve">
+
                         <label for="return1">Return on: </label>
                         <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return1" name="return">
                     </form>
                 </div>
+
                 <div>
                     <figure>
                         <img src="assets/img/emptyHeart.svg" title="add to favorite" alt="add to favorite"
@@ -99,6 +95,7 @@
                     <h3>Name:</h3>
                     <p>Available:</p>
                 </div>
+
                 <div class="reservationInfo">
                     <form class="reserve">
                         <label for="reserve2">Reserve from: </label>
@@ -107,6 +104,7 @@
                         <input type="text" required pattern="\d{2}-\d{2}-\d{4}" id="return2" name="return">
                     </form>
                 </div>
+
                 <div>
                     <figure>
                         <img src="assets/img/emptyHeart.svg" title="add to favorite" alt="add to favorite"
@@ -124,15 +122,19 @@
         </div>
     </div>
 </main>
-<footer>
-    <footer-display></footer-display>
-</footer>
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>const mountedApp = app.mount('body')</script>
+
+<display-footer></display-footer>
+
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/basketCounter.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/sharedTools.js"></script>
+
 </body>
 </html>

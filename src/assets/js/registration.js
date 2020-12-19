@@ -30,13 +30,11 @@ function register(e) {
 }
 function addTimer(res) {
     const timer = document.querySelector('.timer');
-    if (res) {
-        timer.innerHTML = `successfully logged in`;
-        setTimeout(clearTimer, 3000);
-        window.location.href = "chooseSubscription.html";
-    } else {
+    if (!res) {
         timer.innerHTML = `failed to login`;
         setTimeout(clearTimer, 3000);
+    } else {
+        window.location.href = "chooseSubscription.html";
     }
 }
 function clearTimer() {

@@ -5,18 +5,18 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
     <link rel="stylesheet" type="text/css" href="assets/css/marketplace.css">
     <link rel="stylesheet" type="text/css" href="assets/css/sideFilter.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: marketplace</title>
 </head>
+
 <body>
 
-<header>
-    <header-display></header-display>
-</header>
+<display-header></display-header>
 
 <main>
     <aside class="filter">
@@ -32,16 +32,12 @@
     </aside>
 
     <div>
-
         <input id="linkToAddProduct" type="button" value="Add your product">
 
         <form action="#" id="filters" method="post" class="filterMarket">
+            <label for="sortby">Sort items by</label>
+            <select id="sortby" name="sortby"></select>
 
-             <label for="sortby">Sort items by
-                <select name="sortby" id="sortby">
-
-                </select>
-            </label>
             <label for="order"></label>
             <select id="order" name="order">
                 <option value="asc">Ascending</option>
@@ -51,24 +47,31 @@
             <label for="search"></label>
             <input id="search" name="search" placeholder="search here" type="search">
         </form>
-        <div class="articleContainer">
-        </div>
+
+        <div class="articleContainer"></div>
     </div>
 </main>
 
-<footer>
-    <footer-display></footer-display>
-</footer>
+<display-footer></display-footer>
 
+<div id="popup" class="hidden">
+    <p></p>
+    <input type="button" value="Close"/>
+    <a href="#" class="close">X</a>
+</div>
 
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/vue.js"></script>
 <script src="assets/js/marketplace.js"></script>
 <script src="assets/js/basketAndFavorite.js"></script>
 <script src="assets/js/loadProducts.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>const mountedApp = app.mount('body')</script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/basketCounter.js"></script>
+
 </body>
 </html>

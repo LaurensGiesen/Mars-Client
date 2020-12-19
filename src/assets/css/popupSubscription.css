@@ -1,7 +1,7 @@
 #popup {
     position: fixed;
     top: 20%;
-    left: 15%;
+    left: 10%;
     background-color: #ffffff;
     display: none;
     justify-content: space-around;
@@ -28,7 +28,7 @@ section {
     border-radius: 0.3rem;
     background-color: #ffffff;
     height: 20rem;
-    padding: 3rem;
+    padding: 3.5rem;
     color: #0C1B33;
     font-family: 'PT Sans', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);

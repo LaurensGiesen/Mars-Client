@@ -5,73 +5,36 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
     <link rel="stylesheet" type="text/css" href="assets/css/info.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: info</title>
 </head>
 <body>
 
-<header>
-    <header-display></header-display>
-</header>
+<display-header></display-header>
 
 <main>
     <label for="search">Information</label>
     <input id="search" type="search" placeholder="Search">
     <section>
         <h2>Crops</h2>
-        <h3>Fruits</h3>
-        <article>
-            <h4>Apples</h4>
-            <h5>Planting</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam libero modi quisquam tempora veritatis?</p>
-            <h5>Maintenance</h5>
-            <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus repudiandae sed soluta sunt, totam voluptate.</p>
-        </article>
-        <hr>
-        <article>
-            <h4>Banana</h4>
-            <h5>Planting</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam libero modi quisquam tempora veritatis?</p>
-            <h5>Maintenance</h5>
-            <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus repudiandae sed soluta sunt, totam voluptate.</p>
-        </article>
-        <hr>
-        <article>
-            <h4>Grapes</h4>
-            <h5>Planting</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam libero modi quisquam tempora veritatis?</p>
-            <h5>Maintenance</h5>
-            <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus repudiandae sed soluta sunt, totam voluptate.</p>
-        </article>
-        <h3 class="veggie">Vegetables</h3>
-        <article>
-            <h4>Tomatoes</h4>
-            <h5>Planting</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam libero modi quisquam tempora veritatis?</p>
-            <h4>Maintenance</h4>
-            <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus repudiandae sed soluta sunt, totam voluptate.</p>
-        </article>
-        <hr>
-        <article>
-            <h4>Carrots</h4>
-            <h5>Planting</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam libero modi quisquam tempora veritatis?</p>
-            <h5>Maintenance</h5>
-            <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus repudiandae sed soluta sunt, totam voluptate.</p>
-        </article>
-
+        <info-article-fruit></info-article-fruit>
+        <info-article-veggies></info-article-veggies>
         <section class="more">
-        <h3>More Information</h3>
-        <article>
-            <h4>Strawberry</h4>
-            <h5>Planting</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam libero modi quisquam tempora veritatis?</p>
-            <h5>Maintenance</h5>
-            <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus repudiandae sed soluta sunt, totam voluptate.</p>
-        </article>
+            <h3>More Information</h3>
+            <article>
+                <h4>Strawberry</h4>
+                <h5>Planting</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at culpa cupiditate delectus
+                    dolores ducimus et impedit minima perspiciatis praesentium! A adipisci eligendi harum laboriosam
+                    libero modi quisquam tempora veritatis?</p>
+                <h5>Maintenance</h5>
+                <p class="maintenance">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi cumque
+                    dolore doloribus ducimus facilis id incidunt iure labore mollitia quos ratione, repellendus
+                    repudiandae sed soluta sunt, totam voluptate.</p>
+            </article>
         </section>
 
     </section>
@@ -86,13 +49,14 @@
 
 </main>
 
-<footer>
-    <footer-display></footer-display>
-</footer>
+<display-footer></display-footer>
 
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>app.mount('body')</script>
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/basketCounter.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/main.js"></script>

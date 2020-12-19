@@ -5,26 +5,24 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/profile.css">
     <link rel="stylesheet" type="text/css"  href="assets/css/popupSubscription.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popupSubscription.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
     <title>MARS: profile</title>
 </head>
+
 <body>
-<header>
-    <header-display></header-display>
-</header>
+
+<display-header></display-header>
 
 <main>
     <h1>Profile</h1>
     <form method="post" action="#">
-        <div>
-        </div>
-        <div>
-        </div>
-
+        <div></div>
+        <div></div>
         <div id="change">
             <table>
                 <caption>Subscriptions</caption>
@@ -50,53 +48,24 @@
         </div>
     </form>
 
+    <div id="popup"></div>
+
 </main>
-<footer>
-    <footer-display></footer-display>
-</footer>
 
-<div id="popup">
-    <section id="subscriptionFree">
-        <h2>Free</h2>
-        <ul>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-        </ul>
-        <p>Monthly Price: € XXX,XX</p>
+<display-footer></display-footer>
 
-    </section>
-
-    <section id="subscriptionBasic">
-        <h2>Basic</h2>
-        <ul>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-        </ul>
-        <p>Monthly Price: € XXX,XX</p>
-    </section>
-
-    <section id="subscriptionPremium">
-        <h2>Premium</h2>
-        <ul>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-            <li>Lorem ipsum dolor sit amet, consetetur</li>
-        </ul>
-        <p>Monthly Price: € XXX,XX</p>
-    </section>
-    <a href="#" class="close">X</a>
-</div>
-
-
-<script src="assets/js/vue.js"></script>
-<script src="assets/js/components/headerAndFooter.js"></script>
-<script>const mountedApp = app.mount('body')</script>
+<script src="https://unpkg.com/vue@3.0.4"></script>
+<script src="assets/js/components/DisplayHeader.js"></script>
+<script src="assets/js/components/InfoArticleFruit.js"></script>
+<script src="assets/js/components/InfoArticleVeggies.js"></script>
+<script src="assets/js/components/DisplayFooter.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/loremIpsumPopUp.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/profile.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/basketCounter.js"></script>
 <script src="assets/js/profileSubscriptions.js"></script>
+
 </body>
 </html>
