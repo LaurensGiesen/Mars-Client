@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", init);
 async function init() {
     config = await loadConfig();
     document.querySelector('#addProduct').addEventListener('click', (e) => {
-        let form = document.querySelector("#addProductForm");
+        const form = document.querySelector("#addProductForm");
         if (form.checkValidity()) {
             addProduct(e);
         }
