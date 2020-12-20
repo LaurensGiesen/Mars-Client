@@ -23,6 +23,7 @@ footer {
 /******************************************************/
 
 #filterContainer {
+    cursor: grab;
     position: absolute;
     margin: 2rem;
     color: #ffffff;
