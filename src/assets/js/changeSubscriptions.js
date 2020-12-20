@@ -28,8 +28,8 @@ function selectSubscription(e) {
 function checkIfReadyToPay(e) {
     const select = document.querySelector(".selected");
     if (select !== null){
-        let parentElement = select.parentElement;
-        let index = Array.prototype.indexOf.call(parentElement.children, select) +1;
+        const parentElement = select.parentElement;
+        const index = Array.prototype.indexOf.call(parentElement.children, select) +1;
         apiCall(`updateSubscription/1/${index}`, "GET", null).then(() => {
             window.location.href = "map.html";
         });

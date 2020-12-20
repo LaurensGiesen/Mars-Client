@@ -7,7 +7,7 @@ async function init() {
     // Small poc
     autoFill();
     document.querySelector("input[type='submit']").addEventListener("click", (e) => {
-        let form = document.querySelector("#registrationForm");
+        const form = document.querySelector("#registrationForm");
         if (form.checkValidity()) {
             register(e);
         }
