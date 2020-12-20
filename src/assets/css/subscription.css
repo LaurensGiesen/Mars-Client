@@ -1,9 +1,8 @@
 h1 {
+    margin-top: 2rem;
     font-size: 2rem;
-    padding-top: 1rem;
-    padding-left: 5rem;
-    margin-top: 1rem;
 }
+
 
 h2 {
     border: 1px solid #0C1B33;
@@ -19,20 +18,20 @@ h2 {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 3rem;
+    width: 95rem;
 }
 
 input{
+    margin: 3rem 38.5rem 3rem 38.5rem ;
     width: 18rem;
     height: 3rem;
     text-align: center;
     font-size: 1.2rem;
-    margin: 3rem auto 2rem 36rem;
     border-radius: 3px;
     border: 2px solid #983628;
     background-color: #983628;
     color: #ffffff;
     font-family: 'Noto Sans JP', sans-serif;
-
 }
 
 input:hover{
@@ -59,11 +58,23 @@ li {
 section p {
     border: 1px solid #0C1B33;
     padding: 0.5rem;
-    text-align: center;
     margin-top: 7rem;
+}
+
+p{
+    margin-top: 2rem;
+    text-align: center;
     font-family: 'PT Sans', sans-serif;
 }
 
 .subscriptionStyle {
     list-style-type: circle;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.error{
+    color: #b41b1b;
 }

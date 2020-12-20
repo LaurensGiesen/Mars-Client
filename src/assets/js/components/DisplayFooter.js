@@ -16,4 +16,4 @@ const DisplayFooter = {
             <p><a href="showSubscriptions.html">View the subscription types</a></p>
         </footer>
         `
-}
+};

@@ -37,7 +37,6 @@ const DisplayHeader = {
             logo: "assets/img/logo.png",
             account: "assets/img/account.svg",
             whiteBasket: "assets/img/whiteBasket.svg",
-        }
+        };
     }
-}
-
+};

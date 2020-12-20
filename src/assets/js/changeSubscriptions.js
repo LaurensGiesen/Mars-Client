@@ -26,14 +26,14 @@ function selectSubscription(e) {
 }
 
 function checkIfReadyToPay(e) {
-    const subscriptions = e.target.parentNode.children[2].children;
-    let subscriptionId = 0;
-    for (const subscription of subscriptions) {
-        subscriptionId++;
-        if (subscription.classList.contains("selected")) {
-            apiCall(`updateSubscription/1/${subscriptionId}`, "GET", null).then(() => {
-                window.location.href = "profile.html";
-            });
-        }
+    const select = document.querySelector(".selected");
+    if (select !== null){
+        let parentElement = select.parentElement;
+        let index = Array.prototype.indexOf.call(parentElement.children, select) +1;
+        apiCall(`updateSubscription/1/${index}`, "GET", null).then(() => {
+            window.location.href = "map.html";
+        });
+    }else{
+        document.querySelector(".error").classList.remove("hidden");
     }
 }

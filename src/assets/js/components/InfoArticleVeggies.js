@@ -23,6 +23,6 @@ const InfoArticleVeggies = {
         return {
             crops:
                 ["Tomatoes", "Carrots"]
-        }
+        };
     }
-}
+};

@@ -24,7 +24,6 @@ const InfoArticleFruit = {
         return {
             crops:
                 ["Apples", "Bananas", "Grapes"]
-        }
+        };
     }
-}
-
+};
